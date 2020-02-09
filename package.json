@@ -1,0 +1,52 @@
+{
+  "name": "redtorch-web-react",
+  "version": "0.3.0",
+  "private": true,
+  "dependencies": {
+    "@types/long": "4.0.0",
+    "history": "4.10.1",
+    "long": "4.0.0",
+    "lz4js": "0.2.0",
+    "mobx": "5.15.0",
+    "mobx-react": "6.1.4",
+    "mobx-react-router": "4.0.7",
+    "office-ui-fabric-react": "6.210.4",
+    "protobufjs": "6.8.8",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "react-router": "5.1.2",
+    "react-router-dom": "5.1.2",
+    "react-scripts-ts": "3.1.0",
+    "react-toastify": "5.4.1",
+    "umi-request": "1.2.9",
+    "uuid": "3.3.3"
+  },
+  "devDependencies": {
+    "@types/history": "4.7.3",
+    "@types/jest": "24.0.23",
+    "@types/node": "12.12.7",
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.4",
+    "@types/react-router": "5.1.2",
+    "@types/react-router-dom": "5.1.2",
+    "@types/uuid": "3.4.6",
+    "typescript": "3.7.2"
+  },
+  "resolutions": {
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://127.0.0.1:9099"
+    },
+    "/websocket": {
+      "target": "ws://127.0.0.1:9099",
+      "ws": true
+    }
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "//react-scripts-ts eject"
+  }
+}

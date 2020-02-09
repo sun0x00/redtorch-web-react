@@ -1,0 +1,4 @@
+pbjs -t static-module -w commonjs -o pb.js core_enum.proto core_field.proto core_rpc.proto dep.proto
+
+pbts -o pb.d.ts pb.js
+
