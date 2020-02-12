@@ -1,6 +1,5 @@
 import { observable, action } from 'mobx'
 import { isDevEnv } from '../utils';
-import { tradeContractStore } from './tradeContractStore';
 import { tradeActionStore } from './tradeActionStore'
 // import { rpcClientApi } from '../node/client/service/rpcClientApi';
 
@@ -54,13 +53,10 @@ class TradeTickStore {
         if (isDevEnv) {
             console.debug(tick)
         }
-        if (tick.contract) {
-            tradeContractStore.storeContract(tick.contract)
 
-            if (tick.unifiedSymbol) {
-                this.mixTickMap.set(tick.unifiedSymbol, tick);
-                this.hasBeenChanged = true
-            }
+        if (tick.unifiedSymbol) {
+            this.mixTickMap.set(tick.unifiedSymbol, tick);
+            this.hasBeenChanged = true
         }
     }
 
@@ -73,9 +69,6 @@ class TradeTickStore {
         const tickListLength = tickList.length
         for (let i = 0; i < tickListLength; i++) {
             const tick = tickList[i]
-            if (tick.contract) {
-                tradeContractStore.storeContract(tick.contract)
-            }
             newMixTickMap.set(tick.unifiedSymbol, tick)
         }
         this.mixTickMap = newMixTickMap
@@ -90,13 +83,9 @@ class TradeTickStore {
         const tickListLength = tickList.length
         for (let i = 0; i < tickListLength; i++) {
             const tick = tickList[i]
-            if (tick.contract) {
-                tradeContractStore.storeContract(tick.contract)
-    
-                if (tick.unifiedSymbol) {
-                    this.mixTickMap.set(tick.unifiedSymbol, tick);
-                    this.hasBeenChanged = true
-                }
+            if (tick.unifiedSymbol) {
+                this.mixTickMap.set(tick.unifiedSymbol, tick);
+                this.hasBeenChanged = true
             }
         }
         this.hasBeenChanged = true
