@@ -82,7 +82,7 @@ export class PositionDetailsPage extends React.Component<any> {
                             accountId: "",
                             contract: deepCopy(position.contract),
                             contractValue: position.contractValue,
-                            direction: position.positionDirection,
+                            positionDirection: position.positionDirection,
                             exchangeMargin: position.exchangeMargin,
                             frozen: position.frozen,
                             gateway: tmpGateway,
