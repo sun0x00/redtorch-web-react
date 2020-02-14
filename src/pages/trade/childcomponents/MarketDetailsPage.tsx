@@ -76,7 +76,7 @@ export class MarketDetailsPage extends React.Component<any> {
         let settlePrice: number | string = "--";
         let settlePriceClassName = "";
         let volume = "--"
-        let volumeChange = "--"
+        let volumeDelta = "--"
         let openInterest = "--"
         let dayOpenInterestChange = "--"
         let time = "--"
@@ -336,8 +336,8 @@ export class MarketDetailsPage extends React.Component<any> {
                 if (checkEffectiveNumber(selectedTick.volume)) {
                     volume = selectedTick.volume
                 }
-                if (checkEffectiveNumber(selectedTick.volumeChange)) {
-                    volumeChange = selectedTick.volumeChange
+                if (checkEffectiveNumber(selectedTick.volumeDelta)) {
+                    volumeDelta = selectedTick.volumeDelta
                 }
 
 
@@ -611,7 +611,7 @@ export class MarketDetailsPage extends React.Component<any> {
                                         现手
                                             </Stack>
                                     <Stack className="trade-info-color" styles={{ root: { width: "35%", textAlign: "right", paddingRight: 3 } }}>
-                                        {volumeChange}
+                                        {volumeDelta}
                                     </Stack>
                                     <Stack styles={{ root: { width: "15%", textAlign: "left", paddingLeft: 3, color: "#999", borderLeft: "1px solid #666666" } }}>
                                         价差

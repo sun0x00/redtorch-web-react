@@ -53,7 +53,7 @@ export class PositionDetailsPage extends React.Component<any> {
             for (let i = 0; i < positionListLength; i++) {
                 const position = positionList[i]
                 try {
-                    const tmpKey = `${position.contract.unifiedSymbol}@${position.direction}`
+                    const tmpKey = `${position.contract.unifiedSymbol}@${position.positionDirection}`
                     let tmpPosition;
                     if (mergedPositionMap.has(tmpKey)) {
                         tmpPosition = mergedPositionMap.get(tmpKey)
@@ -82,7 +82,7 @@ export class PositionDetailsPage extends React.Component<any> {
                             accountId: "",
                             contract: deepCopy(position.contract),
                             contractValue: position.contractValue,
-                            direction: position.direction,
+                            direction: position.positionDirection,
                             exchangeMargin: position.exchangeMargin,
                             frozen: position.frozen,
                             gateway: tmpGateway,
