@@ -230,14 +230,14 @@ Object.keys(CurrencyEnum).forEach(
     }
 )
 
-const productTypeOptions: any[] = []
-productTypeOptions.push({
+const productClassOptions: any[] = []
+productClassOptions.push({
     key: 9999,
     text: '全部'
 })
 Object.keys(ProductClassEnum).forEach(
     (element: any) => {
-        productTypeOptions.push({
+        productClassOptions.push({
             key: ProductClassEnum[element],
             text: element
         })
@@ -258,7 +258,7 @@ export {
     dayPickerStrings,
     getNumberOfDecimalDigits,
     checkEffectiveNumber,
-    productTypeOptions,
+    productClassOptions,
     currencyOptions,
     exchangeOptions
 }

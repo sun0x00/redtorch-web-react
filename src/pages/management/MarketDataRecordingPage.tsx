@@ -4,7 +4,7 @@ import { Stack } from 'office-ui-fabric-react/lib/Stack';
 import { withRouter } from 'react-router';
 import { mergeStyleSets, FontSizes } from 'office-ui-fabric-react/lib/Styling';
 import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { DetailsList, DetailsListLayoutMode, IDetailsHeaderProps, IColumn, IDetailsFooterProps, ConstrainMode } from 'office-ui-fabric-react/lib/DetailsList';
+import { DetailsList, DetailsListLayoutMode, IDetailsHeaderProps, IColumn, IDetailsFooterProps, ConstrainMode, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
 import { IRenderFunction, SelectionMode } from 'office-ui-fabric-react/lib/Utilities';
 import { Sticky, StickyPositionType } from 'office-ui-fabric-react/lib/Sticky';
 import { TooltipHost, TooltipDelay, DirectionalHint } from 'office-ui-fabric-react/lib/Tooltip';
@@ -13,7 +13,7 @@ import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/components
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { DefaultButton, IconButton } from 'office-ui-fabric-react/lib/Button';
 
-import { exchangeOptions, currencyOptions, productTypeOptions } from '../../utils'
+import { exchangeOptions, currencyOptions, productClassOptions } from '../../utils'
 
 const { CurrencyEnum, ExchangeEnum, ProductClassEnum, OptionsTypeEnum } = xyz.redtorch.pb
 
@@ -24,7 +24,7 @@ export class MarketDataRecordingPage extends React.Component<any> {
 
     state = {
         filterExchange: 9999,
-        filterProductType: 9999,
+        filterProductClass: 9999,
         filterCurrency: 9999,
         filterSymbol: "",
         filterUnderlyingSymbol: "",
@@ -39,6 +39,7 @@ export class MarketDataRecordingPage extends React.Component<any> {
     componentDidMount() {
         this.resize()
         window.addEventListener('resize', this.resize);
+        this.getContractList()
     }
 
 
@@ -48,11 +49,6 @@ export class MarketDataRecordingPage extends React.Component<any> {
 
     resize = () => {
         this.setState({ "windowInnerWidth": window.innerWidth, "windowInnerHeight": window.innerHeight })
-    }
-
-    public componentWillMount = () => {
-
-        this.getContractList()
     }
 
     public getContractList = () => {
@@ -69,7 +65,7 @@ export class MarketDataRecordingPage extends React.Component<any> {
         let contractList = []
         if ((this.state.filterCurrency === 9999 || (!this.state.filterCurrency && this.state.filterCurrency !== 0))
             && (this.state.filterExchange === 9999 || (!this.state.filterExchange && this.state.filterExchange !== 0))
-            && (this.state.filterProductType === 9999 || (!this.state.filterProductType && this.state.filterProductType !== 0))
+            && (this.state.filterProductClass === 9999 || (!this.state.filterProductClass && this.state.filterProductClass !== 0))
             && (this.state.filterSymbol === "" || !this.state.filterSymbol)
             && (this.state.filterLastTradeDateOrContractMonth === "" || !this.state.filterLastTradeDateOrContractMonth)
             && (this.state.filterThirdPartyId === "" || !this.state.filterThirdPartyId)
@@ -88,7 +84,7 @@ export class MarketDataRecordingPage extends React.Component<any> {
 
                 flag = flag && (this.state.filterExchange === 9999 || (!this.state.filterExchange && this.state.filterExchange !== 0) || contract.exchange === this.state.filterExchange)
 
-                flag = flag && (this.state.filterProductType === 9999 || (!this.state.filterProductType && this.state.filterProductType !== 0) || contract.productType === this.state.filterProductType)
+                flag = flag && (this.state.filterProductClass === 9999 || (!this.state.filterProductClass && this.state.filterProductClass !== 0) || contract.productClass === this.state.filterProductClass)
 
                 flag = flag && (this.state.filterSymbol === "" || !this.state.filterSymbol || (contract.symbol && `${contract.symbol}`.indexOf(this.state.filterSymbol) !== -1))
 
@@ -254,7 +250,7 @@ export class MarketDataRecordingPage extends React.Component<any> {
                     );
                 }
             }, {
-                key: "productType",
+                key: "productClass",
                 name: "产品类型",
                 minWidth: 60,
                 isResizable: true,
@@ -262,7 +258,7 @@ export class MarketDataRecordingPage extends React.Component<any> {
                 data: 'string',
                 onRender: (item) => {
                     return (
-                        <span>{ProductClassEnum[item.productType]}</span>
+                        <span>{ProductClassEnum[item.productClass]}</span>
                     );
                 }
             },
@@ -420,13 +416,13 @@ export class MarketDataRecordingPage extends React.Component<any> {
 
                                     <Stack styles={{ root: { width: "24%", paddingLeft: 5, paddingRight: 5 } }}>
                                         <Dropdown label="产品类型"
-                                            defaultSelectedKey={this.state.filterProductType}
+                                            defaultSelectedKey={this.state.filterProductClass}
                                             options={
-                                                productTypeOptions
+                                                productClassOptions
                                             }
                                             onChange={(event: any, option?: IDropdownOption, index?: number, value?: string) => {
                                                 if (option) {
-                                                    this.setState({ filterProductType: option.key })
+                                                    this.setState({ filterProductClass: option.key })
                                                 }
                                             }}
                                         />
@@ -523,7 +519,11 @@ export class MarketDataRecordingPage extends React.Component<any> {
                                             // tslint:disable-next-line:jsx-no-lambda
                                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                                                 <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                                                    {defaultRender(detailsHeaderProps)}
+                                                    <DetailsHeader
+                                                        {...detailsHeaderProps}
+                                                        styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                                    />
+                                                    {/* {defaultRender(detailsHeaderProps)} */}
                                                 </Sticky>
                                             )}
                                         onRenderDetailsFooter={

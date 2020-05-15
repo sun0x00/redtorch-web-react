@@ -6,7 +6,7 @@ import { inject, observer } from 'mobx-react';
 import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
 import { CommandBar } from 'office-ui-fabric-react/lib/CommandBar';
 import { withRouter } from 'react-router';
-import { DetailsList, DetailsListLayoutMode, SelectionMode, IColumn, IDetailsHeaderProps, ConstrainMode, IDetailsFooterProps } from 'office-ui-fabric-react/lib/DetailsList';
+import { DetailsList, DetailsListLayoutMode, SelectionMode, IColumn, IDetailsHeaderProps, ConstrainMode, IDetailsFooterProps, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
 import { PrimaryButton, DefaultButton, IconButton } from 'office-ui-fabric-react/lib/Button';
 import { Modal } from 'office-ui-fabric-react/lib/Modal';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
@@ -45,6 +45,9 @@ export class NodePage extends React.Component<any> {
   componentDidMount() {
     this.resize()
     window.addEventListener('resize', this.resize);
+    const { nodeStore } = this.props
+
+    nodeStore.getNodeList()
   }
 
   componentWillUnmount() {
@@ -55,12 +58,6 @@ export class NodePage extends React.Component<any> {
     this.setState({ "windowInnerWidth": window.innerWidth, "windowInnerHeight": window.innerHeight })
   }
 
-  componentWillMount() {
-    const { nodeStore } = this.props
-
-    nodeStore.getNodeList()
-
-  }
 
   public render() {
 
@@ -267,7 +264,11 @@ export class NodePage extends React.Component<any> {
                   // tslint:disable-next-line:jsx-no-lambda
                   (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                     <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                      {defaultRender(detailsHeaderProps)}
+                      <DetailsHeader
+                          {...detailsHeaderProps}
+                          styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                      />
+                      {/* {defaultRender(detailsHeaderProps)} */}
                     </Sticky>
                   )}
                 onRenderDetailsFooter={

@@ -80,7 +80,7 @@ class TradeActionStore {
                         }
 
                     } catch (error) {
-                        console.error("自动填价错误", error)
+                        console.error(error)
                         this.price = ""
                     }
 

@@ -59,14 +59,16 @@ export class TradeHomePage extends React.Component<any> {
           <Stack.Item>
             <Stack horizontal={true} tokens={{ childrenGap: 0 }} styles={{ root: { width: '100%' } }}>
               <Stack styles={{ root: { width: "100%" } }}>
-                <Pivot>
+                <Pivot
+                  styles={{linkIsSelected:{height:24},link:{height:24},linkContent:{height:24},root:{height:24},text:{lineHeight:24}}}
+                >
                   <PivotItem
                     headerText="定单"
                   >
-                    <OrderDetailsPage componentHeight={this.state.windowInnerHeight - 84 - 456} />
+                    <OrderDetailsPage componentHeight={this.state.windowInnerHeight - 50 - 456} />
                   </PivotItem>
                   <PivotItem headerText="成交">
-                    <TradeDetailsPage componentHeight={this.state.windowInnerHeight - 84 - 456} />
+                    <TradeDetailsPage componentHeight={this.state.windowInnerHeight - 50 - 456} />
                   </PivotItem>
                 </Pivot>
               </Stack>
@@ -77,20 +79,22 @@ export class TradeHomePage extends React.Component<any> {
           <Stack.Item>
             <Stack horizontal={true} tokens={{ childrenGap: 0 }} styles={{ root: { width: '100%' } }}>
               <Stack styles={{ root: { background: "#111111", width: "100%" } }}>
-                <Pivot>
+                <Pivot
+                  styles={{linkIsSelected:{height:24},link:{height:24},linkContent:{height:24},root:{height:24},text:{lineHeight:24}}}
+                >
                   <PivotItem
                     headerText="投资组合"
                   >
                     <Stack styles={{ root: { width: "100%" } }}>
                       <Stack.Item>
                         <Stack horizontal={true} tokens={{ childrenGap: 0 }} styles={{ root: { width: '100%' } }}>
-                          <AccountDetailsPage componentHeight={(this.state.windowInnerHeight - 82) / 2} />
+                          <AccountDetailsPage componentHeight={(this.state.windowInnerHeight - 48) / 2} />
                         </Stack>
                       </Stack.Item>
                       <Stack.Item>
                         <Stack horizontal={true} tokens={{ childrenGap: 0 }} styles={{ root: { width: '100%' } }}>
                           <Stack styles={{ root: { width: "100%" } }}>
-                            <PositionDetailsPage componentHeight={(this.state.windowInnerHeight - 82) / 2} />
+                            <PositionDetailsPage componentHeight={(this.state.windowInnerHeight - 48) / 2} />
                           </Stack>
                         </Stack>
                       </Stack.Item>
@@ -101,7 +105,7 @@ export class TradeHomePage extends React.Component<any> {
                       <Stack.Item>
                         <Stack horizontal={true} tokens={{ childrenGap: 0 }} styles={{ root: { width: '100%' } }}>
                           <Stack styles={{ root: { width: "100%" } }}>
-                            <FavoriteContractDetailsPage componentHeight={this.state.windowInnerHeight - 82} />
+                            <FavoriteContractDetailsPage componentHeight={this.state.windowInnerHeight - 50} />
                           </Stack>
                         </Stack>
                       </Stack.Item>
@@ -112,7 +116,7 @@ export class TradeHomePage extends React.Component<any> {
                       <Stack.Item>
                         <Stack horizontal={true} tokens={{ childrenGap: 0 }} styles={{ root: { width: '100%' } }}>
                           <Stack styles={{ root: { width: "100%" } }}>
-                            <ContractDetailsPage componentHeight={this.state.windowInnerHeight - 82} />
+                            <ContractDetailsPage componentHeight={this.state.windowInnerHeight - 50} />
                           </Stack>
                         </Stack>
                       </Stack.Item>

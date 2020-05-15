@@ -4,7 +4,7 @@ import { Stack } from 'office-ui-fabric-react/lib/Stack';
 import { withRouter } from 'react-router';
 import { mergeStyleSets, FontSizes } from 'office-ui-fabric-react/lib/Styling';
 import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { DetailsList, DetailsListLayoutMode, Selection, IDetailsHeaderProps, IColumn, IDetailsFooterProps, ConstrainMode } from 'office-ui-fabric-react/lib/DetailsList';
+import { DetailsList, DetailsListLayoutMode, Selection, IDetailsHeaderProps, IColumn, IDetailsFooterProps, ConstrainMode, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
 import { MarqueeSelection } from 'office-ui-fabric-react/lib/MarqueeSelection';
 import { IRenderFunction, SelectionMode } from 'office-ui-fabric-react/lib/Utilities';
 import { Sticky, StickyPositionType } from 'office-ui-fabric-react/lib/Sticky';
@@ -456,12 +456,29 @@ export class AccountDetailsPage extends React.Component<any> {
                                             constrainMode={ConstrainMode.unconstrained}
                                             selection={accountSelection}
                                             selectionPreservedOnEmptyClick={true}
+                               
+
                                             // data-is-scrollable={true}
                                             onRenderDetailsHeader={
                                                 // tslint:disable-next-line:jsx-no-lambda
                                                 (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                                                     <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                                                        {defaultRender(detailsHeaderProps)}
+                                                        <DetailsHeader
+                                                            {...detailsHeaderProps}
+                                                            styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                                            // onRenderDetailsCheckbox={
+                                                            //     ()=> {
+                                                            //         const styles = {
+                                                            //             checkbox: {
+                                                            //                 width: "16px",
+                                                            //                 height: "16px"
+                                                            //             }
+                                                            //         }
+                                                            //         return <Checkbox styles={styles}/>
+                                                            //     }
+                                                            // }
+                                                        />
+                                                        {/* {defaultRender(detailsHeaderProps)} */}
                                                     </Sticky>
                                                 )}
                                             onRenderDetailsFooter={

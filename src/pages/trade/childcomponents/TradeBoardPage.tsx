@@ -9,7 +9,7 @@ import { TooltipHost, TooltipDelay, DirectionalHint } from 'office-ui-fabric-rea
 import { Modal } from 'office-ui-fabric-react/lib/Modal';
 import { isDevEnv } from '../../../utils';
 import { toast } from 'react-toastify';
-import * as uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import { ContextualMenu } from 'office-ui-fabric-react/lib/ContextualMenu';
 import { xyz } from "../../../node/pb/pb";
 import { FontSizes } from 'office-ui-fabric-react/lib/Styling';
@@ -26,7 +26,6 @@ const {
     ContingentConditionEnum,
     HedgeFlagEnum,
  } = xyz.redtorch.pb
-
 
 
 @inject('authenticationStore', 'tradeActionStore', 'tradeAccountStore')
@@ -420,7 +419,7 @@ export class TradeBoardPage extends React.Component<any> {
                                         label="价格"
                                         type="number"
                                         step={priceTick}
-                                        defaultValue={tradeActionStore.price}
+                                        value={tradeActionStore.price}
                                         onChange={(event: any, newValue?: any) => tradeActionStore.setPrice(newValue)} />
 
                                     <TextField
@@ -690,7 +689,7 @@ export class TradeBoardPage extends React.Component<any> {
                                                                     <li><span style={tooltipLabelStyls}>简称:</span><span>{tradeActionStore.selectedContract.name}</span></li>
                                                                     <li><span style={tooltipLabelStyls}>完整名称:</span><span>{tradeActionStore.selectedContract.fullName}</span></li>
                                                                     <li><span style={tooltipLabelStyls}>交易所:</span><span>{ExchangeEnum[tradeActionStore.selectedContract.exchange]}</span></li>
-                                                                    <li><span style={tooltipLabelStyls}>产品类型:</span><span>{ProductClassEnum[tradeActionStore.selectedContract.productType]}</span></li>
+                                                                    <li><span style={tooltipLabelStyls}>产品类型:</span><span>{ProductClassEnum[tradeActionStore.selectedContract.productClass]}</span></li>
                                                                     <li><span style={tooltipLabelStyls}>第三方ID:</span><span>{tradeActionStore.selectedContract.thirdPartyId}</span></li>
                                                                     <li><span style={tooltipLabelStyls}>货币:</span><span>{CurrencyEnum[tradeActionStore.selectedContract.currency]}</span></li>
                                                                     <li><span style={tooltipLabelStyls}>合约乘数:</span><span>{tradeActionStore.selectedContract.multiplier}</span></li>
@@ -879,7 +878,6 @@ export class TradeBoardPage extends React.Component<any> {
         tradeActionStore.setVolume(0)
 
         this.setState(newState)
-
 
     }
 

@@ -72,11 +72,13 @@ $root.xyz = (function() {
              * @enum {string}
              * @property {number} GAT_CTP=0 GAT_CTP value
              * @property {number} GAT_IB=1 GAT_IB value
+             * @property {number} GAT_COMMON=2 GAT_COMMON value
              */
             pb.GatewayAdapterTypeEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
                 values[valuesById[0] = "GAT_CTP"] = 0;
                 values[valuesById[1] = "GAT_IB"] = 1;
+                values[valuesById[2] = "GAT_COMMON"] = 2;
                 return values;
             })();
 
@@ -764,17 +766,27 @@ $root.xyz = (function() {
              * @property {number} SGX=11 SGX value
              * @property {number} NYBOT=12 NYBOT value
              * @property {number} NYMEX=13 NYMEX value
-             * @property {number} COMEX=14 COMEX value
-             * @property {number} CME=15 CME value
-             * @property {number} CFE=16 CFE value
-             * @property {number} GLOBEX=17 GLOBEX value
-             * @property {number} ICE=18 ICE value
-             * @property {number} IPE=19 IPE value
-             * @property {number} LME=20 LME value
-             * @property {number} IDEALPRO=21 IDEALPRO value
-             * @property {number} OANDA=22 OANDA value
-             * @property {number} FXCM=23 FXCM value
-             * @property {number} SMART=24 SMART value
+             * @property {number} CFE=14 CFE value
+             * @property {number} GLOBEX=15 GLOBEX value
+             * @property {number} CMECRYPTO=16 CMECRYPTO value
+             * @property {number} ICEEU=17 ICEEU value
+             * @property {number} ICEEUSOFT=18 ICEEUSOFT value
+             * @property {number} ICEUS=19 ICEUS value
+             * @property {number} IPE=20 IPE value
+             * @property {number} LMEOTC=21 LMEOTC value
+             * @property {number} ECBOT=22 ECBOT value
+             * @property {number} APEX=23 APEX value
+             * @property {number} BMD=24 BMD value
+             * @property {number} MONEP=25 MONEP value
+             * @property {number} DTB=26 DTB value
+             * @property {number} TOCOM=27 TOCOM value
+             * @property {number} TAIFEX=28 TAIFEX value
+             * @property {number} SEHKSZSE=29 SEHKSZSE value
+             * @property {number} SEHKNTL=30 SEHKNTL value
+             * @property {number} KSE=31 KSE value
+             * @property {number} OSE=32 OSE value
+             * @property {number} IB_IDEALPRO=33 IB_IDEALPRO value
+             * @property {number} IB_SMART=34 IB_SMART value
              */
             pb.ExchangeEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
@@ -792,17 +804,27 @@ $root.xyz = (function() {
                 values[valuesById[11] = "SGX"] = 11;
                 values[valuesById[12] = "NYBOT"] = 12;
                 values[valuesById[13] = "NYMEX"] = 13;
-                values[valuesById[14] = "COMEX"] = 14;
-                values[valuesById[15] = "CME"] = 15;
-                values[valuesById[16] = "CFE"] = 16;
-                values[valuesById[17] = "GLOBEX"] = 17;
-                values[valuesById[18] = "ICE"] = 18;
-                values[valuesById[19] = "IPE"] = 19;
-                values[valuesById[20] = "LME"] = 20;
-                values[valuesById[21] = "IDEALPRO"] = 21;
-                values[valuesById[22] = "OANDA"] = 22;
-                values[valuesById[23] = "FXCM"] = 23;
-                values[valuesById[24] = "SMART"] = 24;
+                values[valuesById[14] = "CFE"] = 14;
+                values[valuesById[15] = "GLOBEX"] = 15;
+                values[valuesById[16] = "CMECRYPTO"] = 16;
+                values[valuesById[17] = "ICEEU"] = 17;
+                values[valuesById[18] = "ICEEUSOFT"] = 18;
+                values[valuesById[19] = "ICEUS"] = 19;
+                values[valuesById[20] = "IPE"] = 20;
+                values[valuesById[21] = "LMEOTC"] = 21;
+                values[valuesById[22] = "ECBOT"] = 22;
+                values[valuesById[23] = "APEX"] = 23;
+                values[valuesById[24] = "BMD"] = 24;
+                values[valuesById[25] = "MONEP"] = 25;
+                values[valuesById[26] = "DTB"] = 26;
+                values[valuesById[27] = "TOCOM"] = 27;
+                values[valuesById[28] = "TAIFEX"] = 28;
+                values[valuesById[29] = "SEHKSZSE"] = 29;
+                values[valuesById[30] = "SEHKNTL"] = 30;
+                values[valuesById[31] = "KSE"] = 31;
+                values[valuesById[32] = "OSE"] = 32;
+                values[valuesById[33] = "IB_IDEALPRO"] = 33;
+                values[valuesById[34] = "IB_SMART"] = 34;
                 return values;
             })();
 
@@ -1104,6 +1126,7 @@ $root.xyz = (function() {
                             return "gatewayAdapterType: enum value expected";
                         case 0:
                         case 1:
+                        case 2:
                             break;
                         }
                     if (message.status != null && message.hasOwnProperty("status"))
@@ -1163,6 +1186,10 @@ $root.xyz = (function() {
                     case "GAT_IB":
                     case 1:
                         message.gatewayAdapterType = 1;
+                        break;
+                    case "GAT_COMMON":
+                    case 2:
+                        message.gatewayAdapterType = 2;
                         break;
                     }
                     switch (object.status) {
@@ -1758,6 +1785,16 @@ $root.xyz = (function() {
                         case 22:
                         case 23:
                         case 24:
+                        case 25:
+                        case 26:
+                        case 27:
+                        case 28:
+                        case 29:
+                        case 30:
+                        case 31:
+                        case 32:
+                        case 33:
+                        case 34:
                             break;
                         }
                     if (message.productClass != null && message.hasOwnProperty("productClass"))
@@ -1967,49 +2004,89 @@ $root.xyz = (function() {
                     case 13:
                         message.exchange = 13;
                         break;
-                    case "COMEX":
+                    case "CFE":
                     case 14:
                         message.exchange = 14;
                         break;
-                    case "CME":
+                    case "GLOBEX":
                     case 15:
                         message.exchange = 15;
                         break;
-                    case "CFE":
+                    case "CMECRYPTO":
                     case 16:
                         message.exchange = 16;
                         break;
-                    case "GLOBEX":
+                    case "ICEEU":
                     case 17:
                         message.exchange = 17;
                         break;
-                    case "ICE":
+                    case "ICEEUSOFT":
                     case 18:
                         message.exchange = 18;
                         break;
-                    case "IPE":
+                    case "ICEUS":
                     case 19:
                         message.exchange = 19;
                         break;
-                    case "LME":
+                    case "IPE":
                     case 20:
                         message.exchange = 20;
                         break;
-                    case "IDEALPRO":
+                    case "LMEOTC":
                     case 21:
                         message.exchange = 21;
                         break;
-                    case "OANDA":
+                    case "ECBOT":
                     case 22:
                         message.exchange = 22;
                         break;
-                    case "FXCM":
+                    case "APEX":
                     case 23:
                         message.exchange = 23;
                         break;
-                    case "SMART":
+                    case "BMD":
                     case 24:
                         message.exchange = 24;
+                        break;
+                    case "MONEP":
+                    case 25:
+                        message.exchange = 25;
+                        break;
+                    case "DTB":
+                    case 26:
+                        message.exchange = 26;
+                        break;
+                    case "TOCOM":
+                    case 27:
+                        message.exchange = 27;
+                        break;
+                    case "TAIFEX":
+                    case 28:
+                        message.exchange = 28;
+                        break;
+                    case "SEHKSZSE":
+                    case 29:
+                        message.exchange = 29;
+                        break;
+                    case "SEHKNTL":
+                    case 30:
+                        message.exchange = 30;
+                        break;
+                    case "KSE":
+                    case 31:
+                        message.exchange = 31;
+                        break;
+                    case "OSE":
+                    case 32:
+                        message.exchange = 32;
+                        break;
+                    case "IB_IDEALPRO":
+                    case 33:
+                        message.exchange = 33;
+                        break;
+                    case "IB_SMART":
+                    case 34:
+                        message.exchange = 34;
                         break;
                     }
                     switch (object.productClass) {
@@ -10157,6 +10234,7 @@ $root.xyz = (function() {
                             return "gatewayAdapterType: enum value expected";
                         case 0:
                         case 1:
+                        case 2:
                             break;
                         }
                     if (message.ctpApiSetting != null && message.hasOwnProperty("ctpApiSetting")) {
@@ -10231,6 +10309,10 @@ $root.xyz = (function() {
                     case "GAT_IB":
                     case 1:
                         message.gatewayAdapterType = 1;
+                        break;
+                    case "GAT_COMMON":
+                    case 2:
+                        message.gatewayAdapterType = 2;
                         break;
                     }
                     if (object.ctpApiSetting != null) {

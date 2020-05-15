@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react';
 import { withRouter } from 'react-router';
 import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
 import { PrimaryButton, DefaultButton, IconButton, ActionButton, IButtonStyles } from 'office-ui-fabric-react/lib/Button';
-import { IColumn, DetailsList, SelectionMode, DetailsListLayoutMode, Selection, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps } from 'office-ui-fabric-react/lib/components/DetailsList';
+import { IColumn, DetailsList, SelectionMode, DetailsListLayoutMode, Selection, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, DetailsHeader } from 'office-ui-fabric-react/lib/components/DetailsList';
 import Dialog, { DialogFooter, DialogType } from 'office-ui-fabric-react/lib/Dialog';
 import { MarqueeSelection } from 'office-ui-fabric-react/lib/MarqueeSelection';
 import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
@@ -775,7 +775,11 @@ export class HomePage extends React.Component<any> {
                               // tslint:disable-next-line:jsx-no-lambda
                               (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                                 <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                                  {defaultRender(detailsHeaderProps)}
+                                  <DetailsHeader
+                                      {...detailsHeaderProps}
+                                      styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  />
+                                  {/* {defaultRender(detailsHeaderProps)} */}
                                 </Sticky>
                               )}
                             onRenderDetailsFooter={
@@ -886,7 +890,11 @@ export class HomePage extends React.Component<any> {
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                                {defaultRender(detailsHeaderProps)}
+                                <DetailsHeader
+                                    {...detailsHeaderProps}
+                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                />
+                                {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
                           onRenderDetailsFooter={
@@ -946,7 +954,11 @@ export class HomePage extends React.Component<any> {
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                                {defaultRender(detailsHeaderProps)}
+                                <DetailsHeader
+                                    {...detailsHeaderProps}
+                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                />
+                                {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
                           onRenderDetailsFooter={
@@ -1034,7 +1046,11 @@ export class HomePage extends React.Component<any> {
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                                {defaultRender(detailsHeaderProps)}
+                                <DetailsHeader
+                                    {...detailsHeaderProps}
+                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                />
+                                {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
                           onRenderDetailsFooter={
@@ -1094,7 +1110,11 @@ export class HomePage extends React.Component<any> {
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                                {defaultRender(detailsHeaderProps)}
+                                <DetailsHeader
+                                    {...detailsHeaderProps}
+                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                />
+                                {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
                           onRenderDetailsFooter={
@@ -1182,7 +1202,11 @@ export class HomePage extends React.Component<any> {
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                                {defaultRender(detailsHeaderProps)}
+                                <DetailsHeader
+                                    {...detailsHeaderProps}
+                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                />
+                                {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
                           onRenderDetailsFooter={
@@ -1242,7 +1266,11 @@ export class HomePage extends React.Component<any> {
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                                {defaultRender(detailsHeaderProps)}
+                                <DetailsHeader
+                                    {...detailsHeaderProps}
+                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                />
+                                {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
                           onRenderDetailsFooter={
@@ -1330,7 +1358,11 @@ export class HomePage extends React.Component<any> {
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                                {defaultRender(detailsHeaderProps)}
+                                <DetailsHeader
+                                    {...detailsHeaderProps}
+                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                />
+                                {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
                           onRenderDetailsFooter={
@@ -1390,7 +1422,11 @@ export class HomePage extends React.Component<any> {
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                                {defaultRender(detailsHeaderProps)}
+                                <DetailsHeader
+                                    {...detailsHeaderProps}
+                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                />
+                                {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
                           onRenderDetailsFooter={

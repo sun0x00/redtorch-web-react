@@ -24,7 +24,8 @@ export namespace xyz {
             /** GatewayAdapterTypeEnum enum. */
             enum GatewayAdapterTypeEnum {
                 GAT_CTP = 0,
-                GAT_IB = 1
+                GAT_IB = 1,
+                GAT_COMMON = 2
             }
 
             /** CommonStatusEnum enum. */
@@ -350,17 +351,27 @@ export namespace xyz {
                 SGX = 11,
                 NYBOT = 12,
                 NYMEX = 13,
-                COMEX = 14,
-                CME = 15,
-                CFE = 16,
-                GLOBEX = 17,
-                ICE = 18,
-                IPE = 19,
-                LME = 20,
-                IDEALPRO = 21,
-                OANDA = 22,
-                FXCM = 23,
-                SMART = 24
+                CFE = 14,
+                GLOBEX = 15,
+                CMECRYPTO = 16,
+                ICEEU = 17,
+                ICEEUSOFT = 18,
+                ICEUS = 19,
+                IPE = 20,
+                LMEOTC = 21,
+                ECBOT = 22,
+                APEX = 23,
+                BMD = 24,
+                MONEP = 25,
+                DTB = 26,
+                TOCOM = 27,
+                TAIFEX = 28,
+                SEHKSZSE = 29,
+                SEHKNTL = 30,
+                KSE = 31,
+                OSE = 32,
+                IB_IDEALPRO = 33,
+                IB_SMART = 34
             }
 
             /** OptionsTypeEnum enum. */

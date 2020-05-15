@@ -24,7 +24,10 @@ export class TradeMobilePage extends React.Component<any> {
     })
 
     return (
-      <Pivot defaultSelectedKey={defaultSelectedKey} onLinkClick={this.onLinkClick}>
+      <Pivot 
+        defaultSelectedKey={defaultSelectedKey} onLinkClick={this.onLinkClick}
+        styles={{linkIsSelected:{height:24},link:{height:24},linkContent:{height:24},root:{height:24},text:{lineHeight:24}}}
+      >
         {routes.map((route: any, i: any) => (
           <PivotItem key={`PivotItemKey_${route.name}`} itemKey={route.path} headerText={route.name}>
             <RouteWithSubRoutes {...route} />

@@ -4,14 +4,14 @@ import { Stack } from 'office-ui-fabric-react/lib/Stack';
 import { withRouter } from 'react-router';
 import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
 import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { DetailsList, DetailsListLayoutMode, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, SelectionMode, IColumn } from 'office-ui-fabric-react/lib/DetailsList';
+import { DetailsList, DetailsListLayoutMode, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, SelectionMode, IColumn, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
 import { Sticky, StickyPositionType } from 'office-ui-fabric-react/lib/Sticky';
 import { IRenderFunction } from 'office-ui-fabric-react/lib/Utilities';
 import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
 import { numberFormat, deepCopy } from '../../../utils';
 import { TooltipHost, TooltipDelay, DirectionalHint } from 'office-ui-fabric-react/lib/Tooltip';
 import { IconButton } from 'office-ui-fabric-react/lib/Button';
-import * as uuidv4 from 'uuid/v4'
+import { v4 as uuidv4 } from 'uuid';
 import { isNumber } from 'util';
 import { xyz } from "../../../node/pb/pb";
 
@@ -152,7 +152,7 @@ export class PositionDetailsPage extends React.Component<any> {
                                                 <li><span style={tooltipLabelStyls}>简称:</span><span>{item.contract.name}</span></li>
                                                 <li><span style={tooltipLabelStyls}>完整名称:</span><span>{item.contract.fullName}</span></li>
                                                 <li><span style={tooltipLabelStyls}>交易所:</span><span>{ExchangeEnum[item.contract.exchange]}</span></li>
-                                                <li><span style={tooltipLabelStyls}>产品类型:</span><span>{ProductClassEnum[item.contract.productType]}</span></li>
+                                                <li><span style={tooltipLabelStyls}>产品类型:</span><span>{ProductClassEnum[item.contract.productClass]}</span></li>
                                                 <li><span style={tooltipLabelStyls}>第三方ID:</span><span>{item.contract.thirdPartyId}</span></li>
                                                 <li><span style={tooltipLabelStyls}>货币:</span><span>{CurrencyEnum[item.contract.currency]}</span></li>
                                                 <li><span style={tooltipLabelStyls}>合约乘数:</span><span>{item.contract.multiplier}</span></li>
@@ -624,7 +624,11 @@ export class PositionDetailsPage extends React.Component<any> {
                                             // tslint:disable-next-line:jsx-no-lambda
                                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                                                 <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                                                    {defaultRender(detailsHeaderProps)}
+                                                    <DetailsHeader
+                                                        {...detailsHeaderProps}
+                                                        styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                                    />
+                                                    {/* {defaultRender(detailsHeaderProps)} */}
                                                 </Sticky>
                                             )}
                                         onRenderDetailsFooter={

@@ -6,7 +6,6 @@ import { Stack } from 'office-ui-fabric-react/lib/Stack';
 import { createTheme, ITheme } from 'office-ui-fabric-react/lib/Styling';
 import { mergeStyleSets, DefaultPalette } from 'office-ui-fabric-react/lib/Styling';
 import { Redirect } from 'react-router-dom';
-
 const theme: ITheme = createTheme({
   fonts: {
     medium: {
@@ -28,7 +27,10 @@ const styles = mergeStyleSets({
   }
 });
 
-const NotFoundPage = observer(({ history }) => {
+const NotFoundPage = observer((synchronizedHistory:any) => {
+  console.log(synchronizedHistory)
+  const { history } =  synchronizedHistory;
+  console.log(history)
 
   if (history.location.pathname === '/') {
     return (<Redirect to={{

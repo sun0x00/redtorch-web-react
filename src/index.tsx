@@ -27,6 +27,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
 import { loadTheme } from 'office-ui-fabric-react/lib/Styling';
+// import 'mobx-react-lite/batchingForReactDom'
 
 // Call it once in your app. At the root of your app is the best place
 toast.configure({

@@ -394,7 +394,7 @@ export class MarketDetailsPage extends React.Component<any> {
                                                                     <li><span style={tooltipLabelStyls}>简称:</span><span>{selectedContract.name}</span></li>
                                                                     <li><span style={tooltipLabelStyls}>完整名称:</span><span>{selectedContract.fullName}</span></li>
                                                                     <li><span style={tooltipLabelStyls}>交易所:</span><span>{ExchangeEnum[selectedContract.exchange]}</span></li>
-                                                                    <li><span style={tooltipLabelStyls}>产品类型:</span><span>{ProductClassEnum[selectedContract.productType]}</span></li>
+                                                                    <li><span style={tooltipLabelStyls}>产品类型:</span><span>{ProductClassEnum[selectedContract.productClass]}</span></li>
                                                                     <li><span style={tooltipLabelStyls}>第三方ID:</span><span>{selectedContract.thirdPartyId}</span></li>
                                                                     <li><span style={tooltipLabelStyls}>货币:</span><span>{CurrencyEnum[selectedContract.currency]}</span></li>
                                                                     <li><span style={tooltipLabelStyls}>合约乘数:</span><span>{selectedContract.multiplier}</span></li>

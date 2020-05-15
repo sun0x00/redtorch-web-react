@@ -1,6 +1,6 @@
 import { xyz } from "../../pb/pb";
 import { rpcClientProcess } from './rpcClientProcess';
-import * as uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import { authenticationStore } from "../../../stores/storesIndex";
 
 const {

@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react';
 import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
 import { CommandBar } from 'office-ui-fabric-react/lib/CommandBar';
 import { withRouter } from 'react-router';
-import { DetailsList, DetailsListLayoutMode, SelectionMode, IColumn, IDetailsHeaderProps, ConstrainMode, IDetailsFooterProps } from 'office-ui-fabric-react/lib/DetailsList';
+import { DetailsList, DetailsListLayoutMode, SelectionMode, IColumn, IDetailsHeaderProps, ConstrainMode, IDetailsFooterProps, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
 import { ActionButton, PrimaryButton, DefaultButton, IButtonStyles, IconButton } from 'office-ui-fabric-react/lib/Button';
 import { Modal } from 'office-ui-fabric-react/lib/Modal';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
@@ -58,13 +58,13 @@ const gatewayTypeOptions: IDropdownOption[] = [
 const gatewayAdapterTypeOptions: IDropdownOption[] = [
   { key: 0, text: 'CTP' },
   { key: 1, text: 'IB' },
+  { key: 2, text: 'COMMON' }
 ];
 
 const gatewayImplementClassNameOptions: IComboBoxOption[] = [
-  { key: 'xyz.redtorch.gateway.ctp.x64v6v3v11v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v11v.CtpGatewayImpl' },
   { key: 'xyz.redtorch.gateway.ctp.x64v6v3v13v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v13v.CtpGatewayImpl' },
   { key: 'xyz.redtorch.gateway.ctp.x64v6v3v15v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v15v.CtpGatewayImpl' },
-  { key: 'xyz.redtorch.gateway.ctp.x64v6v3v16t1v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v16v.CtpGatewayImpl' },
+  { key: 'xyz.redtorch.gateway.ctp.x64v6v3v16v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v16v.CtpGatewayImpl' },
   { key: 'xyz.redtorch.gateway.ctp.x64v6v3v16t1v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v16t1v.CtpGatewayImpl' },
   { key: 'xyz.redtorch.gateway.IbGateway', text: 'xyz.redtorch.gateway.IbGateway' },
 ];
@@ -126,6 +126,9 @@ export class GatewayPage extends React.Component<any> {
   componentDidMount() {
     this.resize()
     window.addEventListener('resize', this.resize);
+    const { gatewayStore } = this.props
+
+    gatewayStore.getGatewayList()
   }
 
 
@@ -135,13 +138,6 @@ export class GatewayPage extends React.Component<any> {
 
   resize = () => {
     this.setState({ "windowInnerWidth": window.innerWidth, "windowInnerHeight": window.innerHeight })
-  }
-
-  componentWillMount() {
-    const { gatewayStore } = this.props
-
-    gatewayStore.getGatewayList()
-
   }
 
   public render() {
@@ -280,6 +276,10 @@ export class GatewayPage extends React.Component<any> {
           return (
             <span>IB</span>
           );
+        } else if (item.gatewayAdapterType === GatewayAdapterTypeEnum.GAT_COMMON) {
+          return (
+            <span>COMMON</span>
+          );
         }
         return (
           <span>{item.gatewayAdapterType}</span>
@@ -395,7 +395,11 @@ export class GatewayPage extends React.Component<any> {
                   // tslint:disable-next-line:jsx-no-lambda
                   (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                     <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
-                      {defaultRender(detailsHeaderProps)}
+                      <DetailsHeader
+                          {...detailsHeaderProps}
+                          styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                      />
+                      {/* {defaultRender(detailsHeaderProps)} */}
                     </Sticky>
                   )}
                 onRenderDetailsFooter={
@@ -908,7 +912,7 @@ export class GatewayPage extends React.Component<any> {
       }
 
       // 验证IB字段
-    } else {
+    } else if (this.state.editGatewayAdapterType === GatewayAdapterTypeEnum.GAT_COMMON){
       result = this.validateEditGatewayIbSettingHost();
       isValidated = isValidated && result.status
       errorMessateState = {

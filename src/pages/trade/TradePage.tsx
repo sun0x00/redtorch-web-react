@@ -24,9 +24,11 @@ export class TradePage extends React.Component<any> {
     })
 
     return (
-      <Pivot defaultSelectedKey={defaultSelectedKey} onLinkClick={this.onLinkClick} style={{ height: "100%" }}>
+      <Pivot defaultSelectedKey={defaultSelectedKey} onLinkClick={this.onLinkClick} style={{ height: "100%" }}
+        styles={{linkIsSelected:{height:24},link:{height:24},linkContent:{height:24},root:{height:24},text:{lineHeight:24}}}
+      >
         {routes.map((route: any, i: any) => (
-          <PivotItem key={`PivotItemKey_${route.name}`} itemKey={route.path} headerText={route.name} style={{ height: "calc(100% - 41px)" }}>
+          <PivotItem key={`PivotItemKey_${route.name}`} itemKey={route.path} headerText={route.name} style={{ height: "calc(100% - 24px)" }}>
             <RouteWithSubRoutes {...route} />
           </PivotItem>
         ))}

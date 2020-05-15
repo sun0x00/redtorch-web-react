@@ -55,7 +55,7 @@ class TradeTickStore {
         }
 
         if (tick.unifiedSymbol) {
-            this.mixTickMap.set(tick.unifiedSymbol, tick);
+             this.mixTickMap.set(tick.unifiedSymbol, tick);
             this.hasBeenChanged = true
         }
     }
@@ -83,6 +83,7 @@ class TradeTickStore {
         const tickListLength = tickList.length
         for (let i = 0; i < tickListLength; i++) {
             const tick = tickList[i]
+    
             if (tick.unifiedSymbol) {
                 this.mixTickMap.set(tick.unifiedSymbol, tick);
                 this.hasBeenChanged = true
