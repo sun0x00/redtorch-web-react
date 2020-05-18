@@ -2484,6 +2484,7 @@ $root.xyz = (function() {
                  * @property {number|null} [deposit] AccountField deposit
                  * @property {number|null} [withdraw] AccountField withdraw
                  * @property {string|null} [gatewayId] AccountField gatewayId
+                 * @property {number|Long|null} [localCreatedTimestamp] AccountField localCreatedTimestamp
                  */
 
                 /**
@@ -2622,6 +2623,14 @@ $root.xyz = (function() {
                 AccountField.prototype.gatewayId = "";
 
                 /**
+                 * AccountField localCreatedTimestamp.
+                 * @member {number|Long} localCreatedTimestamp
+                 * @memberof xyz.redtorch.pb.AccountField
+                 * @instance
+                 */
+                AccountField.prototype.localCreatedTimestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+                /**
                  * Creates a new AccountField instance using the specified properties.
                  * @function create
                  * @memberof xyz.redtorch.pb.AccountField
@@ -2675,6 +2684,8 @@ $root.xyz = (function() {
                         writer.uint32(/* id 14, wireType 1 =*/113).double(message.withdraw);
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         writer.uint32(/* id 15, wireType 2 =*/122).string(message.gatewayId);
+                    if (message.localCreatedTimestamp != null && message.hasOwnProperty("localCreatedTimestamp"))
+                        writer.uint32(/* id 16, wireType 1 =*/129).fixed64(message.localCreatedTimestamp);
                     return writer;
                 };
 
@@ -2753,6 +2764,9 @@ $root.xyz = (function() {
                             break;
                         case 15:
                             message.gatewayId = reader.string();
+                            break;
+                        case 16:
+                            message.localCreatedTimestamp = reader.fixed64();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -2867,6 +2881,9 @@ $root.xyz = (function() {
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         if (!$util.isString(message.gatewayId))
                             return "gatewayId: string expected";
+                    if (message.localCreatedTimestamp != null && message.hasOwnProperty("localCreatedTimestamp"))
+                        if (!$util.isInteger(message.localCreatedTimestamp) && !(message.localCreatedTimestamp && $util.isInteger(message.localCreatedTimestamp.low) && $util.isInteger(message.localCreatedTimestamp.high)))
+                            return "localCreatedTimestamp: integer|Long expected";
                     return null;
                 };
 
@@ -3032,6 +3049,15 @@ $root.xyz = (function() {
                         message.withdraw = Number(object.withdraw);
                     if (object.gatewayId != null)
                         message.gatewayId = String(object.gatewayId);
+                    if (object.localCreatedTimestamp != null)
+                        if ($util.Long)
+                            (message.localCreatedTimestamp = $util.Long.fromValue(object.localCreatedTimestamp)).unsigned = false;
+                        else if (typeof object.localCreatedTimestamp === "string")
+                            message.localCreatedTimestamp = parseInt(object.localCreatedTimestamp, 10);
+                        else if (typeof object.localCreatedTimestamp === "number")
+                            message.localCreatedTimestamp = object.localCreatedTimestamp;
+                        else if (typeof object.localCreatedTimestamp === "object")
+                            message.localCreatedTimestamp = new $util.LongBits(object.localCreatedTimestamp.low >>> 0, object.localCreatedTimestamp.high >>> 0).toNumber();
                     return message;
                 };
 
@@ -3064,6 +3090,11 @@ $root.xyz = (function() {
                         object.deposit = 0;
                         object.withdraw = 0;
                         object.gatewayId = "";
+                        if ($util.Long) {
+                            var long = new $util.Long(0, 0, false);
+                            object.localCreatedTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                        } else
+                            object.localCreatedTimestamp = options.longs === String ? "0" : 0;
                     }
                     if (message.accountId != null && message.hasOwnProperty("accountId"))
                         object.accountId = message.accountId;
@@ -3095,6 +3126,11 @@ $root.xyz = (function() {
                         object.withdraw = options.json && !isFinite(message.withdraw) ? String(message.withdraw) : message.withdraw;
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         object.gatewayId = message.gatewayId;
+                    if (message.localCreatedTimestamp != null && message.hasOwnProperty("localCreatedTimestamp"))
+                        if (typeof message.localCreatedTimestamp === "number")
+                            object.localCreatedTimestamp = options.longs === String ? String(message.localCreatedTimestamp) : message.localCreatedTimestamp;
+                        else
+                            object.localCreatedTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.localCreatedTimestamp) : options.longs === Number ? new $util.LongBits(message.localCreatedTimestamp.low >>> 0, message.localCreatedTimestamp.high >>> 0).toNumber() : message.localCreatedTimestamp;
                     return object;
                 };
 
@@ -5479,6 +5515,7 @@ $root.xyz = (function() {
                  * @property {xyz.redtorch.pb.HedgeFlagEnum|null} [hedgeFlag] PositionField hedgeFlag
                  * @property {xyz.redtorch.pb.IContractField|null} [contract] PositionField contract
                  * @property {string|null} [gatewayId] PositionField gatewayId
+                 * @property {number|Long|null} [localCreatedTimestamp] PositionField localCreatedTimestamp
                  */
 
                 /**
@@ -5689,6 +5726,14 @@ $root.xyz = (function() {
                 PositionField.prototype.gatewayId = "";
 
                 /**
+                 * PositionField localCreatedTimestamp.
+                 * @member {number|Long} localCreatedTimestamp
+                 * @memberof xyz.redtorch.pb.PositionField
+                 * @instance
+                 */
+                PositionField.prototype.localCreatedTimestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+                /**
                  * Creates a new PositionField instance using the specified properties.
                  * @function create
                  * @memberof xyz.redtorch.pb.PositionField
@@ -5760,6 +5805,8 @@ $root.xyz = (function() {
                         $root.xyz.redtorch.pb.ContractField.encode(message.contract, writer.uint32(/* id 23, wireType 2 =*/186).fork()).ldelim();
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         writer.uint32(/* id 24, wireType 2 =*/194).string(message.gatewayId);
+                    if (message.localCreatedTimestamp != null && message.hasOwnProperty("localCreatedTimestamp"))
+                        writer.uint32(/* id 25, wireType 1 =*/201).fixed64(message.localCreatedTimestamp);
                     return writer;
                 };
 
@@ -5865,6 +5912,9 @@ $root.xyz = (function() {
                             break;
                         case 24:
                             message.gatewayId = reader.string();
+                            break;
+                        case 25:
+                            message.localCreatedTimestamp = reader.fixed64();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -5992,6 +6042,9 @@ $root.xyz = (function() {
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         if (!$util.isString(message.gatewayId))
                             return "gatewayId: string expected";
+                    if (message.localCreatedTimestamp != null && message.hasOwnProperty("localCreatedTimestamp"))
+                        if (!$util.isInteger(message.localCreatedTimestamp) && !(message.localCreatedTimestamp && $util.isInteger(message.localCreatedTimestamp.low) && $util.isInteger(message.localCreatedTimestamp.high)))
+                            return "localCreatedTimestamp: integer|Long expected";
                     return null;
                 };
 
@@ -6102,6 +6155,15 @@ $root.xyz = (function() {
                     }
                     if (object.gatewayId != null)
                         message.gatewayId = String(object.gatewayId);
+                    if (object.localCreatedTimestamp != null)
+                        if ($util.Long)
+                            (message.localCreatedTimestamp = $util.Long.fromValue(object.localCreatedTimestamp)).unsigned = false;
+                        else if (typeof object.localCreatedTimestamp === "string")
+                            message.localCreatedTimestamp = parseInt(object.localCreatedTimestamp, 10);
+                        else if (typeof object.localCreatedTimestamp === "number")
+                            message.localCreatedTimestamp = object.localCreatedTimestamp;
+                        else if (typeof object.localCreatedTimestamp === "object")
+                            message.localCreatedTimestamp = new $util.LongBits(object.localCreatedTimestamp.low >>> 0, object.localCreatedTimestamp.high >>> 0).toNumber();
                     return message;
                 };
 
@@ -6143,6 +6205,11 @@ $root.xyz = (function() {
                         object.hedgeFlag = options.enums === String ? "HF_Unknown" : 0;
                         object.contract = null;
                         object.gatewayId = "";
+                        if ($util.Long) {
+                            var long = new $util.Long(0, 0, false);
+                            object.localCreatedTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                        } else
+                            object.localCreatedTimestamp = options.longs === String ? "0" : 0;
                     }
                     if (message.positionId != null && message.hasOwnProperty("positionId"))
                         object.positionId = message.positionId;
@@ -6192,6 +6259,11 @@ $root.xyz = (function() {
                         object.contract = $root.xyz.redtorch.pb.ContractField.toObject(message.contract, options);
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         object.gatewayId = message.gatewayId;
+                    if (message.localCreatedTimestamp != null && message.hasOwnProperty("localCreatedTimestamp"))
+                        if (typeof message.localCreatedTimestamp === "number")
+                            object.localCreatedTimestamp = options.longs === String ? String(message.localCreatedTimestamp) : message.localCreatedTimestamp;
+                        else
+                            object.localCreatedTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.localCreatedTimestamp) : options.longs === Number ? new $util.LongBits(message.localCreatedTimestamp.low >>> 0, message.localCreatedTimestamp.high >>> 0).toNumber() : message.localCreatedTimestamp;
                     return object;
                 };
 

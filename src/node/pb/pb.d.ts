@@ -808,6 +808,9 @@ export namespace xyz {
 
                 /** AccountField gatewayId */
                 gatewayId?: (string|null);
+
+                /** AccountField localCreatedTimestamp */
+                localCreatedTimestamp?: (number|Long|null);
             }
 
             /** Represents an AccountField. */
@@ -863,6 +866,9 @@ export namespace xyz {
 
                 /** AccountField gatewayId. */
                 public gatewayId: string;
+
+                /** AccountField localCreatedTimestamp. */
+                public localCreatedTimestamp: (number|Long);
 
                 /**
                  * Creates a new AccountField instance using the specified properties.
@@ -1549,6 +1555,9 @@ export namespace xyz {
 
                 /** PositionField gatewayId */
                 gatewayId?: (string|null);
+
+                /** PositionField localCreatedTimestamp */
+                localCreatedTimestamp?: (number|Long|null);
             }
 
             /** Represents a PositionField. */
@@ -1631,6 +1640,9 @@ export namespace xyz {
 
                 /** PositionField gatewayId. */
                 public gatewayId: string;
+
+                /** PositionField localCreatedTimestamp. */
+                public localCreatedTimestamp: (number|Long);
 
                 /**
                  * Creates a new PositionField instance using the specified properties.
