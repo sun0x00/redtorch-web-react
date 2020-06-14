@@ -34,7 +34,7 @@ const NotFoundPage = observer((synchronizedHistory:any) => {
 
   if (history.location.pathname === '/') {
     return (<Redirect to={{
-      pathname: '/management/gateway',
+      pathname: '/trade/home',
     }} />)
   }
 
@@ -47,7 +47,7 @@ const NotFoundPage = observer((synchronizedHistory:any) => {
           disabled={false}
           checked={false}
           text="返回主页"
-          onClick={() => { history.push('/management/gateway') }}
+          onClick={() => { history.push('/trade/home') }}
         />
       </Stack.Item>
     </Stack>
