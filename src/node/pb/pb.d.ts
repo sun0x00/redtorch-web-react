@@ -1057,6 +1057,9 @@ export namespace xyz {
 
                 /** OrderField gatewayId */
                 gatewayId?: (string|null);
+
+                /** OrderField orderSubmitStatus */
+                orderSubmitStatus?: (xyz.redtorch.pb.OrderSubmitStatusEnum|null);
             }
 
             /** Represents an OrderField. */
@@ -1181,6 +1184,9 @@ export namespace xyz {
 
                 /** OrderField gatewayId. */
                 public gatewayId: string;
+
+                /** OrderField orderSubmitStatus. */
+                public orderSubmitStatus: xyz.redtorch.pb.OrderSubmitStatusEnum;
 
                 /**
                  * Creates a new OrderField instance using the specified properties.

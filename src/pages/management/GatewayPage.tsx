@@ -62,11 +62,9 @@ const gatewayAdapterTypeOptions: IDropdownOption[] = [
 ];
 
 const gatewayImplementClassNameOptions: IComboBoxOption[] = [
-  { key: 'xyz.redtorch.gateway.ctp.x64v6v3v13v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v13v.CtpGatewayImpl' },
   { key: 'xyz.redtorch.gateway.ctp.x64v6v3v15v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v15v.CtpGatewayImpl' },
-  { key: 'xyz.redtorch.gateway.ctp.x64v6v3v16v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v16v.CtpGatewayImpl' },
-  { key: 'xyz.redtorch.gateway.ctp.x64v6v3v16t1v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v16t1v.CtpGatewayImpl' },
-  { key: 'xyz.redtorch.gateway.IbGateway', text: 'xyz.redtorch.gateway.IbGateway' },
+  { key: 'xyz.redtorch.gateway.ctp.x64v6v3v19p1v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v19p1v.CtpGatewayImpl' },
+  { key: 'xyz.redtorch.gateway.ctp.x64v6v3v19t1v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v19t1v.CtpGatewayImpl' }
 ];
 
 

@@ -3192,6 +3192,7 @@ $root.xyz = (function() {
                  * @property {number|null} [sessionId] OrderField sessionId
                  * @property {xyz.redtorch.pb.IContractField|null} [contract] OrderField contract
                  * @property {string|null} [gatewayId] OrderField gatewayId
+                 * @property {xyz.redtorch.pb.OrderSubmitStatusEnum|null} [orderSubmitStatus] OrderField orderSubmitStatus
                  */
 
                 /**
@@ -3514,6 +3515,14 @@ $root.xyz = (function() {
                 OrderField.prototype.gatewayId = "";
 
                 /**
+                 * OrderField orderSubmitStatus.
+                 * @member {xyz.redtorch.pb.OrderSubmitStatusEnum} orderSubmitStatus
+                 * @memberof xyz.redtorch.pb.OrderField
+                 * @instance
+                 */
+                OrderField.prototype.orderSubmitStatus = 0;
+
+                /**
                  * Creates a new OrderField instance using the specified properties.
                  * @function create
                  * @memberof xyz.redtorch.pb.OrderField
@@ -3613,6 +3622,8 @@ $root.xyz = (function() {
                         $root.xyz.redtorch.pb.ContractField.encode(message.contract, writer.uint32(/* id 37, wireType 2 =*/298).fork()).ldelim();
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         writer.uint32(/* id 38, wireType 2 =*/306).string(message.gatewayId);
+                    if (message.orderSubmitStatus != null && message.hasOwnProperty("orderSubmitStatus"))
+                        writer.uint32(/* id 39, wireType 0 =*/312).int32(message.orderSubmitStatus);
                     return writer;
                 };
 
@@ -3760,6 +3771,9 @@ $root.xyz = (function() {
                             break;
                         case 38:
                             message.gatewayId = reader.string();
+                            break;
+                        case 39:
+                            message.orderSubmitStatus = reader.int32();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -4023,6 +4037,20 @@ $root.xyz = (function() {
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         if (!$util.isString(message.gatewayId))
                             return "gatewayId: string expected";
+                    if (message.orderSubmitStatus != null && message.hasOwnProperty("orderSubmitStatus"))
+                        switch (message.orderSubmitStatus) {
+                        default:
+                            return "orderSubmitStatus: enum value expected";
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                        case 6:
+                        case 7:
+                            break;
+                        }
                     return null;
                 };
 
@@ -4453,6 +4481,40 @@ $root.xyz = (function() {
                     }
                     if (object.gatewayId != null)
                         message.gatewayId = String(object.gatewayId);
+                    switch (object.orderSubmitStatus) {
+                    case "OSS_Unknown":
+                    case 0:
+                        message.orderSubmitStatus = 0;
+                        break;
+                    case "OSS_InsertSubmitted":
+                    case 1:
+                        message.orderSubmitStatus = 1;
+                        break;
+                    case "OSS_CancelSubmitted":
+                    case 2:
+                        message.orderSubmitStatus = 2;
+                        break;
+                    case "OSS_ModifySubmitted":
+                    case 3:
+                        message.orderSubmitStatus = 3;
+                        break;
+                    case "OSS_Accepted":
+                    case 4:
+                        message.orderSubmitStatus = 4;
+                        break;
+                    case "OSS_InsertRejected":
+                    case 5:
+                        message.orderSubmitStatus = 5;
+                        break;
+                    case "OSS_CancelRejected":
+                    case 6:
+                        message.orderSubmitStatus = 6;
+                        break;
+                    case "OSS_ModifyRejected":
+                    case 7:
+                        message.orderSubmitStatus = 7;
+                        break;
+                    }
                     return message;
                 };
 
@@ -4508,6 +4570,7 @@ $root.xyz = (function() {
                         object.sessionId = 0;
                         object.contract = null;
                         object.gatewayId = "";
+                        object.orderSubmitStatus = options.enums === String ? "OSS_Unknown" : 0;
                     }
                     if (message.originOrderId != null && message.hasOwnProperty("originOrderId"))
                         object.originOrderId = message.originOrderId;
@@ -4585,6 +4648,8 @@ $root.xyz = (function() {
                         object.contract = $root.xyz.redtorch.pb.ContractField.toObject(message.contract, options);
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         object.gatewayId = message.gatewayId;
+                    if (message.orderSubmitStatus != null && message.hasOwnProperty("orderSubmitStatus"))
+                        object.orderSubmitStatus = options.enums === String ? $root.xyz.redtorch.pb.OrderSubmitStatusEnum[message.orderSubmitStatus] : message.orderSubmitStatus;
                     return object;
                 };
 
