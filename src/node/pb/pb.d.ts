@@ -123,7 +123,9 @@ export namespace xyz {
                 SPREAD = 12,
                 FUND = 13,
                 EFP = 14,
-                SPOTOPTION = 15
+                SPOTOPTION = 15,
+                TAS = 16,
+                MI = 17
             }
 
             /** DirectionEnum enum. */

@@ -274,6 +274,8 @@ $root.xyz = (function() {
              * @property {number} FUND=13 FUND value
              * @property {number} EFP=14 EFP value
              * @property {number} SPOTOPTION=15 SPOTOPTION value
+             * @property {number} TAS=16 TAS value
+             * @property {number} MI=17 MI value
              */
             pb.ProductClassEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
@@ -293,6 +295,8 @@ $root.xyz = (function() {
                 values[valuesById[13] = "FUND"] = 13;
                 values[valuesById[14] = "EFP"] = 14;
                 values[valuesById[15] = "SPOTOPTION"] = 15;
+                values[valuesById[16] = "TAS"] = 16;
+                values[valuesById[17] = "MI"] = 17;
                 return values;
             })();
 
@@ -1817,6 +1821,8 @@ $root.xyz = (function() {
                         case 13:
                         case 14:
                         case 15:
+                        case 16:
+                        case 17:
                             break;
                         }
                     if (message.currency != null && message.hasOwnProperty("currency"))
@@ -2153,6 +2159,14 @@ $root.xyz = (function() {
                     case "SPOTOPTION":
                     case 15:
                         message.productClass = 15;
+                        break;
+                    case "TAS":
+                    case 16:
+                        message.productClass = 16;
+                        break;
+                    case "MI":
+                    case 17:
+                        message.productClass = 17;
                         break;
                     }
                     switch (object.currency) {
