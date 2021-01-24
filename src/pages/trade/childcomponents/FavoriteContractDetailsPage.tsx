@@ -1,27 +1,25 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { Stack } from '@fluentui/react/lib/Stack';
 import { withRouter } from 'react-router';
-import { mergeStyleSets, FontSizes } from 'office-ui-fabric-react/lib/Styling';
-import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { DetailsList, DetailsListLayoutMode, IDetailsHeaderProps, IColumn, IDetailsFooterProps, ConstrainMode, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
-import { IRenderFunction, SelectionMode } from 'office-ui-fabric-react/lib/Utilities';
-import { Sticky, StickyPositionType } from 'office-ui-fabric-react/lib/Sticky';
-import { TooltipHost, TooltipDelay, DirectionalHint } from 'office-ui-fabric-react/lib/Tooltip';
+import { mergeStyleSets, FontSizes } from '@fluentui/react/lib/Styling';
+import { ScrollablePane, ScrollbarVisibility } from '@fluentui/react/lib/ScrollablePane';
+import { DetailsList, DetailsListLayoutMode, IDetailsHeaderProps, IColumn, IDetailsFooterProps, ConstrainMode, DetailsHeader } from '@fluentui/react/lib/DetailsList';
+import { IRenderFunction, SelectionMode } from '@fluentui/react/lib/Utilities';
+import { Sticky, StickyPositionType } from '@fluentui/react/lib/Sticky';
+import { TooltipHost, TooltipDelay, DirectionalHint } from '@fluentui/react/lib/Tooltip';
 import { xyz } from "../../../node/pb/pb";
-import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/components/Dropdown';
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { DefaultButton, IconButton } from 'office-ui-fabric-react/lib/Button';
+import { TextField } from '@fluentui/react/lib/TextField';
+import { DefaultButton, IconButton } from '@fluentui/react/lib/Button';
 
 import { exchangeOptions, currencyOptions, productClassOptions } from '../../../utils'
+import { Dropdown, IDropdownOption } from '@fluentui/react/lib/Dropdown';
 
 const { CurrencyEnum, ExchangeEnum, ProductClassEnum, OptionsTypeEnum } = xyz.redtorch.pb
 
 
 
-@inject('authenticationStore', 'tradeContractStore', 'tradeActionStore', 'customizeStore', 'marketDataRecordingStore')
-@observer
-export class FavoriteContractDetailsPage extends React.Component<any> {
+export const FavoriteContractDetailsPage = inject('authenticationStore', 'tradeContractStore', 'tradeActionStore', 'customizeStore', 'marketDataRecordingStore')(observer(class FavoriteContractDetailsPage extends React.Component<any> {
 
     state = {
         filterExchange: 9999,
@@ -62,8 +60,7 @@ export class FavoriteContractDetailsPage extends React.Component<any> {
             favoriteContractList = customizeStore.favoriteContractList
         } else {
 
-            const favoriteContractListLength = customizeStore.favoriteContractList.length
-            for (let i = 0; i < favoriteContractListLength; i++) {
+            for (let i = 0; i < customizeStore.favoriteContractList.length; i++) {
                 const contract = customizeStore.favoriteContractList[i]
 
                 let flag = false;
@@ -500,6 +497,8 @@ export class FavoriteContractDetailsPage extends React.Component<any> {
                                         layoutMode={DetailsListLayoutMode.fixedColumns}
                                         constrainMode={ConstrainMode.unconstrained}
                                         // data-is-scrollable={true}
+                                        
+                                        // @ts-ignore
                                         onRenderDetailsHeader={
                                             // tslint:disable-next-line:jsx-no-lambda
                                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
@@ -511,6 +510,8 @@ export class FavoriteContractDetailsPage extends React.Component<any> {
                                                     {/* {defaultRender(detailsHeaderProps)} */}
                                                 </Sticky>
                                             )}
+                                            
+                                        // @ts-ignore
                                         onRenderDetailsFooter={
                                             // tslint:disable-next-line:jsx-no-lambda
                                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -532,6 +533,6 @@ export class FavoriteContractDetailsPage extends React.Component<any> {
 
 
 
-}
+}));
 
 export default withRouter(FavoriteContractDetailsPage)

@@ -1,17 +1,27 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import { isDevEnv } from '../utils';
 import { tradeActionStore } from './tradeActionStore'
 // import { rpcClientApi } from '../node/client/service/rpcClientApi';
 
 class TradeTickStore {
 
-    @observable tickList: any[] = []
-    public mixTickMap: Map<string, any> = new Map();
+    tickList: any[] = [];
+    mixTickMap: Map<string, any> = new Map();
 
-    @observable selectedTick: any;
-    private hasBeenChanged = false;
+    selectedTick: any;
+    hasBeenChanged = false;
 
-    public constructor() {
+    constructor() {
+        makeObservable(this, {
+            tickList: observable,
+            selectedTick: observable,
+            storeTick: action,
+            clearAndStoreTickList: action,
+            storeTickList: action,
+            coverMapToList: action,
+            setSelectedTick: action
+        });
+
         setTimeout(this.startIntervalCheckChange, 60)
         setTimeout(this.startIntervalUpdateSelectedTick, 80)
     }
@@ -32,12 +42,12 @@ class TradeTickStore {
         try {
             if (tradeActionStore.selectedContract) {
                 if (this.mixTickMap.has(tradeActionStore.selectedContract.unifiedSymbol)) {
-                    this.selectedTick = this.mixTickMap.get(tradeActionStore.selectedContract.unifiedSymbol)
+                    this.setSelectedTick( this.mixTickMap.get(tradeActionStore.selectedContract.unifiedSymbol))
                 } else {
-                    this.selectedTick = null
+                    this.setSelectedTick(null)
                 }
             } else {
-                this.selectedTick = null
+                this.setSelectedTick(null)
             }
 
             tradeActionStore.fillPrice()
@@ -48,8 +58,11 @@ class TradeTickStore {
         setTimeout(this.startIntervalUpdateSelectedTick, 80)
     }
 
-    @action
-    public storeTick(tick: any) {
+    setSelectedTick(selectedTick:any){
+        this.selectedTick = selectedTick
+    }
+
+    storeTick(tick: any) {
         if (isDevEnv) {
             console.debug(tick)
         }
@@ -60,14 +73,12 @@ class TradeTickStore {
         }
     }
 
-    @action
-    public clearAndStoreTickList(tickList: any[]) {
+    clearAndStoreTickList(tickList: any[]) {
         if (isDevEnv) {
             console.debug(tickList)
         }
         const newMixTickMap: Map<string, any> = new Map();
-        const tickListLength = tickList.length
-        for (let i = 0; i < tickListLength; i++) {
+        for (let i = 0; i < tickList.length; i++) {
             const tick = tickList[i]
             newMixTickMap.set(tick.unifiedSymbol, tick)
         }
@@ -75,13 +86,11 @@ class TradeTickStore {
         this.hasBeenChanged = true
     }
 
-    @action
-    public storeTickList(tickList: any[]) {
+    storeTickList(tickList: any[]) {
         if (isDevEnv) {
             console.debug(tickList)
         }
-        const tickListLength = tickList.length
-        for (let i = 0; i < tickListLength; i++) {
+        for (let i = 0; i < tickList.length; i++) {
             const tick = tickList[i]
     
             if (tick.unifiedSymbol) {
@@ -92,7 +101,7 @@ class TradeTickStore {
         this.hasBeenChanged = true
     }
 
-    @action coverMapToList() {
+    coverMapToList() {
         this.tickList = [...this.mixTickMap.values()];
     }
 

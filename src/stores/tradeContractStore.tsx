@@ -1,14 +1,23 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import { rpcClientApi } from '../node/client/service/rpcClientApi';
 import { isDevEnv } from '../utils';
 
 class TradeContractStore {
-    @observable mixContractList: any[] = []
-    public mxiContractMap: Map<string, any> = new Map();
+    mixContractList: any[] = [];
+    mxiContractMap: Map<string, any> = new Map();
 
-    private hasBeenChanged = false;
+    hasBeenChanged = false;
 
-    public constructor() {
+    constructor() {
+        makeObservable(this, {
+            mixContractList: observable,
+            getMixContractList: action,
+            storeContract: action,
+            clearAndStoreContractList: action,
+            storeContractList: action,
+            coverMapToList: action
+        });
+
         setTimeout(this.startIntervalCheckChange, 20)
     }
 
@@ -24,12 +33,11 @@ class TradeContractStore {
         setTimeout(this.startIntervalCheckChange, 500)
     }
 
-    @action getMixContractList() {
+    getMixContractList() {
         rpcClientApi.asyncGetMixContractList()
     }
 
-    @action
-    public storeContract(contract: any) {
+    storeContract(contract: any) {
         if (isDevEnv) {
             console.debug(contract)
         }
@@ -37,14 +45,12 @@ class TradeContractStore {
         this.hasBeenChanged = true
     }
 
-    @action
-    public clearAndStoreContractList(mixContractList: any[]) {
+    clearAndStoreContractList(mixContractList: any[]) {
         if (isDevEnv) {
             console.debug(mixContractList)
         }
         const newMixContractMap: Map<string, any> = new Map();
-        const mixContractListLength = mixContractList.length
-        for (let i = 0; i < mixContractListLength; i++) {
+        for (let i = 0; i <  mixContractList.length; i++) {
             const contract = mixContractList[i]
             newMixContractMap.set(contract.unifiedSymbol, contract)
         }
@@ -52,20 +58,18 @@ class TradeContractStore {
         this.hasBeenChanged = true
     }
 
-    @action
-    public storeContractList(mixContractList: any[]) {
+    storeContractList(mixContractList: any[]) {
         if (isDevEnv) {
             console.debug(mixContractList)
         }
-        const mixContractListLength = mixContractList.length
-        for (let i = 0; i < mixContractListLength; i++) {
+        for (let i = 0; i < mixContractList.length; i++) {
             const contract = mixContractList[i]
             this.mxiContractMap.set(contract.unifiedSymbol, contract);
         }
         this.hasBeenChanged = true
     }
 
-    @action coverMapToList() {
+    coverMapToList() {
         this.mixContractList = [...this.mxiContractMap.values()]
     }
 

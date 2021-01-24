@@ -1,15 +1,33 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import request from '../request'
 import { toast } from 'react-toastify';
 
 class UserStore {
-    @observable userList: any[] = []
+    userList: any[] = [];
 
-    @action getUserList() {
+    constructor() {
+        makeObservable(this, {
+            userList: observable,
+            getUserList: action,
+            addUser: action,
+            deleteUserByUsername: action,
+            updateUserDescriptionByUsername: action,
+            updateUserPasswordByUsername: action,
+            updateUserPermissionByUsername: action,
+            setUserList: action
+        });
+    }
+
+    setUserList(userList:any[]){
+        this.userList = userList
+    }
+
+    getUserList() {
         request('/api/management/user/getUserList').then(res => {
             if (res) {
                 if (res.status) {
-                    this.userList = Array.isArray(res.voData) ? res.voData : [];
+                    const userList = Array.isArray(res.voData) ? res.voData : [];
+                    this.setUserList(userList)
                 } else {
                     toast.error(`查询用户错误：${res.message}`);
                 }
@@ -19,7 +37,7 @@ class UserStore {
         });
     }
 
-    @action addUser(user: any) {
+    addUser(user: any) {
 
         request('/api/management/user/addUser', {
             method: 'POST',
@@ -39,7 +57,7 @@ class UserStore {
         });
     }
 
-    @action deleteUserByUsername(username: string) {
+    deleteUserByUsername(username: string) {
         request('/api/management/user/deleteUserByUsername', {
             method: 'POST',
             data: {
@@ -60,7 +78,7 @@ class UserStore {
     }
 
 
-    @action updateUserDescriptionByUsername(username: string, description: string) {
+    updateUserDescriptionByUsername(username: string, description: string) {
         request('/api/management/user/updateUserDescriptionByUsername', {
             method: 'POST',
             data: {
@@ -82,7 +100,7 @@ class UserStore {
     }
 
 
-    @action updateUserPasswordByUsername(username: string, password: string) {
+    updateUserPasswordByUsername(username: string, password: string) {
         request('/api/management/user/updateUserPasswordByUsername', {
             method: 'POST',
             data: {
@@ -105,7 +123,7 @@ class UserStore {
 
 
 
-    @action updateUserPermissionByUsername(user: any) {
+    updateUserPermissionByUsername(user: any) {
 
         request('/api/management/user/updateUserPermissionByUsername', {
             method: 'POST',
@@ -124,7 +142,5 @@ class UserStore {
             console.log(err);
         });
     }
-
-
 }
 export const userStore = new UserStore()

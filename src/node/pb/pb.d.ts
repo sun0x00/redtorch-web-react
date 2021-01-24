@@ -53,8 +53,8 @@ export namespace xyz {
                 MDDT_HIST = 2
             }
 
-            /** BarCycleEnum enum. */
-            enum BarCycleEnum {
+            /** BarPeriodEnum enum. */
+            enum BarPeriodEnum {
                 B_5Sec = 0,
                 B_1Min = 1,
                 B_3Min = 2,
@@ -65,7 +65,7 @@ export namespace xyz {
 
             /** ConnectStatusEnum enum. */
             enum ConnectStatusEnum {
-                CS_Unkonwn = 0,
+                CS_Unknown = 0,
                 CS_Disconnected = 1,
                 CS_Connected = 2,
                 CS_Disconnecting = 3,
@@ -74,7 +74,7 @@ export namespace xyz {
 
             /** OrderActionStatusTyp enum. */
             enum OrderActionStatusTyp {
-                OAS_Unkonwn = 0,
+                OAS_Unknown = 0,
                 OAS_Submitted = 1,
                 OAS_Accepted = 2,
                 OAS_Rejected = 3
@@ -184,7 +184,7 @@ export namespace xyz {
 
             /** OffsetFlagEnum enum. */
             enum OffsetFlagEnum {
-                OF_Unkonwn = 0,
+                OF_Unknown = 0,
                 OF_Open = 1,
                 OF_Close = 2,
                 OF_ForceClose = 3,
@@ -196,7 +196,7 @@ export namespace xyz {
 
             /** ForceCloseReasonEnum enum. */
             enum ForceCloseReasonEnum {
-                FCR_Unkonwn = 0,
+                FCR_Unknown = 0,
                 FCR_NotForceClose = 1,
                 FCR_LackDeposit = 2,
                 FCR_ClientOverPositionLimit = 3,
@@ -209,7 +209,7 @@ export namespace xyz {
 
             /** OrderTypeEnum enum. */
             enum OrderTypeEnum {
-                OT_Unkonwn = 0,
+                OT_Unknown = 0,
                 OT_Normal = 1,
                 OT_DeriveFromQuote = 2,
                 OT_DeriveFromCombination = 3,
@@ -220,7 +220,7 @@ export namespace xyz {
 
             /** TimeConditionEnum enum. */
             enum TimeConditionEnum {
-                TC_Unkonwn = 0,
+                TC_Unknown = 0,
                 TC_IOC = 1,
                 TC_GFS = 2,
                 TC_GFD = 3,
@@ -231,7 +231,7 @@ export namespace xyz {
 
             /** VolumeConditionEnum enum. */
             enum VolumeConditionEnum {
-                VC_Unkonwn = 0,
+                VC_Unknown = 0,
                 VC_AV = 1,
                 VC_MV = 2,
                 VC_CV = 3
@@ -239,7 +239,7 @@ export namespace xyz {
 
             /** ContingentConditionEnum enum. */
             enum ContingentConditionEnum {
-                CC_Unkonwn = 0,
+                CC_Unknown = 0,
                 CC_Immediately = 1,
                 CC_Touch = 2,
                 CC_TouchProfit = 3,
@@ -262,14 +262,14 @@ export namespace xyz {
 
             /** ActionFlagEnum enum. */
             enum ActionFlagEnum {
-                AF_Unkonwn = 0,
+                AF_Unknown = 0,
                 AF_Delete = 1,
                 AF_Modify = 2
             }
 
             /** TradingRightEnum enum. */
             enum TradingRightEnum {
-                TR_Unkonwn = 0,
+                TR_Unknown = 0,
                 TR_Allow = 1,
                 TR_CloseOnly = 2,
                 TR_Forbidden = 3
@@ -277,14 +277,14 @@ export namespace xyz {
 
             /** OrderSourceEnum enum. */
             enum OrderSourceEnum {
-                ODS_Unkonwn = 0,
+                ODS_Unknown = 0,
                 ODS_Participant = 1,
                 ODS_Administrator = 2
             }
 
             /** TradeTypeEnum enum. */
             enum TradeTypeEnum {
-                TT_Unkonwn = 0,
+                TT_Unknown = 0,
                 TT_SplitCombination = 1,
                 TT_Common = 2,
                 TT_OptionsExecution = 3,
@@ -296,7 +296,7 @@ export namespace xyz {
 
             /** PriceSourceEnum enum. */
             enum PriceSourceEnum {
-                PSRC_Unkonwn = 0,
+                PSRC_Unknown = 0,
                 PSRC_LastPrice = 1,
                 PSRC_Buy = 2,
                 PSRC_Sell = 3,
@@ -2236,17 +2236,11 @@ export namespace xyz {
             /** Properties of a CommonReqField. */
             interface ICommonReqField {
 
-                /** CommonReqField reqId */
-                reqId?: (string|null);
+                /** CommonReqField transactionId */
+                transactionId?: (string|null);
 
                 /** CommonReqField operatorId */
                 operatorId?: (string|null);
-
-                /** CommonReqField targetNodeId */
-                targetNodeId?: (number|null);
-
-                /** CommonReqField sourceNodeId */
-                sourceNodeId?: (number|null);
             }
 
             /** Represents a CommonReqField. */
@@ -2258,17 +2252,11 @@ export namespace xyz {
                  */
                 constructor(properties?: xyz.redtorch.pb.ICommonReqField);
 
-                /** CommonReqField reqId. */
-                public reqId: string;
+                /** CommonReqField transactionId. */
+                public transactionId: string;
 
                 /** CommonReqField operatorId. */
                 public operatorId: string;
-
-                /** CommonReqField targetNodeId. */
-                public targetNodeId: number;
-
-                /** CommonReqField sourceNodeId. */
-                public sourceNodeId: number;
 
                 /**
                  * Creates a new CommonReqField instance using the specified properties.
@@ -2344,8 +2332,8 @@ export namespace xyz {
             /** Properties of a CommonRspField. */
             interface ICommonRspField {
 
-                /** CommonRspField reqId */
-                reqId?: (string|null);
+                /** CommonRspField transactionId */
+                transactionId?: (string|null);
 
                 /** CommonRspField errorId */
                 errorId?: (number|null);
@@ -2363,8 +2351,8 @@ export namespace xyz {
                  */
                 constructor(properties?: xyz.redtorch.pb.ICommonRspField);
 
-                /** CommonRspField reqId. */
-                public reqId: string;
+                /** CommonRspField transactionId. */
+                public transactionId: string;
 
                 /** CommonRspField errorId. */
                 public errorId: number;
@@ -9259,8 +9247,8 @@ export namespace xyz {
                 /** RpcQueryDBBarListReq unifiedSymbol */
                 unifiedSymbol?: (string|null);
 
-                /** RpcQueryDBBarListReq barCycle */
-                barCycle?: (xyz.redtorch.pb.BarCycleEnum|null);
+                /** RpcQueryDBBarListReq barPeriod */
+                barPeriod?: (xyz.redtorch.pb.BarPeriodEnum|null);
 
                 /** RpcQueryDBBarListReq marketDataDBType */
                 marketDataDBType?: (xyz.redtorch.pb.MarketDataDBTypeEnum|null);
@@ -9287,8 +9275,8 @@ export namespace xyz {
                 /** RpcQueryDBBarListReq unifiedSymbol. */
                 public unifiedSymbol: string;
 
-                /** RpcQueryDBBarListReq barCycle. */
-                public barCycle: xyz.redtorch.pb.BarCycleEnum;
+                /** RpcQueryDBBarListReq barPeriod. */
+                public barPeriod: xyz.redtorch.pb.BarPeriodEnum;
 
                 /** RpcQueryDBBarListReq marketDataDBType. */
                 public marketDataDBType: xyz.redtorch.pb.MarketDataDBTypeEnum;
@@ -9886,8 +9874,8 @@ export namespace xyz {
                 /** RpcExceptionRsp originalRpcId */
                 originalRpcId?: (number|null);
 
-                /** RpcExceptionRsp originalReqId */
-                originalReqId?: (string|null);
+                /** RpcExceptionRsp originalTransactionId */
+                originalTransactionId?: (string|null);
 
                 /** RpcExceptionRsp originalTimestamp */
                 originalTimestamp?: (number|Long|null);
@@ -9908,8 +9896,8 @@ export namespace xyz {
                 /** RpcExceptionRsp originalRpcId. */
                 public originalRpcId: number;
 
-                /** RpcExceptionRsp originalReqId. */
-                public originalReqId: string;
+                /** RpcExceptionRsp originalTransactionId. */
+                public originalTransactionId: string;
 
                 /** RpcExceptionRsp originalTimestamp. */
                 public originalTimestamp: (number|Long);
@@ -11251,26 +11239,14 @@ export namespace xyz {
                 /** DataExchangeProtocol contentType */
                 contentType?: (xyz.redtorch.pb.DataExchangeProtocol.ContentType|null);
 
-                /** DataExchangeProtocol rpcType */
-                rpcType?: (xyz.redtorch.pb.DataExchangeProtocol.RpcType|null);
-
-                /** DataExchangeProtocol timestamp */
-                timestamp?: (number|Long|null);
-
-                /** DataExchangeProtocol sourceNodeId */
-                sourceNodeId?: (number|null);
-
-                /** DataExchangeProtocol targetNodeId */
-                targetNodeId?: (number|null);
-
                 /** DataExchangeProtocol rpcId */
                 rpcId?: (number|null);
 
-                /** DataExchangeProtocol reqId */
-                reqId?: (string|null);
-
                 /** DataExchangeProtocol contentBytes */
                 contentBytes?: (Uint8Array|null);
+
+                /** DataExchangeProtocol timestamp */
+                timestamp?: (number|Long|null);
             }
 
             /** Represents a DataExchangeProtocol. */
@@ -11285,26 +11261,14 @@ export namespace xyz {
                 /** DataExchangeProtocol contentType. */
                 public contentType: xyz.redtorch.pb.DataExchangeProtocol.ContentType;
 
-                /** DataExchangeProtocol rpcType. */
-                public rpcType: xyz.redtorch.pb.DataExchangeProtocol.RpcType;
-
-                /** DataExchangeProtocol timestamp. */
-                public timestamp: (number|Long);
-
-                /** DataExchangeProtocol sourceNodeId. */
-                public sourceNodeId: number;
-
-                /** DataExchangeProtocol targetNodeId. */
-                public targetNodeId: number;
-
                 /** DataExchangeProtocol rpcId. */
                 public rpcId: number;
 
-                /** DataExchangeProtocol reqId. */
-                public reqId: string;
-
                 /** DataExchangeProtocol contentBytes. */
                 public contentBytes: Uint8Array;
+
+                /** DataExchangeProtocol timestamp. */
+                public timestamp: (number|Long);
 
                 /**
                  * Creates a new DataExchangeProtocol instance using the specified properties.
@@ -11378,11 +11342,6 @@ export namespace xyz {
             }
 
             namespace DataExchangeProtocol {
-
-                /** RpcType enum. */
-                enum RpcType {
-                    CORE_RPC = 0
-                }
 
                 /** ContentType enum. */
                 enum ContentType {

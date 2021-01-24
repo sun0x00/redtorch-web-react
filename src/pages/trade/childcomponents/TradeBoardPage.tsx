@@ -1,18 +1,18 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
 import { withRouter } from 'react-router';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
-import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
-import { TooltipHost, TooltipDelay, DirectionalHint } from 'office-ui-fabric-react/lib/Tooltip';
-import { Modal } from 'office-ui-fabric-react/lib/Modal';
+import { Stack } from '@fluentui/react/lib/Stack';
+import { TextField } from '@fluentui/react/lib/TextField';
+import { DefaultButton } from '@fluentui/react/lib/Button';
+import { Dropdown, IDropdownOption } from '@fluentui/react/lib/Dropdown';
+import { TooltipHost, TooltipDelay, DirectionalHint } from '@fluentui/react/lib/Tooltip';
+import { Modal } from '@fluentui/react/lib/Modal';
 import { isDevEnv } from '../../../utils';
 import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
-import { ContextualMenu } from 'office-ui-fabric-react/lib/ContextualMenu';
+import { ContextualMenu } from '@fluentui/react/lib/ContextualMenu';
 import { xyz } from "../../../node/pb/pb";
-import { FontSizes } from 'office-ui-fabric-react/lib/Styling';
+import { FontSizes } from '@fluentui/react/lib/Styling';
 
 const { 
     ExchangeEnum,
@@ -28,9 +28,7 @@ const {
  } = xyz.redtorch.pb
 
 
-@inject('authenticationStore', 'tradeActionStore', 'tradeAccountStore')
-@observer
-export class TradeBoardPage extends React.Component<any> {
+export const TradeBoardPage = inject('authenticationStore', 'tradeActionStore', 'tradeAccountStore')(observer(class TradeBoardPage extends React.Component<any> {
 
     public state = { showSubmitOrderModal: false, confirmPrice: null, actionType: '' };
 
@@ -669,7 +667,7 @@ export class TradeBoardPage extends React.Component<any> {
                         }
                     }
                 >
-                    <Stack gap={5} padding={20}>
+                    <Stack tokens={{ childrenGap: 5, padding:20 }}>
                         <Stack.Item align="center" styles={{ root: { width: '100%' } }}>
                             <Stack styles={{ root: { textAlign: "center", fontSize: FontSizes.large } }}>
                                 定单确认
@@ -881,6 +879,6 @@ export class TradeBoardPage extends React.Component<any> {
 
     }
 
-}
+}));
 
 export default withRouter(TradeBoardPage)

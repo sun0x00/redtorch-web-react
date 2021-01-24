@@ -139,8 +139,8 @@ $root.xyz = (function() {
             })();
 
             /**
-             * BarCycleEnum enum.
-             * @name xyz.redtorch.pb.BarCycleEnum
+             * BarPeriodEnum enum.
+             * @name xyz.redtorch.pb.BarPeriodEnum
              * @enum {string}
              * @property {number} B_5Sec=0 B_5Sec value
              * @property {number} B_1Min=1 B_1Min value
@@ -149,7 +149,7 @@ $root.xyz = (function() {
              * @property {number} B_15Min=4 B_15Min value
              * @property {number} B_1Day=5 B_1Day value
              */
-            pb.BarCycleEnum = (function() {
+            pb.BarPeriodEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
                 values[valuesById[0] = "B_5Sec"] = 0;
                 values[valuesById[1] = "B_1Min"] = 1;
@@ -164,7 +164,7 @@ $root.xyz = (function() {
              * ConnectStatusEnum enum.
              * @name xyz.redtorch.pb.ConnectStatusEnum
              * @enum {string}
-             * @property {number} CS_Unkonwn=0 CS_Unkonwn value
+             * @property {number} CS_Unknown=0 CS_Unknown value
              * @property {number} CS_Disconnected=1 CS_Disconnected value
              * @property {number} CS_Connected=2 CS_Connected value
              * @property {number} CS_Disconnecting=3 CS_Disconnecting value
@@ -172,7 +172,7 @@ $root.xyz = (function() {
              */
             pb.ConnectStatusEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "CS_Unkonwn"] = 0;
+                values[valuesById[0] = "CS_Unknown"] = 0;
                 values[valuesById[1] = "CS_Disconnected"] = 1;
                 values[valuesById[2] = "CS_Connected"] = 2;
                 values[valuesById[3] = "CS_Disconnecting"] = 3;
@@ -184,14 +184,14 @@ $root.xyz = (function() {
              * OrderActionStatusTyp enum.
              * @name xyz.redtorch.pb.OrderActionStatusTyp
              * @enum {string}
-             * @property {number} OAS_Unkonwn=0 OAS_Unkonwn value
+             * @property {number} OAS_Unknown=0 OAS_Unknown value
              * @property {number} OAS_Submitted=1 OAS_Submitted value
              * @property {number} OAS_Accepted=2 OAS_Accepted value
              * @property {number} OAS_Rejected=3 OAS_Rejected value
              */
             pb.OrderActionStatusTyp = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "OAS_Unkonwn"] = 0;
+                values[valuesById[0] = "OAS_Unknown"] = 0;
                 values[valuesById[1] = "OAS_Submitted"] = 1;
                 values[valuesById[2] = "OAS_Accepted"] = 2;
                 values[valuesById[3] = "OAS_Rejected"] = 3;
@@ -422,7 +422,7 @@ $root.xyz = (function() {
              * OffsetFlagEnum enum.
              * @name xyz.redtorch.pb.OffsetFlagEnum
              * @enum {string}
-             * @property {number} OF_Unkonwn=0 OF_Unkonwn value
+             * @property {number} OF_Unknown=0 OF_Unknown value
              * @property {number} OF_Open=1 OF_Open value
              * @property {number} OF_Close=2 OF_Close value
              * @property {number} OF_ForceClose=3 OF_ForceClose value
@@ -433,7 +433,7 @@ $root.xyz = (function() {
              */
             pb.OffsetFlagEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "OF_Unkonwn"] = 0;
+                values[valuesById[0] = "OF_Unknown"] = 0;
                 values[valuesById[1] = "OF_Open"] = 1;
                 values[valuesById[2] = "OF_Close"] = 2;
                 values[valuesById[3] = "OF_ForceClose"] = 3;
@@ -448,7 +448,7 @@ $root.xyz = (function() {
              * ForceCloseReasonEnum enum.
              * @name xyz.redtorch.pb.ForceCloseReasonEnum
              * @enum {string}
-             * @property {number} FCR_Unkonwn=0 FCR_Unkonwn value
+             * @property {number} FCR_Unknown=0 FCR_Unknown value
              * @property {number} FCR_NotForceClose=1 FCR_NotForceClose value
              * @property {number} FCR_LackDeposit=2 FCR_LackDeposit value
              * @property {number} FCR_ClientOverPositionLimit=3 FCR_ClientOverPositionLimit value
@@ -460,7 +460,7 @@ $root.xyz = (function() {
              */
             pb.ForceCloseReasonEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "FCR_Unkonwn"] = 0;
+                values[valuesById[0] = "FCR_Unknown"] = 0;
                 values[valuesById[1] = "FCR_NotForceClose"] = 1;
                 values[valuesById[2] = "FCR_LackDeposit"] = 2;
                 values[valuesById[3] = "FCR_ClientOverPositionLimit"] = 3;
@@ -476,7 +476,7 @@ $root.xyz = (function() {
              * OrderTypeEnum enum.
              * @name xyz.redtorch.pb.OrderTypeEnum
              * @enum {string}
-             * @property {number} OT_Unkonwn=0 OT_Unkonwn value
+             * @property {number} OT_Unknown=0 OT_Unknown value
              * @property {number} OT_Normal=1 OT_Normal value
              * @property {number} OT_DeriveFromQuote=2 OT_DeriveFromQuote value
              * @property {number} OT_DeriveFromCombination=3 OT_DeriveFromCombination value
@@ -486,7 +486,7 @@ $root.xyz = (function() {
              */
             pb.OrderTypeEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "OT_Unkonwn"] = 0;
+                values[valuesById[0] = "OT_Unknown"] = 0;
                 values[valuesById[1] = "OT_Normal"] = 1;
                 values[valuesById[2] = "OT_DeriveFromQuote"] = 2;
                 values[valuesById[3] = "OT_DeriveFromCombination"] = 3;
@@ -500,7 +500,7 @@ $root.xyz = (function() {
              * TimeConditionEnum enum.
              * @name xyz.redtorch.pb.TimeConditionEnum
              * @enum {string}
-             * @property {number} TC_Unkonwn=0 TC_Unkonwn value
+             * @property {number} TC_Unknown=0 TC_Unknown value
              * @property {number} TC_IOC=1 TC_IOC value
              * @property {number} TC_GFS=2 TC_GFS value
              * @property {number} TC_GFD=3 TC_GFD value
@@ -510,7 +510,7 @@ $root.xyz = (function() {
              */
             pb.TimeConditionEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "TC_Unkonwn"] = 0;
+                values[valuesById[0] = "TC_Unknown"] = 0;
                 values[valuesById[1] = "TC_IOC"] = 1;
                 values[valuesById[2] = "TC_GFS"] = 2;
                 values[valuesById[3] = "TC_GFD"] = 3;
@@ -524,14 +524,14 @@ $root.xyz = (function() {
              * VolumeConditionEnum enum.
              * @name xyz.redtorch.pb.VolumeConditionEnum
              * @enum {string}
-             * @property {number} VC_Unkonwn=0 VC_Unkonwn value
+             * @property {number} VC_Unknown=0 VC_Unknown value
              * @property {number} VC_AV=1 VC_AV value
              * @property {number} VC_MV=2 VC_MV value
              * @property {number} VC_CV=3 VC_CV value
              */
             pb.VolumeConditionEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "VC_Unkonwn"] = 0;
+                values[valuesById[0] = "VC_Unknown"] = 0;
                 values[valuesById[1] = "VC_AV"] = 1;
                 values[valuesById[2] = "VC_MV"] = 2;
                 values[valuesById[3] = "VC_CV"] = 3;
@@ -542,7 +542,7 @@ $root.xyz = (function() {
              * ContingentConditionEnum enum.
              * @name xyz.redtorch.pb.ContingentConditionEnum
              * @enum {string}
-             * @property {number} CC_Unkonwn=0 CC_Unkonwn value
+             * @property {number} CC_Unknown=0 CC_Unknown value
              * @property {number} CC_Immediately=1 CC_Immediately value
              * @property {number} CC_Touch=2 CC_Touch value
              * @property {number} CC_TouchProfit=3 CC_TouchProfit value
@@ -564,7 +564,7 @@ $root.xyz = (function() {
              */
             pb.ContingentConditionEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "CC_Unkonwn"] = 0;
+                values[valuesById[0] = "CC_Unknown"] = 0;
                 values[valuesById[1] = "CC_Immediately"] = 1;
                 values[valuesById[2] = "CC_Touch"] = 2;
                 values[valuesById[3] = "CC_TouchProfit"] = 3;
@@ -590,13 +590,13 @@ $root.xyz = (function() {
              * ActionFlagEnum enum.
              * @name xyz.redtorch.pb.ActionFlagEnum
              * @enum {string}
-             * @property {number} AF_Unkonwn=0 AF_Unkonwn value
+             * @property {number} AF_Unknown=0 AF_Unknown value
              * @property {number} AF_Delete=1 AF_Delete value
              * @property {number} AF_Modify=2 AF_Modify value
              */
             pb.ActionFlagEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "AF_Unkonwn"] = 0;
+                values[valuesById[0] = "AF_Unknown"] = 0;
                 values[valuesById[1] = "AF_Delete"] = 1;
                 values[valuesById[2] = "AF_Modify"] = 2;
                 return values;
@@ -606,14 +606,14 @@ $root.xyz = (function() {
              * TradingRightEnum enum.
              * @name xyz.redtorch.pb.TradingRightEnum
              * @enum {string}
-             * @property {number} TR_Unkonwn=0 TR_Unkonwn value
+             * @property {number} TR_Unknown=0 TR_Unknown value
              * @property {number} TR_Allow=1 TR_Allow value
              * @property {number} TR_CloseOnly=2 TR_CloseOnly value
              * @property {number} TR_Forbidden=3 TR_Forbidden value
              */
             pb.TradingRightEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "TR_Unkonwn"] = 0;
+                values[valuesById[0] = "TR_Unknown"] = 0;
                 values[valuesById[1] = "TR_Allow"] = 1;
                 values[valuesById[2] = "TR_CloseOnly"] = 2;
                 values[valuesById[3] = "TR_Forbidden"] = 3;
@@ -624,13 +624,13 @@ $root.xyz = (function() {
              * OrderSourceEnum enum.
              * @name xyz.redtorch.pb.OrderSourceEnum
              * @enum {string}
-             * @property {number} ODS_Unkonwn=0 ODS_Unkonwn value
+             * @property {number} ODS_Unknown=0 ODS_Unknown value
              * @property {number} ODS_Participant=1 ODS_Participant value
              * @property {number} ODS_Administrator=2 ODS_Administrator value
              */
             pb.OrderSourceEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "ODS_Unkonwn"] = 0;
+                values[valuesById[0] = "ODS_Unknown"] = 0;
                 values[valuesById[1] = "ODS_Participant"] = 1;
                 values[valuesById[2] = "ODS_Administrator"] = 2;
                 return values;
@@ -640,7 +640,7 @@ $root.xyz = (function() {
              * TradeTypeEnum enum.
              * @name xyz.redtorch.pb.TradeTypeEnum
              * @enum {string}
-             * @property {number} TT_Unkonwn=0 TT_Unkonwn value
+             * @property {number} TT_Unknown=0 TT_Unknown value
              * @property {number} TT_SplitCombination=1 TT_SplitCombination value
              * @property {number} TT_Common=2 TT_Common value
              * @property {number} TT_OptionsExecution=3 TT_OptionsExecution value
@@ -651,7 +651,7 @@ $root.xyz = (function() {
              */
             pb.TradeTypeEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "TT_Unkonwn"] = 0;
+                values[valuesById[0] = "TT_Unknown"] = 0;
                 values[valuesById[1] = "TT_SplitCombination"] = 1;
                 values[valuesById[2] = "TT_Common"] = 2;
                 values[valuesById[3] = "TT_OptionsExecution"] = 3;
@@ -666,7 +666,7 @@ $root.xyz = (function() {
              * PriceSourceEnum enum.
              * @name xyz.redtorch.pb.PriceSourceEnum
              * @enum {string}
-             * @property {number} PSRC_Unkonwn=0 PSRC_Unkonwn value
+             * @property {number} PSRC_Unknown=0 PSRC_Unknown value
              * @property {number} PSRC_LastPrice=1 PSRC_LastPrice value
              * @property {number} PSRC_Buy=2 PSRC_Buy value
              * @property {number} PSRC_Sell=3 PSRC_Sell value
@@ -674,7 +674,7 @@ $root.xyz = (function() {
              */
             pb.PriceSourceEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "PSRC_Unkonwn"] = 0;
+                values[valuesById[0] = "PSRC_Unknown"] = 0;
                 values[valuesById[1] = "PSRC_LastPrice"] = 1;
                 values[valuesById[2] = "PSRC_Buy"] = 2;
                 values[valuesById[3] = "PSRC_Sell"] = 3;
@@ -1197,7 +1197,7 @@ $root.xyz = (function() {
                         break;
                     }
                     switch (object.status) {
-                    case "CS_Unkonwn":
+                    case "CS_Unknown":
                     case 0:
                         message.status = 0;
                         break;
@@ -1242,7 +1242,7 @@ $root.xyz = (function() {
                         object.description = "";
                         object.gatewayType = options.enums === String ? "GTE_TradeAndMarketData" : 0;
                         object.gatewayAdapterType = options.enums === String ? "GAT_CTP" : 0;
-                        object.status = options.enums === String ? "CS_Unkonwn" : 0;
+                        object.status = options.enums === String ? "CS_Unknown" : 0;
                         object.authErrorFlag = false;
                     }
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
@@ -4111,7 +4111,7 @@ $root.xyz = (function() {
                         break;
                     }
                     switch (object.offsetFlag) {
-                    case "OF_Unkonwn":
+                    case "OF_Unknown":
                     case 0:
                         message.offsetFlag = 0;
                         break;
@@ -4293,7 +4293,7 @@ $root.xyz = (function() {
                     if (object.tradedVolume != null)
                         message.tradedVolume = object.tradedVolume >>> 0;
                     switch (object.timeCondition) {
-                    case "TC_Unkonwn":
+                    case "TC_Unknown":
                     case 0:
                         message.timeCondition = 0;
                         break;
@@ -4325,7 +4325,7 @@ $root.xyz = (function() {
                     if (object.gtdDate != null)
                         message.gtdDate = String(object.gtdDate);
                     switch (object.volumeCondition) {
-                    case "VC_Unkonwn":
+                    case "VC_Unknown":
                     case 0:
                         message.volumeCondition = 0;
                         break;
@@ -4345,7 +4345,7 @@ $root.xyz = (function() {
                     if (object.minVolume != null)
                         message.minVolume = object.minVolume >>> 0;
                     switch (object.contingentCondition) {
-                    case "CC_Unkonwn":
+                    case "CC_Unknown":
                     case 0:
                         message.contingentCondition = 0;
                         break;
@@ -4425,7 +4425,7 @@ $root.xyz = (function() {
                     if (object.stopPrice != null)
                         message.stopPrice = Number(object.stopPrice);
                     switch (object.forceCloseReason) {
-                    case "FCR_Unkonwn":
+                    case "FCR_Unknown":
                     case 0:
                         message.forceCloseReason = 0;
                         break;
@@ -4555,20 +4555,20 @@ $root.xyz = (function() {
                         object.orderSysId = "";
                         object.sequenceNo = "";
                         object.direction = options.enums === String ? "D_Unknown" : 0;
-                        object.offsetFlag = options.enums === String ? "OF_Unkonwn" : 0;
+                        object.offsetFlag = options.enums === String ? "OF_Unknown" : 0;
                         object.hedgeFlag = options.enums === String ? "HF_Unknown" : 0;
                         object.orderPriceType = options.enums === String ? "OPT_Unknown" : 0;
                         object.orderStatus = options.enums === String ? "OS_Unknown" : 0;
                         object.price = 0;
                         object.totalVolume = 0;
                         object.tradedVolume = 0;
-                        object.timeCondition = options.enums === String ? "TC_Unkonwn" : 0;
+                        object.timeCondition = options.enums === String ? "TC_Unknown" : 0;
                         object.gtdDate = "";
-                        object.volumeCondition = options.enums === String ? "VC_Unkonwn" : 0;
+                        object.volumeCondition = options.enums === String ? "VC_Unknown" : 0;
                         object.minVolume = 0;
-                        object.contingentCondition = options.enums === String ? "CC_Unkonwn" : 0;
+                        object.contingentCondition = options.enums === String ? "CC_Unknown" : 0;
                         object.stopPrice = 0;
-                        object.forceCloseReason = options.enums === String ? "FCR_Unkonwn" : 0;
+                        object.forceCloseReason = options.enums === String ? "FCR_Unknown" : 0;
                         object.autoSuspend = 0;
                         object.userForceClose = 0;
                         object.swapOrder = 0;
@@ -5305,7 +5305,7 @@ $root.xyz = (function() {
                         break;
                     }
                     switch (object.offsetFlag) {
-                    case "OF_Unkonwn":
+                    case "OF_Unknown":
                     case 0:
                         message.offsetFlag = 0;
                         break;
@@ -5373,7 +5373,7 @@ $root.xyz = (function() {
                     if (object.volume != null)
                         message.volume = object.volume >>> 0;
                     switch (object.tradeType) {
-                    case "TT_Unkonwn":
+                    case "TT_Unknown":
                     case 0:
                         message.tradeType = 0;
                         break;
@@ -5407,7 +5407,7 @@ $root.xyz = (function() {
                         break;
                     }
                     switch (object.priceSource) {
-                    case "PSRC_Unkonwn":
+                    case "PSRC_Unknown":
                     case 0:
                         message.priceSource = 0;
                         break;
@@ -5479,12 +5479,12 @@ $root.xyz = (function() {
                         object.sequenceNo = "";
                         object.accountId = "";
                         object.direction = options.enums === String ? "D_Unknown" : 0;
-                        object.offsetFlag = options.enums === String ? "OF_Unkonwn" : 0;
+                        object.offsetFlag = options.enums === String ? "OF_Unknown" : 0;
                         object.hedgeFlag = options.enums === String ? "HF_Unknown" : 0;
                         object.price = 0;
                         object.volume = 0;
-                        object.tradeType = options.enums === String ? "TT_Unkonwn" : 0;
-                        object.priceSource = options.enums === String ? "PSRC_Unkonwn" : 0;
+                        object.tradeType = options.enums === String ? "TT_Unknown" : 0;
+                        object.priceSource = options.enums === String ? "PSRC_Unknown" : 0;
                         object.tradingDay = "";
                         object.tradeDate = "";
                         object.tradeTime = "";
@@ -8218,10 +8218,8 @@ $root.xyz = (function() {
                  * Properties of a CommonReqField.
                  * @memberof xyz.redtorch.pb
                  * @interface ICommonReqField
-                 * @property {string|null} [reqId] CommonReqField reqId
+                 * @property {string|null} [transactionId] CommonReqField transactionId
                  * @property {string|null} [operatorId] CommonReqField operatorId
-                 * @property {number|null} [targetNodeId] CommonReqField targetNodeId
-                 * @property {number|null} [sourceNodeId] CommonReqField sourceNodeId
                  */
 
                 /**
@@ -8240,12 +8238,12 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * CommonReqField reqId.
-                 * @member {string} reqId
+                 * CommonReqField transactionId.
+                 * @member {string} transactionId
                  * @memberof xyz.redtorch.pb.CommonReqField
                  * @instance
                  */
-                CommonReqField.prototype.reqId = "";
+                CommonReqField.prototype.transactionId = "";
 
                 /**
                  * CommonReqField operatorId.
@@ -8254,22 +8252,6 @@ $root.xyz = (function() {
                  * @instance
                  */
                 CommonReqField.prototype.operatorId = "";
-
-                /**
-                 * CommonReqField targetNodeId.
-                 * @member {number} targetNodeId
-                 * @memberof xyz.redtorch.pb.CommonReqField
-                 * @instance
-                 */
-                CommonReqField.prototype.targetNodeId = 0;
-
-                /**
-                 * CommonReqField sourceNodeId.
-                 * @member {number} sourceNodeId
-                 * @memberof xyz.redtorch.pb.CommonReqField
-                 * @instance
-                 */
-                CommonReqField.prototype.sourceNodeId = 0;
 
                 /**
                  * Creates a new CommonReqField instance using the specified properties.
@@ -8295,14 +8277,10 @@ $root.xyz = (function() {
                 CommonReqField.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.reqId);
+                    if (message.transactionId != null && message.hasOwnProperty("transactionId"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.transactionId);
                     if (message.operatorId != null && message.hasOwnProperty("operatorId"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.operatorId);
-                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
-                        writer.uint32(/* id 3, wireType 5 =*/29).fixed32(message.targetNodeId);
-                    if (message.sourceNodeId != null && message.hasOwnProperty("sourceNodeId"))
-                        writer.uint32(/* id 4, wireType 5 =*/37).fixed32(message.sourceNodeId);
                     return writer;
                 };
 
@@ -8338,16 +8316,10 @@ $root.xyz = (function() {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
                         case 1:
-                            message.reqId = reader.string();
+                            message.transactionId = reader.string();
                             break;
                         case 2:
                             message.operatorId = reader.string();
-                            break;
-                        case 3:
-                            message.targetNodeId = reader.fixed32();
-                            break;
-                        case 4:
-                            message.sourceNodeId = reader.fixed32();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -8384,18 +8356,12 @@ $root.xyz = (function() {
                 CommonReqField.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        if (!$util.isString(message.reqId))
-                            return "reqId: string expected";
+                    if (message.transactionId != null && message.hasOwnProperty("transactionId"))
+                        if (!$util.isString(message.transactionId))
+                            return "transactionId: string expected";
                     if (message.operatorId != null && message.hasOwnProperty("operatorId"))
                         if (!$util.isString(message.operatorId))
                             return "operatorId: string expected";
-                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
-                        if (!$util.isInteger(message.targetNodeId))
-                            return "targetNodeId: integer expected";
-                    if (message.sourceNodeId != null && message.hasOwnProperty("sourceNodeId"))
-                        if (!$util.isInteger(message.sourceNodeId))
-                            return "sourceNodeId: integer expected";
                     return null;
                 };
 
@@ -8411,14 +8377,10 @@ $root.xyz = (function() {
                     if (object instanceof $root.xyz.redtorch.pb.CommonReqField)
                         return object;
                     var message = new $root.xyz.redtorch.pb.CommonReqField();
-                    if (object.reqId != null)
-                        message.reqId = String(object.reqId);
+                    if (object.transactionId != null)
+                        message.transactionId = String(object.transactionId);
                     if (object.operatorId != null)
                         message.operatorId = String(object.operatorId);
-                    if (object.targetNodeId != null)
-                        message.targetNodeId = object.targetNodeId >>> 0;
-                    if (object.sourceNodeId != null)
-                        message.sourceNodeId = object.sourceNodeId >>> 0;
                     return message;
                 };
 
@@ -8436,19 +8398,13 @@ $root.xyz = (function() {
                         options = {};
                     var object = {};
                     if (options.defaults) {
-                        object.reqId = "";
+                        object.transactionId = "";
                         object.operatorId = "";
-                        object.targetNodeId = 0;
-                        object.sourceNodeId = 0;
                     }
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        object.reqId = message.reqId;
+                    if (message.transactionId != null && message.hasOwnProperty("transactionId"))
+                        object.transactionId = message.transactionId;
                     if (message.operatorId != null && message.hasOwnProperty("operatorId"))
                         object.operatorId = message.operatorId;
-                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
-                        object.targetNodeId = message.targetNodeId;
-                    if (message.sourceNodeId != null && message.hasOwnProperty("sourceNodeId"))
-                        object.sourceNodeId = message.sourceNodeId;
                     return object;
                 };
 
@@ -8472,7 +8428,7 @@ $root.xyz = (function() {
                  * Properties of a CommonRspField.
                  * @memberof xyz.redtorch.pb
                  * @interface ICommonRspField
-                 * @property {string|null} [reqId] CommonRspField reqId
+                 * @property {string|null} [transactionId] CommonRspField transactionId
                  * @property {number|null} [errorId] CommonRspField errorId
                  * @property {string|null} [errorMsg] CommonRspField errorMsg
                  */
@@ -8493,12 +8449,12 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * CommonRspField reqId.
-                 * @member {string} reqId
+                 * CommonRspField transactionId.
+                 * @member {string} transactionId
                  * @memberof xyz.redtorch.pb.CommonRspField
                  * @instance
                  */
-                CommonRspField.prototype.reqId = "";
+                CommonRspField.prototype.transactionId = "";
 
                 /**
                  * CommonRspField errorId.
@@ -8540,8 +8496,8 @@ $root.xyz = (function() {
                 CommonRspField.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.reqId);
+                    if (message.transactionId != null && message.hasOwnProperty("transactionId"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.transactionId);
                     if (message.errorId != null && message.hasOwnProperty("errorId"))
                         writer.uint32(/* id 2, wireType 5 =*/21).fixed32(message.errorId);
                     if (message.errorMsg != null && message.hasOwnProperty("errorMsg"))
@@ -8581,7 +8537,7 @@ $root.xyz = (function() {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
                         case 1:
-                            message.reqId = reader.string();
+                            message.transactionId = reader.string();
                             break;
                         case 2:
                             message.errorId = reader.fixed32();
@@ -8624,9 +8580,9 @@ $root.xyz = (function() {
                 CommonRspField.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        if (!$util.isString(message.reqId))
-                            return "reqId: string expected";
+                    if (message.transactionId != null && message.hasOwnProperty("transactionId"))
+                        if (!$util.isString(message.transactionId))
+                            return "transactionId: string expected";
                     if (message.errorId != null && message.hasOwnProperty("errorId"))
                         if (!$util.isInteger(message.errorId))
                             return "errorId: integer expected";
@@ -8648,8 +8604,8 @@ $root.xyz = (function() {
                     if (object instanceof $root.xyz.redtorch.pb.CommonRspField)
                         return object;
                     var message = new $root.xyz.redtorch.pb.CommonRspField();
-                    if (object.reqId != null)
-                        message.reqId = String(object.reqId);
+                    if (object.transactionId != null)
+                        message.transactionId = String(object.transactionId);
                     if (object.errorId != null)
                         message.errorId = object.errorId >>> 0;
                     if (object.errorMsg != null)
@@ -8671,12 +8627,12 @@ $root.xyz = (function() {
                         options = {};
                     var object = {};
                     if (options.defaults) {
-                        object.reqId = "";
+                        object.transactionId = "";
                         object.errorId = 0;
                         object.errorMsg = "";
                     }
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        object.reqId = message.reqId;
+                    if (message.transactionId != null && message.hasOwnProperty("transactionId"))
+                        object.transactionId = message.transactionId;
                     if (message.errorId != null && message.hasOwnProperty("errorId"))
                         object.errorId = message.errorId;
                     if (message.errorMsg != null && message.hasOwnProperty("errorMsg"))
@@ -9541,7 +9497,7 @@ $root.xyz = (function() {
                         break;
                     }
                     switch (object.offsetFlag) {
-                    case "OF_Unkonwn":
+                    case "OF_Unknown":
                     case 0:
                         message.offsetFlag = 0;
                         break;
@@ -9605,7 +9561,7 @@ $root.xyz = (function() {
                         break;
                     }
                     switch (object.timeCondition) {
-                    case "TC_Unkonwn":
+                    case "TC_Unknown":
                     case 0:
                         message.timeCondition = 0;
                         break;
@@ -9637,7 +9593,7 @@ $root.xyz = (function() {
                     if (object.gtdDate != null)
                         message.gtdDate = String(object.gtdDate);
                     switch (object.volumeCondition) {
-                    case "VC_Unkonwn":
+                    case "VC_Unknown":
                     case 0:
                         message.volumeCondition = 0;
                         break;
@@ -9657,7 +9613,7 @@ $root.xyz = (function() {
                     if (object.minVolume != null)
                         message.minVolume = object.minVolume >>> 0;
                     switch (object.contingentCondition) {
-                    case "CC_Unkonwn":
+                    case "CC_Unknown":
                     case 0:
                         message.contingentCondition = 0;
                         break;
@@ -9737,7 +9693,7 @@ $root.xyz = (function() {
                     if (object.stopPrice != null)
                         message.stopPrice = Number(object.stopPrice);
                     switch (object.forceCloseReason) {
-                    case "FCR_Unkonwn":
+                    case "FCR_Unknown":
                     case 0:
                         message.forceCloseReason = 0;
                         break;
@@ -9806,15 +9762,15 @@ $root.xyz = (function() {
                         object.price = 0;
                         object.orderPriceType = options.enums === String ? "OPT_Unknown" : 0;
                         object.direction = options.enums === String ? "D_Unknown" : 0;
-                        object.offsetFlag = options.enums === String ? "OF_Unkonwn" : 0;
+                        object.offsetFlag = options.enums === String ? "OF_Unknown" : 0;
                         object.hedgeFlag = options.enums === String ? "HF_Unknown" : 0;
-                        object.timeCondition = options.enums === String ? "TC_Unkonwn" : 0;
+                        object.timeCondition = options.enums === String ? "TC_Unknown" : 0;
                         object.gtdDate = "";
-                        object.volumeCondition = options.enums === String ? "VC_Unkonwn" : 0;
+                        object.volumeCondition = options.enums === String ? "VC_Unknown" : 0;
                         object.minVolume = 0;
-                        object.contingentCondition = options.enums === String ? "CC_Unkonwn" : 0;
+                        object.contingentCondition = options.enums === String ? "CC_Unknown" : 0;
                         object.stopPrice = 0;
-                        object.forceCloseReason = options.enums === String ? "FCR_Unkonwn" : 0;
+                        object.forceCloseReason = options.enums === String ? "FCR_Unknown" : 0;
                         object.autoSuspend = 0;
                         object.userForceClose = 0;
                         object.swapOrder = 0;
@@ -10477,7 +10433,7 @@ $root.xyz = (function() {
                         message.ibApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.IbApiSettingField.fromObject(object.ibApiSetting);
                     }
                     switch (object.status) {
-                    case "CS_Unkonwn":
+                    case "CS_Unknown":
                     case 0:
                         message.status = 0;
                         break;
@@ -10534,7 +10490,7 @@ $root.xyz = (function() {
                         object.gatewayAdapterType = options.enums === String ? "GAT_CTP" : 0;
                         object.ctpApiSetting = null;
                         object.ibApiSetting = null;
-                        object.status = options.enums === String ? "CS_Unkonwn" : 0;
+                        object.status = options.enums === String ? "CS_Unknown" : 0;
                         if ($util.Long) {
                             var long = new $util.Long(0, 0, false);
                             object.version = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
@@ -25376,7 +25332,7 @@ $root.xyz = (function() {
                  * @property {number|Long|null} [startTimestamp] RpcQueryDBBarListReq startTimestamp
                  * @property {number|Long|null} [endTimestamp] RpcQueryDBBarListReq endTimestamp
                  * @property {string|null} [unifiedSymbol] RpcQueryDBBarListReq unifiedSymbol
-                 * @property {xyz.redtorch.pb.BarCycleEnum|null} [barCycle] RpcQueryDBBarListReq barCycle
+                 * @property {xyz.redtorch.pb.BarPeriodEnum|null} [barPeriod] RpcQueryDBBarListReq barPeriod
                  * @property {xyz.redtorch.pb.MarketDataDBTypeEnum|null} [marketDataDBType] RpcQueryDBBarListReq marketDataDBType
                  */
 
@@ -25428,12 +25384,12 @@ $root.xyz = (function() {
                 RpcQueryDBBarListReq.prototype.unifiedSymbol = "";
 
                 /**
-                 * RpcQueryDBBarListReq barCycle.
-                 * @member {xyz.redtorch.pb.BarCycleEnum} barCycle
+                 * RpcQueryDBBarListReq barPeriod.
+                 * @member {xyz.redtorch.pb.BarPeriodEnum} barPeriod
                  * @memberof xyz.redtorch.pb.RpcQueryDBBarListReq
                  * @instance
                  */
-                RpcQueryDBBarListReq.prototype.barCycle = 0;
+                RpcQueryDBBarListReq.prototype.barPeriod = 0;
 
                 /**
                  * RpcQueryDBBarListReq marketDataDBType.
@@ -25475,8 +25431,8 @@ $root.xyz = (function() {
                         writer.uint32(/* id 3, wireType 1 =*/25).fixed64(message.endTimestamp);
                     if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
                         writer.uint32(/* id 4, wireType 2 =*/34).string(message.unifiedSymbol);
-                    if (message.barCycle != null && message.hasOwnProperty("barCycle"))
-                        writer.uint32(/* id 5, wireType 0 =*/40).int32(message.barCycle);
+                    if (message.barPeriod != null && message.hasOwnProperty("barPeriod"))
+                        writer.uint32(/* id 5, wireType 0 =*/40).int32(message.barPeriod);
                     if (message.marketDataDBType != null && message.hasOwnProperty("marketDataDBType"))
                         writer.uint32(/* id 6, wireType 0 =*/48).int32(message.marketDataDBType);
                     return writer;
@@ -25526,7 +25482,7 @@ $root.xyz = (function() {
                             message.unifiedSymbol = reader.string();
                             break;
                         case 5:
-                            message.barCycle = reader.int32();
+                            message.barPeriod = reader.int32();
                             break;
                         case 6:
                             message.marketDataDBType = reader.int32();
@@ -25580,10 +25536,10 @@ $root.xyz = (function() {
                     if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
                         if (!$util.isString(message.unifiedSymbol))
                             return "unifiedSymbol: string expected";
-                    if (message.barCycle != null && message.hasOwnProperty("barCycle"))
-                        switch (message.barCycle) {
+                    if (message.barPeriod != null && message.hasOwnProperty("barPeriod"))
+                        switch (message.barPeriod) {
                         default:
-                            return "barCycle: enum value expected";
+                            return "barPeriod: enum value expected";
                         case 0:
                         case 1:
                         case 2:
@@ -25641,30 +25597,30 @@ $root.xyz = (function() {
                             message.endTimestamp = new $util.LongBits(object.endTimestamp.low >>> 0, object.endTimestamp.high >>> 0).toNumber();
                     if (object.unifiedSymbol != null)
                         message.unifiedSymbol = String(object.unifiedSymbol);
-                    switch (object.barCycle) {
+                    switch (object.barPeriod) {
                     case "B_5Sec":
                     case 0:
-                        message.barCycle = 0;
+                        message.barPeriod = 0;
                         break;
                     case "B_1Min":
                     case 1:
-                        message.barCycle = 1;
+                        message.barPeriod = 1;
                         break;
                     case "B_3Min":
                     case 2:
-                        message.barCycle = 2;
+                        message.barPeriod = 2;
                         break;
                     case "B_5Min":
                     case 3:
-                        message.barCycle = 3;
+                        message.barPeriod = 3;
                         break;
                     case "B_15Min":
                     case 4:
-                        message.barCycle = 4;
+                        message.barPeriod = 4;
                         break;
                     case "B_1Day":
                     case 5:
-                        message.barCycle = 5;
+                        message.barPeriod = 5;
                         break;
                     }
                     switch (object.marketDataDBType) {
@@ -25710,7 +25666,7 @@ $root.xyz = (function() {
                         } else
                             object.endTimestamp = options.longs === String ? "0" : 0;
                         object.unifiedSymbol = "";
-                        object.barCycle = options.enums === String ? "B_5Sec" : 0;
+                        object.barPeriod = options.enums === String ? "B_5Sec" : 0;
                         object.marketDataDBType = options.enums === String ? "MDDT_MIX" : 0;
                     }
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
@@ -25727,8 +25683,8 @@ $root.xyz = (function() {
                             object.endTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.endTimestamp) : options.longs === Number ? new $util.LongBits(message.endTimestamp.low >>> 0, message.endTimestamp.high >>> 0).toNumber() : message.endTimestamp;
                     if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
                         object.unifiedSymbol = message.unifiedSymbol;
-                    if (message.barCycle != null && message.hasOwnProperty("barCycle"))
-                        object.barCycle = options.enums === String ? $root.xyz.redtorch.pb.BarCycleEnum[message.barCycle] : message.barCycle;
+                    if (message.barPeriod != null && message.hasOwnProperty("barPeriod"))
+                        object.barPeriod = options.enums === String ? $root.xyz.redtorch.pb.BarPeriodEnum[message.barPeriod] : message.barPeriod;
                     if (message.marketDataDBType != null && message.hasOwnProperty("marketDataDBType"))
                         object.marketDataDBType = options.enums === String ? $root.xyz.redtorch.pb.MarketDataDBTypeEnum[message.marketDataDBType] : message.marketDataDBType;
                     return object;
@@ -27099,7 +27055,7 @@ $root.xyz = (function() {
                  * @memberof xyz.redtorch.pb
                  * @interface IRpcExceptionRsp
                  * @property {number|null} [originalRpcId] RpcExceptionRsp originalRpcId
-                 * @property {string|null} [originalReqId] RpcExceptionRsp originalReqId
+                 * @property {string|null} [originalTransactionId] RpcExceptionRsp originalTransactionId
                  * @property {number|Long|null} [originalTimestamp] RpcExceptionRsp originalTimestamp
                  * @property {string|null} [info] RpcExceptionRsp info
                  */
@@ -27128,12 +27084,12 @@ $root.xyz = (function() {
                 RpcExceptionRsp.prototype.originalRpcId = 0;
 
                 /**
-                 * RpcExceptionRsp originalReqId.
-                 * @member {string} originalReqId
+                 * RpcExceptionRsp originalTransactionId.
+                 * @member {string} originalTransactionId
                  * @memberof xyz.redtorch.pb.RpcExceptionRsp
                  * @instance
                  */
-                RpcExceptionRsp.prototype.originalReqId = "";
+                RpcExceptionRsp.prototype.originalTransactionId = "";
 
                 /**
                  * RpcExceptionRsp originalTimestamp.
@@ -27177,8 +27133,8 @@ $root.xyz = (function() {
                         writer = $Writer.create();
                     if (message.originalRpcId != null && message.hasOwnProperty("originalRpcId"))
                         writer.uint32(/* id 1, wireType 5 =*/13).fixed32(message.originalRpcId);
-                    if (message.originalReqId != null && message.hasOwnProperty("originalReqId"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.originalReqId);
+                    if (message.originalTransactionId != null && message.hasOwnProperty("originalTransactionId"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.originalTransactionId);
                     if (message.originalTimestamp != null && message.hasOwnProperty("originalTimestamp"))
                         writer.uint32(/* id 3, wireType 1 =*/25).fixed64(message.originalTimestamp);
                     if (message.info != null && message.hasOwnProperty("info"))
@@ -27221,7 +27177,7 @@ $root.xyz = (function() {
                             message.originalRpcId = reader.fixed32();
                             break;
                         case 2:
-                            message.originalReqId = reader.string();
+                            message.originalTransactionId = reader.string();
                             break;
                         case 3:
                             message.originalTimestamp = reader.fixed64();
@@ -27267,9 +27223,9 @@ $root.xyz = (function() {
                     if (message.originalRpcId != null && message.hasOwnProperty("originalRpcId"))
                         if (!$util.isInteger(message.originalRpcId))
                             return "originalRpcId: integer expected";
-                    if (message.originalReqId != null && message.hasOwnProperty("originalReqId"))
-                        if (!$util.isString(message.originalReqId))
-                            return "originalReqId: string expected";
+                    if (message.originalTransactionId != null && message.hasOwnProperty("originalTransactionId"))
+                        if (!$util.isString(message.originalTransactionId))
+                            return "originalTransactionId: string expected";
                     if (message.originalTimestamp != null && message.hasOwnProperty("originalTimestamp"))
                         if (!$util.isInteger(message.originalTimestamp) && !(message.originalTimestamp && $util.isInteger(message.originalTimestamp.low) && $util.isInteger(message.originalTimestamp.high)))
                             return "originalTimestamp: integer|Long expected";
@@ -27293,8 +27249,8 @@ $root.xyz = (function() {
                     var message = new $root.xyz.redtorch.pb.RpcExceptionRsp();
                     if (object.originalRpcId != null)
                         message.originalRpcId = object.originalRpcId >>> 0;
-                    if (object.originalReqId != null)
-                        message.originalReqId = String(object.originalReqId);
+                    if (object.originalTransactionId != null)
+                        message.originalTransactionId = String(object.originalTransactionId);
                     if (object.originalTimestamp != null)
                         if ($util.Long)
                             (message.originalTimestamp = $util.Long.fromValue(object.originalTimestamp)).unsigned = false;
@@ -27324,7 +27280,7 @@ $root.xyz = (function() {
                     var object = {};
                     if (options.defaults) {
                         object.originalRpcId = 0;
-                        object.originalReqId = "";
+                        object.originalTransactionId = "";
                         if ($util.Long) {
                             var long = new $util.Long(0, 0, false);
                             object.originalTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
@@ -27334,8 +27290,8 @@ $root.xyz = (function() {
                     }
                     if (message.originalRpcId != null && message.hasOwnProperty("originalRpcId"))
                         object.originalRpcId = message.originalRpcId;
-                    if (message.originalReqId != null && message.hasOwnProperty("originalReqId"))
-                        object.originalReqId = message.originalReqId;
+                    if (message.originalTransactionId != null && message.hasOwnProperty("originalTransactionId"))
+                        object.originalTransactionId = message.originalTransactionId;
                     if (message.originalTimestamp != null && message.hasOwnProperty("originalTimestamp"))
                         if (typeof message.originalTimestamp === "number")
                             object.originalTimestamp = options.longs === String ? String(message.originalTimestamp) : message.originalTimestamp;
@@ -30135,13 +30091,9 @@ $root.xyz = (function() {
                  * @memberof xyz.redtorch.pb
                  * @interface IDataExchangeProtocol
                  * @property {xyz.redtorch.pb.DataExchangeProtocol.ContentType|null} [contentType] DataExchangeProtocol contentType
-                 * @property {xyz.redtorch.pb.DataExchangeProtocol.RpcType|null} [rpcType] DataExchangeProtocol rpcType
-                 * @property {number|Long|null} [timestamp] DataExchangeProtocol timestamp
-                 * @property {number|null} [sourceNodeId] DataExchangeProtocol sourceNodeId
-                 * @property {number|null} [targetNodeId] DataExchangeProtocol targetNodeId
                  * @property {number|null} [rpcId] DataExchangeProtocol rpcId
-                 * @property {string|null} [reqId] DataExchangeProtocol reqId
                  * @property {Uint8Array|null} [contentBytes] DataExchangeProtocol contentBytes
+                 * @property {number|Long|null} [timestamp] DataExchangeProtocol timestamp
                  */
 
                 /**
@@ -30168,38 +30120,6 @@ $root.xyz = (function() {
                 DataExchangeProtocol.prototype.contentType = 0;
 
                 /**
-                 * DataExchangeProtocol rpcType.
-                 * @member {xyz.redtorch.pb.DataExchangeProtocol.RpcType} rpcType
-                 * @memberof xyz.redtorch.pb.DataExchangeProtocol
-                 * @instance
-                 */
-                DataExchangeProtocol.prototype.rpcType = 0;
-
-                /**
-                 * DataExchangeProtocol timestamp.
-                 * @member {number|Long} timestamp
-                 * @memberof xyz.redtorch.pb.DataExchangeProtocol
-                 * @instance
-                 */
-                DataExchangeProtocol.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
-
-                /**
-                 * DataExchangeProtocol sourceNodeId.
-                 * @member {number} sourceNodeId
-                 * @memberof xyz.redtorch.pb.DataExchangeProtocol
-                 * @instance
-                 */
-                DataExchangeProtocol.prototype.sourceNodeId = 0;
-
-                /**
-                 * DataExchangeProtocol targetNodeId.
-                 * @member {number} targetNodeId
-                 * @memberof xyz.redtorch.pb.DataExchangeProtocol
-                 * @instance
-                 */
-                DataExchangeProtocol.prototype.targetNodeId = 0;
-
-                /**
                  * DataExchangeProtocol rpcId.
                  * @member {number} rpcId
                  * @memberof xyz.redtorch.pb.DataExchangeProtocol
@@ -30208,20 +30128,20 @@ $root.xyz = (function() {
                 DataExchangeProtocol.prototype.rpcId = 0;
 
                 /**
-                 * DataExchangeProtocol reqId.
-                 * @member {string} reqId
-                 * @memberof xyz.redtorch.pb.DataExchangeProtocol
-                 * @instance
-                 */
-                DataExchangeProtocol.prototype.reqId = "";
-
-                /**
                  * DataExchangeProtocol contentBytes.
                  * @member {Uint8Array} contentBytes
                  * @memberof xyz.redtorch.pb.DataExchangeProtocol
                  * @instance
                  */
                 DataExchangeProtocol.prototype.contentBytes = $util.newBuffer([]);
+
+                /**
+                 * DataExchangeProtocol timestamp.
+                 * @member {number|Long} timestamp
+                 * @memberof xyz.redtorch.pb.DataExchangeProtocol
+                 * @instance
+                 */
+                DataExchangeProtocol.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
                 /**
                  * Creates a new DataExchangeProtocol instance using the specified properties.
@@ -30249,20 +30169,12 @@ $root.xyz = (function() {
                         writer = $Writer.create();
                     if (message.contentType != null && message.hasOwnProperty("contentType"))
                         writer.uint32(/* id 1, wireType 0 =*/8).int32(message.contentType);
-                    if (message.rpcType != null && message.hasOwnProperty("rpcType"))
-                        writer.uint32(/* id 2, wireType 0 =*/16).int32(message.rpcType);
-                    if (message.timestamp != null && message.hasOwnProperty("timestamp"))
-                        writer.uint32(/* id 3, wireType 1 =*/25).fixed64(message.timestamp);
-                    if (message.sourceNodeId != null && message.hasOwnProperty("sourceNodeId"))
-                        writer.uint32(/* id 4, wireType 5 =*/37).fixed32(message.sourceNodeId);
-                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
-                        writer.uint32(/* id 5, wireType 5 =*/45).fixed32(message.targetNodeId);
                     if (message.rpcId != null && message.hasOwnProperty("rpcId"))
-                        writer.uint32(/* id 6, wireType 5 =*/53).fixed32(message.rpcId);
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        writer.uint32(/* id 7, wireType 2 =*/58).string(message.reqId);
+                        writer.uint32(/* id 2, wireType 5 =*/21).fixed32(message.rpcId);
                     if (message.contentBytes != null && message.hasOwnProperty("contentBytes"))
-                        writer.uint32(/* id 8, wireType 2 =*/66).bytes(message.contentBytes);
+                        writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.contentBytes);
+                    if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                        writer.uint32(/* id 4, wireType 1 =*/33).fixed64(message.timestamp);
                     return writer;
                 };
 
@@ -30301,25 +30213,13 @@ $root.xyz = (function() {
                             message.contentType = reader.int32();
                             break;
                         case 2:
-                            message.rpcType = reader.int32();
-                            break;
-                        case 3:
-                            message.timestamp = reader.fixed64();
-                            break;
-                        case 4:
-                            message.sourceNodeId = reader.fixed32();
-                            break;
-                        case 5:
-                            message.targetNodeId = reader.fixed32();
-                            break;
-                        case 6:
                             message.rpcId = reader.fixed32();
                             break;
-                        case 7:
-                            message.reqId = reader.string();
-                            break;
-                        case 8:
+                        case 3:
                             message.contentBytes = reader.bytes();
+                            break;
+                        case 4:
+                            message.timestamp = reader.fixed64();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -30364,31 +30264,15 @@ $root.xyz = (function() {
                         case 1:
                             break;
                         }
-                    if (message.rpcType != null && message.hasOwnProperty("rpcType"))
-                        switch (message.rpcType) {
-                        default:
-                            return "rpcType: enum value expected";
-                        case 0:
-                            break;
-                        }
-                    if (message.timestamp != null && message.hasOwnProperty("timestamp"))
-                        if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
-                            return "timestamp: integer|Long expected";
-                    if (message.sourceNodeId != null && message.hasOwnProperty("sourceNodeId"))
-                        if (!$util.isInteger(message.sourceNodeId))
-                            return "sourceNodeId: integer expected";
-                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
-                        if (!$util.isInteger(message.targetNodeId))
-                            return "targetNodeId: integer expected";
                     if (message.rpcId != null && message.hasOwnProperty("rpcId"))
                         if (!$util.isInteger(message.rpcId))
                             return "rpcId: integer expected";
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        if (!$util.isString(message.reqId))
-                            return "reqId: string expected";
                     if (message.contentBytes != null && message.hasOwnProperty("contentBytes"))
                         if (!(message.contentBytes && typeof message.contentBytes.length === "number" || $util.isString(message.contentBytes)))
                             return "contentBytes: buffer expected";
+                    if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                        if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                            return "timestamp: integer|Long expected";
                     return null;
                 };
 
@@ -30414,12 +30298,13 @@ $root.xyz = (function() {
                         message.contentType = 1;
                         break;
                     }
-                    switch (object.rpcType) {
-                    case "CORE_RPC":
-                    case 0:
-                        message.rpcType = 0;
-                        break;
-                    }
+                    if (object.rpcId != null)
+                        message.rpcId = object.rpcId >>> 0;
+                    if (object.contentBytes != null)
+                        if (typeof object.contentBytes === "string")
+                            $util.base64.decode(object.contentBytes, message.contentBytes = $util.newBuffer($util.base64.length(object.contentBytes)), 0);
+                        else if (object.contentBytes.length)
+                            message.contentBytes = object.contentBytes;
                     if (object.timestamp != null)
                         if ($util.Long)
                             (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
@@ -30429,19 +30314,6 @@ $root.xyz = (function() {
                             message.timestamp = object.timestamp;
                         else if (typeof object.timestamp === "object")
                             message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
-                    if (object.sourceNodeId != null)
-                        message.sourceNodeId = object.sourceNodeId >>> 0;
-                    if (object.targetNodeId != null)
-                        message.targetNodeId = object.targetNodeId >>> 0;
-                    if (object.rpcId != null)
-                        message.rpcId = object.rpcId >>> 0;
-                    if (object.reqId != null)
-                        message.reqId = String(object.reqId);
-                    if (object.contentBytes != null)
-                        if (typeof object.contentBytes === "string")
-                            $util.base64.decode(object.contentBytes, message.contentBytes = $util.newBuffer($util.base64.length(object.contentBytes)), 0);
-                        else if (object.contentBytes.length)
-                            message.contentBytes = object.contentBytes;
                     return message;
                 };
 
@@ -30460,16 +30332,7 @@ $root.xyz = (function() {
                     var object = {};
                     if (options.defaults) {
                         object.contentType = options.enums === String ? "ROUTINE" : 0;
-                        object.rpcType = options.enums === String ? "CORE_RPC" : 0;
-                        if ($util.Long) {
-                            var long = new $util.Long(0, 0, false);
-                            object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                        } else
-                            object.timestamp = options.longs === String ? "0" : 0;
-                        object.sourceNodeId = 0;
-                        object.targetNodeId = 0;
                         object.rpcId = 0;
-                        object.reqId = "";
                         if (options.bytes === String)
                             object.contentBytes = "";
                         else {
@@ -30477,26 +30340,23 @@ $root.xyz = (function() {
                             if (options.bytes !== Array)
                                 object.contentBytes = $util.newBuffer(object.contentBytes);
                         }
+                        if ($util.Long) {
+                            var long = new $util.Long(0, 0, false);
+                            object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                        } else
+                            object.timestamp = options.longs === String ? "0" : 0;
                     }
                     if (message.contentType != null && message.hasOwnProperty("contentType"))
                         object.contentType = options.enums === String ? $root.xyz.redtorch.pb.DataExchangeProtocol.ContentType[message.contentType] : message.contentType;
-                    if (message.rpcType != null && message.hasOwnProperty("rpcType"))
-                        object.rpcType = options.enums === String ? $root.xyz.redtorch.pb.DataExchangeProtocol.RpcType[message.rpcType] : message.rpcType;
+                    if (message.rpcId != null && message.hasOwnProperty("rpcId"))
+                        object.rpcId = message.rpcId;
+                    if (message.contentBytes != null && message.hasOwnProperty("contentBytes"))
+                        object.contentBytes = options.bytes === String ? $util.base64.encode(message.contentBytes, 0, message.contentBytes.length) : options.bytes === Array ? Array.prototype.slice.call(message.contentBytes) : message.contentBytes;
                     if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                         if (typeof message.timestamp === "number")
                             object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                         else
                             object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
-                    if (message.sourceNodeId != null && message.hasOwnProperty("sourceNodeId"))
-                        object.sourceNodeId = message.sourceNodeId;
-                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
-                        object.targetNodeId = message.targetNodeId;
-                    if (message.rpcId != null && message.hasOwnProperty("rpcId"))
-                        object.rpcId = message.rpcId;
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        object.reqId = message.reqId;
-                    if (message.contentBytes != null && message.hasOwnProperty("contentBytes"))
-                        object.contentBytes = options.bytes === String ? $util.base64.encode(message.contentBytes, 0, message.contentBytes.length) : options.bytes === Array ? Array.prototype.slice.call(message.contentBytes) : message.contentBytes;
                     return object;
                 };
 
@@ -30510,18 +30370,6 @@ $root.xyz = (function() {
                 DataExchangeProtocol.prototype.toJSON = function toJSON() {
                     return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                 };
-
-                /**
-                 * RpcType enum.
-                 * @name xyz.redtorch.pb.DataExchangeProtocol.RpcType
-                 * @enum {string}
-                 * @property {number} CORE_RPC=0 CORE_RPC value
-                 */
-                DataExchangeProtocol.RpcType = (function() {
-                    var valuesById = {}, values = Object.create(valuesById);
-                    values[valuesById[0] = "CORE_RPC"] = 0;
-                    return values;
-                })();
 
                 /**
                  * ContentType enum.

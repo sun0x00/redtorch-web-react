@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { Separator } from 'office-ui-fabric-react/lib/Separator';
-import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
-import { createTheme, ITheme } from 'office-ui-fabric-react/lib/Styling';
-import { mergeStyleSets, DefaultPalette } from 'office-ui-fabric-react/lib/Styling';
+import { Separator } from '@fluentui/react/lib/Separator';
+import { PrimaryButton } from '@fluentui/react/lib/Button';
+import { Stack } from '@fluentui/react/lib/Stack';
+import { createTheme, ITheme } from '@fluentui/react/lib/Styling';
+import { mergeStyleSets, DefaultPalette } from '@fluentui/react/lib/Styling';
 import { Redirect } from 'react-router-dom';
 const theme: ITheme = createTheme({
   fonts: {
@@ -39,7 +39,7 @@ const NotFoundPage = observer((synchronizedHistory:any) => {
   }
 
   return (
-    <Stack gap={12}>
+    <Stack tokens={{ childrenGap: 12 }}>
       <Separator theme={theme}>404 所请求的页面不存在或已被删除!</Separator>
       <Stack.Item align="center" className={styles.item}>
         <PrimaryButton

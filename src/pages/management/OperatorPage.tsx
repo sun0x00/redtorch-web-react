@@ -1,25 +1,24 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
 import { withRouter } from 'react-router';
-import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
-import { PrimaryButton, DefaultButton, IconButton, ActionButton, IButtonStyles } from 'office-ui-fabric-react/lib/Button';
-import { IColumn, DetailsList, SelectionMode, DetailsListLayoutMode, Selection, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, DetailsHeader } from 'office-ui-fabric-react/lib/components/DetailsList';
-import Dialog, { DialogFooter, DialogType } from 'office-ui-fabric-react/lib/Dialog';
-import { MarqueeSelection } from 'office-ui-fabric-react/lib/MarqueeSelection';
-import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
-import Modal from 'office-ui-fabric-react/lib/Modal';
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { FontSizes, mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
-import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { IRenderFunction } from 'office-ui-fabric-react/lib/Utilities';
-import { StickyPositionType, Sticky } from 'office-ui-fabric-react/lib/Sticky';
+import { Stack, IStackProps } from '@fluentui/react/lib/Stack';
+import { PrimaryButton, DefaultButton, IconButton, ActionButton, IButtonStyles } from '@fluentui/react/lib/Button';
+import { IColumn, DetailsList, SelectionMode, DetailsListLayoutMode, Selection, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, DetailsHeader } from '@fluentui/react/lib/DetailsList';
+import { Dialog, DialogFooter, DialogType } from '@fluentui/react/lib/Dialog';
+import { MarqueeSelection } from '@fluentui/react/lib/MarqueeSelection';
+import { Checkbox } from '@fluentui/react/lib/Checkbox';
+import { TextField } from '@fluentui/react/lib/TextField';
+import { FontSizes, mergeStyleSets } from '@fluentui/react/lib/Styling';
+import { ScrollablePane, ScrollbarVisibility } from '@fluentui/react/lib/ScrollablePane';
+import { IRenderFunction } from '@fluentui/react/lib/Utilities';
+import { StickyPositionType, Sticky } from '@fluentui/react/lib/Sticky';
 import { toast } from 'react-toastify';
+import { Modal } from '@fluentui/react/lib/Modal';
 
 const columnProps: Partial<IStackProps> = {
   tokens: { childrenGap: 15 },
   styles: { root: { width: 300 } }
 };
-
 
 const actionButtonStyles: IButtonStyles = {
   root: {
@@ -28,9 +27,7 @@ const actionButtonStyles: IButtonStyles = {
   }
 }
 
-@inject('authenticationStore', 'operatorStore')
-@observer
-export class HomePage extends React.Component<any> {
+export const HomePage = inject('authenticationStore', 'operatorStore')(observer(class HomePage extends React.Component<any> {
 
   state = {
     hiddenDeleteOperatorDialog: true,
@@ -750,7 +747,7 @@ export class HomePage extends React.Component<any> {
 
     return (
 
-      <Stack gap={12} padding={0} styles={{ root: { width: '100%' } }}>
+      <Stack tokens={{ childrenGap: 12, padding:20 }} styles={{ root: { width: '100%' } }}>
         <Stack.Item>
           <Stack horizontal={true} tokens={{ childrenGap: 0 }} styles={{ root: { width: '100%' } }}>
             <Stack {...columnLeftProps}>
@@ -771,17 +768,21 @@ export class HomePage extends React.Component<any> {
                             constrainMode={ConstrainMode.unconstrained}
                             selectionPreservedOnEmptyClick={true}
                             // data-is-scrollable={true}
+
+                            // @ts-ignore
                             onRenderDetailsHeader={
                               // tslint:disable-next-line:jsx-no-lambda
                               (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                                 <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                   <DetailsHeader
-                                      {...detailsHeaderProps}
-                                      styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                    {...detailsHeaderProps}
+                                    styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                   />
                                   {/* {defaultRender(detailsHeaderProps)} */}
                                 </Sticky>
                               )}
+
+                            // @ts-ignore
                             onRenderDetailsFooter={
                               // tslint:disable-next-line:jsx-no-lambda
                               (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -886,17 +887,21 @@ export class HomePage extends React.Component<any> {
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -950,17 +955,21 @@ export class HomePage extends React.Component<any> {
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1042,17 +1051,21 @@ export class HomePage extends React.Component<any> {
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1106,17 +1119,21 @@ export class HomePage extends React.Component<any> {
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1198,17 +1215,21 @@ export class HomePage extends React.Component<any> {
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1262,17 +1283,21 @@ export class HomePage extends React.Component<any> {
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1354,17 +1379,21 @@ export class HomePage extends React.Component<any> {
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1418,17 +1447,21 @@ export class HomePage extends React.Component<any> {
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1497,8 +1530,7 @@ export class HomePage extends React.Component<any> {
           isBlocking={false}
           onDismiss={() => this.closeUpdateOperatorDescriptionModal()}
         >
-          <Stack gap={12} padding={20}>
-
+          <Stack tokens={{ childrenGap: 12, padding:20 }}>
 
             <Stack.Item align="center">
               <div style={{ fontSize: FontSizes.medium }} >操作员ID: {this.state.operatorIdForUpdateDescription}</div>
@@ -1511,8 +1543,6 @@ export class HomePage extends React.Component<any> {
               </Stack>
             </Stack.Item>
 
-
-
             <Stack.Item align="center">
               <Stack horizontal={true} tokens={{ childrenGap: 50 }} styles={{ root: { width: '100%' } }}>
                 <Stack {...columnProps}>
@@ -1524,12 +1554,7 @@ export class HomePage extends React.Component<any> {
           </Stack>
         </Modal>
 
-
       </Stack>
-
-
-
-
     )
   }
 
@@ -1583,7 +1608,7 @@ export class HomePage extends React.Component<any> {
   }
 
 
-}
+}));
 
 
 export default withRouter(HomePage);

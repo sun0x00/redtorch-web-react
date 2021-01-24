@@ -1,15 +1,32 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import request from '../request'
 import { toast } from 'react-toastify';
 
 class NodeStore {
-    @observable nodeList: any[] = []
+    nodeList: any[] = [];
 
-    @action getNodeList() {
+    constructor() {
+        makeObservable(this, {
+            nodeList: observable,
+            getNodeList: action,
+            createNode: action,
+            deleteNodeByNodeId: action,
+            resetNodeTokenByNodeId: action,
+            updateNodeDescriptionByNodeId: action,
+            setNodeList: action
+        });
+    }
+
+    setNodeList(nodeList:any[]) {
+        this.nodeList = nodeList
+    }
+
+    getNodeList() {
         request('/api/management/node/getNodeList').then(res => {
             if (res) {
                 if (res.status) {
-                    this.nodeList = Array.isArray(res.voData) ? res.voData : [];
+                    const nodeList = Array.isArray(res.voData) ? res.voData : [];
+                    this.setNodeList(nodeList)
                 } else {
                     toast.error(`查询节点错误：${res.message}`);
                 }
@@ -19,7 +36,7 @@ class NodeStore {
         });
     }
 
-    @action createNode() {
+    createNode() {
         request('/api/management/node/createNode').then(res => {
             if (res) {
                 if (res.status) {
@@ -33,7 +50,7 @@ class NodeStore {
         });
     }
 
-    @action deleteNodeByNodeId(nodeId: number) {
+    deleteNodeByNodeId(nodeId: number) {
         request('/api/management/node/deleteNodeByNodeId', {
             method: 'POST',
             data: {
@@ -52,7 +69,7 @@ class NodeStore {
             console.log(err);
         });
     }
-    @action resetNodeTokenByNodeId(nodeId: number) {
+    resetNodeTokenByNodeId(nodeId: number) {
         request('/api/management/node/resetNodeTokenByNodeId', {
             method: 'POST',
             data: {
@@ -72,7 +89,7 @@ class NodeStore {
         });
     }
 
-    @action updateNodeDescriptionByNodeId(nodeId: number, description: string) {
+    updateNodeDescriptionByNodeId(nodeId: number, description: string) {
         request('/api/management/node/updateNodeDescriptionByNodeId', {
             method: 'POST',
             data: {
@@ -92,8 +109,5 @@ class NodeStore {
             console.log(err);
         });
     }
-
-
-
 }
 export const nodeStore = new NodeStore()

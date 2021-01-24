@@ -17,20 +17,23 @@ class WebSocketClientHandler {
     }
 
     private static instance: WebSocketClientHandler;
-
     private authFailedState: boolean = false;
     private connectRetry: boolean = false;
     private connectRetryTimes: number = 0;
     private connectStatus: number = 0;
-    private closeCode: number;
-    private closeReason: string;
-
-    private ws: WebSocket;
+    private closeCode: number = 0;
+    private closeReason: string = "";
+    private authToken: string = "";
+    private ws: WebSocket | null = null;
 
     private constructor() {
     }
 
-    getStatus = () => {
+    public setAuthToken = (authToken: string) => {
+        this.authToken = authToken
+    }
+
+    public getStatus = () => {
         return {
             'authFailedState': this.authFailedState,
             'connectStatus': this.connectStatus,
@@ -40,37 +43,32 @@ class WebSocketClientHandler {
         }
     }
 
-    checkConnected = () => {
+    public checkConnected = () => {
         return this.connectStatus === WebSocketClientHandler.STATUS_CONNECTED
     }
 
-    public async asyncConnected() {
-        this.connect()
-    }
+    public connect = () => {
+        if (this.authToken) {
+            if (this.connectStatus === WebSocketClientHandler.STATUS_DISCONNECTED) {
+                this.connectRetry = true;
+                this.connectStatus = WebSocketClientHandler.STATUS_CONNECTING;
+                this.authFailedState = false;
 
-    connect = () => {
-
-        if (this.connectStatus === WebSocketClientHandler.STATUS_DISCONNECTED) {
-
-            this.connectRetry = true;
-            this.connectStatus = WebSocketClientHandler.STATUS_CONNECTING;
-            this.authFailedState = false;
-
-
-            this.ws = new WebSocket(`ws://${window.location.hostname}:${window.location.port}/websocket`)
-            this.ws.binaryType = "arraybuffer"
-
-            this.ws.addEventListener("open", this.onopen)
-            this.ws.addEventListener("close", this.onclose)
-            this.ws.addEventListener("error", this.onerror)
-            this.ws.addEventListener("message", this.onmessage)
+                this.ws = new WebSocket(`ws://${window.location.hostname}:${window.location.port}/websocket`)
+                this.ws.binaryType = "arraybuffer"
+                this.ws.addEventListener("open", this.onopen)
+                this.ws.addEventListener("close", this.onclose)
+                this.ws.addEventListener("error", this.onerror)
+                this.ws.addEventListener("message", this.onmessage)
+            } else {
+                console.log("连接已建立或正在连接,请勿重复连接");
+            }
         } else {
-            console.log("连接已建立或正在连接,请勿重复连接");
+            console.error("拒绝开始连接,授权令牌不存在");
         }
-
     }
 
-    disconnect = () => {
+    public disconnect = () => {
         this.connectRetry = false;
         this.connectRetryTimes = 0;
         if (this.connectStatus === WebSocketClientHandler.STATUS_CONNECTED && this.ws) {
@@ -85,19 +83,29 @@ class WebSocketClientHandler {
         }
     }
 
-    onopen = () => {
-        toast.success(`WebSocket连接已建立`)
-        this.connectRetryTimes = 0;
-        this.connectStatus = WebSocketClientHandler.STATUS_CONNECTED;
-        rpcClientProcess.onConnectd()
+    private onopen = () => {
+        console.log(`WebSocket连接已建立,发送授权令牌`)
+        if (this.ws) {
+            this.ws.send(`{"Auth-Token":"${this.authToken}"}`)
+        }
     }
 
-    onmessage = (e: MessageEvent) => {
-        const bytes = new Uint8Array(e.data)
-        rpcClientProcess.processData(bytes)
+    private onmessage = (e: MessageEvent) => {
+        if (typeof (e.data) === "string") {
+            const jsonData = JSON.parse(e.data)
+            if (jsonData.verified) {
+                this.connectRetryTimes = 0;
+                this.connectStatus = WebSocketClientHandler.STATUS_CONNECTED;
+                toast.success("WebSocket连接授权成功")
+                rpcClientProcess.onConnectd()
+            }
+        } else {
+            const bytes = new Uint8Array(e.data)
+            rpcClientProcess.processData(bytes)
+        }
     }
 
-    onclose = (e: CloseEvent) => {
+    private onclose = (e: CloseEvent) => {
         this.connectStatus = WebSocketClientHandler.STATUS_DISCONNECTED;
         toast.error(`WebSocket连接已关闭,代码:${e.code},原因:${e.reason}`)
         if (this.ws) {
@@ -118,12 +126,13 @@ class WebSocketClientHandler {
         this.closeCode = e.code;
         this.closeReason = e.reason;
         const that = this;
-        if (e.code === 1000 && e.reason === "验证登录信息失败!") {
-            console.log("WebSocket连接已关闭,验证登录信息失败!不再重连!")
-            this.authFailedState = true;
-        }else if (e.code === 1000 && e.reason === "节点冲突!") {
+        if (e.code === 1000 && e.reason === "节点冲突!") {
             console.log("WebSocket连接已关闭,节点冲突!不再重连!")
             toast.error("WebSocket连接已关闭,节点冲突!不再重连!")
+            this.authFailedState = true;
+        } else if (e.code === 1003 && e.reason === "登录失败!") {
+            console.log("WebSocket连接已关闭,登录失败!不再重连!")
+            toast.error("WebSocket连接已关闭,登录失败!不再重连!")
             this.authFailedState = true;
         } else {
             if (this.connectRetry) {
@@ -142,12 +151,12 @@ class WebSocketClientHandler {
             }
         }
     }
-    onerror = (e: ErrorEvent) => {
+    private onerror = (e: Event) => {
         this.connectStatus = WebSocketClientHandler.STATUS_DISCONNECTED;
         console.error(`连接错误`, e)
     }
 
-    sendData = (data: ArrayBufferLike): boolean => {
+    public sendData = (data: ArrayBufferLike): boolean => {
         if (!this.ws || !(this.ws.readyState === 1)) {
             console.error("发送二进制数据错误，连接不存在或已经断开");
             toast.error(`WebSocket发送二进制数据错误，连接不存在或已经断开`)
@@ -163,7 +172,6 @@ class WebSocketClientHandler {
             return true;
         }
     }
-
 }
 
 const webSocketClientHandler = WebSocketClientHandler.getInstance()

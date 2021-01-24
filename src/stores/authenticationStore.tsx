@@ -1,35 +1,57 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import request from '../request'
 import { toast } from 'react-toastify';
 import { webSocketClientHandler } from '../node/client/websocket/webSocketClientHandler';
 
 class AuthenticationStore {
-    @observable isAuthenticated = false
-    @observable userPo: any;
-    @observable saveLoginInfoState: boolean = false;
-    @observable username: string;
-    @observable password: string;
-    @observable nodeId: number;
-    @observable operatorId: string;
+    isAuthenticated = false;
+    userPo: any;
+    saveLoginInfoState: boolean = false;
+    username: string = "";
+    password: string = "";
+    operatorId: string = "";
+    authToken: string = "";
 
     constructor() {
+        makeObservable(this, {
+            isAuthenticated: observable,
+            userPo: observable,
+            saveLoginInfoState: observable,
+            username: observable,
+            password: observable,
+            operatorId: observable,
+            authToken: observable,
+            initStore: action,
+            setUsername: action,
+            setPassword: action,
+            setSaveLoginInfoState: action,
+            logout: action,
+            getAuthToken: action,
+            checkLoginStatus: action,
+            login: action,
+            setLoginSuccess: action,
+            deleteLoginInfo: action,
+            changePassword: action
+        });
+
         this.initStore()
 
         window.setInterval(() => {
             if (this.isAuthenticated) {
-                this.keepLogin()
+                this.checkLoginStatus()
             }
         }, 15000);
-
     }
-    @action initStore() {
+
+    initStore() {
         const userPoJsonStr = sessionStorage.getItem('LOGINED_USER');
         if (userPoJsonStr) {
             this.userPo = JSON.parse(userPoJsonStr);
+            this.authToken = this.userPo.randomAuthToken;
             this.isAuthenticated = true;
             this.operatorId = this.userPo.operatorId;
-            this.nodeId = this.userPo.recentlyNodeId;
             this.username = this.userPo.username;
+            webSocketClientHandler.setAuthToken(this.authToken)
             webSocketClientHandler.connect()
         } else {
             const username = localStorage.getItem("username")
@@ -37,39 +59,40 @@ class AuthenticationStore {
                 this.username = username;
                 this.saveLoginInfoState = true;
             }
-            const password = localStorage.getItem("password")
-            if (password) {
-                this.password = password;
-            }
         }
     }
 
-    @action setUsername(username: string) {
+    setUsername(username: string) {
         this.username = username;
     }
 
-    @action setPassword(password: string) {
+    setPassword(password: string) {
         this.password = password;
     }
 
-    @action setSaveLoginInfoState(saveLoginInfoState: boolean) {
+    setSaveLoginInfoState(saveLoginInfoState: boolean) {
         this.saveLoginInfoState = saveLoginInfoState;
     }
 
 
-    @action logout() {
+    logout() {
         sessionStorage.removeItem("LOGINED_USER");
         this.userPo = null;
         this.isAuthenticated = false;
+        this.authToken = "";
         webSocketClientHandler.disconnect()
         request('/api/logout')
     }
 
-    @action keepLogin() {
-        request('/api/keepLogin')
+    getAuthToken() {
+        return this.authToken
     }
 
-    @action login() {
+    checkLoginStatus() {
+        request('/api/checkLoginStatus')
+    }
+
+    login() {
         request('/api/login', {
             method: 'POST',
             data: {
@@ -80,20 +103,7 @@ class AuthenticationStore {
             if (res) {
                 if (res.status) {
                     this.userPo = res.voData;
-                    if (this.saveLoginInfoState) {
-                        localStorage.setItem("username", this.username);
-                        localStorage.setItem("password", this.password)
-                    } else {
-                        localStorage.removeItem("username")
-                        localStorage.removeItem("password")
-                        this.password = ""
-                        this.saveLoginInfoState = false;
-                    }
-                    this.operatorId = this.userPo.operatorId;
-                    this.nodeId = this.userPo.recentlyNodeId;
-                    sessionStorage.setItem('LOGINED_USER', JSON.stringify(this.userPo));
-                    this.isAuthenticated = true;
-                    webSocketClientHandler.connect()
+                    this.setLoginSuccess(this.userPo)
                 } else {
                     toast.error(`登录错误：${res.message}`);
                 }
@@ -103,17 +113,31 @@ class AuthenticationStore {
         });
     }
 
-    @action deleteLoginInfo() {
+    setLoginSuccess(userPo:any){
+        if (this.saveLoginInfoState) {
+            localStorage.setItem("username", this.username);
+        } else {
+            localStorage.removeItem("username")
+            this.username = ""
+            this.saveLoginInfoState = false;
+        }
+        sessionStorage.setItem('LOGINED_USER', JSON.stringify(this.userPo));
+        this.operatorId = this.userPo.operatorId;
+        this.authToken = this.userPo.randomAuthToken;
+        this.isAuthenticated = true;
+        webSocketClientHandler.setAuthToken(this.authToken)
+        webSocketClientHandler.connect()
+    }
+
+    deleteLoginInfo() {
 
         localStorage.removeItem("username")
-        localStorage.removeItem("password")
 
         this.username = "";
-        this.password = "";
         this.saveLoginInfoState = false;
     }
 
-    @action changePassword(password: string, newPassword: string) {
+    changePassword(password: string, newPassword: string) {
         request('/api/changePassword', {
             method: 'POST',
             data: {

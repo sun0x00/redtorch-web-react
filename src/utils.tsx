@@ -1,7 +1,8 @@
 
-import { IDatePickerStrings } from 'office-ui-fabric-react/lib/DatePicker';
+import { IDatePickerStrings } from '@fluentui/react/lib/DatePicker';
+import { xyz } from './node/pb/pb'
 
-const hostNamePattern = /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/
+const hostNamePattern = /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9])$/
 
 const ipv4PattenPattern = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
 
@@ -72,8 +73,7 @@ const formatDate = (date: Date, fmt: string) => {
         }
 
         const keyList = Object.keys(o)
-        const keyListLength = keyList.length
-        for (let i = 0; i < keyListLength; i++) {
+        for (let i = 0; i < keyList.length; i++) {
             const k = keyList[i]
             if (new RegExp(`(${k})`).test(result)) {
                 const str = `${o[k]}`;
@@ -196,9 +196,6 @@ const dayPickerStrings: IDatePickerStrings = {
     nextYearAriaLabel: '下一年',
     closeButtonAriaLabel: '关闭'
 };
-
-
-import { xyz } from './node/pb/pb'
 
 const { ExchangeEnum, CurrencyEnum, ProductClassEnum } = xyz.redtorch.pb
 

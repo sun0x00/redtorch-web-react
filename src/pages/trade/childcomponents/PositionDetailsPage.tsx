@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { Stack } from '@fluentui/react/lib/Stack';
 import { withRouter } from 'react-router';
-import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
-import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { DetailsList, DetailsListLayoutMode, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, SelectionMode, IColumn, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
-import { Sticky, StickyPositionType } from 'office-ui-fabric-react/lib/Sticky';
-import { IRenderFunction } from 'office-ui-fabric-react/lib/Utilities';
-import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
+import { Checkbox } from '@fluentui/react/lib/Checkbox';
+import { ScrollablePane, ScrollbarVisibility } from '@fluentui/react/lib/ScrollablePane';
+import { DetailsList, DetailsListLayoutMode, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, SelectionMode, IColumn, DetailsHeader } from '@fluentui/react/lib/DetailsList';
+import { Sticky, StickyPositionType } from '@fluentui/react/lib/Sticky';
+import { IRenderFunction } from '@fluentui/react/lib/Utilities';
+import { mergeStyleSets } from '@fluentui/react/lib/Styling';
 import { numberFormat, deepCopy } from '../../../utils';
-import { TooltipHost, TooltipDelay, DirectionalHint } from 'office-ui-fabric-react/lib/Tooltip';
-import { IconButton } from 'office-ui-fabric-react/lib/Button';
+import { TooltipHost, TooltipDelay, DirectionalHint } from '@fluentui/react/lib/Tooltip';
+import { IconButton } from '@fluentui/react/lib/Button';
 import { v4 as uuidv4 } from 'uuid';
 import { isNumber } from 'util';
 import { xyz } from "../../../node/pb/pb";
@@ -20,9 +20,7 @@ const { PositionDirectionEnum, ExchangeEnum, ProductClassEnum, CurrencyEnum, Hed
 
 const tableLabelStyls: React.CSSProperties = { display: 'inline-block', width: 27, textAlign: "right", color: '#999', paddingRight: 3 }
 
-@inject('authenticationStore', "tradeAccountStore", "tradePositionStore", "tradeActionStore")
-@observer
-export class PositionDetailsPage extends React.Component<any> {
+export const PositionDetailsPage = inject('authenticationStore', "tradeAccountStore", "tradePositionStore", "tradeActionStore")(observer(class PositionDetailsPage extends React.Component<any> {
 
     public state = { showMerged: false, showEmpty: true };
 
@@ -35,9 +33,8 @@ export class PositionDetailsPage extends React.Component<any> {
 
         let positionList: any[] = []
         const tradePositionStorePositionList = tradePositionStore.positionList
-        const tradePositionStorePositionListLength = tradePositionStorePositionList.length
 
-        for (let i = 0; i < tradePositionStorePositionListLength; i++) {
+        for (let i = 0; i < tradePositionStorePositionList.length; i++) {
             const position = tradePositionStorePositionList[i]
             if (tradeAccountStore.selectedAccountIdSet.has(position.accountId)) {
                 if (position.position !== 0 || this.state.showEmpty) {
@@ -49,8 +46,7 @@ export class PositionDetailsPage extends React.Component<any> {
         if (this.state.showMerged) {
             const mergedPositionMap = new Map();
 
-            const positionListLength = positionList.length
-            for (let i = 0; i < positionListLength; i++) {
+            for (let i = 0; i < positionList.length; i++) {
                 const position = positionList[i]
                 try {
                     const tmpKey = `${position.contract.unifiedSymbol}@${position.positionDirection}`
@@ -620,6 +616,8 @@ export class PositionDetailsPage extends React.Component<any> {
                                         layoutMode={DetailsListLayoutMode.fixedColumns}
                                         constrainMode={ConstrainMode.unconstrained}
                                         // data-is-scrollable={true}
+                                        
+                                        // @ts-ignore
                                         onRenderDetailsHeader={
                                             // tslint:disable-next-line:jsx-no-lambda
                                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
@@ -631,6 +629,8 @@ export class PositionDetailsPage extends React.Component<any> {
                                                     {/* {defaultRender(detailsHeaderProps)} */}
                                                 </Sticky>
                                             )}
+                                            
+                                        // @ts-ignore
                                         onRenderDetailsFooter={
                                             // tslint:disable-next-line:jsx-no-lambda
                                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -672,7 +672,7 @@ export class PositionDetailsPage extends React.Component<any> {
 
 
 
-}
+}));
 
 export default withRouter(PositionDetailsPage)
 

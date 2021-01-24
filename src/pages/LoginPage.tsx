@@ -1,13 +1,12 @@
 import * as React from 'react';
-import { inject, observer } from 'mobx-react';
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
-import { FontSizes } from 'office-ui-fabric-react/lib/Styling';
-import { Separator } from 'office-ui-fabric-react/lib/Separator';
-import { PrimaryButton, ActionButton, DefaultButton } from 'office-ui-fabric-react/lib/Button';
+import { TextField } from '@fluentui/react/lib/TextField';
+import { Stack, IStackProps } from '@fluentui/react/lib/Stack';
+import { FontSizes } from '@fluentui/react/lib/Styling';
+import { Separator } from '@fluentui/react/lib/Separator';
+import { PrimaryButton, ActionButton, DefaultButton } from '@fluentui/react/lib/Button';
 import { withRouter, Redirect } from 'react-router';
-import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
-
+import { Checkbox } from '@fluentui/react/lib/Checkbox';
+import { inject, observer } from 'mobx-react';
 
 
 const columnProps: Partial<IStackProps> = {
@@ -15,11 +14,7 @@ const columnProps: Partial<IStackProps> = {
   styles: { root: { width: 300 } }
 };
 
-
-
-@inject('authenticationStore')
-@observer
-export class LoginPage extends React.Component<any> {
+export const LoginPage = inject('authenticationStore')(observer(class LoginPage extends React.Component<any> {
 
   public state = {
     redirectToPah: "/trade/home"
@@ -33,8 +28,9 @@ export class LoginPage extends React.Component<any> {
         <Redirect to={this.state.redirectToPah} />
       )
     }
+
     return (
-      <Stack gap={12}>
+      <Stack tokens={{ childrenGap: 12 }}>
 
         <Stack.Item align="center">
           <Separator><div style={{ fontSize: FontSizes.xxLarge }} >RedTorch</div></Separator>
@@ -112,7 +108,7 @@ export class LoginPage extends React.Component<any> {
   }
 
 
-}
+}));
 
 // NOTE: hack https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md#quick-solution
 export default withRouter(LoginPage)

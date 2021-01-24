@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { observer } from 'mobx-react';
 import { Redirect } from 'react-router-dom';
+import { observer } from 'mobx-react';
 
 const RedirectToManagementPage = observer(() => (
   <Redirect to="/management/gateway" />

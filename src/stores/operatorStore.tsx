@@ -1,25 +1,40 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import request from '../request'
 import { toast } from 'react-toastify';
 
 class OperatorStore {
-    @observable operatorList: any[] = []
+    operatorList: any[] = [];
+    operatorMap: Map<string, any> = new Map();
 
-    @observable operatorMap: Map<string, any> = new Map()
+    constructor() {
+        makeObservable(this, {
+            operatorList: observable,
+            operatorMap: observable,
+            getOperatorList: action,
+            saveOrUpdateOperator: action,
+            deleteOperatorByOperatorId: action,
+            createOperator: action,
+            setOperatorList: action
+        });
+    }
 
-    @action getOperatorList() {
+    
+    setOperatorList(operatorList:any[]) {
+        const operatorMap: Map<string, any> = new Map()
+        operatorList.forEach((element: any) => {
+            operatorMap.set(element.operatorId, element)
+        });
+
+        this.operatorMap = operatorMap
+        this.operatorList = [...this.operatorMap.values()]
+    }
+
+    getOperatorList() {
         request('/api/management/operator/getOperatorList').then(res => {
             if (res) {
                 if (res.status) {
                     const operatorList = Array.isArray(res.voData) ? res.voData : [];
-                    const operatorMap: Map<string, any> = new Map()
-                    operatorList.forEach((element: any) => {
-                        operatorMap.set(element.operatorId, element)
-                    });
-
-                    this.operatorMap = operatorMap
-                    this.operatorList = [...this.operatorMap.values()]
-
+                    this.setOperatorList(operatorList)
                 } else {
                     toast.error(`查询操作员错误：${res.message}`);
                 }
@@ -29,7 +44,7 @@ class OperatorStore {
         });
     }
 
-    @action saveOrUpdateOperator(operator: any) {
+    saveOrUpdateOperator(operator: any) {
         request('/api/management/operator/saveOrUpdateOperator', {
             method: 'POST',
             data: {
@@ -48,7 +63,7 @@ class OperatorStore {
         });
     }
 
-    @action deleteOperatorByOperatorId(operatorId: string) {
+    deleteOperatorByOperatorId(operatorId: string) {
         request('/api/management/operator/deleteOperatorByOperatorId', {
             method: 'POST',
             data: {
@@ -68,7 +83,7 @@ class OperatorStore {
         });
     }
 
-    @action createOperator() {
+    createOperator() {
         request('/api/management/operator/createOperator').then(res => {
             if (res) {
                 if (res.status) {
@@ -81,6 +96,5 @@ class OperatorStore {
             console.log(err);
         });
     }
-
 }
 export const operatorStore = new OperatorStore()

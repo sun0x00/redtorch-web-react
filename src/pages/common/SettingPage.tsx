@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
-import { FontSizes } from 'office-ui-fabric-react/lib/Styling';
-import { Separator } from 'office-ui-fabric-react/lib/Separator';
-import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
+import { Stack, IStackProps } from '@fluentui/react/lib/Stack';
+import { FontSizes } from '@fluentui/react/lib/Styling';
+import { Separator } from '@fluentui/react/lib/Separator';
+import { PrimaryButton } from '@fluentui/react/lib/Button';
 import { withRouter } from 'react-router';
+import { TextField } from '@fluentui/react/lib/TextField';
 
 
 
@@ -14,16 +14,13 @@ const columnProps: Partial<IStackProps> = {
   styles: { root: { width: 300 } }
 };
 
-
-@inject('authenticationStore')
-@observer
-export class SettingPage extends React.Component<any> {
+export const SettingPage = inject('authenticationStore')(observer(class SettingPage extends React.Component<any> {
 
   public state = { password: '', newPassword: '' };
 
   public render() {
     return (
-      <Stack gap={12}>
+      <Stack tokens={{ childrenGap: 12 }}>
         <Stack.Item align="center">
           <Separator><div style={{ fontSize: FontSizes.xxLarge }} >退出登录</div></Separator>
         </Stack.Item>
@@ -78,6 +75,6 @@ export class SettingPage extends React.Component<any> {
     this.setState({ 'newPassword': event.target.value })
   }
 
-}
+}));
 
 export default withRouter(SettingPage)

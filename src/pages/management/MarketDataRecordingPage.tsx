@@ -1,26 +1,23 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
 import { withRouter } from 'react-router';
-import { mergeStyleSets, FontSizes } from 'office-ui-fabric-react/lib/Styling';
-import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { DetailsList, DetailsListLayoutMode, IDetailsHeaderProps, IColumn, IDetailsFooterProps, ConstrainMode, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
-import { IRenderFunction, SelectionMode } from 'office-ui-fabric-react/lib/Utilities';
-import { Sticky, StickyPositionType } from 'office-ui-fabric-react/lib/Sticky';
-import { TooltipHost, TooltipDelay, DirectionalHint } from 'office-ui-fabric-react/lib/Tooltip';
+import { mergeStyleSets, FontSizes } from '@fluentui/react/lib/Styling';
+import { ScrollablePane, ScrollbarVisibility } from '@fluentui/react/lib/ScrollablePane';
+import { DetailsList, DetailsListLayoutMode, IDetailsHeaderProps, IColumn, IDetailsFooterProps, ConstrainMode, DetailsHeader } from '@fluentui/react/lib/DetailsList';
+import { IRenderFunction, SelectionMode } from '@fluentui/react/lib/Utilities';
+import { Sticky, StickyPositionType } from '@fluentui/react/lib/Sticky';
+import { TooltipHost, TooltipDelay, DirectionalHint } from '@fluentui/react/lib/Tooltip';
 import { xyz } from "../../node/pb/pb";
-import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/components/Dropdown';
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { DefaultButton, IconButton } from 'office-ui-fabric-react/lib/Button';
+import { TextField } from '@fluentui/react/lib/TextField';
+import { DefaultButton, IconButton } from '@fluentui/react/lib/Button';
 
 import { exchangeOptions, currencyOptions, productClassOptions } from '../../utils'
+import { Dropdown, IDropdownOption } from '@fluentui/react/lib/Dropdown';
+import { Stack } from '@fluentui/react/lib/Stack';
 
 const { CurrencyEnum, ExchangeEnum, ProductClassEnum, OptionsTypeEnum } = xyz.redtorch.pb
 
-
-@inject('authenticationStore', 'tradeContractStore', 'tradeActionStore', 'customizeStore', 'marketDataRecordingStore')
-@observer
-export class MarketDataRecordingPage extends React.Component<any> {
+export const MarketDataRecordingPage = inject('authenticationStore', 'tradeContractStore', 'tradeActionStore', 'customizeStore', 'marketDataRecordingStore')(observer(class MarketDataRecordingPage extends React.Component<any> {
 
     state = {
         filterExchange: 9999,
@@ -35,13 +32,11 @@ export class MarketDataRecordingPage extends React.Component<any> {
         windowInnerHeight: window.innerHeight
     }
 
-
     componentDidMount() {
         this.resize()
         window.addEventListener('resize', this.resize);
         this.getContractList()
     }
-
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.resize);
@@ -75,8 +70,7 @@ export class MarketDataRecordingPage extends React.Component<any> {
 
         } else {
 
-            const contractListLength = marketDataRecordingStore.contractList.length
-            for (let i = 0; i < contractListLength; i++) {
+            for (let i = 0; i < marketDataRecordingStore.contractList.length; i++) {
                 const contract = marketDataRecordingStore.contractList[i]
 
                 let flag = false;
@@ -515,17 +509,21 @@ export class MarketDataRecordingPage extends React.Component<any> {
                                         layoutMode={DetailsListLayoutMode.fixedColumns}
                                         constrainMode={ConstrainMode.unconstrained}
                                         // data-is-scrollable={true}
+
+                                        // @ts-ignore
                                         onRenderDetailsHeader={
                                             // tslint:disable-next-line:jsx-no-lambda
                                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                                                 <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                                     <DetailsHeader
                                                         {...detailsHeaderProps}
-                                                        styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                                        styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                                     />
                                                     {/* {defaultRender(detailsHeaderProps)} */}
                                                 </Sticky>
                                             )}
+
+                                        // @ts-ignore
                                         onRenderDetailsFooter={
                                             // tslint:disable-next-line:jsx-no-lambda
                                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -545,8 +543,6 @@ export class MarketDataRecordingPage extends React.Component<any> {
         );
     }
 
-
-
-}
+}));
 
 export default withRouter(MarketDataRecordingPage)
