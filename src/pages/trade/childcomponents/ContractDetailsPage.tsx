@@ -33,12 +33,12 @@ export const ContractDetailsPage = inject('authenticationStore', 'tradeContractS
     }
 
     public componentDidMount = () => {
-        this.getMixContractList()
+        this.getContractList()
     }
 
-    public getMixContractList = () => {
+    public getContractList = () => {
         const { tradeContractStore } = this.props
-        tradeContractStore.getMixContractList()
+        tradeContractStore.getContractList()
     }
 
     public render() {
@@ -91,7 +91,7 @@ export const ContractDetailsPage = inject('authenticationStore', 'tradeContractS
 
         const columns: IColumn[] = [
             {
-                key: "unifiedSymbol",
+                key: "uniformSymbol",
                 name: "统一标识",
                 minWidth: 150,
                 isResizable: true,
@@ -101,7 +101,7 @@ export const ContractDetailsPage = inject('authenticationStore', 'tradeContractS
                     const labelStyls: React.CSSProperties = { display: 'inline-block', width: 55, textAlign: "right", color: '#999', paddingRight: 3 }
 
                     let clazzNames = ""
-                    if (selectedContract && item.unifiedSymbol === selectedContract.unifiedSymbol) {
+                    if (selectedContract && item.uniformSymbol === selectedContract.uniformSymbol) {
                         clazzNames = "trade-remind-color"
                     }
 
@@ -127,7 +127,7 @@ export const ContractDetailsPage = inject('authenticationStore', 'tradeContractS
                                     tradeActionStore.setSelectedContract(item)
                                 }
                             }>
-                                <span style={{ cursor: "pointer" }}>{item.unifiedSymbol}</span>
+                                <span style={{ cursor: "pointer" }}>{item.uniformSymbol}</span>
                             </div>
                         </TooltipHost>
                     );
@@ -181,7 +181,7 @@ export const ContractDetailsPage = inject('authenticationStore', 'tradeContractS
                                             iconName: "CircleAddition"
                                         },
                                         onClick: () => {
-                                            customizeStore.addFavoriteContractByUnifiedSymbol(item.unifiedSymbol)
+                                            customizeStore.addFavoriteContractByUniformSymbol(item.uniformSymbol)
                                         }
                                     },
 
@@ -193,7 +193,7 @@ export const ContractDetailsPage = inject('authenticationStore', 'tradeContractS
                                             iconName: "CircleAddition"
                                         },
                                         onClick: () => {
-                                            marketDataRecordingStore.addContractByUnifiedSymbol(item.unifiedSymbol)
+                                            marketDataRecordingStore.addContractByUniformSymbol(item.uniformSymbol)
                                         }
                                     }
                                 ]
@@ -471,7 +471,7 @@ export const ContractDetailsPage = inject('authenticationStore', 'tradeContractS
                                         <DefaultButton
                                             text="刷新"
                                             onClick={() => {
-                                                tradeContractStore.getMixContractList()
+                                                tradeContractStore.getContractList()
                                             }}
                                             allowDisabledFocus={true}
                                         />

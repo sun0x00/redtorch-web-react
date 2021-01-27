@@ -69,12 +69,12 @@ class TradeActionStore {
             console.debug(selectedContract)
         }
         if (selectedContract) {
-            if (tradeContractStore.mxiContractMap.has(selectedContract.unifiedSymbol)) {
-                this.selectedContract = tradeContractStore.mxiContractMap.get(selectedContract.unifiedSymbol)
+            if (tradeContractStore.mxiContractMap.has(selectedContract.uniformSymbol)) {
+                this.selectedContract = tradeContractStore.mxiContractMap.get(selectedContract.uniformSymbol)
                 rpcClientApi.asyncSubscribe(selectedContract)
                 this.fillPrice()
             } else {
-                toast.warn(`本地缓存未找到所选合约,${selectedContract.unifiedSymbol},${selectedContract.fullName}`);
+                toast.warn(`本地缓存未找到所选合约,${selectedContract.uniformSymbol},${selectedContract.fullName}`);
             }
         } else {
             console.warn("参数为空")
@@ -84,8 +84,8 @@ class TradeActionStore {
     fillPrice() {
         if (this.selectedContract) {
             if (this.autoFillOrderPriceType !== "MANUAL") {
-                if (tradeTickStore.mixTickMap.has(this.selectedContract.unifiedSymbol)) {
-                    const tick = tradeTickStore.mixTickMap.get(this.selectedContract.unifiedSymbol);
+                if (tradeTickStore.mixTickMap.has(this.selectedContract.uniformSymbol)) {
+                    const tick = tradeTickStore.mixTickMap.get(this.selectedContract.uniformSymbol);
                     try {
                         let tmpPrice;
                         if (this.autoFillOrderPriceType === "LAST") {

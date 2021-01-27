@@ -43,10 +43,10 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
     denyReadSpecialAccountIdInput: '',
     acceptTradeSpecialAccountIdInput: '',
     denyTradeSpecialAccountIdInput: '',
-    acceptTradeSpecialUnifiedSymbolInput: '',
-    denyTradeSpecialUnifiedSymbolInput: '',
-    acceptSubscribeSpecialUnifiedSymbolInput: '',
-    denySubscribeSpecialUnifiedSymbolInput: '',
+    acceptTradeSpecialUniformSymbolInput: '',
+    denyTradeSpecialUniformSymbolInput: '',
+    acceptSubscribeSpecialUniformSymbolInput: '',
+    denySubscribeSpecialUniformSymbolInput: '',
 
 
   }
@@ -97,12 +97,12 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
     const denyTradeSpecialAccountIdList: any[] = []
 
     let canTradeAllContracts = false;
-    const acceptTradeSpecialUnifiedSymbolList: any[] = []
-    const denyTradeSpecialUnifiedSymbolList: any[] = []
+    const acceptTradeSpecialUniformSymbolList: any[] = []
+    const denyTradeSpecialUniformSymbolList: any[] = []
 
     let canSubscribeAllContracts = false
-    const acceptSubscribeSpecialUnifiedSymbolList: any[] = []
-    const denySubscribeSpecialUnifiedSymbolList: any[] = []
+    const acceptSubscribeSpecialUniformSymbolList: any[] = []
+    const denySubscribeSpecialUniformSymbolList: any[] = []
 
 
     const { operatorStore } = this.props
@@ -170,19 +170,19 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
           canTradeAllContracts = true
         }
 
-        if (selectedOperator.acceptTradeSpecialUnifiedSymbolSet) {
-          selectedOperator.acceptTradeSpecialUnifiedSymbolSet.forEach((element: any) => {
-            acceptTradeSpecialUnifiedSymbolList.push({
-              "unifiedSymbol": element,
+        if (selectedOperator.acceptTradeSpecialUniformSymbolSet) {
+          selectedOperator.acceptTradeSpecialUniformSymbolSet.forEach((element: any) => {
+            acceptTradeSpecialUniformSymbolList.push({
+              "uniformSymbol": element,
               "operatorId": this.state.selectedOperatorId
             })
           });
         }
 
-        if (selectedOperator.denyTradeSpecialUnifiedSymbolSet) {
-          selectedOperator.denyTradeSpecialUnifiedSymbolSet.forEach((element: any) => {
-            denyTradeSpecialUnifiedSymbolList.push({
-              "unifiedSymbol": element,
+        if (selectedOperator.denyTradeSpecialUniformSymbolSet) {
+          selectedOperator.denyTradeSpecialUniformSymbolSet.forEach((element: any) => {
+            denyTradeSpecialUniformSymbolList.push({
+              "uniformSymbol": element,
               "operatorId": this.state.selectedOperatorId
             })
           });
@@ -193,19 +193,19 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
           canSubscribeAllContracts = true
         }
 
-        if (selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet) {
-          selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet.forEach((element: any) => {
-            acceptSubscribeSpecialUnifiedSymbolList.push({
-              "unifiedSymbol": element,
+        if (selectedOperator.acceptSubscribeSpecialUniformSymbolSet) {
+          selectedOperator.acceptSubscribeSpecialUniformSymbolSet.forEach((element: any) => {
+            acceptSubscribeSpecialUniformSymbolList.push({
+              "uniformSymbol": element,
               "operatorId": this.state.selectedOperatorId
             })
           });
         }
 
-        if (selectedOperator.denySubscribeSpecialUnifiedSymbolSet) {
-          selectedOperator.denySubscribeSpecialUnifiedSymbolSet.forEach((element: any) => {
-            denySubscribeSpecialUnifiedSymbolList.push({
-              "unifiedSymbol": element,
+        if (selectedOperator.denySubscribeSpecialUniformSymbolSet) {
+          selectedOperator.denySubscribeSpecialUniformSymbolSet.forEach((element: any) => {
+            denySubscribeSpecialUniformSymbolList.push({
+              "uniformSymbol": element,
               "operatorId": this.state.selectedOperatorId
             })
           });
@@ -522,9 +522,9 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
       }
     ]
 
-    const acceptTradeSpecialUnifiedSymbolSetColumns: IColumn[] = [
+    const acceptTradeSpecialUniformSymbolSetColumns: IColumn[] = [
       {
-        key: "unifiedSymbol",
+        key: "uniformSymbol",
         name: "合约统一标识",
         minWidth: 310,
         isResizable: true,
@@ -533,7 +533,7 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
         onRender: (item) => {
           return (
             <div>
-              <span>{item.unifiedSymbol}</span>
+              <span>{item.uniformSymbol}</span>
             </div>
           );
         }
@@ -554,11 +554,11 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
                 onClick={() => {
                   if (selectedOperator) {
                     let tmpSet = new Set()
-                    if (selectedOperator.acceptTradeSpecialUnifiedSymbolSet) {
-                      tmpSet = new Set(selectedOperator.acceptTradeSpecialUnifiedSymbolSet)
+                    if (selectedOperator.acceptTradeSpecialUniformSymbolSet) {
+                      tmpSet = new Set(selectedOperator.acceptTradeSpecialUniformSymbolSet)
                     }
-                    tmpSet.delete(item.unifiedSymbol)
-                    selectedOperator.acceptTradeSpecialUnifiedSymbolSet = [...tmpSet]
+                    tmpSet.delete(item.uniformSymbol)
+                    selectedOperator.acceptTradeSpecialUniformSymbolSet = [...tmpSet]
                     this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
                   } else {
                     toast("请选择操作员", { type: 'error' })
@@ -573,9 +573,9 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
       }
     ]
 
-    const denyTradeSpecialUnifiedSymbolSetColumns: IColumn[] = [
+    const denyTradeSpecialUniformSymbolSetColumns: IColumn[] = [
       {
-        key: "unifiedSymbol",
+        key: "uniformSymbol",
         name: "合约统一标识",
         minWidth: 310,
         isResizable: true,
@@ -584,7 +584,7 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
         onRender: (item) => {
           return (
             <div>
-              <span>{item.unifiedSymbol}</span>
+              <span>{item.uniformSymbol}</span>
             </div>
           );
         }
@@ -605,11 +605,11 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
                 onClick={() => {
                   if (selectedOperator) {
                     let tmpSet = new Set()
-                    if (selectedOperator.denyTradeSpecialUnifiedSymbolSet) {
-                      tmpSet = new Set(selectedOperator.denyTradeSpecialUnifiedSymbolSet)
+                    if (selectedOperator.denyTradeSpecialUniformSymbolSet) {
+                      tmpSet = new Set(selectedOperator.denyTradeSpecialUniformSymbolSet)
                     }
-                    tmpSet.delete(item.unifiedSymbol)
-                    selectedOperator.denyTradeSpecialUnifiedSymbolSet = [...tmpSet]
+                    tmpSet.delete(item.uniformSymbol)
+                    selectedOperator.denyTradeSpecialUniformSymbolSet = [...tmpSet]
                     this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
                   } else {
                     toast("请选择操作员", { type: 'error' })
@@ -626,9 +626,9 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
 
 
 
-    const acceptSubscribeSpecialUnifiedSymbolSetColumns: IColumn[] = [
+    const acceptSubscribeSpecialUniformSymbolSetColumns: IColumn[] = [
       {
-        key: "unifiedSymbol",
+        key: "uniformSymbol",
         name: "合约统一标识",
         minWidth: 310,
         isResizable: true,
@@ -637,7 +637,7 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
         onRender: (item) => {
           return (
             <div>
-              <span>{item.unifiedSymbol}</span>
+              <span>{item.uniformSymbol}</span>
             </div>
           );
         }
@@ -658,11 +658,11 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
                 onClick={() => {
                   if (selectedOperator) {
                     let tmpSet = new Set()
-                    if (selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet) {
-                      tmpSet = new Set(selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet)
+                    if (selectedOperator.acceptSubscribeSpecialUniformSymbolSet) {
+                      tmpSet = new Set(selectedOperator.acceptSubscribeSpecialUniformSymbolSet)
                     }
-                    tmpSet.delete(item.unifiedSymbol)
-                    selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet = [...tmpSet]
+                    tmpSet.delete(item.uniformSymbol)
+                    selectedOperator.acceptSubscribeSpecialUniformSymbolSet = [...tmpSet]
                     this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
                   } else {
                     toast("请选择操作员", { type: 'error' })
@@ -677,9 +677,9 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
       }
     ]
 
-    const denySubscribeSpecialUnifiedSymbolSetColumns: IColumn[] = [
+    const denySubscribeSpecialUniformSymbolSetColumns: IColumn[] = [
       {
-        key: "unifiedSymbol",
+        key: "uniformSymbol",
         name: "合约统一标识",
         minWidth: 310,
         isResizable: true,
@@ -688,7 +688,7 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
         onRender: (item) => {
           return (
             <div>
-              <span>{item.unifiedSymbol}</span>
+              <span>{item.uniformSymbol}</span>
             </div>
           );
         }
@@ -709,11 +709,11 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
                 onClick={() => {
                   if (selectedOperator) {
                     let tmpSet = new Set()
-                    if (selectedOperator.denySubscribeSpecialUnifiedSymbolSet) {
-                      tmpSet = new Set(selectedOperator.denySubscribeSpecialUnifiedSymbolSet)
+                    if (selectedOperator.denySubscribeSpecialUniformSymbolSet) {
+                      tmpSet = new Set(selectedOperator.denySubscribeSpecialUniformSymbolSet)
                     }
-                    tmpSet.delete(item.unifiedSymbol)
-                    selectedOperator.denySubscribeSpecialUnifiedSymbolSet = [...tmpSet]
+                    tmpSet.delete(item.uniformSymbol)
+                    selectedOperator.denySubscribeSpecialUniformSymbolSet = [...tmpSet]
                     this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
                   } else {
                     toast("请选择操作员", { type: 'error' })
@@ -1206,11 +1206,11 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
                     <div className={classNames.childTableWrapper}>
                       <ScrollablePane scrollbarVisibility={ScrollbarVisibility.auto}>
                         <DetailsList
-                          items={acceptTradeSpecialUnifiedSymbolList}
+                          items={acceptTradeSpecialUniformSymbolList}
                           compact={true}
-                          columns={acceptTradeSpecialUnifiedSymbolSetColumns}
+                          columns={acceptTradeSpecialUniformSymbolSetColumns}
                           selectionMode={SelectionMode.none}
-                          setKey="unifiedSymbol"
+                          setKey="uniformSymbol"
                           layoutMode={DetailsListLayoutMode.fixedColumns}
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
@@ -1242,24 +1242,24 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
                     </div>
                     <TextField label="合约统一标识"
                       placeholder="......"
-                      defaultValue={this.state.acceptTradeSpecialUnifiedSymbolInput}
-                      onChange={(event: any, newValue?: string) => this.setState({ 'acceptTradeSpecialUnifiedSymbolInput': newValue })}
+                      defaultValue={this.state.acceptTradeSpecialUniformSymbolInput}
+                      onChange={(event: any, newValue?: string) => this.setState({ 'acceptTradeSpecialUniformSymbolInput': newValue })}
                     />
                     <PrimaryButton
                       allowDisabledFocus={true}
                       checked={false}
                       text="新增允许"
                       onClick={() => {
-                        if (this.state.acceptTradeSpecialUnifiedSymbolInput && this.state.acceptTradeSpecialUnifiedSymbolInput !== '') {
+                        if (this.state.acceptTradeSpecialUniformSymbolInput && this.state.acceptTradeSpecialUniformSymbolInput !== '') {
                           if (selectedOperator) {
                             let tmpSet = new Set()
-                            if (selectedOperator.acceptTradeSpecialUnifiedSymbolSet) {
-                              tmpSet = new Set(selectedOperator.acceptTradeSpecialUnifiedSymbolSet)
+                            if (selectedOperator.acceptTradeSpecialUniformSymbolSet) {
+                              tmpSet = new Set(selectedOperator.acceptTradeSpecialUniformSymbolSet)
                             }
-                            tmpSet.add(this.state.acceptTradeSpecialUnifiedSymbolInput)
-                            selectedOperator.acceptTradeSpecialUnifiedSymbolSet = [...tmpSet]
+                            tmpSet.add(this.state.acceptTradeSpecialUniformSymbolInput)
+                            selectedOperator.acceptTradeSpecialUniformSymbolSet = [...tmpSet]
                             this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
-                            this.setState({ 'acceptTradeSpecialUnifiedSymbolInput': '' })
+                            this.setState({ 'acceptTradeSpecialUniformSymbolInput': '' })
                           } else {
                             toast("请选择操作员", { type: 'error' })
                           }
@@ -1274,11 +1274,11 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
                     <div className={classNames.childTableWrapper}>
                       <ScrollablePane scrollbarVisibility={ScrollbarVisibility.auto}>
                         <DetailsList
-                          items={denyTradeSpecialUnifiedSymbolList}
+                          items={denyTradeSpecialUniformSymbolList}
                           compact={true}
-                          columns={denyTradeSpecialUnifiedSymbolSetColumns}
+                          columns={denyTradeSpecialUniformSymbolSetColumns}
                           selectionMode={SelectionMode.none}
-                          setKey="opunifiedSymboleratorId"
+                          setKey="opuniformSymboleratorId"
                           layoutMode={DetailsListLayoutMode.fixedColumns}
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
@@ -1310,24 +1310,24 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
                     </div>
                     <TextField label="合约统一标识"
                       placeholder="......"
-                      defaultValue={this.state.denyTradeSpecialUnifiedSymbolInput}
-                      onChange={(event: any, newValue?: string) => this.setState({ 'denyTradeSpecialUnifiedSymbolInput': newValue })}
+                      defaultValue={this.state.denyTradeSpecialUniformSymbolInput}
+                      onChange={(event: any, newValue?: string) => this.setState({ 'denyTradeSpecialUniformSymbolInput': newValue })}
                     />
                     <PrimaryButton
                       allowDisabledFocus={true}
                       checked={false}
                       text="新增拒绝"
                       onClick={() => {
-                        if (this.state.denyTradeSpecialUnifiedSymbolInput && this.state.denyTradeSpecialUnifiedSymbolInput !== '') {
+                        if (this.state.denyTradeSpecialUniformSymbolInput && this.state.denyTradeSpecialUniformSymbolInput !== '') {
                           if (selectedOperator) {
                             let tmpSet = new Set()
-                            if (selectedOperator.denyTradeSpecialUnifiedSymbolSet) {
-                              tmpSet = new Set(selectedOperator.denyTradeSpecialUnifiedSymbolSet)
+                            if (selectedOperator.denyTradeSpecialUniformSymbolSet) {
+                              tmpSet = new Set(selectedOperator.denyTradeSpecialUniformSymbolSet)
                             }
-                            tmpSet.add(this.state.denyTradeSpecialUnifiedSymbolInput)
-                            selectedOperator.denyTradeSpecialUnifiedSymbolSet = [...tmpSet]
+                            tmpSet.add(this.state.denyTradeSpecialUniformSymbolInput)
+                            selectedOperator.denyTradeSpecialUniformSymbolSet = [...tmpSet]
                             this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
-                            this.setState({ 'denyTradeSpecialUnifiedSymbolInput': '' })
+                            this.setState({ 'denyTradeSpecialUniformSymbolInput': '' })
                           } else {
                             toast("请选择操作员", { type: 'error' })
                           }
@@ -1370,11 +1370,11 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
                     <div className={classNames.childTableWrapper}>
                       <ScrollablePane scrollbarVisibility={ScrollbarVisibility.auto}>
                         <DetailsList
-                          items={acceptSubscribeSpecialUnifiedSymbolList}
+                          items={acceptSubscribeSpecialUniformSymbolList}
                           compact={true}
-                          columns={acceptSubscribeSpecialUnifiedSymbolSetColumns}
+                          columns={acceptSubscribeSpecialUniformSymbolSetColumns}
                           selectionMode={SelectionMode.none}
-                          setKey="unifiedSymbol"
+                          setKey="uniformSymbol"
                           layoutMode={DetailsListLayoutMode.fixedColumns}
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
@@ -1406,24 +1406,24 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
                     </div>
                     <TextField label="合约统一标识"
                       placeholder="......"
-                      defaultValue={this.state.acceptSubscribeSpecialUnifiedSymbolInput}
-                      onChange={(event: any, newValue?: string) => this.setState({ 'acceptSubscribeSpecialUnifiedSymbolInput': newValue })}
+                      defaultValue={this.state.acceptSubscribeSpecialUniformSymbolInput}
+                      onChange={(event: any, newValue?: string) => this.setState({ 'acceptSubscribeSpecialUniformSymbolInput': newValue })}
                     />
                     <PrimaryButton
                       allowDisabledFocus={true}
                       checked={false}
                       text="新增允许"
                       onClick={() => {
-                        if (this.state.acceptSubscribeSpecialUnifiedSymbolInput && this.state.acceptSubscribeSpecialUnifiedSymbolInput !== '') {
+                        if (this.state.acceptSubscribeSpecialUniformSymbolInput && this.state.acceptSubscribeSpecialUniformSymbolInput !== '') {
                           if (selectedOperator) {
                             let tmpSet = new Set()
-                            if (selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet) {
-                              tmpSet = new Set(selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet)
+                            if (selectedOperator.acceptSubscribeSpecialUniformSymbolSet) {
+                              tmpSet = new Set(selectedOperator.acceptSubscribeSpecialUniformSymbolSet)
                             }
-                            tmpSet.add(this.state.acceptSubscribeSpecialUnifiedSymbolInput)
-                            selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet = [...tmpSet]
+                            tmpSet.add(this.state.acceptSubscribeSpecialUniformSymbolInput)
+                            selectedOperator.acceptSubscribeSpecialUniformSymbolSet = [...tmpSet]
                             this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
-                            this.setState({ 'acceptSubscribeSpecialUnifiedSymbolInput': '' })
+                            this.setState({ 'acceptSubscribeSpecialUniformSymbolInput': '' })
                           } else {
                             toast("请选择操作员", { type: 'error' })
                           }
@@ -1438,11 +1438,11 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
                     <div className={classNames.childTableWrapper}>
                       <ScrollablePane scrollbarVisibility={ScrollbarVisibility.auto}>
                         <DetailsList
-                          items={denySubscribeSpecialUnifiedSymbolList}
+                          items={denySubscribeSpecialUniformSymbolList}
                           compact={true}
-                          columns={denySubscribeSpecialUnifiedSymbolSetColumns}
+                          columns={denySubscribeSpecialUniformSymbolSetColumns}
                           selectionMode={SelectionMode.none}
-                          setKey="unifiedSymbol"
+                          setKey="uniformSymbol"
                           layoutMode={DetailsListLayoutMode.fixedColumns}
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
@@ -1474,24 +1474,24 @@ export const HomePage = inject('authenticationStore', 'operatorStore')(observer(
                     </div>
                     <TextField label="合约统一标识"
                       placeholder="......"
-                      defaultValue={this.state.denySubscribeSpecialUnifiedSymbolInput}
-                      onChange={(event: any, newValue?: string) => this.setState({ 'denySubscribeSpecialUnifiedSymbolInput': newValue })}
+                      defaultValue={this.state.denySubscribeSpecialUniformSymbolInput}
+                      onChange={(event: any, newValue?: string) => this.setState({ 'denySubscribeSpecialUniformSymbolInput': newValue })}
                     />
                     <PrimaryButton
                       allowDisabledFocus={true}
                       checked={false}
                       text="新增拒绝"
                       onClick={() => {
-                        if (this.state.denySubscribeSpecialUnifiedSymbolInput && this.state.denySubscribeSpecialUnifiedSymbolInput !== '') {
+                        if (this.state.denySubscribeSpecialUniformSymbolInput && this.state.denySubscribeSpecialUniformSymbolInput !== '') {
                           if (selectedOperator) {
                             let tmpSet = new Set()
-                            if (selectedOperator.denySubscribeSpecialUnifiedSymbolSet) {
-                              tmpSet = new Set(selectedOperator.denySubscribeSpecialUnifiedSymbolSet)
+                            if (selectedOperator.denySubscribeSpecialUniformSymbolSet) {
+                              tmpSet = new Set(selectedOperator.denySubscribeSpecialUniformSymbolSet)
                             }
-                            tmpSet.add(this.state.denySubscribeSpecialUnifiedSymbolInput)
-                            selectedOperator.denySubscribeSpecialUnifiedSymbolSet = [...tmpSet]
+                            tmpSet.add(this.state.denySubscribeSpecialUniformSymbolInput)
+                            selectedOperator.denySubscribeSpecialUniformSymbolSet = [...tmpSet]
                             this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
-                            this.setState({ 'denySubscribeSpecialUnifiedSymbolInput': '' })
+                            this.setState({ 'denySubscribeSpecialUniformSymbolInput': '' })
                           } else {
                             toast("请选择操作员", { type: 'error' })
                           }

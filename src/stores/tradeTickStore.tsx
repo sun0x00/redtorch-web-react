@@ -41,8 +41,8 @@ class TradeTickStore {
     startIntervalUpdateSelectedTick = () => {
         try {
             if (tradeActionStore.selectedContract) {
-                if (this.mixTickMap.has(tradeActionStore.selectedContract.unifiedSymbol)) {
-                    this.setSelectedTick( this.mixTickMap.get(tradeActionStore.selectedContract.unifiedSymbol))
+                if (this.mixTickMap.has(tradeActionStore.selectedContract.uniformSymbol)) {
+                    this.setSelectedTick( this.mixTickMap.get(tradeActionStore.selectedContract.uniformSymbol))
                 } else {
                     this.setSelectedTick(null)
                 }
@@ -67,8 +67,8 @@ class TradeTickStore {
             console.debug(tick)
         }
 
-        if (tick.unifiedSymbol) {
-             this.mixTickMap.set(tick.unifiedSymbol, tick);
+        if (tick.uniformSymbol) {
+             this.mixTickMap.set(tick.uniformSymbol, tick);
             this.hasBeenChanged = true
         }
     }
@@ -80,7 +80,7 @@ class TradeTickStore {
         const newMixTickMap: Map<string, any> = new Map();
         for (let i = 0; i < tickList.length; i++) {
             const tick = tickList[i]
-            newMixTickMap.set(tick.unifiedSymbol, tick)
+            newMixTickMap.set(tick.uniformSymbol, tick)
         }
         this.mixTickMap = newMixTickMap
         this.hasBeenChanged = true
@@ -93,8 +93,8 @@ class TradeTickStore {
         for (let i = 0; i < tickList.length; i++) {
             const tick = tickList[i]
     
-            if (tick.unifiedSymbol) {
-                this.mixTickMap.set(tick.unifiedSymbol, tick);
+            if (tick.uniformSymbol) {
+                this.mixTickMap.set(tick.uniformSymbol, tick);
                 this.hasBeenChanged = true
             }
         }

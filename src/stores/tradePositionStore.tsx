@@ -134,10 +134,10 @@ class TradePositionStore {
         try {
             return positionList.sort((positionA: any, positionB: any) => {
                 let positionAKey = positionA.accountId;
-                positionAKey += leftZeroPad(positionA.contract.unifiedSymbol, 50)
+                positionAKey += leftZeroPad(positionA.contract.uniformSymbol, 50)
 
                 let positionBKey = positionB.accountId;
-                positionBKey += leftZeroPad(positionB.contract.unifiedSymbol, 50)
+                positionBKey += leftZeroPad(positionB.contract.uniformSymbol, 50)
                 return positionBKey.localeCompare(positionAKey)
             });
         } catch (error) {

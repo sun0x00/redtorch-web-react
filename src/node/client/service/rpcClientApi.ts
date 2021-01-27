@@ -11,7 +11,7 @@ const {
     RpcCancelOrderReq,
     RpcSearchContractReq,
     RpcGetAccountListReq,
-    RpcGetMixContractListReq,
+    RpcGetContractListReq,
     RpcGetPositionListReq,
     RpcGetOrderListReq,
     RpcGetTradeListReq,
@@ -121,14 +121,14 @@ class RpcClientApi {
     }
 
     // -------------------------------------------------------------------------------------
-    public asyncGetMixContractList = () => {
+    public asyncGetContractList = () => {
         const transactionId = uuidv4()
 
-        const rpcGetMixContractListReq = new RpcGetMixContractListReq();
+        const rpcGetContractListReq = new RpcGetContractListReq();
 
-        rpcGetMixContractListReq.commonReq = this.generateCommonReq(transactionId);
+        rpcGetContractListReq.commonReq = this.generateCommonReq(transactionId);
 
-        return rpcClientProcess.sendAsyncHttpRpc(RpcId.GET_MIX_CONTRACT_LIST_REQ, transactionId, RpcGetMixContractListReq.encode(rpcGetMixContractListReq).finish());
+        return rpcClientProcess.sendAsyncHttpRpc(RpcId.GET_CONTRACT_LIST_REQ, transactionId, RpcGetContractListReq.encode(rpcGetContractListReq).finish());
     }
 
     // -------------------------------------------------------------------------------------

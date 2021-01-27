@@ -23,7 +23,7 @@ const {
     RpcGetPositionListRsp,
     RpcGetTradeListRsp,
     RpcGetOrderListRsp,
-    RpcGetMixContractListRsp,
+    RpcGetContractListRsp,
     RpcGetTickListRsp,
     RpcOrderRtn,
     RpcTradeRtn,
@@ -59,7 +59,7 @@ class RpcClientProcess {
     // startIntervalRefreshContractData = () => {
     //     this.intervalRefreshContractDataStarted = true;
     //     if(webSocketClientHandler.checkConnected()){
-    //         rpcClientApi.asyncGetMixContractList()
+    //         rpcClientApi.asyncGetContractList()
     //     }
     //     setTimeout(this.startIntervalRefreshContractData,70*1000)
 
@@ -69,7 +69,7 @@ class RpcClientProcess {
         this.intervalRefreshAllDataStarted = true;
         if (webSocketClientHandler.checkConnected()) {
             // 合约列表太大，单独刷新，减少刷新频率
-            // rpcClientApi.asyncGetMixContractList()
+            // rpcClientApi.asyncGetContractList()
             rpcClientApi.asyncGetAccountList()
             rpcClientApi.asyncGetOrderList()
             rpcClientApi.asyncGetTradeList()
@@ -205,14 +205,14 @@ class RpcClientProcess {
 
             // -------------------------------------------------------------------------------
 
-            case RpcId.GET_MIX_CONTRACT_LIST_RSP: {
+            case RpcId.GET_CONTRACT_LIST_RSP: {
                 try {
-                    const rpcGetMixContractListRsp = RpcGetMixContractListRsp.decode(contentBytes);
-                    this.checkCommonRsp(rpcGetMixContractListRsp.commonRsp);
-                    transactionId = rpcGetMixContractListRsp.commonRsp?.transactionId;
-                    rpcClientRspHandler.onGetMixContractListRsp(rpcGetMixContractListRsp)
+                    const rpcGetContractListRsp = RpcGetContractListRsp.decode(contentBytes);
+                    this.checkCommonRsp(rpcGetContractListRsp.commonRsp);
+                    transactionId = rpcGetContractListRsp.commonRsp?.transactionId;
+                    rpcClientRspHandler.onGetContractListRsp(rpcGetContractListRsp)
                 } catch (error) {
-                    console.error(`处理RPC异常,业务ID:${transactionId},RPC:GET_MIX_CONTRACT_LIST_RSP`, error);
+                    console.error(`处理RPC异常,业务ID:${transactionId},RPC:GET_CONTRACT_LIST_RSP`, error);
                 }
                 break;
             }

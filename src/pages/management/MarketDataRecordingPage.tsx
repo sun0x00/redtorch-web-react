@@ -110,7 +110,7 @@ export const MarketDataRecordingPage = inject('authenticationStore', 'tradeContr
 
         const columns: IColumn[] = [
             {
-                key: "unifiedSymbol",
+                key: "uniformSymbol",
                 name: "统一标识",
                 minWidth: 150,
                 isResizable: true,
@@ -120,7 +120,7 @@ export const MarketDataRecordingPage = inject('authenticationStore', 'tradeContr
                     const labelStyls: React.CSSProperties = { display: 'inline-block', width: 55, textAlign: "right", color: '#999', paddingRight: 3 }
 
                     let clazzNames = ""
-                    if (selectedContract && item.unifiedSymbol === selectedContract.unifiedSymbol) {
+                    if (selectedContract && item.uniformSymbol === selectedContract.uniformSymbol) {
                         clazzNames = "trade-remind-color"
                     }
 
@@ -146,7 +146,7 @@ export const MarketDataRecordingPage = inject('authenticationStore', 'tradeContr
                                     tradeActionStore.setSelectedContract(item)
                                 }
                             }>
-                                <span style={{ cursor: "pointer" }}>{item.unifiedSymbol}</span>
+                                <span style={{ cursor: "pointer" }}>{item.uniformSymbol}</span>
                             </div>
                         </TooltipHost>
                     );
@@ -194,13 +194,13 @@ export const MarketDataRecordingPage = inject('authenticationStore', 'tradeContr
                             menuProps={{
                                 items: [
                                     {
-                                        key: 'deleteFavoriteContractByUnifiedSymbol',
+                                        key: 'deleteFavoriteContractByUniformSymbol',
                                         text: '从行情记录中移除',
                                         iconProps: {
                                             iconName: "Delete"
                                         },
                                         onClick: () => {
-                                            marketDataRecordingStore.deleteContractByUnifiedSymbol(item.unifiedSymbol)
+                                            marketDataRecordingStore.deleteContractByUniformSymbol(item.uniformSymbol)
                                         }
                                     },
                                     {
@@ -211,7 +211,7 @@ export const MarketDataRecordingPage = inject('authenticationStore', 'tradeContr
                                             iconName: "CircleAddition"
                                         },
                                         onClick: () => {
-                                            customizeStore.addFavoriteContractByUnifiedSymbol(item.unifiedSymbol)
+                                            customizeStore.addFavoriteContractByUniformSymbol(item.uniformSymbol)
                                         }
                                     }
                                 ]

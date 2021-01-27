@@ -11,7 +11,7 @@ class TradeContractStore {
     constructor() {
         makeObservable(this, {
             mixContractList: observable,
-            getMixContractList: action,
+            getContractList: action,
             storeContract: action,
             clearAndStoreContractList: action,
             storeContractList: action,
@@ -33,15 +33,15 @@ class TradeContractStore {
         setTimeout(this.startIntervalCheckChange, 500)
     }
 
-    getMixContractList() {
-        rpcClientApi.asyncGetMixContractList()
+    getContractList() {
+        rpcClientApi.asyncGetContractList()
     }
 
     storeContract(contract: any) {
         if (isDevEnv) {
             console.debug(contract)
         }
-        this.mxiContractMap.set(contract.unifiedSymbol, contract);
+        this.mxiContractMap.set(contract.uniformSymbol, contract);
         this.hasBeenChanged = true
     }
 
@@ -52,7 +52,7 @@ class TradeContractStore {
         const newMixContractMap: Map<string, any> = new Map();
         for (let i = 0; i <  mixContractList.length; i++) {
             const contract = mixContractList[i]
-            newMixContractMap.set(contract.unifiedSymbol, contract)
+            newMixContractMap.set(contract.uniformSymbol, contract)
         }
         this.mxiContractMap = newMixContractMap
         this.hasBeenChanged = true
@@ -64,7 +64,7 @@ class TradeContractStore {
         }
         for (let i = 0; i < mixContractList.length; i++) {
             const contract = mixContractList[i]
-            this.mxiContractMap.set(contract.unifiedSymbol, contract);
+            this.mxiContractMap.set(contract.uniformSymbol, contract);
         }
         this.hasBeenChanged = true
     }

@@ -4,26 +4,26 @@ import { toast } from 'react-toastify';
 
 class MarketDataRecordingStore {
     contractList: any[] = [];
-    contractUnifiedSymbolSet: Set<string> = new Set();
+    contractUniformSymbolSet: Set<string> = new Set();
 
     constructor() {
         makeObservable(this, {
             contractList: observable,
-            contractUnifiedSymbolSet: observable,
+            contractUniformSymbolSet: observable,
             getContractList: action,
-            addContractByUnifiedSymbol: action,
-            deleteContractByUnifiedSymbol: action,
+            addContractByUniformSymbol: action,
+            deleteContractByUniformSymbol: action,
             setContractList: action
         });
     }
 
     setContractList(contractList:any[]) {
         this.contractList = contractList
-        const contractUnifiedSymbolSet: Set<string> = new Set()
+        const contractUniformSymbolSet: Set<string> = new Set()
         for (let i = 0; i < this.contractList.length; i++) {
-            contractUnifiedSymbolSet.add(this.contractList[i].unifiedSymbol)
+            contractUniformSymbolSet.add(this.contractList[i].uniformSymbol)
         }
-        this.contractUnifiedSymbolSet = contractUnifiedSymbolSet
+        this.contractUniformSymbolSet = contractUniformSymbolSet
     }
 
     getContractList() {
@@ -41,11 +41,11 @@ class MarketDataRecordingStore {
         });
     }
 
-    addContractByUnifiedSymbol(unifiedSymbol: any) {
-        request('/api/management/marketDataRecording/addContractByUnifiedSymbol', {
+    addContractByUniformSymbol(uniformSymbol: any) {
+        request('/api/management/marketDataRecording/addContractByUniformSymbol', {
             method: 'POST',
             data: {
-                'voData': unifiedSymbol
+                'voData': uniformSymbol
             },
         }).then(res => {
             if (res) {
@@ -61,11 +61,11 @@ class MarketDataRecordingStore {
         });
     }
 
-    deleteContractByUnifiedSymbol(unifiedSymbol: any) {
-        request('/api/management/marketDataRecording/deleteContractByUnifiedSymbol', {
+    deleteContractByUniformSymbol(uniformSymbol: any) {
+        request('/api/management/marketDataRecording/deleteContractByUniformSymbol', {
             method: 'POST',
             data: {
-                'voData': unifiedSymbol
+                'voData': uniformSymbol
             },
         }).then(res => {
             if (res) {

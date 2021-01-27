@@ -38,15 +38,15 @@ export const TradeBoardPage = inject('authenticationStore', 'tradeActionStore', 
         const { tradeActionStore, tradeAccountStore } = this.props;
 
         let priceTick = 0.0001
-        let unifiedSymbol = ""
+        let uniformSymbol = ""
         let shortName = ""
         if (tradeActionStore.selectedContract) {
             if (tradeActionStore.selectedContract.priceTick) {
                 priceTick = tradeActionStore.selectedContract.priceTick
             }
 
-            if (tradeActionStore.selectedContract.unifiedSymbol) {
-                unifiedSymbol = tradeActionStore.selectedContract.unifiedSymbol
+            if (tradeActionStore.selectedContract.uniformSymbol) {
+                uniformSymbol = tradeActionStore.selectedContract.uniformSymbol
             }
 
             if (tradeActionStore.selectedContract.name) {
@@ -701,12 +701,12 @@ export const TradeBoardPage = inject('authenticationStore', 'tradeActionStore', 
                                                 delay={TooltipDelay.long}
                                                 directionalHint={DirectionalHint.bottomCenter}
                                             >
-                                                <TextField style={{ color: "rgb(220, 220, 10)" }} className="trade-remind-color-important" label="合约代码" defaultValue={unifiedSymbol} disabled={true} />
+                                                <TextField style={{ color: "rgb(220, 220, 10)" }} className="trade-remind-color-important" label="合约代码" defaultValue={uniformSymbol} disabled={true} />
                                             </TooltipHost> : null
                                     }
                                     {
                                         tradeActionStore.selectedContract ? null :
-                                            <TextField label="合约代码" defaultValue={unifiedSymbol} disabled={true} />
+                                            <TextField label="合约代码" defaultValue={uniformSymbol} disabled={true} />
                                     }
                                     <Dropdown label="价格类型"
                                         defaultSelectedKey={tradeActionStore.orderPriceType}

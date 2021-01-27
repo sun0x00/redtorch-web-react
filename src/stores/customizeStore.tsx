@@ -4,15 +4,15 @@ import { toast } from 'react-toastify';
 
 class CustomizeStore {
     favoriteContractList: any[] = [];
-    favoriteContractUnifiedSymbolSet: Set<string> = new Set();
+    favoriteContractUniformSymbolSet: Set<string> = new Set();
 
     constructor() {
         makeObservable(this, {
             favoriteContractList: observable,
-            favoriteContractUnifiedSymbolSet: observable,
+            favoriteContractUniformSymbolSet: observable,
             getFavoriteContractList: action,
-            addFavoriteContractByUnifiedSymbol: action,
-            deleteFavoriteContractByUnifiedSymbol: action,
+            addFavoriteContractByUniformSymbol: action,
+            deleteFavoriteContractByUniformSymbol: action,
             setFavoriteContractList: action
         });
     }
@@ -20,11 +20,11 @@ class CustomizeStore {
     setFavoriteContractList(favoriteContractList:any[]) {
         this.favoriteContractList = favoriteContractList
 
-        const favoriteContractUnifiedSymbolSet: Set<string> = new Set()
+        const favoriteContractUniformSymbolSet: Set<string> = new Set()
         for (let i = 0; i < this.favoriteContractList.length; i++) {
-            favoriteContractUnifiedSymbolSet.add(this.favoriteContractList[i].unifiedSymbol)
+            favoriteContractUniformSymbolSet.add(this.favoriteContractList[i].uniformSymbol)
         }
-        this.favoriteContractUnifiedSymbolSet = favoriteContractUnifiedSymbolSet
+        this.favoriteContractUniformSymbolSet = favoriteContractUniformSymbolSet
     }
 
     getFavoriteContractList() {
@@ -42,11 +42,11 @@ class CustomizeStore {
         });
     }
 
-    addFavoriteContractByUnifiedSymbol(unifiedSymbol: any) {
-        request('/api/customize/addFavoriteContractByUnifiedSymbol', {
+    addFavoriteContractByUniformSymbol(uniformSymbol: any) {
+        request('/api/customize/addFavoriteContractByUniformSymbol', {
             method: 'POST',
             data: {
-                'voData': unifiedSymbol
+                'voData': uniformSymbol
             },
         }).then(res => {
             if (res) {
@@ -62,11 +62,11 @@ class CustomizeStore {
         });
     }
 
-    deleteFavoriteContractByUnifiedSymbol(unifiedSymbol: any) {
-        request('/api/customize/deleteFavoriteContractByUnifiedSymbol', {
+    deleteFavoriteContractByUniformSymbol(uniformSymbol: any) {
+        request('/api/customize/deleteFavoriteContractByUniformSymbol', {
             method: 'POST',
             data: {
-                'voData': unifiedSymbol
+                'voData': uniformSymbol
             },
         }).then(res => {
             if (res) {

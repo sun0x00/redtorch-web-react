@@ -120,18 +120,18 @@ class RpcClientRspHandler {
         }
     }
 
-    public onGetMixContractListRsp = (rpcGetMixContractListRsp: xyz.redtorch.pb.RpcGetMixContractListRsp) => {
-        const commonRsp = rpcGetMixContractListRsp.commonRsp;
+    public onGetContractListRsp = (rpcGetContractListRsp: xyz.redtorch.pb.RpcGetContractListRsp) => {
+        const commonRsp = rpcGetContractListRsp.commonRsp;
         // 检查commonRsp,以免编译器报错
         if (commonRsp) {
             const errorId = commonRsp.errorId;
             const rpcTransactionId = commonRsp.transactionId
 
             if (errorId === 0) {
-                console.log(`获取混合合约列表完成,业务ID:${rpcTransactionId},共计${rpcGetMixContractListRsp.contract.length}条数据`);
+                console.log(`获取混合合约列表完成,业务ID:${rpcTransactionId},共计${rpcGetContractListRsp.contract.length}条数据`);
                 // const mixContractList: any[] = []
-                // for (let i = 0; i < rpcGetMixContractListRsp.contract.length; i++) {
-                //     const contract = rpcGetMixContractListRsp.contract[i];
+                // for (let i = 0; i < rpcGetContractListRsp.contract.length; i++) {
+                //     const contract = rpcGetContractListRsp.contract[i];
                 //     mixContractList.push(ContractField.toObject(contract as xyz.redtorch.pb.ContractField, {
                 //         enums: String,
                 //         longs: String,
@@ -140,7 +140,7 @@ class RpcClientRspHandler {
                 //         objects: true
                 //     }))
                 // }
-                tradeContractStore.clearAndStoreContractList(rpcGetMixContractListRsp.contract);
+                tradeContractStore.clearAndStoreContractList(rpcGetContractListRsp.contract);
             } else {
                 console.error(`获取混合列表错误,业务ID:${rpcTransactionId},错误ID:${errorId},错误信息:${commonRsp.errorMsg}`);
                 toast(`获取混合列表错误,业务ID:${rpcTransactionId},错误ID:${errorId},错误信息:${commonRsp.errorMsg}`, { type: "error", autoClose: false })

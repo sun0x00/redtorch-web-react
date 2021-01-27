@@ -60,7 +60,7 @@ export const OrderDetailsPage = inject('authenticationStore', "tradeOrderStore",
                 if (item.contract) {
                     const tooltipLabelStyls: React.CSSProperties = { display: 'inline-block', width: 75, textAlign: "right", color: '#999', paddingRight: 3 }
                     let clazzNames = ""
-                    if (selectedContract && item.contract.unifiedSymbol === selectedContract.unifiedSymbol) {
+                    if (selectedContract && item.contract.uniformSymbol === selectedContract.uniformSymbol) {
                         clazzNames = "trade-remind-color"
                     }
 
@@ -95,7 +95,7 @@ export const OrderDetailsPage = inject('authenticationStore', "tradeOrderStore",
                                     tradeActionStore.setSelectedContract(item.contract)
                                 }
                             }>
-                                <div>{item.contract.unifiedSymbol}</div>
+                                <div>{item.contract.uniformSymbol}</div>
                                 <div>{item.contract.name}</div>
                             </div>
                         </TooltipHost>

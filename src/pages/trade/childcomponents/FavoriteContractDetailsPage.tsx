@@ -38,7 +38,7 @@ export const FavoriteContractDetailsPage = inject('authenticationStore', 'tradeC
 
     public getFavoriteContractList = () => {
         const { customizeStore, tradeContractStore } = this.props
-        tradeContractStore.getMixContractList()
+        tradeContractStore.getContractList()
         customizeStore.getFavoriteContractList()
     }
 
@@ -102,7 +102,7 @@ export const FavoriteContractDetailsPage = inject('authenticationStore', 'tradeC
 
         const columns: IColumn[] = [
             {
-                key: "unifiedSymbol",
+                key: "uniformSymbol",
                 name: "统一标识",
                 minWidth: 150,
                 isResizable: true,
@@ -112,7 +112,7 @@ export const FavoriteContractDetailsPage = inject('authenticationStore', 'tradeC
                     const labelStyls: React.CSSProperties = { display: 'inline-block', width: 55, textAlign: "right", color: '#999', paddingRight: 3 }
 
                     let clazzNames = ""
-                    if (selectedContract && item.unifiedSymbol === selectedContract.unifiedSymbol) {
+                    if (selectedContract && item.uniformSymbol === selectedContract.uniformSymbol) {
                         clazzNames = "trade-remind-color"
                     }
 
@@ -138,7 +138,7 @@ export const FavoriteContractDetailsPage = inject('authenticationStore', 'tradeC
                                     tradeActionStore.setSelectedContract(item)
                                 }
                             }>
-                                <span style={{ cursor: "pointer" }}>{item.unifiedSymbol}</span>
+                                <span style={{ cursor: "pointer" }}>{item.uniformSymbol}</span>
                             </div>
                         </TooltipHost>
                     );
@@ -186,13 +186,13 @@ export const FavoriteContractDetailsPage = inject('authenticationStore', 'tradeC
                             menuProps={{
                                 items: [
                                     {
-                                        key: 'deleteFavoriteContractByUnifiedSymbol',
+                                        key: 'deleteFavoriteContractByUniformSymbol',
                                         text: '从常用中移除',
                                         iconProps: {
                                             iconName: "Delete"
                                         },
                                         onClick: () => {
-                                            customizeStore.deleteFavoriteContractByUnifiedSymbol(item.unifiedSymbol)
+                                            customizeStore.deleteFavoriteContractByUniformSymbol(item.uniformSymbol)
                                         }
                                     },
                                     {
@@ -203,7 +203,7 @@ export const FavoriteContractDetailsPage = inject('authenticationStore', 'tradeC
                                             iconName: "CircleAddition"
                                         },
                                         onClick: () => {
-                                            marketDataRecordingStore.addContractByUnifiedSymbol(item.unifiedSymbol)
+                                            marketDataRecordingStore.addContractByUniformSymbol(item.uniformSymbol)
                                         }
                                     }
                                 ]

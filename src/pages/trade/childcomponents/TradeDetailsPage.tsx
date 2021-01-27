@@ -49,7 +49,7 @@ export const TradeDetailsPage = inject('authenticationStore', "tradeTradeStore",
             for (let i = 0; i < tradeList.length; i++) {
                 const trade = tradeList[i]
                 try {
-                    const tmpKey = `${trade.contract.unifiedSymbol}@${trade.direction}@${trade.offsetFlag}`
+                    const tmpKey = `${trade.contract.uniformSymbol}@${trade.direction}@${trade.offsetFlag}`
                     let tmpTrade;
                     if (mergedTradeMap.has(tmpKey)) {
                         tmpTrade = mergedTradeMap.get(tmpKey)
@@ -106,7 +106,7 @@ export const TradeDetailsPage = inject('authenticationStore', "tradeTradeStore",
                 if (item.contract) {
                     const tooltipLabelStyls: React.CSSProperties = { display: 'inline-block', width: 75, textAlign: "right", color: '#999', paddingRight: 3 }
                     let clazzNames = ""
-                    if (selectedContract && item.contract.unifiedSymbol === selectedContract.unifiedSymbol) {
+                    if (selectedContract && item.contract.uniformSymbol === selectedContract.uniformSymbol) {
                         clazzNames = "trade-remind-color"
                     }
                     return (
@@ -140,7 +140,7 @@ export const TradeDetailsPage = inject('authenticationStore', "tradeTradeStore",
                                     tradeActionStore.setSelectedContract(item.contract)
                                 }
                             }>
-                                <div>{item.contract.unifiedSymbol}</div>
+                                <div>{item.contract.uniformSymbol}</div>
                                 <div>{item.contract.name}</div>
                             </div>
                         </TooltipHost>
