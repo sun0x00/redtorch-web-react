@@ -1,15 +1,24 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import { rpcClientApi } from '../node/client/service/rpcClientApi';
 import { leftZeroPad, isDevEnv } from '../utils'
 import { tradeContractStore } from './tradeContractStore'
 class TradeOrderStore {
 
-    @observable orderList: any[] = []
-    public orderMap: Map<string, any> = new Map();
+    orderList: any[] = [];
+    orderMap: Map<string, any> = new Map();
 
-    private hasBeenChanged = false;
+    hasBeenChanged = false;
 
-    public constructor() {
+    constructor() {
+        makeObservable(this, {
+            orderList: observable,
+            getOrderList: action,
+            storeOrder: action,
+            clearAndStoreOrderList: action,
+            storeOrderList: action,
+            coverMapToList: action
+        });
+
         setTimeout(this.startIntervalCheckChange, 30)
     }
 
@@ -25,12 +34,11 @@ class TradeOrderStore {
         setTimeout(this.startIntervalCheckChange, 300)
     }
 
-    @action getOrderList() {
+    getOrderList() {
         rpcClientApi.asyncGetOrderList()
     }
 
-    @action
-    public storeOrder(order: any) {
+    storeOrder(order: any) {
         if (isDevEnv) {
             console.debug(order)
         }
@@ -41,14 +49,12 @@ class TradeOrderStore {
         this.hasBeenChanged = true
     }
 
-    @action
-    public clearAndStoreOrderList(orderList: any[]) {
+    clearAndStoreOrderList(orderList: any[]) {
         if (isDevEnv) {
             console.debug(orderList)
         }
         const newOrderMap: Map<string, any> = new Map();
-        const orderListLength = orderList.length
-        for (let i = 0; i < orderListLength; i++) {
+        for (let i = 0; i < orderList.length; i++) {
             const order = orderList[i]
             if (order.contract) {
                 tradeContractStore.storeContract(order.contract)
@@ -59,13 +65,12 @@ class TradeOrderStore {
         this.hasBeenChanged = true
     }
 
-    @action
-    public storeOrderList(orderList: any[]) {
+    storeOrderList(orderList: any[]) {
         if (isDevEnv) {
             console.debug(orderList)
         }
-        const orderListLength = orderList.length
-        for (let i = 0; i < orderListLength; i++) {
+        
+        for (let i = 0; i < orderList.length; i++) {
             const order = orderList[i]
             if (order.contract) {
                 tradeContractStore.storeContract(order.contract)
@@ -75,7 +80,7 @@ class TradeOrderStore {
         this.hasBeenChanged = true
     }
 
-    @action coverMapToList() {
+    coverMapToList() {
         const tempOrderList = [...this.orderMap.values()]
         this.orderList = this.sortOrderListByDatetimeAndOrderId(tempOrderList);
     }

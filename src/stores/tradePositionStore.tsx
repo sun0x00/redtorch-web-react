@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import { rpcClientApi } from '../node/client/service/rpcClientApi';
 import { leftZeroPad, isDevEnv } from '../utils';
 import { tradeAccountStore } from './tradeAccountStore'
@@ -9,13 +9,24 @@ const { CurrencyEnum } = xyz.redtorch.pb
 
 class TradePositionStore {
 
-    @observable positionList: any[] = []
-    public positionMap: Map<string, any> = new Map();
-    @observable summaryMap: Map<string, any> = new Map();
+    positionList: any[] = [];
+    positionMap: Map<string, any> = new Map();
+    summaryMap: Map<string, any> = new Map();
 
     private hasBeenChanged = false;
 
-    public constructor() {
+    constructor() {
+        makeObservable(this, {
+            positionList: observable,
+            summaryMap: observable,
+            getPositionList: action,
+            storePosition: action,
+            clearAndStorePositionList: action,
+            storePositionList: action,
+            coverMapToList: action,
+            calcSummary: action
+        });
+
         const cnySummary = {
             "allContractValue": 0,
             "allOpenPositionProfit": 0,
@@ -37,12 +48,11 @@ class TradePositionStore {
         setTimeout(this.startIntervalCheckChange, 300)
     }
 
-    @action getPositionList() {
+    getPositionList() {
         rpcClientApi.asyncGetPositionList()
     }
 
-    @action
-    public storePosition(position: any) {
+    storePosition(position: any) {
         if (isDevEnv) {
             console.debug(position)
         }
@@ -53,14 +63,12 @@ class TradePositionStore {
         this.hasBeenChanged = true
     }
 
-    @action
-    public clearAndStorePositionList(positionList: any[]) {
+    clearAndStorePositionList(positionList: any[]) {
         if (isDevEnv) {
             console.debug(positionList)
         }
         const newPositionMap: Map<string, any> = new Map();
-        const positionListLength = positionList.length
-        for (let i = 0; i < positionListLength; i++) {
+        for (let i = 0; i <  positionList.length; i++) {
             const position = positionList[i]
             if (position.contract) {
                 tradeContractStore.storeContract(position.contract)
@@ -71,13 +79,11 @@ class TradePositionStore {
         this.hasBeenChanged = true
     }
 
-    @action
-    public storePositionList(positionList: any[]) {
+    storePositionList(positionList: any[]) {
         if (isDevEnv) {
             console.debug(positionList)
         }
-        const positionListLength = positionList.length
-        for (let i = 0; i < positionListLength; i++) {
+        for (let i = 0; i < positionList.length; i++) {
             const position = positionList[i]
             if (position.contract) {
                 tradeContractStore.storeContract(position.contract)
@@ -87,20 +93,19 @@ class TradePositionStore {
         this.hasBeenChanged = true
     }
     
-    @action coverMapToList() {
+    coverMapToList() {
         const tempPositionList = [...this.positionMap.values()]
         this.positionList = this.sortPositionListByAccountIdAndPositionId(tempPositionList);
         this.calcSummary()
     }
 
-    @action calcSummary() {
+    calcSummary() {
 
         let allContractValue = 0;
         let allOpenPositionProfit = 0;
 
         const positionList = this.positionList
-        const positionListLength = positionList.length
-        for (let i = 0; i < positionListLength; i++) {
+        for (let i = 0; i < positionList.length; i++) {
             const position = positionList[i]
 
             if (tradeAccountStore.selectedAccountIdSet.has(position.accountId)) {
@@ -129,10 +134,10 @@ class TradePositionStore {
         try {
             return positionList.sort((positionA: any, positionB: any) => {
                 let positionAKey = positionA.accountId;
-                positionAKey += leftZeroPad(positionA.contract.unifiedSymbol, 50)
+                positionAKey += leftZeroPad(positionA.contract.uniformSymbol, 50)
 
                 let positionBKey = positionB.accountId;
-                positionBKey += leftZeroPad(positionB.contract.unifiedSymbol, 50)
+                positionBKey += leftZeroPad(positionB.contract.uniformSymbol, 50)
                 return positionBKey.localeCompare(positionAKey)
             });
         } catch (error) {

@@ -1,22 +1,20 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { Stack } from '@fluentui/react/lib/Stack';
 import { withRouter } from 'react-router';
-import { mergeStyleSets, FontSizes } from 'office-ui-fabric-react/lib/Styling';
-import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { DetailsList, DetailsListLayoutMode, Selection, IDetailsHeaderProps, IColumn, IDetailsFooterProps, ConstrainMode, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
-import { MarqueeSelection } from 'office-ui-fabric-react/lib/MarqueeSelection';
-import { IRenderFunction, SelectionMode } from 'office-ui-fabric-react/lib/Utilities';
-import { Sticky, StickyPositionType } from 'office-ui-fabric-react/lib/Sticky';
+import { mergeStyleSets, FontSizes } from '@fluentui/react/lib/Styling';
+import { ScrollablePane, ScrollbarVisibility } from '@fluentui/react/lib/ScrollablePane';
+import { DetailsList, DetailsListLayoutMode, Selection, IDetailsHeaderProps, IColumn, IDetailsFooterProps, ConstrainMode, DetailsHeader } from '@fluentui/react/lib/DetailsList';
+import { MarqueeSelection } from '@fluentui/react/lib/MarqueeSelection';
+import { IRenderFunction, SelectionMode } from '@fluentui/react/lib/Utilities';
+import { Sticky, StickyPositionType } from '@fluentui/react/lib/Sticky';
 import { numberFormat } from '../../../utils';
-import { TooltipHost, TooltipDelay, DirectionalHint } from 'office-ui-fabric-react/lib/Tooltip';
+import { TooltipHost, TooltipDelay, DirectionalHint } from '@fluentui/react/lib/Tooltip';
 import { xyz } from "../../../node/pb/pb";
 
 const { CurrencyEnum } = xyz.redtorch.pb
 
-@inject('authenticationStore', 'tradeAccountStore', 'tradePositionStore')
-@observer
-export class AccountDetailsPage extends React.Component<any> {
+export const AccountDetailsPage = inject('authenticationStore', 'tradeAccountStore', 'tradePositionStore')(observer(class AccountDetailsPage extends React.Component<any> {
 
     public componentDidMount = () => {
         const { tradeAccountStore } = this.props;
@@ -52,8 +50,7 @@ export class AccountDetailsPage extends React.Component<any> {
             const selectedAccountIdSet = new Set();
 
             const selectionList: any[] = pAccountSelection.getSelection();
-            const selectionListLength = selectionList.length
-            for (let i = 0; i < selectionListLength; i++) {
+            for (let i = 0; i < selectionList.length; i++) {
                 selectedAccountIdSet.add(selectionList[i].accountId);
             }
 
@@ -457,8 +454,9 @@ export class AccountDetailsPage extends React.Component<any> {
                                             selection={accountSelection}
                                             selectionPreservedOnEmptyClick={true}
                                
-
                                             // data-is-scrollable={true}
+
+                                            // @ts-ignore
                                             onRenderDetailsHeader={
                                                 // tslint:disable-next-line:jsx-no-lambda
                                                 (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
@@ -481,6 +479,8 @@ export class AccountDetailsPage extends React.Component<any> {
                                                         {/* {defaultRender(detailsHeaderProps)} */}
                                                     </Sticky>
                                                 )}
+                                                
+                                            // @ts-ignore
                                             onRenderDetailsFooter={
                                                 // tslint:disable-next-line:jsx-no-lambda
                                                 (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -503,6 +503,6 @@ export class AccountDetailsPage extends React.Component<any> {
 
 
 
-}
+}));
 
 export default withRouter(AccountDetailsPage)

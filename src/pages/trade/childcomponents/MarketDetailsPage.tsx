@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { Stack } from '@fluentui/react/lib/Stack';
 import { withRouter } from 'react-router';
-import { FontSizes } from 'office-ui-fabric-react/lib/Styling';
+import { FontSizes } from '@fluentui/react/lib/Styling';
 import { getNumberOfDecimalDigits, numberFormat, checkEffectiveNumber, timestampFormat } from '../../../utils';
-import { TooltipHost, TooltipDelay, DirectionalHint } from 'office-ui-fabric-react/lib/Tooltip';
+import { TooltipHost, TooltipDelay, DirectionalHint } from '@fluentui/react/lib/Tooltip';
 import { isNumber } from 'util';
 import { xyz } from "../../../node/pb/pb";
 
@@ -12,9 +12,7 @@ const {ProductClassEnum, ExchangeEnum, CurrencyEnum} = xyz.redtorch.pb
 
 
 
-@inject('authenticationStore', 'tradeActionStore', 'tradeTickStore')
-@observer
-export class MarketDetailsPage extends React.Component<any> {
+export const MarketDetailsPage = inject('authenticationStore', 'tradeActionStore', 'tradeTickStore')(observer(class MarketDetailsPage extends React.Component<any> {
 
     public state = { password: '', newPassword: '' };
 
@@ -726,6 +724,6 @@ export class MarketDetailsPage extends React.Component<any> {
 
 
 
-}
+}));
 
 export default withRouter(MarketDetailsPage)

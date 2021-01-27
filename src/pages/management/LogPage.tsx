@@ -2,9 +2,7 @@ import * as React from 'react';
 import { inject, observer } from 'mobx-react';
 import { withRouter } from 'react-router';
 
-@inject('authenticationStore')
-@observer
-export class LogPage extends React.Component<any> {
+export const LogPage = inject('authenticationStore')(observer(class LogPage extends React.Component<any> {
 
   public state = { password: '', newPassword: '' };
 
@@ -14,6 +12,6 @@ export class LogPage extends React.Component<any> {
     );
   }
 
-}
+}));
 
 export default withRouter(LogPage)

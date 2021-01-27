@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import { rpcClientApi } from '../node/client/service/rpcClientApi';
 import { isDevEnv } from '../utils';
 import { tradePositionStore } from './tradePositionStore'
@@ -7,15 +7,28 @@ import { xyz } from "../node/pb/pb";
 const { CurrencyEnum } = xyz.redtorch.pb
 
 class TradeAccountStore {
-    @observable accountList: any[] = []
-    public accountMap: Map<string, any> = new Map();
-    @observable selectedAccountIdSet: Set<any> = new Set();
+    accountList: any[] = [];
+    accountMap: Map<string, any> = new Map();
+    selectedAccountIdSet: Set<any> = new Set();
 
-    @observable summaryMap: Map<string, any> = new Map();
+    summaryMap: Map<string, any> = new Map();
 
     private hasBeenChanged = false;
 
-    public constructor() {
+    constructor() {
+        makeObservable(this, {
+            accountList: observable,
+            selectedAccountIdSet: observable,
+            summaryMap: observable,
+            getAccountList: action,
+            setSelectedAccountIdSet: action,
+            storeAccount: action,
+            clearAndStoreAccountList: action,
+            storeAccountList: action,
+            coverMapToList: action,
+            calcSummary: action
+        });
+
         const cnySummary = {
             "allBalance": 0,
             "allPreBalance": 0,
@@ -42,18 +55,17 @@ class TradeAccountStore {
         setTimeout(this.startIntervalCheckChange, 300)
     }
 
-    @action getAccountList() {
+    getAccountList() {
         rpcClientApi.asyncGetAccountList()
     }
 
-    @action setSelectedAccountIdSet(selectedAccountIdSet: Set<any>) {
+    setSelectedAccountIdSet(selectedAccountIdSet: Set<any>) {
         this.selectedAccountIdSet = selectedAccountIdSet;
         this.calcSummary()
         tradePositionStore.calcSummary()
     }
 
-    @action
-    public storeAccount(account: any) {
+    storeAccount(account: any) {
         if (isDevEnv) {
             console.debug(account)
         }
@@ -61,14 +73,12 @@ class TradeAccountStore {
         this.hasBeenChanged = true
     }
 
-    @action
-    public clearAndStoreAccountList(accountList: any[]) {
+    clearAndStoreAccountList(accountList: any[]) {
         if (isDevEnv) {
             console.debug(accountList)
         }
         const newAccountMap: Map<string, any> = new Map();
-        const accountListLength = accountList.length
-        for (let i = 0; i < accountListLength; i++) {
+        for (let i = 0; i <  accountList.length; i++) {
             const account = accountList[i]
             newAccountMap.set(account.accountId, account)
         }
@@ -76,26 +86,24 @@ class TradeAccountStore {
         this.hasBeenChanged = true
     }
 
-    @action
-    public storeAccountList(accountList: any[]) {
+    storeAccountList(accountList: any[]) {
         if (isDevEnv) {
             console.debug(accountList)
         }
-        const accountListLength = accountList.length
-        for (let i = 0; i < accountListLength; i++) {
+        for (let i = 0; i < accountList.length; i++) {
             const account = accountList[i]
             this.accountMap.set(account.accountId, account);
         }
         this.hasBeenChanged = true
     }
 
-    @action coverMapToList() {
+    coverMapToList() {
         const tempAccountList = [...this.accountMap.values()]
         this.accountList = this.sortAccountListByAccountId(tempAccountList);
         this.calcSummary()
     }
 
-    @action calcSummary() {
+    calcSummary() {
 
         let allBalance = 0;
         let allPreBalance = 0;
@@ -108,8 +116,7 @@ class TradeAccountStore {
 
 
         //  暂时只做人民币汇总
-        const accountListLength = this.accountList.length
-        for (let i = 0; i < accountListLength; i++) {
+        for (let i = 0; i < this.accountList.length; i++) {
             const account = this.accountList[i]
             if (tradeAccountStore.selectedAccountIdSet.has(account.accountId)) {
                 try {

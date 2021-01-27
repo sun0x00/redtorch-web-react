@@ -2,32 +2,30 @@ import * as React from 'react';
 // import * as ReactDOM from 'react-dom';
 import { inject, observer } from 'mobx-react';
 // import { counterStore, routingStore } from '../stores'
-// import { TextField, MaskedTextField } from 'office-ui-fabric-react/lib/TextField';
-import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
-import { CommandBar } from 'office-ui-fabric-react/lib/CommandBar';
+// import { TextField, MaskedTextField } from '@fluentui/react/lib/TextField';
+import { Stack, IStackProps } from '@fluentui/react/lib/Stack';
+import { CommandBar } from '@fluentui/react/lib/CommandBar';
 import { withRouter } from 'react-router';
-import { DetailsList, DetailsListLayoutMode, SelectionMode, IColumn, IDetailsHeaderProps, ConstrainMode, IDetailsFooterProps, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
-import { PrimaryButton, DefaultButton, IconButton } from 'office-ui-fabric-react/lib/Button';
-import { Modal } from 'office-ui-fabric-react/lib/Modal';
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { Dialog, DialogType, DialogFooter } from 'office-ui-fabric-react/lib/Dialog';
-import { Separator } from 'office-ui-fabric-react/lib/Separator';
-import { FontSizes } from 'office-ui-fabric-react/lib/Styling';
-import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
+import { DetailsList, DetailsListLayoutMode, SelectionMode, IColumn, IDetailsHeaderProps, ConstrainMode, IDetailsFooterProps, DetailsHeader } from '@fluentui/react/lib/DetailsList';
+import { PrimaryButton, DefaultButton, IconButton } from '@fluentui/react/lib/Button';
+import { Modal } from '@fluentui/react/lib/Modal';
+import { TextField } from '@fluentui/react/lib/TextField';
+import { Dialog, DialogType, DialogFooter } from '@fluentui/react/lib/Dialog';
+import { Separator } from '@fluentui/react/lib/Separator';
+import { FontSizes } from '@fluentui/react/lib/Styling';
+import { Checkbox } from '@fluentui/react/lib/Checkbox';
 import { toast } from 'react-toastify';
-import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { Sticky, StickyPositionType } from 'office-ui-fabric-react/lib/Sticky';
-import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
-import { IRenderFunction } from 'office-ui-fabric-react/lib/Utilities';
+import { ScrollablePane, ScrollbarVisibility } from '@fluentui/react/lib/ScrollablePane';
+import { Sticky, StickyPositionType } from '@fluentui/react/lib/Sticky';
+import { mergeStyleSets } from '@fluentui/react/lib/Styling';
+import { IRenderFunction } from '@fluentui/react/lib/Utilities';
 
 const columnProps: Partial<IStackProps> = {
   tokens: { childrenGap: 15 },
   styles: { root: { width: 300 } }
 };
 
-@inject('userStore')
-@observer
-export class UserPage extends React.Component<any> {
+export const UserPage = inject('userStore')(observer(class UserPage extends React.Component<any> {
 
   public state = {
     hiddenDeleteUserDialog: true,
@@ -61,7 +59,7 @@ export class UserPage extends React.Component<any> {
   componentDidMount() {
     this.resize()
     window.addEventListener('resize', this.resize);
-    
+
     const { userStore } = this.props
 
     userStore.getUserList()
@@ -291,17 +289,21 @@ export class UserPage extends React.Component<any> {
                 layoutMode={DetailsListLayoutMode.fixedColumns}
                 constrainMode={ConstrainMode.unconstrained}
                 // data-is-scrollable={true}
+
+                // @ts-ignore
                 onRenderDetailsHeader={
                   // tslint:disable-next-line:jsx-no-lambda
                   (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                     <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                       <DetailsHeader
-                          {...detailsHeaderProps}
-                          styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                        {...detailsHeaderProps}
+                        styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                       />
                       {/* {defaultRender(detailsHeaderProps)} */}
                     </Sticky>
                   )}
+
+                // @ts-ignore
                 onRenderDetailsFooter={
                   // tslint:disable-next-line:jsx-no-lambda
                   (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -319,7 +321,7 @@ export class UserPage extends React.Component<any> {
           isBlocking={false}
           onDismiss={() => this.closeAddUserModal()}
         >
-          <Stack gap={12} padding={20}>
+          <Stack tokens={{ childrenGap: 12, padding:20 }}>
             <Stack.Item align="center">
               <Separator><div style={{ fontSize: FontSizes.xxLarge }} >新增用户</div></Separator>
             </Stack.Item>
@@ -387,7 +389,7 @@ export class UserPage extends React.Component<any> {
           isBlocking={false}
           onDismiss={() => this.closeEditPermissionModal()}
         >
-          <Stack gap={12} padding={20}>
+          <Stack tokens={{ childrenGap: 12, padding:20 }}>
             <Stack.Item align="center">
               <Separator><div style={{ fontSize: FontSizes.xxLarge }} >更新用户权限</div></Separator>
               <Separator><div style={{ fontSize: FontSizes.medium }} >{this.state.editUsername}</div></Separator>
@@ -450,7 +452,7 @@ export class UserPage extends React.Component<any> {
           isBlocking={false}
           onDismiss={() => this.closeUpdateUserDescriptionModal()}
         >
-          <Stack gap={12} padding={20}>
+          <Stack tokens={{ childrenGap: 12, padding:20 }}>
 
 
             <Stack.Item align="center">
@@ -483,7 +485,7 @@ export class UserPage extends React.Component<any> {
           isBlocking={false}
           onDismiss={() => this.closeUpdateUserPasswordModal()}
         >
-          <Stack gap={12} padding={20}>
+          <Stack tokens={{ childrenGap: 12, padding:20 }}>
 
 
             <Stack.Item align="center">
@@ -821,7 +823,7 @@ export class UserPage extends React.Component<any> {
 
   // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
-}
+}));
 
 // NOTE: hack https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md#quick-solution
 export default withRouter(UserPage);

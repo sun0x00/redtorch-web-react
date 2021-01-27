@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { Stack } from '@fluentui/react/lib/Stack';
 import { withRouter } from 'react-router';
-import { Pivot, PivotItem } from 'office-ui-fabric-react/lib/Pivot';
+import { Pivot, PivotItem } from '@fluentui/react/lib/Pivot';
 import './TradeHomePage.css';
 import AccountDetailsPage from './childcomponents/AccountDetailsPage';
 import PositionDetailsPage from './childcomponents/PositionDetailsPage';
@@ -13,9 +13,7 @@ import TradeDetailsPage from './childcomponents/TradeDetailsPage';
 import TradeBoardPage from './childcomponents/TradeBoardPage';
 import MarketDetailsPage from './childcomponents/MarketDetailsPage';
 
-@inject('authenticationStore')
-@observer
-export class TradeHomePage extends React.Component<any> {
+export const TradeHomePage = inject('authenticationStore')(observer(class TradeHomePage extends React.Component<any> {
 
   public state = {
     windowInnerWidth: window.innerWidth,
@@ -24,7 +22,7 @@ export class TradeHomePage extends React.Component<any> {
 
   componentDidMount() {
     const { authenticationStore } = this.props;
-    authenticationStore.keepLogin()
+    authenticationStore.checkLoginStatus()
     this.resize()
     window.addEventListener('resize', this.resize);
   }
@@ -37,9 +35,6 @@ export class TradeHomePage extends React.Component<any> {
   resize = () => {
     this.setState({ "windowInnerWidth": window.innerWidth, "windowInnerHeight": window.innerHeight })
   }
-
-
-
 
   public render() {
 
@@ -134,6 +129,6 @@ export class TradeHomePage extends React.Component<any> {
 
 
 
-}
+}));
 
 export default withRouter(TradeHomePage)

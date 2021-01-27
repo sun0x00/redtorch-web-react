@@ -1,22 +1,38 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import request from '../request'
 import { toast } from 'react-toastify';
 
 class CustomizeStore {
-    @observable favoriteContractList: any[] = []
-    @observable favoriteContractUnifiedSymbolSet: Set<string> = new Set()
+    favoriteContractList: any[] = [];
+    favoriteContractUniformSymbolSet: Set<string> = new Set();
 
-    @action getFavoriteContractList() {
+    constructor() {
+        makeObservable(this, {
+            favoriteContractList: observable,
+            favoriteContractUniformSymbolSet: observable,
+            getFavoriteContractList: action,
+            addFavoriteContractByUniformSymbol: action,
+            deleteFavoriteContractByUniformSymbol: action,
+            setFavoriteContractList: action
+        });
+    }
+
+    setFavoriteContractList(favoriteContractList:any[]) {
+        this.favoriteContractList = favoriteContractList
+
+        const favoriteContractUniformSymbolSet: Set<string> = new Set()
+        for (let i = 0; i < this.favoriteContractList.length; i++) {
+            favoriteContractUniformSymbolSet.add(this.favoriteContractList[i].uniformSymbol)
+        }
+        this.favoriteContractUniformSymbolSet = favoriteContractUniformSymbolSet
+    }
+
+    getFavoriteContractList() {
         request('/api/customize/getFavoriteContractList').then(res => {
             if (res) {
                 if (res.status) {
-                    this.favoriteContractList = Array.isArray(res.voData) ? res.voData : [];
-                    const favoriteContractListLength = this.favoriteContractList.length
-                    const favoriteContractUnifiedSymbolSet: Set<string> = new Set()
-                    for (let i = 0; i < favoriteContractListLength; i++) {
-                        favoriteContractUnifiedSymbolSet.add(this.favoriteContractList[i].unifiedSymbol)
-                    }
-                    this.favoriteContractUnifiedSymbolSet = favoriteContractUnifiedSymbolSet
+                    const favoriteContractList = Array.isArray(res.voData) ? res.voData : [];
+                    this.setFavoriteContractList(favoriteContractList)
                 } else {
                     toast(`查询常用合约列表错误：${res.message}`, { autoClose: false, type: "error" })
                 }
@@ -26,11 +42,11 @@ class CustomizeStore {
         });
     }
 
-    @action addFavoriteContractByUnifiedSymbol(unifiedSymbol: any) {
-        request('/api/customize/addFavoriteContractByUnifiedSymbol', {
+    addFavoriteContractByUniformSymbol(uniformSymbol: any) {
+        request('/api/customize/addFavoriteContractByUniformSymbol', {
             method: 'POST',
             data: {
-                'voData':unifiedSymbol
+                'voData': uniformSymbol
             },
         }).then(res => {
             if (res) {
@@ -46,11 +62,11 @@ class CustomizeStore {
         });
     }
 
-    @action deleteFavoriteContractByUnifiedSymbol(unifiedSymbol: any) {
-        request('/api/customize/deleteFavoriteContractByUnifiedSymbol', {
+    deleteFavoriteContractByUniformSymbol(uniformSymbol: any) {
+        request('/api/customize/deleteFavoriteContractByUniformSymbol', {
             method: 'POST',
             data: {
-                'voData': unifiedSymbol
+                'voData': uniformSymbol
             },
         }).then(res => {
             if (res) {

@@ -1,25 +1,24 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
 import { withRouter } from 'react-router';
-import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
-import { PrimaryButton, DefaultButton, IconButton, ActionButton, IButtonStyles } from 'office-ui-fabric-react/lib/Button';
-import { IColumn, DetailsList, SelectionMode, DetailsListLayoutMode, Selection, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, DetailsHeader } from 'office-ui-fabric-react/lib/components/DetailsList';
-import Dialog, { DialogFooter, DialogType } from 'office-ui-fabric-react/lib/Dialog';
-import { MarqueeSelection } from 'office-ui-fabric-react/lib/MarqueeSelection';
-import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
-import Modal from 'office-ui-fabric-react/lib/Modal';
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { FontSizes, mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
-import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { IRenderFunction } from 'office-ui-fabric-react/lib/Utilities';
-import { StickyPositionType, Sticky } from 'office-ui-fabric-react/lib/Sticky';
+import { Stack, IStackProps } from '@fluentui/react/lib/Stack';
+import { PrimaryButton, DefaultButton, IconButton, ActionButton, IButtonStyles } from '@fluentui/react/lib/Button';
+import { IColumn, DetailsList, SelectionMode, DetailsListLayoutMode, Selection, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, DetailsHeader } from '@fluentui/react/lib/DetailsList';
+import { Dialog, DialogFooter, DialogType } from '@fluentui/react/lib/Dialog';
+import { MarqueeSelection } from '@fluentui/react/lib/MarqueeSelection';
+import { Checkbox } from '@fluentui/react/lib/Checkbox';
+import { TextField } from '@fluentui/react/lib/TextField';
+import { FontSizes, mergeStyleSets } from '@fluentui/react/lib/Styling';
+import { ScrollablePane, ScrollbarVisibility } from '@fluentui/react/lib/ScrollablePane';
+import { IRenderFunction } from '@fluentui/react/lib/Utilities';
+import { StickyPositionType, Sticky } from '@fluentui/react/lib/Sticky';
 import { toast } from 'react-toastify';
+import { Modal } from '@fluentui/react/lib/Modal';
 
 const columnProps: Partial<IStackProps> = {
   tokens: { childrenGap: 15 },
   styles: { root: { width: 300 } }
 };
-
 
 const actionButtonStyles: IButtonStyles = {
   root: {
@@ -28,9 +27,7 @@ const actionButtonStyles: IButtonStyles = {
   }
 }
 
-@inject('authenticationStore', 'operatorStore')
-@observer
-export class HomePage extends React.Component<any> {
+export const HomePage = inject('authenticationStore', 'operatorStore')(observer(class HomePage extends React.Component<any> {
 
   state = {
     hiddenDeleteOperatorDialog: true,
@@ -46,10 +43,10 @@ export class HomePage extends React.Component<any> {
     denyReadSpecialAccountIdInput: '',
     acceptTradeSpecialAccountIdInput: '',
     denyTradeSpecialAccountIdInput: '',
-    acceptTradeSpecialUnifiedSymbolInput: '',
-    denyTradeSpecialUnifiedSymbolInput: '',
-    acceptSubscribeSpecialUnifiedSymbolInput: '',
-    denySubscribeSpecialUnifiedSymbolInput: '',
+    acceptTradeSpecialUniformSymbolInput: '',
+    denyTradeSpecialUniformSymbolInput: '',
+    acceptSubscribeSpecialUniformSymbolInput: '',
+    denySubscribeSpecialUniformSymbolInput: '',
 
 
   }
@@ -100,12 +97,12 @@ export class HomePage extends React.Component<any> {
     const denyTradeSpecialAccountIdList: any[] = []
 
     let canTradeAllContracts = false;
-    const acceptTradeSpecialUnifiedSymbolList: any[] = []
-    const denyTradeSpecialUnifiedSymbolList: any[] = []
+    const acceptTradeSpecialUniformSymbolList: any[] = []
+    const denyTradeSpecialUniformSymbolList: any[] = []
 
     let canSubscribeAllContracts = false
-    const acceptSubscribeSpecialUnifiedSymbolList: any[] = []
-    const denySubscribeSpecialUnifiedSymbolList: any[] = []
+    const acceptSubscribeSpecialUniformSymbolList: any[] = []
+    const denySubscribeSpecialUniformSymbolList: any[] = []
 
 
     const { operatorStore } = this.props
@@ -173,19 +170,19 @@ export class HomePage extends React.Component<any> {
           canTradeAllContracts = true
         }
 
-        if (selectedOperator.acceptTradeSpecialUnifiedSymbolSet) {
-          selectedOperator.acceptTradeSpecialUnifiedSymbolSet.forEach((element: any) => {
-            acceptTradeSpecialUnifiedSymbolList.push({
-              "unifiedSymbol": element,
+        if (selectedOperator.acceptTradeSpecialUniformSymbolSet) {
+          selectedOperator.acceptTradeSpecialUniformSymbolSet.forEach((element: any) => {
+            acceptTradeSpecialUniformSymbolList.push({
+              "uniformSymbol": element,
               "operatorId": this.state.selectedOperatorId
             })
           });
         }
 
-        if (selectedOperator.denyTradeSpecialUnifiedSymbolSet) {
-          selectedOperator.denyTradeSpecialUnifiedSymbolSet.forEach((element: any) => {
-            denyTradeSpecialUnifiedSymbolList.push({
-              "unifiedSymbol": element,
+        if (selectedOperator.denyTradeSpecialUniformSymbolSet) {
+          selectedOperator.denyTradeSpecialUniformSymbolSet.forEach((element: any) => {
+            denyTradeSpecialUniformSymbolList.push({
+              "uniformSymbol": element,
               "operatorId": this.state.selectedOperatorId
             })
           });
@@ -196,19 +193,19 @@ export class HomePage extends React.Component<any> {
           canSubscribeAllContracts = true
         }
 
-        if (selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet) {
-          selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet.forEach((element: any) => {
-            acceptSubscribeSpecialUnifiedSymbolList.push({
-              "unifiedSymbol": element,
+        if (selectedOperator.acceptSubscribeSpecialUniformSymbolSet) {
+          selectedOperator.acceptSubscribeSpecialUniformSymbolSet.forEach((element: any) => {
+            acceptSubscribeSpecialUniformSymbolList.push({
+              "uniformSymbol": element,
               "operatorId": this.state.selectedOperatorId
             })
           });
         }
 
-        if (selectedOperator.denySubscribeSpecialUnifiedSymbolSet) {
-          selectedOperator.denySubscribeSpecialUnifiedSymbolSet.forEach((element: any) => {
-            denySubscribeSpecialUnifiedSymbolList.push({
-              "unifiedSymbol": element,
+        if (selectedOperator.denySubscribeSpecialUniformSymbolSet) {
+          selectedOperator.denySubscribeSpecialUniformSymbolSet.forEach((element: any) => {
+            denySubscribeSpecialUniformSymbolList.push({
+              "uniformSymbol": element,
               "operatorId": this.state.selectedOperatorId
             })
           });
@@ -525,9 +522,9 @@ export class HomePage extends React.Component<any> {
       }
     ]
 
-    const acceptTradeSpecialUnifiedSymbolSetColumns: IColumn[] = [
+    const acceptTradeSpecialUniformSymbolSetColumns: IColumn[] = [
       {
-        key: "unifiedSymbol",
+        key: "uniformSymbol",
         name: "合约统一标识",
         minWidth: 310,
         isResizable: true,
@@ -536,7 +533,7 @@ export class HomePage extends React.Component<any> {
         onRender: (item) => {
           return (
             <div>
-              <span>{item.unifiedSymbol}</span>
+              <span>{item.uniformSymbol}</span>
             </div>
           );
         }
@@ -557,11 +554,11 @@ export class HomePage extends React.Component<any> {
                 onClick={() => {
                   if (selectedOperator) {
                     let tmpSet = new Set()
-                    if (selectedOperator.acceptTradeSpecialUnifiedSymbolSet) {
-                      tmpSet = new Set(selectedOperator.acceptTradeSpecialUnifiedSymbolSet)
+                    if (selectedOperator.acceptTradeSpecialUniformSymbolSet) {
+                      tmpSet = new Set(selectedOperator.acceptTradeSpecialUniformSymbolSet)
                     }
-                    tmpSet.delete(item.unifiedSymbol)
-                    selectedOperator.acceptTradeSpecialUnifiedSymbolSet = [...tmpSet]
+                    tmpSet.delete(item.uniformSymbol)
+                    selectedOperator.acceptTradeSpecialUniformSymbolSet = [...tmpSet]
                     this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
                   } else {
                     toast("请选择操作员", { type: 'error' })
@@ -576,9 +573,9 @@ export class HomePage extends React.Component<any> {
       }
     ]
 
-    const denyTradeSpecialUnifiedSymbolSetColumns: IColumn[] = [
+    const denyTradeSpecialUniformSymbolSetColumns: IColumn[] = [
       {
-        key: "unifiedSymbol",
+        key: "uniformSymbol",
         name: "合约统一标识",
         minWidth: 310,
         isResizable: true,
@@ -587,7 +584,7 @@ export class HomePage extends React.Component<any> {
         onRender: (item) => {
           return (
             <div>
-              <span>{item.unifiedSymbol}</span>
+              <span>{item.uniformSymbol}</span>
             </div>
           );
         }
@@ -608,11 +605,11 @@ export class HomePage extends React.Component<any> {
                 onClick={() => {
                   if (selectedOperator) {
                     let tmpSet = new Set()
-                    if (selectedOperator.denyTradeSpecialUnifiedSymbolSet) {
-                      tmpSet = new Set(selectedOperator.denyTradeSpecialUnifiedSymbolSet)
+                    if (selectedOperator.denyTradeSpecialUniformSymbolSet) {
+                      tmpSet = new Set(selectedOperator.denyTradeSpecialUniformSymbolSet)
                     }
-                    tmpSet.delete(item.unifiedSymbol)
-                    selectedOperator.denyTradeSpecialUnifiedSymbolSet = [...tmpSet]
+                    tmpSet.delete(item.uniformSymbol)
+                    selectedOperator.denyTradeSpecialUniformSymbolSet = [...tmpSet]
                     this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
                   } else {
                     toast("请选择操作员", { type: 'error' })
@@ -629,9 +626,9 @@ export class HomePage extends React.Component<any> {
 
 
 
-    const acceptSubscribeSpecialUnifiedSymbolSetColumns: IColumn[] = [
+    const acceptSubscribeSpecialUniformSymbolSetColumns: IColumn[] = [
       {
-        key: "unifiedSymbol",
+        key: "uniformSymbol",
         name: "合约统一标识",
         minWidth: 310,
         isResizable: true,
@@ -640,7 +637,7 @@ export class HomePage extends React.Component<any> {
         onRender: (item) => {
           return (
             <div>
-              <span>{item.unifiedSymbol}</span>
+              <span>{item.uniformSymbol}</span>
             </div>
           );
         }
@@ -661,11 +658,11 @@ export class HomePage extends React.Component<any> {
                 onClick={() => {
                   if (selectedOperator) {
                     let tmpSet = new Set()
-                    if (selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet) {
-                      tmpSet = new Set(selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet)
+                    if (selectedOperator.acceptSubscribeSpecialUniformSymbolSet) {
+                      tmpSet = new Set(selectedOperator.acceptSubscribeSpecialUniformSymbolSet)
                     }
-                    tmpSet.delete(item.unifiedSymbol)
-                    selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet = [...tmpSet]
+                    tmpSet.delete(item.uniformSymbol)
+                    selectedOperator.acceptSubscribeSpecialUniformSymbolSet = [...tmpSet]
                     this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
                   } else {
                     toast("请选择操作员", { type: 'error' })
@@ -680,9 +677,9 @@ export class HomePage extends React.Component<any> {
       }
     ]
 
-    const denySubscribeSpecialUnifiedSymbolSetColumns: IColumn[] = [
+    const denySubscribeSpecialUniformSymbolSetColumns: IColumn[] = [
       {
-        key: "unifiedSymbol",
+        key: "uniformSymbol",
         name: "合约统一标识",
         minWidth: 310,
         isResizable: true,
@@ -691,7 +688,7 @@ export class HomePage extends React.Component<any> {
         onRender: (item) => {
           return (
             <div>
-              <span>{item.unifiedSymbol}</span>
+              <span>{item.uniformSymbol}</span>
             </div>
           );
         }
@@ -712,11 +709,11 @@ export class HomePage extends React.Component<any> {
                 onClick={() => {
                   if (selectedOperator) {
                     let tmpSet = new Set()
-                    if (selectedOperator.denySubscribeSpecialUnifiedSymbolSet) {
-                      tmpSet = new Set(selectedOperator.denySubscribeSpecialUnifiedSymbolSet)
+                    if (selectedOperator.denySubscribeSpecialUniformSymbolSet) {
+                      tmpSet = new Set(selectedOperator.denySubscribeSpecialUniformSymbolSet)
                     }
-                    tmpSet.delete(item.unifiedSymbol)
-                    selectedOperator.denySubscribeSpecialUnifiedSymbolSet = [...tmpSet]
+                    tmpSet.delete(item.uniformSymbol)
+                    selectedOperator.denySubscribeSpecialUniformSymbolSet = [...tmpSet]
                     this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
                   } else {
                     toast("请选择操作员", { type: 'error' })
@@ -750,7 +747,7 @@ export class HomePage extends React.Component<any> {
 
     return (
 
-      <Stack gap={12} padding={0} styles={{ root: { width: '100%' } }}>
+      <Stack tokens={{ childrenGap: 12, padding:20 }} styles={{ root: { width: '100%' } }}>
         <Stack.Item>
           <Stack horizontal={true} tokens={{ childrenGap: 0 }} styles={{ root: { width: '100%' } }}>
             <Stack {...columnLeftProps}>
@@ -771,17 +768,21 @@ export class HomePage extends React.Component<any> {
                             constrainMode={ConstrainMode.unconstrained}
                             selectionPreservedOnEmptyClick={true}
                             // data-is-scrollable={true}
+
+                            // @ts-ignore
                             onRenderDetailsHeader={
                               // tslint:disable-next-line:jsx-no-lambda
                               (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                                 <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                   <DetailsHeader
-                                      {...detailsHeaderProps}
-                                      styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                    {...detailsHeaderProps}
+                                    styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                   />
                                   {/* {defaultRender(detailsHeaderProps)} */}
                                 </Sticky>
                               )}
+
+                            // @ts-ignore
                             onRenderDetailsFooter={
                               // tslint:disable-next-line:jsx-no-lambda
                               (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -886,17 +887,21 @@ export class HomePage extends React.Component<any> {
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -950,17 +955,21 @@ export class HomePage extends React.Component<any> {
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1042,17 +1051,21 @@ export class HomePage extends React.Component<any> {
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1106,17 +1119,21 @@ export class HomePage extends React.Component<any> {
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1189,26 +1206,30 @@ export class HomePage extends React.Component<any> {
                     <div className={classNames.childTableWrapper}>
                       <ScrollablePane scrollbarVisibility={ScrollbarVisibility.auto}>
                         <DetailsList
-                          items={acceptTradeSpecialUnifiedSymbolList}
+                          items={acceptTradeSpecialUniformSymbolList}
                           compact={true}
-                          columns={acceptTradeSpecialUnifiedSymbolSetColumns}
+                          columns={acceptTradeSpecialUniformSymbolSetColumns}
                           selectionMode={SelectionMode.none}
-                          setKey="unifiedSymbol"
+                          setKey="uniformSymbol"
                           layoutMode={DetailsListLayoutMode.fixedColumns}
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1221,24 +1242,24 @@ export class HomePage extends React.Component<any> {
                     </div>
                     <TextField label="合约统一标识"
                       placeholder="......"
-                      defaultValue={this.state.acceptTradeSpecialUnifiedSymbolInput}
-                      onChange={(event: any, newValue?: string) => this.setState({ 'acceptTradeSpecialUnifiedSymbolInput': newValue })}
+                      defaultValue={this.state.acceptTradeSpecialUniformSymbolInput}
+                      onChange={(event: any, newValue?: string) => this.setState({ 'acceptTradeSpecialUniformSymbolInput': newValue })}
                     />
                     <PrimaryButton
                       allowDisabledFocus={true}
                       checked={false}
                       text="新增允许"
                       onClick={() => {
-                        if (this.state.acceptTradeSpecialUnifiedSymbolInput && this.state.acceptTradeSpecialUnifiedSymbolInput !== '') {
+                        if (this.state.acceptTradeSpecialUniformSymbolInput && this.state.acceptTradeSpecialUniformSymbolInput !== '') {
                           if (selectedOperator) {
                             let tmpSet = new Set()
-                            if (selectedOperator.acceptTradeSpecialUnifiedSymbolSet) {
-                              tmpSet = new Set(selectedOperator.acceptTradeSpecialUnifiedSymbolSet)
+                            if (selectedOperator.acceptTradeSpecialUniformSymbolSet) {
+                              tmpSet = new Set(selectedOperator.acceptTradeSpecialUniformSymbolSet)
                             }
-                            tmpSet.add(this.state.acceptTradeSpecialUnifiedSymbolInput)
-                            selectedOperator.acceptTradeSpecialUnifiedSymbolSet = [...tmpSet]
+                            tmpSet.add(this.state.acceptTradeSpecialUniformSymbolInput)
+                            selectedOperator.acceptTradeSpecialUniformSymbolSet = [...tmpSet]
                             this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
-                            this.setState({ 'acceptTradeSpecialUnifiedSymbolInput': '' })
+                            this.setState({ 'acceptTradeSpecialUniformSymbolInput': '' })
                           } else {
                             toast("请选择操作员", { type: 'error' })
                           }
@@ -1253,26 +1274,30 @@ export class HomePage extends React.Component<any> {
                     <div className={classNames.childTableWrapper}>
                       <ScrollablePane scrollbarVisibility={ScrollbarVisibility.auto}>
                         <DetailsList
-                          items={denyTradeSpecialUnifiedSymbolList}
+                          items={denyTradeSpecialUniformSymbolList}
                           compact={true}
-                          columns={denyTradeSpecialUnifiedSymbolSetColumns}
+                          columns={denyTradeSpecialUniformSymbolSetColumns}
                           selectionMode={SelectionMode.none}
-                          setKey="opunifiedSymboleratorId"
+                          setKey="opuniformSymboleratorId"
                           layoutMode={DetailsListLayoutMode.fixedColumns}
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1285,24 +1310,24 @@ export class HomePage extends React.Component<any> {
                     </div>
                     <TextField label="合约统一标识"
                       placeholder="......"
-                      defaultValue={this.state.denyTradeSpecialUnifiedSymbolInput}
-                      onChange={(event: any, newValue?: string) => this.setState({ 'denyTradeSpecialUnifiedSymbolInput': newValue })}
+                      defaultValue={this.state.denyTradeSpecialUniformSymbolInput}
+                      onChange={(event: any, newValue?: string) => this.setState({ 'denyTradeSpecialUniformSymbolInput': newValue })}
                     />
                     <PrimaryButton
                       allowDisabledFocus={true}
                       checked={false}
                       text="新增拒绝"
                       onClick={() => {
-                        if (this.state.denyTradeSpecialUnifiedSymbolInput && this.state.denyTradeSpecialUnifiedSymbolInput !== '') {
+                        if (this.state.denyTradeSpecialUniformSymbolInput && this.state.denyTradeSpecialUniformSymbolInput !== '') {
                           if (selectedOperator) {
                             let tmpSet = new Set()
-                            if (selectedOperator.denyTradeSpecialUnifiedSymbolSet) {
-                              tmpSet = new Set(selectedOperator.denyTradeSpecialUnifiedSymbolSet)
+                            if (selectedOperator.denyTradeSpecialUniformSymbolSet) {
+                              tmpSet = new Set(selectedOperator.denyTradeSpecialUniformSymbolSet)
                             }
-                            tmpSet.add(this.state.denyTradeSpecialUnifiedSymbolInput)
-                            selectedOperator.denyTradeSpecialUnifiedSymbolSet = [...tmpSet]
+                            tmpSet.add(this.state.denyTradeSpecialUniformSymbolInput)
+                            selectedOperator.denyTradeSpecialUniformSymbolSet = [...tmpSet]
                             this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
-                            this.setState({ 'denyTradeSpecialUnifiedSymbolInput': '' })
+                            this.setState({ 'denyTradeSpecialUniformSymbolInput': '' })
                           } else {
                             toast("请选择操作员", { type: 'error' })
                           }
@@ -1345,26 +1370,30 @@ export class HomePage extends React.Component<any> {
                     <div className={classNames.childTableWrapper}>
                       <ScrollablePane scrollbarVisibility={ScrollbarVisibility.auto}>
                         <DetailsList
-                          items={acceptSubscribeSpecialUnifiedSymbolList}
+                          items={acceptSubscribeSpecialUniformSymbolList}
                           compact={true}
-                          columns={acceptSubscribeSpecialUnifiedSymbolSetColumns}
+                          columns={acceptSubscribeSpecialUniformSymbolSetColumns}
                           selectionMode={SelectionMode.none}
-                          setKey="unifiedSymbol"
+                          setKey="uniformSymbol"
                           layoutMode={DetailsListLayoutMode.fixedColumns}
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1377,24 +1406,24 @@ export class HomePage extends React.Component<any> {
                     </div>
                     <TextField label="合约统一标识"
                       placeholder="......"
-                      defaultValue={this.state.acceptSubscribeSpecialUnifiedSymbolInput}
-                      onChange={(event: any, newValue?: string) => this.setState({ 'acceptSubscribeSpecialUnifiedSymbolInput': newValue })}
+                      defaultValue={this.state.acceptSubscribeSpecialUniformSymbolInput}
+                      onChange={(event: any, newValue?: string) => this.setState({ 'acceptSubscribeSpecialUniformSymbolInput': newValue })}
                     />
                     <PrimaryButton
                       allowDisabledFocus={true}
                       checked={false}
                       text="新增允许"
                       onClick={() => {
-                        if (this.state.acceptSubscribeSpecialUnifiedSymbolInput && this.state.acceptSubscribeSpecialUnifiedSymbolInput !== '') {
+                        if (this.state.acceptSubscribeSpecialUniformSymbolInput && this.state.acceptSubscribeSpecialUniformSymbolInput !== '') {
                           if (selectedOperator) {
                             let tmpSet = new Set()
-                            if (selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet) {
-                              tmpSet = new Set(selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet)
+                            if (selectedOperator.acceptSubscribeSpecialUniformSymbolSet) {
+                              tmpSet = new Set(selectedOperator.acceptSubscribeSpecialUniformSymbolSet)
                             }
-                            tmpSet.add(this.state.acceptSubscribeSpecialUnifiedSymbolInput)
-                            selectedOperator.acceptSubscribeSpecialUnifiedSymbolSet = [...tmpSet]
+                            tmpSet.add(this.state.acceptSubscribeSpecialUniformSymbolInput)
+                            selectedOperator.acceptSubscribeSpecialUniformSymbolSet = [...tmpSet]
                             this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
-                            this.setState({ 'acceptSubscribeSpecialUnifiedSymbolInput': '' })
+                            this.setState({ 'acceptSubscribeSpecialUniformSymbolInput': '' })
                           } else {
                             toast("请选择操作员", { type: 'error' })
                           }
@@ -1409,26 +1438,30 @@ export class HomePage extends React.Component<any> {
                     <div className={classNames.childTableWrapper}>
                       <ScrollablePane scrollbarVisibility={ScrollbarVisibility.auto}>
                         <DetailsList
-                          items={denySubscribeSpecialUnifiedSymbolList}
+                          items={denySubscribeSpecialUniformSymbolList}
                           compact={true}
-                          columns={denySubscribeSpecialUnifiedSymbolSetColumns}
+                          columns={denySubscribeSpecialUniformSymbolSetColumns}
                           selectionMode={SelectionMode.none}
-                          setKey="unifiedSymbol"
+                          setKey="uniformSymbol"
                           layoutMode={DetailsListLayoutMode.fixedColumns}
                           constrainMode={ConstrainMode.unconstrained}
                           selectionPreservedOnEmptyClick={true}
                           // data-is-scrollable={true}
+
+                          // @ts-ignore
                           onRenderDetailsHeader={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                               <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                                 <DetailsHeader
-                                    {...detailsHeaderProps}
-                                    styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                                  {...detailsHeaderProps}
+                                  styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                                 />
                                 {/* {defaultRender(detailsHeaderProps)} */}
                               </Sticky>
                             )}
+
+                          // @ts-ignore
                           onRenderDetailsFooter={
                             // tslint:disable-next-line:jsx-no-lambda
                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -1441,24 +1474,24 @@ export class HomePage extends React.Component<any> {
                     </div>
                     <TextField label="合约统一标识"
                       placeholder="......"
-                      defaultValue={this.state.denySubscribeSpecialUnifiedSymbolInput}
-                      onChange={(event: any, newValue?: string) => this.setState({ 'denySubscribeSpecialUnifiedSymbolInput': newValue })}
+                      defaultValue={this.state.denySubscribeSpecialUniformSymbolInput}
+                      onChange={(event: any, newValue?: string) => this.setState({ 'denySubscribeSpecialUniformSymbolInput': newValue })}
                     />
                     <PrimaryButton
                       allowDisabledFocus={true}
                       checked={false}
                       text="新增拒绝"
                       onClick={() => {
-                        if (this.state.denySubscribeSpecialUnifiedSymbolInput && this.state.denySubscribeSpecialUnifiedSymbolInput !== '') {
+                        if (this.state.denySubscribeSpecialUniformSymbolInput && this.state.denySubscribeSpecialUniformSymbolInput !== '') {
                           if (selectedOperator) {
                             let tmpSet = new Set()
-                            if (selectedOperator.denySubscribeSpecialUnifiedSymbolSet) {
-                              tmpSet = new Set(selectedOperator.denySubscribeSpecialUnifiedSymbolSet)
+                            if (selectedOperator.denySubscribeSpecialUniformSymbolSet) {
+                              tmpSet = new Set(selectedOperator.denySubscribeSpecialUniformSymbolSet)
                             }
-                            tmpSet.add(this.state.denySubscribeSpecialUnifiedSymbolInput)
-                            selectedOperator.denySubscribeSpecialUnifiedSymbolSet = [...tmpSet]
+                            tmpSet.add(this.state.denySubscribeSpecialUniformSymbolInput)
+                            selectedOperator.denySubscribeSpecialUniformSymbolSet = [...tmpSet]
                             this.props.operatorStore.saveOrUpdateOperator(selectedOperator)
-                            this.setState({ 'denySubscribeSpecialUnifiedSymbolInput': '' })
+                            this.setState({ 'denySubscribeSpecialUniformSymbolInput': '' })
                           } else {
                             toast("请选择操作员", { type: 'error' })
                           }
@@ -1497,8 +1530,7 @@ export class HomePage extends React.Component<any> {
           isBlocking={false}
           onDismiss={() => this.closeUpdateOperatorDescriptionModal()}
         >
-          <Stack gap={12} padding={20}>
-
+          <Stack tokens={{ childrenGap: 12, padding:20 }}>
 
             <Stack.Item align="center">
               <div style={{ fontSize: FontSizes.medium }} >操作员ID: {this.state.operatorIdForUpdateDescription}</div>
@@ -1511,8 +1543,6 @@ export class HomePage extends React.Component<any> {
               </Stack>
             </Stack.Item>
 
-
-
             <Stack.Item align="center">
               <Stack horizontal={true} tokens={{ childrenGap: 50 }} styles={{ root: { width: '100%' } }}>
                 <Stack {...columnProps}>
@@ -1524,12 +1554,7 @@ export class HomePage extends React.Component<any> {
           </Stack>
         </Modal>
 
-
       </Stack>
-
-
-
-
     )
   }
 
@@ -1583,7 +1608,7 @@ export class HomePage extends React.Component<any> {
   }
 
 
-}
+}));
 
 
 export default withRouter(HomePage);

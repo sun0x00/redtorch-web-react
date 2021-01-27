@@ -1,6 +1,6 @@
 {
-  "short_name": "RedTorch",
-  "name": "RedTorch-Web",
+  "short_name": "redtorch",
+  "name": "redtorch-web-react",
   "icons": [
     {
       "src": "favicon.ico",

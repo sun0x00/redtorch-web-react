@@ -1,24 +1,23 @@
 import * as React from 'react';
-// import * as ReactDOM from 'react-dom';
 import { inject, observer } from 'mobx-react';
-import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
-import { CommandBar } from 'office-ui-fabric-react/lib/CommandBar';
+import { Stack, IStackProps } from '@fluentui/react/lib/Stack';
+import { CommandBar } from '@fluentui/react/lib/CommandBar';
 import { withRouter } from 'react-router';
-import { DetailsList, DetailsListLayoutMode, SelectionMode, IColumn, IDetailsHeaderProps, ConstrainMode, IDetailsFooterProps, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
-import { ActionButton, PrimaryButton, DefaultButton, IButtonStyles, IconButton } from 'office-ui-fabric-react/lib/Button';
-import { Modal } from 'office-ui-fabric-react/lib/Modal';
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { Dialog, DialogType, DialogFooter } from 'office-ui-fabric-react/lib/Dialog';
-import { Dropdown, IDropdownStyles, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
-import { ComboBox, IComboBoxOption } from 'office-ui-fabric-react/lib/ComboBox';
+import { DetailsList, DetailsListLayoutMode, SelectionMode, IColumn, IDetailsHeaderProps, ConstrainMode, IDetailsFooterProps, DetailsHeader } from '@fluentui/react/lib/DetailsList';
+import { ActionButton, PrimaryButton, DefaultButton, IButtonStyles, IconButton } from '@fluentui/react/lib/Button';
+import { Modal } from '@fluentui/react/lib/Modal';
+import { TextField } from '@fluentui/react/lib/TextField';
+import { Dialog, DialogType, DialogFooter } from '@fluentui/react/lib/Dialog';
+import { Dropdown, IDropdownStyles, IDropdownOption } from '@fluentui/react/lib/Dropdown';
+import { ComboBox, IComboBoxOption } from '@fluentui/react/lib/ComboBox';
 import { hostNamePattern, ipv4PattenPattern, portPattern, normalIntegerPattern } from '../../utils';
 import { toast } from 'react-toastify';
-import { createTheme, ITheme, FontSizes } from 'office-ui-fabric-react/lib/Styling';
-import { Separator } from 'office-ui-fabric-react/lib/Separator';
-import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { Sticky, StickyPositionType } from 'office-ui-fabric-react/lib/Sticky';
-import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
-import { IRenderFunction } from 'office-ui-fabric-react/lib/Utilities';
+import { createTheme, ITheme, FontSizes } from '@fluentui/react/lib/Styling';
+import { Separator } from '@fluentui/react/lib/Separator';
+import { ScrollablePane, ScrollbarVisibility } from '@fluentui/react/lib/ScrollablePane';
+import { Sticky, StickyPositionType } from '@fluentui/react/lib/Sticky';
+import { mergeStyleSets } from '@fluentui/react/lib/Styling';
+import { IRenderFunction } from '@fluentui/react/lib/Utilities';
 import { xyz } from "../../node/pb/pb";
 
 const { GatewayTypeEnum, GatewayAdapterTypeEnum, ConnectStatusEnum } = xyz.redtorch.pb
@@ -62,15 +61,12 @@ const gatewayAdapterTypeOptions: IDropdownOption[] = [
 ];
 
 const gatewayImplementClassNameOptions: IComboBoxOption[] = [
-  { key: 'xyz.redtorch.gateway.ctp.x64v6v3v15v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v15v.CtpGatewayImpl' },
   { key: 'xyz.redtorch.gateway.ctp.x64v6v3v19p1v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v19p1v.CtpGatewayImpl' },
   { key: 'xyz.redtorch.gateway.ctp.x64v6v3v19t1v.CtpGatewayImpl', text: 'xyz.redtorch.gateway.ctp.x64v6v3v19t1v.CtpGatewayImpl' }
 ];
 
 
-@inject('gatewayStore')
-@observer
-export class GatewayPage extends React.Component<any> {
+export const GatewayPage = inject('gatewayStore')(observer(class GatewayPage extends React.Component<any> {
 
   public state = {
     hiddenDisconnectGatewayDialog: true,
@@ -184,7 +180,7 @@ export class GatewayPage extends React.Component<any> {
           <span style={{ color: 'aqua' }}>{item.status}</span>
         );
       }
-    },{
+    }, {
       key: "autoConnectTimeRanges",
       name: "自动连接时间段",
       minWidth: 120,
@@ -389,17 +385,21 @@ export class GatewayPage extends React.Component<any> {
                 layoutMode={DetailsListLayoutMode.fixedColumns}
                 constrainMode={ConstrainMode.unconstrained}
                 // data-is-scrollable={true}
+
+                // @ts-ignore
                 onRenderDetailsHeader={
                   // tslint:disable-next-line:jsx-no-lambda
                   (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
                     <Sticky stickyPosition={StickyPositionType.Header} isScrollSynced={true}>
                       <DetailsHeader
-                          {...detailsHeaderProps}
-                          styles={{root:{paddingTop:0,height:24,lineHeight:24},check:{height:"24px !important"},cellIsCheck:{height:24}}}
+                        {...detailsHeaderProps}
+                        styles={{ root: { paddingTop: 0, height: 24, lineHeight: 24 }, check: { height: "24px !important" }, cellIsCheck: { height: 24 } }}
                       />
                       {/* {defaultRender(detailsHeaderProps)} */}
                     </Sticky>
                   )}
+
+                // @ts-ignore
                 onRenderDetailsFooter={
                   // tslint:disable-next-line:jsx-no-lambda
                   (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -416,7 +416,7 @@ export class GatewayPage extends React.Component<any> {
           isOpen={this.state.showEditGatewayModal}
           isBlocking={true}
         >
-          <Stack gap={12} padding={20}>
+          <Stack tokens={{ childrenGap: 12, padding:20 }}>
 
             <Stack.Item align="center">
               <Separator><div style={{ fontSize: FontSizes.xxLarge }} >基本配置</div></Separator>
@@ -910,7 +910,7 @@ export class GatewayPage extends React.Component<any> {
       }
 
       // 验证IB字段
-    } else if (this.state.editGatewayAdapterType === GatewayAdapterTypeEnum.GAT_COMMON){
+    } else if (this.state.editGatewayAdapterType === GatewayAdapterTypeEnum.GAT_COMMON) {
       result = this.validateEditGatewayIbSettingHost();
       isValidated = isValidated && result.status
       errorMessateState = {
@@ -1058,6 +1058,6 @@ export class GatewayPage extends React.Component<any> {
   }
 
 
-}
+}));
 
 export default withRouter(GatewayPage);

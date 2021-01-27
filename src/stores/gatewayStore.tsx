@@ -1,15 +1,34 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import request from '../request'
 import { toast } from 'react-toastify';
 
 class GatewayStore {
-    @observable gatewayList: any[] = []
+    gatewayList: any[] = [];
 
-    @action getGatewayList() {
+    constructor() {
+        makeObservable(this, {
+            gatewayList: observable,
+            getGatewayList: action,
+            saveOrUpdateGateway: action,
+            deleteGatewayByGatewayId: action,
+            connectGatewayByGatewayId: action,
+            disconnectGatewayByGatewayId: action,
+            disconnectAllGateways: action,
+            connectAllGateways: action,
+            setGatewayList: action
+        });
+    }
+
+    setGatewayList(gatewayList:any[]) {
+        this.gatewayList = gatewayList
+    }
+
+    getGatewayList() {
         request('/api/management/gateway/getGatewayList').then(res => {
             if (res) {
                 if (res.status) {
-                    this.gatewayList = Array.isArray(res.voData) ? res.voData : [];
+                    const gatewayList = Array.isArray(res.voData) ? res.voData : [];
+                    this.setGatewayList(gatewayList)
                 } else {
                     toast.error(`查询网关错误：${res.message}`);
                 }
@@ -19,7 +38,7 @@ class GatewayStore {
         });
     }
 
-    @action saveOrUpdateGateway(gateway: any) {
+    saveOrUpdateGateway(gateway: any) {
         request('/api/management/gateway/saveOrUpdateGateway', {
             method: 'POST',
             data: {
@@ -38,7 +57,7 @@ class GatewayStore {
         });
     }
 
-    @action deleteGatewayByGatewayId(gatewayId: string) {
+    deleteGatewayByGatewayId(gatewayId: string) {
         request('/api/management/gateway/deleteGatewayByGatewayId', {
             method: 'POST',
             data: {
@@ -59,7 +78,7 @@ class GatewayStore {
     }
 
 
-    @action connectGatewayByGatewayId(gatewayId: string) {
+    connectGatewayByGatewayId(gatewayId: string) {
         request('/api/management/gateway/connectGatewayByGatewayId', {
             method: 'POST',
             data: {
@@ -80,7 +99,7 @@ class GatewayStore {
     }
 
 
-    @action disconnectGatewayByGatewayId(gatewayId: string) {
+    disconnectGatewayByGatewayId(gatewayId: string) {
         request('/api/management/gateway/disconnectGatewayByGatewayId', {
             method: 'POST',
             data: {
@@ -101,7 +120,7 @@ class GatewayStore {
     }
 
 
-    @action disconnectAllGateways() {
+    disconnectAllGateways() {
         request('/api/management/gateway/disconnectAllGateways').then(res => {
             if (res) {
                 if (res.status) {
@@ -115,7 +134,7 @@ class GatewayStore {
         });
     }
 
-    @action connectAllGateways() {
+    connectAllGateways() {
         request('/api/management/gateway/connectAllGateways').then(res => {
             if (res) {
                 if (res.status) {
@@ -128,12 +147,5 @@ class GatewayStore {
             console.error(err);
         });
     }
-
-
-
-
-
-
-
 }
 export const gatewayStore = new GatewayStore()

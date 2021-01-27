@@ -1,15 +1,13 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Pivot, PivotItem } from 'office-ui-fabric-react/lib/Pivot';
+import { Pivot, PivotItem } from '@fluentui/react/lib/Pivot';
 
 import './TradePage.css';
 import { withRouter } from 'react-router';
 
 import { RouteWithSubRoutes } from '../../router'
 
-@inject('routingStore')
-@observer
-export class TradePage extends React.Component<any> {
+export const TradePage = inject('routingStore')(observer(class TradePage extends React.Component<any> {
 
   public state = { selectedKey: 'Settings' };
 
@@ -36,11 +34,13 @@ export class TradePage extends React.Component<any> {
     );
   }
 
-  onLinkClick = (item: PivotItem): void => {
+  onLinkClick = (item: PivotItem|undefined): void => {
     const { history } = this.props;
-    history.push(item.props.itemKey)
+    if(item){
+      history.push(item.props.itemKey)
+    }
   };
-}
+}));
 
 // NOTE: hack https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md#quick-solution
 export default withRouter(TradePage)

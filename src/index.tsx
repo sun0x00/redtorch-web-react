@@ -20,13 +20,12 @@ import {
   customizeStore,
   operatorStore
 } from './stores/storesIndex'
-import registerServiceWorker from './registerServiceWorker';
 import { routes, RouteWithSubRoutes } from './router'
-import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
+import { initializeIcons } from '@fluentui/react/lib/Icons';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
-import { loadTheme } from 'office-ui-fabric-react/lib/Styling';
+import { loadTheme } from '@fluentui/react/lib/Styling';
 // import 'mobx-react-lite/batchingForReactDom'
 
 // Call it once in your app. At the root of your app is the best place
@@ -96,5 +95,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root') as HTMLElement
 );
-
-registerServiceWorker();

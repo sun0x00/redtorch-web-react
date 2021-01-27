@@ -1,24 +1,37 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import request from '../request'
 import { toast } from 'react-toastify';
 
 class MarketDataRecordingStore {
+    contractList: any[] = [];
+    contractUniformSymbolSet: Set<string> = new Set();
 
+    constructor() {
+        makeObservable(this, {
+            contractList: observable,
+            contractUniformSymbolSet: observable,
+            getContractList: action,
+            addContractByUniformSymbol: action,
+            deleteContractByUniformSymbol: action,
+            setContractList: action
+        });
+    }
 
-    @observable contractList: any[] = []
-    @observable contractUnifiedSymbolSet: Set<string> = new Set()
+    setContractList(contractList:any[]) {
+        this.contractList = contractList
+        const contractUniformSymbolSet: Set<string> = new Set()
+        for (let i = 0; i < this.contractList.length; i++) {
+            contractUniformSymbolSet.add(this.contractList[i].uniformSymbol)
+        }
+        this.contractUniformSymbolSet = contractUniformSymbolSet
+    }
 
-    @action getContractList() {
+    getContractList() {
         request('/api/management/marketDataRecording/getContractList').then(res => {
             if (res) {
                 if (res.status) {
-                    this.contractList = Array.isArray(res.voData) ? res.voData : [];
-                    const contractListLength = this.contractList.length
-                    const contractUnifiedSymbolSet: Set<string> = new Set()
-                    for (let i = 0; i < contractListLength; i++) {
-                        contractUnifiedSymbolSet.add(this.contractList[i].unifiedSymbol)
-                    }
-                    this.contractUnifiedSymbolSet = contractUnifiedSymbolSet
+                    const contractList = Array.isArray(res.voData) ? res.voData : [];
+                    this.setContractList(contractList)
                 } else {
                     toast.error(`查询行情记录合约列表错误：${res.message}`)
                 }
@@ -28,11 +41,11 @@ class MarketDataRecordingStore {
         });
     }
 
-    @action addContractByUnifiedSymbol(unifiedSymbol: any) {
-        request('/api/management/marketDataRecording/addContractByUnifiedSymbol', {
+    addContractByUniformSymbol(uniformSymbol: any) {
+        request('/api/management/marketDataRecording/addContractByUniformSymbol', {
             method: 'POST',
             data: {
-                'voData': unifiedSymbol
+                'voData': uniformSymbol
             },
         }).then(res => {
             if (res) {
@@ -48,11 +61,11 @@ class MarketDataRecordingStore {
         });
     }
 
-    @action deleteContractByUnifiedSymbol(unifiedSymbol: any) {
-        request('/api/management/marketDataRecording/deleteContractByUnifiedSymbol', {
+    deleteContractByUniformSymbol(uniformSymbol: any) {
+        request('/api/management/marketDataRecording/deleteContractByUniformSymbol', {
             method: 'POST',
             data: {
-                'voData': unifiedSymbol
+                'voData': uniformSymbol
             },
         }).then(res => {
             if (res) {
@@ -67,7 +80,5 @@ class MarketDataRecordingStore {
             console.log(err);
         });
     }
-
-
 }
 export const marketDataRecordingStore = new MarketDataRecordingStore()

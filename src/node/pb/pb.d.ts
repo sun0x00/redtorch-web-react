@@ -53,8 +53,8 @@ export namespace xyz {
                 MDDT_HIST = 2
             }
 
-            /** BarCycleEnum enum. */
-            enum BarCycleEnum {
+            /** BarPeriodEnum enum. */
+            enum BarPeriodEnum {
                 B_5Sec = 0,
                 B_1Min = 1,
                 B_3Min = 2,
@@ -65,7 +65,7 @@ export namespace xyz {
 
             /** ConnectStatusEnum enum. */
             enum ConnectStatusEnum {
-                CS_Unkonwn = 0,
+                CS_Unknown = 0,
                 CS_Disconnected = 1,
                 CS_Connected = 2,
                 CS_Disconnecting = 3,
@@ -74,7 +74,7 @@ export namespace xyz {
 
             /** OrderActionStatusTyp enum. */
             enum OrderActionStatusTyp {
-                OAS_Unkonwn = 0,
+                OAS_Unknown = 0,
                 OAS_Submitted = 1,
                 OAS_Accepted = 2,
                 OAS_Rejected = 3
@@ -184,7 +184,7 @@ export namespace xyz {
 
             /** OffsetFlagEnum enum. */
             enum OffsetFlagEnum {
-                OF_Unkonwn = 0,
+                OF_Unknown = 0,
                 OF_Open = 1,
                 OF_Close = 2,
                 OF_ForceClose = 3,
@@ -196,7 +196,7 @@ export namespace xyz {
 
             /** ForceCloseReasonEnum enum. */
             enum ForceCloseReasonEnum {
-                FCR_Unkonwn = 0,
+                FCR_Unknown = 0,
                 FCR_NotForceClose = 1,
                 FCR_LackDeposit = 2,
                 FCR_ClientOverPositionLimit = 3,
@@ -209,7 +209,7 @@ export namespace xyz {
 
             /** OrderTypeEnum enum. */
             enum OrderTypeEnum {
-                OT_Unkonwn = 0,
+                OT_Unknown = 0,
                 OT_Normal = 1,
                 OT_DeriveFromQuote = 2,
                 OT_DeriveFromCombination = 3,
@@ -220,7 +220,7 @@ export namespace xyz {
 
             /** TimeConditionEnum enum. */
             enum TimeConditionEnum {
-                TC_Unkonwn = 0,
+                TC_Unknown = 0,
                 TC_IOC = 1,
                 TC_GFS = 2,
                 TC_GFD = 3,
@@ -231,7 +231,7 @@ export namespace xyz {
 
             /** VolumeConditionEnum enum. */
             enum VolumeConditionEnum {
-                VC_Unkonwn = 0,
+                VC_Unknown = 0,
                 VC_AV = 1,
                 VC_MV = 2,
                 VC_CV = 3
@@ -239,7 +239,7 @@ export namespace xyz {
 
             /** ContingentConditionEnum enum. */
             enum ContingentConditionEnum {
-                CC_Unkonwn = 0,
+                CC_Unknown = 0,
                 CC_Immediately = 1,
                 CC_Touch = 2,
                 CC_TouchProfit = 3,
@@ -262,14 +262,14 @@ export namespace xyz {
 
             /** ActionFlagEnum enum. */
             enum ActionFlagEnum {
-                AF_Unkonwn = 0,
+                AF_Unknown = 0,
                 AF_Delete = 1,
                 AF_Modify = 2
             }
 
             /** TradingRightEnum enum. */
             enum TradingRightEnum {
-                TR_Unkonwn = 0,
+                TR_Unknown = 0,
                 TR_Allow = 1,
                 TR_CloseOnly = 2,
                 TR_Forbidden = 3
@@ -277,14 +277,14 @@ export namespace xyz {
 
             /** OrderSourceEnum enum. */
             enum OrderSourceEnum {
-                ODS_Unkonwn = 0,
+                ODS_Unknown = 0,
                 ODS_Participant = 1,
                 ODS_Administrator = 2
             }
 
             /** TradeTypeEnum enum. */
             enum TradeTypeEnum {
-                TT_Unkonwn = 0,
+                TT_Unknown = 0,
                 TT_SplitCombination = 1,
                 TT_Common = 2,
                 TT_OptionsExecution = 3,
@@ -296,7 +296,7 @@ export namespace xyz {
 
             /** PriceSourceEnum enum. */
             enum PriceSourceEnum {
-                PSRC_Unkonwn = 0,
+                PSRC_Unknown = 0,
                 PSRC_LastPrice = 1,
                 PSRC_Buy = 2,
                 PSRC_Sell = 3,
@@ -544,8 +544,8 @@ export namespace xyz {
                 /** ContractField thirdPartyId */
                 thirdPartyId?: (string|null);
 
-                /** ContractField unifiedSymbol */
-                unifiedSymbol?: (string|null);
+                /** ContractField uniformSymbol */
+                uniformSymbol?: (string|null);
 
                 /** ContractField symbol */
                 symbol?: (string|null);
@@ -629,8 +629,8 @@ export namespace xyz {
                 /** ContractField thirdPartyId. */
                 public thirdPartyId: string;
 
-                /** ContractField unifiedSymbol. */
-                public unifiedSymbol: string;
+                /** ContractField uniformSymbol. */
+                public uniformSymbol: string;
 
                 /** ContractField symbol. */
                 public symbol: string;
@@ -1726,8 +1726,8 @@ export namespace xyz {
             /** Properties of a TickField. */
             interface ITickField {
 
-                /** TickField unifiedSymbol */
-                unifiedSymbol?: (string|null);
+                /** TickField uniformSymbol */
+                uniformSymbol?: (string|null);
 
                 /** TickField gatewayId */
                 gatewayId?: (string|null);
@@ -1844,8 +1844,8 @@ export namespace xyz {
                  */
                 constructor(properties?: xyz.redtorch.pb.ITickField);
 
-                /** TickField unifiedSymbol. */
-                public unifiedSymbol: string;
+                /** TickField uniformSymbol. */
+                public uniformSymbol: string;
 
                 /** TickField gatewayId. */
                 public gatewayId: string;
@@ -2026,8 +2026,8 @@ export namespace xyz {
             /** Properties of a BarField. */
             interface IBarField {
 
-                /** BarField unifiedSymbol */
-                unifiedSymbol?: (string|null);
+                /** BarField uniformSymbol */
+                uniformSymbol?: (string|null);
 
                 /** BarField gatewayId */
                 gatewayId?: (string|null);
@@ -2099,8 +2099,8 @@ export namespace xyz {
                  */
                 constructor(properties?: xyz.redtorch.pb.IBarField);
 
-                /** BarField unifiedSymbol. */
-                public unifiedSymbol: string;
+                /** BarField uniformSymbol. */
+                public uniformSymbol: string;
 
                 /** BarField gatewayId. */
                 public gatewayId: string;
@@ -2236,17 +2236,11 @@ export namespace xyz {
             /** Properties of a CommonReqField. */
             interface ICommonReqField {
 
-                /** CommonReqField reqId */
-                reqId?: (string|null);
+                /** CommonReqField transactionId */
+                transactionId?: (string|null);
 
                 /** CommonReqField operatorId */
                 operatorId?: (string|null);
-
-                /** CommonReqField targetNodeId */
-                targetNodeId?: (number|null);
-
-                /** CommonReqField sourceNodeId */
-                sourceNodeId?: (number|null);
             }
 
             /** Represents a CommonReqField. */
@@ -2258,17 +2252,11 @@ export namespace xyz {
                  */
                 constructor(properties?: xyz.redtorch.pb.ICommonReqField);
 
-                /** CommonReqField reqId. */
-                public reqId: string;
+                /** CommonReqField transactionId. */
+                public transactionId: string;
 
                 /** CommonReqField operatorId. */
                 public operatorId: string;
-
-                /** CommonReqField targetNodeId. */
-                public targetNodeId: number;
-
-                /** CommonReqField sourceNodeId. */
-                public sourceNodeId: number;
 
                 /**
                  * Creates a new CommonReqField instance using the specified properties.
@@ -2344,8 +2332,8 @@ export namespace xyz {
             /** Properties of a CommonRspField. */
             interface ICommonRspField {
 
-                /** CommonRspField reqId */
-                reqId?: (string|null);
+                /** CommonRspField transactionId */
+                transactionId?: (string|null);
 
                 /** CommonRspField errorId */
                 errorId?: (number|null);
@@ -2363,8 +2351,8 @@ export namespace xyz {
                  */
                 constructor(properties?: xyz.redtorch.pb.ICommonRspField);
 
-                /** CommonRspField reqId. */
-                public reqId: string;
+                /** CommonRspField transactionId. */
+                public transactionId: string;
 
                 /** CommonRspField errorId. */
                 public errorId: number;
@@ -5242,193 +5230,193 @@ export namespace xyz {
                 public toJSON(): { [k: string]: any };
             }
 
-            /** Properties of a RpcQueryOrderListByUnifiedSymbolReq. */
-            interface IRpcQueryOrderListByUnifiedSymbolReq {
+            /** Properties of a RpcQueryOrderListByUniformSymbolReq. */
+            interface IRpcQueryOrderListByUniformSymbolReq {
 
-                /** RpcQueryOrderListByUnifiedSymbolReq commonReq */
+                /** RpcQueryOrderListByUniformSymbolReq commonReq */
                 commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
 
-                /** RpcQueryOrderListByUnifiedSymbolReq unifiedSymbol */
-                unifiedSymbol?: (string|null);
+                /** RpcQueryOrderListByUniformSymbolReq uniformSymbol */
+                uniformSymbol?: (string|null);
             }
 
-            /** Represents a RpcQueryOrderListByUnifiedSymbolReq. */
-            class RpcQueryOrderListByUnifiedSymbolReq implements IRpcQueryOrderListByUnifiedSymbolReq {
+            /** Represents a RpcQueryOrderListByUniformSymbolReq. */
+            class RpcQueryOrderListByUniformSymbolReq implements IRpcQueryOrderListByUniformSymbolReq {
 
                 /**
-                 * Constructs a new RpcQueryOrderListByUnifiedSymbolReq.
+                 * Constructs a new RpcQueryOrderListByUniformSymbolReq.
                  * @param [properties] Properties to set
                  */
-                constructor(properties?: xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolReq);
+                constructor(properties?: xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolReq);
 
-                /** RpcQueryOrderListByUnifiedSymbolReq commonReq. */
+                /** RpcQueryOrderListByUniformSymbolReq commonReq. */
                 public commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
 
-                /** RpcQueryOrderListByUnifiedSymbolReq unifiedSymbol. */
-                public unifiedSymbol: string;
+                /** RpcQueryOrderListByUniformSymbolReq uniformSymbol. */
+                public uniformSymbol: string;
 
                 /**
-                 * Creates a new RpcQueryOrderListByUnifiedSymbolReq instance using the specified properties.
+                 * Creates a new RpcQueryOrderListByUniformSymbolReq instance using the specified properties.
                  * @param [properties] Properties to set
-                 * @returns RpcQueryOrderListByUnifiedSymbolReq instance
+                 * @returns RpcQueryOrderListByUniformSymbolReq instance
                  */
-                public static create(properties?: xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolReq): xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq;
+                public static create(properties?: xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolReq): xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq;
 
                 /**
-                 * Encodes the specified RpcQueryOrderListByUnifiedSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq.verify|verify} messages.
-                 * @param message RpcQueryOrderListByUnifiedSymbolReq message or plain object to encode
+                 * Encodes the specified RpcQueryOrderListByUniformSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq.verify|verify} messages.
+                 * @param message RpcQueryOrderListByUniformSymbolReq message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encode(message: xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encode(message: xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Encodes the specified RpcQueryOrderListByUnifiedSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq.verify|verify} messages.
-                 * @param message RpcQueryOrderListByUnifiedSymbolReq message or plain object to encode
+                 * Encodes the specified RpcQueryOrderListByUniformSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq.verify|verify} messages.
+                 * @param message RpcQueryOrderListByUniformSymbolReq message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a RpcQueryOrderListByUnifiedSymbolReq message from the specified reader or buffer.
+                 * Decodes a RpcQueryOrderListByUniformSymbolReq message from the specified reader or buffer.
                  * @param reader Reader or buffer to decode from
                  * @param [length] Message length if known beforehand
-                 * @returns RpcQueryOrderListByUnifiedSymbolReq
+                 * @returns RpcQueryOrderListByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq;
 
                 /**
-                 * Decodes a RpcQueryOrderListByUnifiedSymbolReq message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryOrderListByUniformSymbolReq message from the specified reader or buffer, length delimited.
                  * @param reader Reader or buffer to decode from
-                 * @returns RpcQueryOrderListByUnifiedSymbolReq
+                 * @returns RpcQueryOrderListByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq;
 
                 /**
-                 * Verifies a RpcQueryOrderListByUnifiedSymbolReq message.
+                 * Verifies a RpcQueryOrderListByUniformSymbolReq message.
                  * @param message Plain object to verify
                  * @returns `null` if valid, otherwise the reason why it is not
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a RpcQueryOrderListByUnifiedSymbolReq message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryOrderListByUniformSymbolReq message from a plain object. Also converts values to their respective internal types.
                  * @param object Plain object
-                 * @returns RpcQueryOrderListByUnifiedSymbolReq
+                 * @returns RpcQueryOrderListByUniformSymbolReq
                  */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq;
+                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq;
 
                 /**
-                 * Creates a plain object from a RpcQueryOrderListByUnifiedSymbolReq message. Also converts values to other types if specified.
-                 * @param message RpcQueryOrderListByUnifiedSymbolReq
+                 * Creates a plain object from a RpcQueryOrderListByUniformSymbolReq message. Also converts values to other types if specified.
+                 * @param message RpcQueryOrderListByUniformSymbolReq
                  * @param [options] Conversion options
                  * @returns Plain object
                  */
-                public static toObject(message: xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public static toObject(message: xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
-                 * Converts this RpcQueryOrderListByUnifiedSymbolReq to JSON.
+                 * Converts this RpcQueryOrderListByUniformSymbolReq to JSON.
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
             }
 
-            /** Properties of a RpcQueryOrderListByUnifiedSymbolRsp. */
-            interface IRpcQueryOrderListByUnifiedSymbolRsp {
+            /** Properties of a RpcQueryOrderListByUniformSymbolRsp. */
+            interface IRpcQueryOrderListByUniformSymbolRsp {
 
-                /** RpcQueryOrderListByUnifiedSymbolRsp commonRsp */
+                /** RpcQueryOrderListByUniformSymbolRsp commonRsp */
                 commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
 
-                /** RpcQueryOrderListByUnifiedSymbolRsp order */
+                /** RpcQueryOrderListByUniformSymbolRsp order */
                 order?: (xyz.redtorch.pb.IOrderField[]|null);
             }
 
-            /** Represents a RpcQueryOrderListByUnifiedSymbolRsp. */
-            class RpcQueryOrderListByUnifiedSymbolRsp implements IRpcQueryOrderListByUnifiedSymbolRsp {
+            /** Represents a RpcQueryOrderListByUniformSymbolRsp. */
+            class RpcQueryOrderListByUniformSymbolRsp implements IRpcQueryOrderListByUniformSymbolRsp {
 
                 /**
-                 * Constructs a new RpcQueryOrderListByUnifiedSymbolRsp.
+                 * Constructs a new RpcQueryOrderListByUniformSymbolRsp.
                  * @param [properties] Properties to set
                  */
-                constructor(properties?: xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolRsp);
+                constructor(properties?: xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolRsp);
 
-                /** RpcQueryOrderListByUnifiedSymbolRsp commonRsp. */
+                /** RpcQueryOrderListByUniformSymbolRsp commonRsp. */
                 public commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
 
-                /** RpcQueryOrderListByUnifiedSymbolRsp order. */
+                /** RpcQueryOrderListByUniformSymbolRsp order. */
                 public order: xyz.redtorch.pb.IOrderField[];
 
                 /**
-                 * Creates a new RpcQueryOrderListByUnifiedSymbolRsp instance using the specified properties.
+                 * Creates a new RpcQueryOrderListByUniformSymbolRsp instance using the specified properties.
                  * @param [properties] Properties to set
-                 * @returns RpcQueryOrderListByUnifiedSymbolRsp instance
+                 * @returns RpcQueryOrderListByUniformSymbolRsp instance
                  */
-                public static create(properties?: xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolRsp): xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp;
+                public static create(properties?: xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolRsp): xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp;
 
                 /**
-                 * Encodes the specified RpcQueryOrderListByUnifiedSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp.verify|verify} messages.
-                 * @param message RpcQueryOrderListByUnifiedSymbolRsp message or plain object to encode
+                 * Encodes the specified RpcQueryOrderListByUniformSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp.verify|verify} messages.
+                 * @param message RpcQueryOrderListByUniformSymbolRsp message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encode(message: xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encode(message: xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Encodes the specified RpcQueryOrderListByUnifiedSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp.verify|verify} messages.
-                 * @param message RpcQueryOrderListByUnifiedSymbolRsp message or plain object to encode
+                 * Encodes the specified RpcQueryOrderListByUniformSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp.verify|verify} messages.
+                 * @param message RpcQueryOrderListByUniformSymbolRsp message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a RpcQueryOrderListByUnifiedSymbolRsp message from the specified reader or buffer.
+                 * Decodes a RpcQueryOrderListByUniformSymbolRsp message from the specified reader or buffer.
                  * @param reader Reader or buffer to decode from
                  * @param [length] Message length if known beforehand
-                 * @returns RpcQueryOrderListByUnifiedSymbolRsp
+                 * @returns RpcQueryOrderListByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp;
 
                 /**
-                 * Decodes a RpcQueryOrderListByUnifiedSymbolRsp message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryOrderListByUniformSymbolRsp message from the specified reader or buffer, length delimited.
                  * @param reader Reader or buffer to decode from
-                 * @returns RpcQueryOrderListByUnifiedSymbolRsp
+                 * @returns RpcQueryOrderListByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp;
 
                 /**
-                 * Verifies a RpcQueryOrderListByUnifiedSymbolRsp message.
+                 * Verifies a RpcQueryOrderListByUniformSymbolRsp message.
                  * @param message Plain object to verify
                  * @returns `null` if valid, otherwise the reason why it is not
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a RpcQueryOrderListByUnifiedSymbolRsp message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryOrderListByUniformSymbolRsp message from a plain object. Also converts values to their respective internal types.
                  * @param object Plain object
-                 * @returns RpcQueryOrderListByUnifiedSymbolRsp
+                 * @returns RpcQueryOrderListByUniformSymbolRsp
                  */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp;
+                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp;
 
                 /**
-                 * Creates a plain object from a RpcQueryOrderListByUnifiedSymbolRsp message. Also converts values to other types if specified.
-                 * @param message RpcQueryOrderListByUnifiedSymbolRsp
+                 * Creates a plain object from a RpcQueryOrderListByUniformSymbolRsp message. Also converts values to other types if specified.
+                 * @param message RpcQueryOrderListByUniformSymbolRsp
                  * @param [options] Conversion options
                  * @returns Plain object
                  */
-                public static toObject(message: xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public static toObject(message: xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
-                 * Converts this RpcQueryOrderListByUnifiedSymbolRsp to JSON.
+                 * Converts this RpcQueryOrderListByUniformSymbolRsp to JSON.
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
@@ -5812,193 +5800,193 @@ export namespace xyz {
                 public toJSON(): { [k: string]: any };
             }
 
-            /** Properties of a RpcQueryTradeListByUnifiedSymbolReq. */
-            interface IRpcQueryTradeListByUnifiedSymbolReq {
+            /** Properties of a RpcQueryTradeListByUniformSymbolReq. */
+            interface IRpcQueryTradeListByUniformSymbolReq {
 
-                /** RpcQueryTradeListByUnifiedSymbolReq commonReq */
+                /** RpcQueryTradeListByUniformSymbolReq commonReq */
                 commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
 
-                /** RpcQueryTradeListByUnifiedSymbolReq unifiedSymbol */
-                unifiedSymbol?: (string|null);
+                /** RpcQueryTradeListByUniformSymbolReq uniformSymbol */
+                uniformSymbol?: (string|null);
             }
 
-            /** Represents a RpcQueryTradeListByUnifiedSymbolReq. */
-            class RpcQueryTradeListByUnifiedSymbolReq implements IRpcQueryTradeListByUnifiedSymbolReq {
+            /** Represents a RpcQueryTradeListByUniformSymbolReq. */
+            class RpcQueryTradeListByUniformSymbolReq implements IRpcQueryTradeListByUniformSymbolReq {
 
                 /**
-                 * Constructs a new RpcQueryTradeListByUnifiedSymbolReq.
+                 * Constructs a new RpcQueryTradeListByUniformSymbolReq.
                  * @param [properties] Properties to set
                  */
-                constructor(properties?: xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolReq);
+                constructor(properties?: xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolReq);
 
-                /** RpcQueryTradeListByUnifiedSymbolReq commonReq. */
+                /** RpcQueryTradeListByUniformSymbolReq commonReq. */
                 public commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
 
-                /** RpcQueryTradeListByUnifiedSymbolReq unifiedSymbol. */
-                public unifiedSymbol: string;
+                /** RpcQueryTradeListByUniformSymbolReq uniformSymbol. */
+                public uniformSymbol: string;
 
                 /**
-                 * Creates a new RpcQueryTradeListByUnifiedSymbolReq instance using the specified properties.
+                 * Creates a new RpcQueryTradeListByUniformSymbolReq instance using the specified properties.
                  * @param [properties] Properties to set
-                 * @returns RpcQueryTradeListByUnifiedSymbolReq instance
+                 * @returns RpcQueryTradeListByUniformSymbolReq instance
                  */
-                public static create(properties?: xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolReq): xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq;
+                public static create(properties?: xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolReq): xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq;
 
                 /**
-                 * Encodes the specified RpcQueryTradeListByUnifiedSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq.verify|verify} messages.
-                 * @param message RpcQueryTradeListByUnifiedSymbolReq message or plain object to encode
+                 * Encodes the specified RpcQueryTradeListByUniformSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq.verify|verify} messages.
+                 * @param message RpcQueryTradeListByUniformSymbolReq message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encode(message: xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encode(message: xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Encodes the specified RpcQueryTradeListByUnifiedSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq.verify|verify} messages.
-                 * @param message RpcQueryTradeListByUnifiedSymbolReq message or plain object to encode
+                 * Encodes the specified RpcQueryTradeListByUniformSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq.verify|verify} messages.
+                 * @param message RpcQueryTradeListByUniformSymbolReq message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a RpcQueryTradeListByUnifiedSymbolReq message from the specified reader or buffer.
+                 * Decodes a RpcQueryTradeListByUniformSymbolReq message from the specified reader or buffer.
                  * @param reader Reader or buffer to decode from
                  * @param [length] Message length if known beforehand
-                 * @returns RpcQueryTradeListByUnifiedSymbolReq
+                 * @returns RpcQueryTradeListByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq;
 
                 /**
-                 * Decodes a RpcQueryTradeListByUnifiedSymbolReq message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryTradeListByUniformSymbolReq message from the specified reader or buffer, length delimited.
                  * @param reader Reader or buffer to decode from
-                 * @returns RpcQueryTradeListByUnifiedSymbolReq
+                 * @returns RpcQueryTradeListByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq;
 
                 /**
-                 * Verifies a RpcQueryTradeListByUnifiedSymbolReq message.
+                 * Verifies a RpcQueryTradeListByUniformSymbolReq message.
                  * @param message Plain object to verify
                  * @returns `null` if valid, otherwise the reason why it is not
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a RpcQueryTradeListByUnifiedSymbolReq message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryTradeListByUniformSymbolReq message from a plain object. Also converts values to their respective internal types.
                  * @param object Plain object
-                 * @returns RpcQueryTradeListByUnifiedSymbolReq
+                 * @returns RpcQueryTradeListByUniformSymbolReq
                  */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq;
+                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq;
 
                 /**
-                 * Creates a plain object from a RpcQueryTradeListByUnifiedSymbolReq message. Also converts values to other types if specified.
-                 * @param message RpcQueryTradeListByUnifiedSymbolReq
+                 * Creates a plain object from a RpcQueryTradeListByUniformSymbolReq message. Also converts values to other types if specified.
+                 * @param message RpcQueryTradeListByUniformSymbolReq
                  * @param [options] Conversion options
                  * @returns Plain object
                  */
-                public static toObject(message: xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public static toObject(message: xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
-                 * Converts this RpcQueryTradeListByUnifiedSymbolReq to JSON.
+                 * Converts this RpcQueryTradeListByUniformSymbolReq to JSON.
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
             }
 
-            /** Properties of a RpcQueryTradeListByUnifiedSymbolRsp. */
-            interface IRpcQueryTradeListByUnifiedSymbolRsp {
+            /** Properties of a RpcQueryTradeListByUniformSymbolRsp. */
+            interface IRpcQueryTradeListByUniformSymbolRsp {
 
-                /** RpcQueryTradeListByUnifiedSymbolRsp commonRsp */
+                /** RpcQueryTradeListByUniformSymbolRsp commonRsp */
                 commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
 
-                /** RpcQueryTradeListByUnifiedSymbolRsp trade */
+                /** RpcQueryTradeListByUniformSymbolRsp trade */
                 trade?: (xyz.redtorch.pb.ITradeField[]|null);
             }
 
-            /** Represents a RpcQueryTradeListByUnifiedSymbolRsp. */
-            class RpcQueryTradeListByUnifiedSymbolRsp implements IRpcQueryTradeListByUnifiedSymbolRsp {
+            /** Represents a RpcQueryTradeListByUniformSymbolRsp. */
+            class RpcQueryTradeListByUniformSymbolRsp implements IRpcQueryTradeListByUniformSymbolRsp {
 
                 /**
-                 * Constructs a new RpcQueryTradeListByUnifiedSymbolRsp.
+                 * Constructs a new RpcQueryTradeListByUniformSymbolRsp.
                  * @param [properties] Properties to set
                  */
-                constructor(properties?: xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolRsp);
+                constructor(properties?: xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolRsp);
 
-                /** RpcQueryTradeListByUnifiedSymbolRsp commonRsp. */
+                /** RpcQueryTradeListByUniformSymbolRsp commonRsp. */
                 public commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
 
-                /** RpcQueryTradeListByUnifiedSymbolRsp trade. */
+                /** RpcQueryTradeListByUniformSymbolRsp trade. */
                 public trade: xyz.redtorch.pb.ITradeField[];
 
                 /**
-                 * Creates a new RpcQueryTradeListByUnifiedSymbolRsp instance using the specified properties.
+                 * Creates a new RpcQueryTradeListByUniformSymbolRsp instance using the specified properties.
                  * @param [properties] Properties to set
-                 * @returns RpcQueryTradeListByUnifiedSymbolRsp instance
+                 * @returns RpcQueryTradeListByUniformSymbolRsp instance
                  */
-                public static create(properties?: xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolRsp): xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp;
+                public static create(properties?: xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolRsp): xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp;
 
                 /**
-                 * Encodes the specified RpcQueryTradeListByUnifiedSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp.verify|verify} messages.
-                 * @param message RpcQueryTradeListByUnifiedSymbolRsp message or plain object to encode
+                 * Encodes the specified RpcQueryTradeListByUniformSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp.verify|verify} messages.
+                 * @param message RpcQueryTradeListByUniformSymbolRsp message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encode(message: xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encode(message: xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Encodes the specified RpcQueryTradeListByUnifiedSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp.verify|verify} messages.
-                 * @param message RpcQueryTradeListByUnifiedSymbolRsp message or plain object to encode
+                 * Encodes the specified RpcQueryTradeListByUniformSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp.verify|verify} messages.
+                 * @param message RpcQueryTradeListByUniformSymbolRsp message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a RpcQueryTradeListByUnifiedSymbolRsp message from the specified reader or buffer.
+                 * Decodes a RpcQueryTradeListByUniformSymbolRsp message from the specified reader or buffer.
                  * @param reader Reader or buffer to decode from
                  * @param [length] Message length if known beforehand
-                 * @returns RpcQueryTradeListByUnifiedSymbolRsp
+                 * @returns RpcQueryTradeListByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp;
 
                 /**
-                 * Decodes a RpcQueryTradeListByUnifiedSymbolRsp message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryTradeListByUniformSymbolRsp message from the specified reader or buffer, length delimited.
                  * @param reader Reader or buffer to decode from
-                 * @returns RpcQueryTradeListByUnifiedSymbolRsp
+                 * @returns RpcQueryTradeListByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp;
 
                 /**
-                 * Verifies a RpcQueryTradeListByUnifiedSymbolRsp message.
+                 * Verifies a RpcQueryTradeListByUniformSymbolRsp message.
                  * @param message Plain object to verify
                  * @returns `null` if valid, otherwise the reason why it is not
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a RpcQueryTradeListByUnifiedSymbolRsp message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryTradeListByUniformSymbolRsp message from a plain object. Also converts values to their respective internal types.
                  * @param object Plain object
-                 * @returns RpcQueryTradeListByUnifiedSymbolRsp
+                 * @returns RpcQueryTradeListByUniformSymbolRsp
                  */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp;
+                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp;
 
                 /**
-                 * Creates a plain object from a RpcQueryTradeListByUnifiedSymbolRsp message. Also converts values to other types if specified.
-                 * @param message RpcQueryTradeListByUnifiedSymbolRsp
+                 * Creates a plain object from a RpcQueryTradeListByUniformSymbolRsp message. Also converts values to other types if specified.
+                 * @param message RpcQueryTradeListByUniformSymbolRsp
                  * @param [options] Conversion options
                  * @returns Plain object
                  */
-                public static toObject(message: xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public static toObject(message: xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
-                 * Converts this RpcQueryTradeListByUnifiedSymbolRsp to JSON.
+                 * Converts this RpcQueryTradeListByUniformSymbolRsp to JSON.
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
@@ -7150,193 +7138,193 @@ export namespace xyz {
                 public toJSON(): { [k: string]: any };
             }
 
-            /** Properties of a RpcQueryPositionListByUnifiedSymbolReq. */
-            interface IRpcQueryPositionListByUnifiedSymbolReq {
+            /** Properties of a RpcQueryPositionListByUniformSymbolReq. */
+            interface IRpcQueryPositionListByUniformSymbolReq {
 
-                /** RpcQueryPositionListByUnifiedSymbolReq commonReq */
+                /** RpcQueryPositionListByUniformSymbolReq commonReq */
                 commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
 
-                /** RpcQueryPositionListByUnifiedSymbolReq unifiedSymbol */
-                unifiedSymbol?: (string|null);
+                /** RpcQueryPositionListByUniformSymbolReq uniformSymbol */
+                uniformSymbol?: (string|null);
             }
 
-            /** Represents a RpcQueryPositionListByUnifiedSymbolReq. */
-            class RpcQueryPositionListByUnifiedSymbolReq implements IRpcQueryPositionListByUnifiedSymbolReq {
+            /** Represents a RpcQueryPositionListByUniformSymbolReq. */
+            class RpcQueryPositionListByUniformSymbolReq implements IRpcQueryPositionListByUniformSymbolReq {
 
                 /**
-                 * Constructs a new RpcQueryPositionListByUnifiedSymbolReq.
+                 * Constructs a new RpcQueryPositionListByUniformSymbolReq.
                  * @param [properties] Properties to set
                  */
-                constructor(properties?: xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolReq);
+                constructor(properties?: xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolReq);
 
-                /** RpcQueryPositionListByUnifiedSymbolReq commonReq. */
+                /** RpcQueryPositionListByUniformSymbolReq commonReq. */
                 public commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
 
-                /** RpcQueryPositionListByUnifiedSymbolReq unifiedSymbol. */
-                public unifiedSymbol: string;
+                /** RpcQueryPositionListByUniformSymbolReq uniformSymbol. */
+                public uniformSymbol: string;
 
                 /**
-                 * Creates a new RpcQueryPositionListByUnifiedSymbolReq instance using the specified properties.
+                 * Creates a new RpcQueryPositionListByUniformSymbolReq instance using the specified properties.
                  * @param [properties] Properties to set
-                 * @returns RpcQueryPositionListByUnifiedSymbolReq instance
+                 * @returns RpcQueryPositionListByUniformSymbolReq instance
                  */
-                public static create(properties?: xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolReq): xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq;
+                public static create(properties?: xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolReq): xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq;
 
                 /**
-                 * Encodes the specified RpcQueryPositionListByUnifiedSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq.verify|verify} messages.
-                 * @param message RpcQueryPositionListByUnifiedSymbolReq message or plain object to encode
+                 * Encodes the specified RpcQueryPositionListByUniformSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq.verify|verify} messages.
+                 * @param message RpcQueryPositionListByUniformSymbolReq message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encode(message: xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encode(message: xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Encodes the specified RpcQueryPositionListByUnifiedSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq.verify|verify} messages.
-                 * @param message RpcQueryPositionListByUnifiedSymbolReq message or plain object to encode
+                 * Encodes the specified RpcQueryPositionListByUniformSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq.verify|verify} messages.
+                 * @param message RpcQueryPositionListByUniformSymbolReq message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a RpcQueryPositionListByUnifiedSymbolReq message from the specified reader or buffer.
+                 * Decodes a RpcQueryPositionListByUniformSymbolReq message from the specified reader or buffer.
                  * @param reader Reader or buffer to decode from
                  * @param [length] Message length if known beforehand
-                 * @returns RpcQueryPositionListByUnifiedSymbolReq
+                 * @returns RpcQueryPositionListByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq;
 
                 /**
-                 * Decodes a RpcQueryPositionListByUnifiedSymbolReq message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryPositionListByUniformSymbolReq message from the specified reader or buffer, length delimited.
                  * @param reader Reader or buffer to decode from
-                 * @returns RpcQueryPositionListByUnifiedSymbolReq
+                 * @returns RpcQueryPositionListByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq;
 
                 /**
-                 * Verifies a RpcQueryPositionListByUnifiedSymbolReq message.
+                 * Verifies a RpcQueryPositionListByUniformSymbolReq message.
                  * @param message Plain object to verify
                  * @returns `null` if valid, otherwise the reason why it is not
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a RpcQueryPositionListByUnifiedSymbolReq message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryPositionListByUniformSymbolReq message from a plain object. Also converts values to their respective internal types.
                  * @param object Plain object
-                 * @returns RpcQueryPositionListByUnifiedSymbolReq
+                 * @returns RpcQueryPositionListByUniformSymbolReq
                  */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq;
+                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq;
 
                 /**
-                 * Creates a plain object from a RpcQueryPositionListByUnifiedSymbolReq message. Also converts values to other types if specified.
-                 * @param message RpcQueryPositionListByUnifiedSymbolReq
+                 * Creates a plain object from a RpcQueryPositionListByUniformSymbolReq message. Also converts values to other types if specified.
+                 * @param message RpcQueryPositionListByUniformSymbolReq
                  * @param [options] Conversion options
                  * @returns Plain object
                  */
-                public static toObject(message: xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public static toObject(message: xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
-                 * Converts this RpcQueryPositionListByUnifiedSymbolReq to JSON.
+                 * Converts this RpcQueryPositionListByUniformSymbolReq to JSON.
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
             }
 
-            /** Properties of a RpcQueryPositionListByUnifiedSymbolRsp. */
-            interface IRpcQueryPositionListByUnifiedSymbolRsp {
+            /** Properties of a RpcQueryPositionListByUniformSymbolRsp. */
+            interface IRpcQueryPositionListByUniformSymbolRsp {
 
-                /** RpcQueryPositionListByUnifiedSymbolRsp commonRsp */
+                /** RpcQueryPositionListByUniformSymbolRsp commonRsp */
                 commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
 
-                /** RpcQueryPositionListByUnifiedSymbolRsp position */
+                /** RpcQueryPositionListByUniformSymbolRsp position */
                 position?: (xyz.redtorch.pb.IPositionField[]|null);
             }
 
-            /** Represents a RpcQueryPositionListByUnifiedSymbolRsp. */
-            class RpcQueryPositionListByUnifiedSymbolRsp implements IRpcQueryPositionListByUnifiedSymbolRsp {
+            /** Represents a RpcQueryPositionListByUniformSymbolRsp. */
+            class RpcQueryPositionListByUniformSymbolRsp implements IRpcQueryPositionListByUniformSymbolRsp {
 
                 /**
-                 * Constructs a new RpcQueryPositionListByUnifiedSymbolRsp.
+                 * Constructs a new RpcQueryPositionListByUniformSymbolRsp.
                  * @param [properties] Properties to set
                  */
-                constructor(properties?: xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolRsp);
+                constructor(properties?: xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolRsp);
 
-                /** RpcQueryPositionListByUnifiedSymbolRsp commonRsp. */
+                /** RpcQueryPositionListByUniformSymbolRsp commonRsp. */
                 public commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
 
-                /** RpcQueryPositionListByUnifiedSymbolRsp position. */
+                /** RpcQueryPositionListByUniformSymbolRsp position. */
                 public position: xyz.redtorch.pb.IPositionField[];
 
                 /**
-                 * Creates a new RpcQueryPositionListByUnifiedSymbolRsp instance using the specified properties.
+                 * Creates a new RpcQueryPositionListByUniformSymbolRsp instance using the specified properties.
                  * @param [properties] Properties to set
-                 * @returns RpcQueryPositionListByUnifiedSymbolRsp instance
+                 * @returns RpcQueryPositionListByUniformSymbolRsp instance
                  */
-                public static create(properties?: xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolRsp): xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp;
+                public static create(properties?: xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolRsp): xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp;
 
                 /**
-                 * Encodes the specified RpcQueryPositionListByUnifiedSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp.verify|verify} messages.
-                 * @param message RpcQueryPositionListByUnifiedSymbolRsp message or plain object to encode
+                 * Encodes the specified RpcQueryPositionListByUniformSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp.verify|verify} messages.
+                 * @param message RpcQueryPositionListByUniformSymbolRsp message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encode(message: xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encode(message: xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Encodes the specified RpcQueryPositionListByUnifiedSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp.verify|verify} messages.
-                 * @param message RpcQueryPositionListByUnifiedSymbolRsp message or plain object to encode
+                 * Encodes the specified RpcQueryPositionListByUniformSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp.verify|verify} messages.
+                 * @param message RpcQueryPositionListByUniformSymbolRsp message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a RpcQueryPositionListByUnifiedSymbolRsp message from the specified reader or buffer.
+                 * Decodes a RpcQueryPositionListByUniformSymbolRsp message from the specified reader or buffer.
                  * @param reader Reader or buffer to decode from
                  * @param [length] Message length if known beforehand
-                 * @returns RpcQueryPositionListByUnifiedSymbolRsp
+                 * @returns RpcQueryPositionListByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp;
 
                 /**
-                 * Decodes a RpcQueryPositionListByUnifiedSymbolRsp message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryPositionListByUniformSymbolRsp message from the specified reader or buffer, length delimited.
                  * @param reader Reader or buffer to decode from
-                 * @returns RpcQueryPositionListByUnifiedSymbolRsp
+                 * @returns RpcQueryPositionListByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp;
 
                 /**
-                 * Verifies a RpcQueryPositionListByUnifiedSymbolRsp message.
+                 * Verifies a RpcQueryPositionListByUniformSymbolRsp message.
                  * @param message Plain object to verify
                  * @returns `null` if valid, otherwise the reason why it is not
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a RpcQueryPositionListByUnifiedSymbolRsp message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryPositionListByUniformSymbolRsp message from a plain object. Also converts values to their respective internal types.
                  * @param object Plain object
-                 * @returns RpcQueryPositionListByUnifiedSymbolRsp
+                 * @returns RpcQueryPositionListByUniformSymbolRsp
                  */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp;
+                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp;
 
                 /**
-                 * Creates a plain object from a RpcQueryPositionListByUnifiedSymbolRsp message. Also converts values to other types if specified.
-                 * @param message RpcQueryPositionListByUnifiedSymbolRsp
+                 * Creates a plain object from a RpcQueryPositionListByUniformSymbolRsp message. Also converts values to other types if specified.
+                 * @param message RpcQueryPositionListByUniformSymbolRsp
                  * @param [options] Conversion options
                  * @returns Plain object
                  */
-                public static toObject(message: xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public static toObject(message: xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
-                 * Converts this RpcQueryPositionListByUnifiedSymbolRsp to JSON.
+                 * Converts this RpcQueryPositionListByUniformSymbolRsp to JSON.
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
@@ -8098,577 +8086,193 @@ export namespace xyz {
                 public toJSON(): { [k: string]: any };
             }
 
-            /** Properties of a RpcQueryContractByContractIdReq. */
-            interface IRpcQueryContractByContractIdReq {
+            /** Properties of a RpcQueryContractByUniformSymbolReq. */
+            interface IRpcQueryContractByUniformSymbolReq {
 
-                /** RpcQueryContractByContractIdReq commonReq */
+                /** RpcQueryContractByUniformSymbolReq commonReq */
                 commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
 
-                /** RpcQueryContractByContractIdReq contractId */
-                contractId?: (string|null);
+                /** RpcQueryContractByUniformSymbolReq uniformSymbol */
+                uniformSymbol?: (string|null);
             }
 
-            /** Represents a RpcQueryContractByContractIdReq. */
-            class RpcQueryContractByContractIdReq implements IRpcQueryContractByContractIdReq {
+            /** Represents a RpcQueryContractByUniformSymbolReq. */
+            class RpcQueryContractByUniformSymbolReq implements IRpcQueryContractByUniformSymbolReq {
 
                 /**
-                 * Constructs a new RpcQueryContractByContractIdReq.
+                 * Constructs a new RpcQueryContractByUniformSymbolReq.
                  * @param [properties] Properties to set
                  */
-                constructor(properties?: xyz.redtorch.pb.IRpcQueryContractByContractIdReq);
+                constructor(properties?: xyz.redtorch.pb.IRpcQueryContractByUniformSymbolReq);
 
-                /** RpcQueryContractByContractIdReq commonReq. */
+                /** RpcQueryContractByUniformSymbolReq commonReq. */
                 public commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
 
-                /** RpcQueryContractByContractIdReq contractId. */
-                public contractId: string;
+                /** RpcQueryContractByUniformSymbolReq uniformSymbol. */
+                public uniformSymbol: string;
 
                 /**
-                 * Creates a new RpcQueryContractByContractIdReq instance using the specified properties.
+                 * Creates a new RpcQueryContractByUniformSymbolReq instance using the specified properties.
                  * @param [properties] Properties to set
-                 * @returns RpcQueryContractByContractIdReq instance
+                 * @returns RpcQueryContractByUniformSymbolReq instance
                  */
-                public static create(properties?: xyz.redtorch.pb.IRpcQueryContractByContractIdReq): xyz.redtorch.pb.RpcQueryContractByContractIdReq;
+                public static create(properties?: xyz.redtorch.pb.IRpcQueryContractByUniformSymbolReq): xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq;
 
                 /**
-                 * Encodes the specified RpcQueryContractByContractIdReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByContractIdReq.verify|verify} messages.
-                 * @param message RpcQueryContractByContractIdReq message or plain object to encode
+                 * Encodes the specified RpcQueryContractByUniformSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq.verify|verify} messages.
+                 * @param message RpcQueryContractByUniformSymbolReq message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encode(message: xyz.redtorch.pb.IRpcQueryContractByContractIdReq, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encode(message: xyz.redtorch.pb.IRpcQueryContractByUniformSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Encodes the specified RpcQueryContractByContractIdReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByContractIdReq.verify|verify} messages.
-                 * @param message RpcQueryContractByContractIdReq message or plain object to encode
+                 * Encodes the specified RpcQueryContractByUniformSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq.verify|verify} messages.
+                 * @param message RpcQueryContractByUniformSymbolReq message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryContractByContractIdReq, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryContractByUniformSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a RpcQueryContractByContractIdReq message from the specified reader or buffer.
+                 * Decodes a RpcQueryContractByUniformSymbolReq message from the specified reader or buffer.
                  * @param reader Reader or buffer to decode from
                  * @param [length] Message length if known beforehand
-                 * @returns RpcQueryContractByContractIdReq
+                 * @returns RpcQueryContractByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryContractByContractIdReq;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq;
 
                 /**
-                 * Decodes a RpcQueryContractByContractIdReq message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryContractByUniformSymbolReq message from the specified reader or buffer, length delimited.
                  * @param reader Reader or buffer to decode from
-                 * @returns RpcQueryContractByContractIdReq
+                 * @returns RpcQueryContractByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryContractByContractIdReq;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq;
 
                 /**
-                 * Verifies a RpcQueryContractByContractIdReq message.
+                 * Verifies a RpcQueryContractByUniformSymbolReq message.
                  * @param message Plain object to verify
                  * @returns `null` if valid, otherwise the reason why it is not
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a RpcQueryContractByContractIdReq message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryContractByUniformSymbolReq message from a plain object. Also converts values to their respective internal types.
                  * @param object Plain object
-                 * @returns RpcQueryContractByContractIdReq
+                 * @returns RpcQueryContractByUniformSymbolReq
                  */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryContractByContractIdReq;
+                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq;
 
                 /**
-                 * Creates a plain object from a RpcQueryContractByContractIdReq message. Also converts values to other types if specified.
-                 * @param message RpcQueryContractByContractIdReq
+                 * Creates a plain object from a RpcQueryContractByUniformSymbolReq message. Also converts values to other types if specified.
+                 * @param message RpcQueryContractByUniformSymbolReq
                  * @param [options] Conversion options
                  * @returns Plain object
                  */
-                public static toObject(message: xyz.redtorch.pb.RpcQueryContractByContractIdReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public static toObject(message: xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
-                 * Converts this RpcQueryContractByContractIdReq to JSON.
+                 * Converts this RpcQueryContractByUniformSymbolReq to JSON.
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
             }
 
-            /** Properties of a RpcQueryContractByContractIdRsp. */
-            interface IRpcQueryContractByContractIdRsp {
+            /** Properties of a RpcQueryContractByUniformSymbolRsp. */
+            interface IRpcQueryContractByUniformSymbolRsp {
 
-                /** RpcQueryContractByContractIdRsp commonRsp */
+                /** RpcQueryContractByUniformSymbolRsp commonRsp */
                 commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
 
-                /** RpcQueryContractByContractIdRsp contract */
+                /** RpcQueryContractByUniformSymbolRsp contract */
                 contract?: (xyz.redtorch.pb.IContractField|null);
             }
 
-            /** Represents a RpcQueryContractByContractIdRsp. */
-            class RpcQueryContractByContractIdRsp implements IRpcQueryContractByContractIdRsp {
+            /** Represents a RpcQueryContractByUniformSymbolRsp. */
+            class RpcQueryContractByUniformSymbolRsp implements IRpcQueryContractByUniformSymbolRsp {
 
                 /**
-                 * Constructs a new RpcQueryContractByContractIdRsp.
+                 * Constructs a new RpcQueryContractByUniformSymbolRsp.
                  * @param [properties] Properties to set
                  */
-                constructor(properties?: xyz.redtorch.pb.IRpcQueryContractByContractIdRsp);
+                constructor(properties?: xyz.redtorch.pb.IRpcQueryContractByUniformSymbolRsp);
 
-                /** RpcQueryContractByContractIdRsp commonRsp. */
+                /** RpcQueryContractByUniformSymbolRsp commonRsp. */
                 public commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
 
-                /** RpcQueryContractByContractIdRsp contract. */
+                /** RpcQueryContractByUniformSymbolRsp contract. */
                 public contract?: (xyz.redtorch.pb.IContractField|null);
 
                 /**
-                 * Creates a new RpcQueryContractByContractIdRsp instance using the specified properties.
+                 * Creates a new RpcQueryContractByUniformSymbolRsp instance using the specified properties.
                  * @param [properties] Properties to set
-                 * @returns RpcQueryContractByContractIdRsp instance
+                 * @returns RpcQueryContractByUniformSymbolRsp instance
                  */
-                public static create(properties?: xyz.redtorch.pb.IRpcQueryContractByContractIdRsp): xyz.redtorch.pb.RpcQueryContractByContractIdRsp;
+                public static create(properties?: xyz.redtorch.pb.IRpcQueryContractByUniformSymbolRsp): xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp;
 
                 /**
-                 * Encodes the specified RpcQueryContractByContractIdRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByContractIdRsp.verify|verify} messages.
-                 * @param message RpcQueryContractByContractIdRsp message or plain object to encode
+                 * Encodes the specified RpcQueryContractByUniformSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp.verify|verify} messages.
+                 * @param message RpcQueryContractByUniformSymbolRsp message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encode(message: xyz.redtorch.pb.IRpcQueryContractByContractIdRsp, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encode(message: xyz.redtorch.pb.IRpcQueryContractByUniformSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Encodes the specified RpcQueryContractByContractIdRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByContractIdRsp.verify|verify} messages.
-                 * @param message RpcQueryContractByContractIdRsp message or plain object to encode
+                 * Encodes the specified RpcQueryContractByUniformSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp.verify|verify} messages.
+                 * @param message RpcQueryContractByUniformSymbolRsp message or plain object to encode
                  * @param [writer] Writer to encode to
                  * @returns Writer
                  */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryContractByContractIdRsp, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryContractByUniformSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
 
                 /**
-                 * Decodes a RpcQueryContractByContractIdRsp message from the specified reader or buffer.
+                 * Decodes a RpcQueryContractByUniformSymbolRsp message from the specified reader or buffer.
                  * @param reader Reader or buffer to decode from
                  * @param [length] Message length if known beforehand
-                 * @returns RpcQueryContractByContractIdRsp
+                 * @returns RpcQueryContractByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryContractByContractIdRsp;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp;
 
                 /**
-                 * Decodes a RpcQueryContractByContractIdRsp message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryContractByUniformSymbolRsp message from the specified reader or buffer, length delimited.
                  * @param reader Reader or buffer to decode from
-                 * @returns RpcQueryContractByContractIdRsp
+                 * @returns RpcQueryContractByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryContractByContractIdRsp;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp;
 
                 /**
-                 * Verifies a RpcQueryContractByContractIdRsp message.
+                 * Verifies a RpcQueryContractByUniformSymbolRsp message.
                  * @param message Plain object to verify
                  * @returns `null` if valid, otherwise the reason why it is not
                  */
                 public static verify(message: { [k: string]: any }): (string|null);
 
                 /**
-                 * Creates a RpcQueryContractByContractIdRsp message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryContractByUniformSymbolRsp message from a plain object. Also converts values to their respective internal types.
                  * @param object Plain object
-                 * @returns RpcQueryContractByContractIdRsp
+                 * @returns RpcQueryContractByUniformSymbolRsp
                  */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryContractByContractIdRsp;
+                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp;
 
                 /**
-                 * Creates a plain object from a RpcQueryContractByContractIdRsp message. Also converts values to other types if specified.
-                 * @param message RpcQueryContractByContractIdRsp
+                 * Creates a plain object from a RpcQueryContractByUniformSymbolRsp message. Also converts values to other types if specified.
+                 * @param message RpcQueryContractByUniformSymbolRsp
                  * @param [options] Conversion options
                  * @returns Plain object
                  */
-                public static toObject(message: xyz.redtorch.pb.RpcQueryContractByContractIdRsp, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public static toObject(message: xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
                 /**
-                 * Converts this RpcQueryContractByContractIdRsp to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a RpcQueryContractListByUnifiedSymbolReq. */
-            interface IRpcQueryContractListByUnifiedSymbolReq {
-
-                /** RpcQueryContractListByUnifiedSymbolReq commonReq */
-                commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
-
-                /** RpcQueryContractListByUnifiedSymbolReq unifiedSymbol */
-                unifiedSymbol?: (string|null);
-            }
-
-            /** Represents a RpcQueryContractListByUnifiedSymbolReq. */
-            class RpcQueryContractListByUnifiedSymbolReq implements IRpcQueryContractListByUnifiedSymbolReq {
-
-                /**
-                 * Constructs a new RpcQueryContractListByUnifiedSymbolReq.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolReq);
-
-                /** RpcQueryContractListByUnifiedSymbolReq commonReq. */
-                public commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
-
-                /** RpcQueryContractListByUnifiedSymbolReq unifiedSymbol. */
-                public unifiedSymbol: string;
-
-                /**
-                 * Creates a new RpcQueryContractListByUnifiedSymbolReq instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns RpcQueryContractListByUnifiedSymbolReq instance
-                 */
-                public static create(properties?: xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolReq): xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq;
-
-                /**
-                 * Encodes the specified RpcQueryContractListByUnifiedSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq.verify|verify} messages.
-                 * @param message RpcQueryContractListByUnifiedSymbolReq message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified RpcQueryContractListByUnifiedSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq.verify|verify} messages.
-                 * @param message RpcQueryContractListByUnifiedSymbolReq message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolReq, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a RpcQueryContractListByUnifiedSymbolReq message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns RpcQueryContractListByUnifiedSymbolReq
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq;
-
-                /**
-                 * Decodes a RpcQueryContractListByUnifiedSymbolReq message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns RpcQueryContractListByUnifiedSymbolReq
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq;
-
-                /**
-                 * Verifies a RpcQueryContractListByUnifiedSymbolReq message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a RpcQueryContractListByUnifiedSymbolReq message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns RpcQueryContractListByUnifiedSymbolReq
-                 */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq;
-
-                /**
-                 * Creates a plain object from a RpcQueryContractListByUnifiedSymbolReq message. Also converts values to other types if specified.
-                 * @param message RpcQueryContractListByUnifiedSymbolReq
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this RpcQueryContractListByUnifiedSymbolReq to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a RpcQueryContractListByUnifiedSymbolRsp. */
-            interface IRpcQueryContractListByUnifiedSymbolRsp {
-
-                /** RpcQueryContractListByUnifiedSymbolRsp commonRsp */
-                commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
-
-                /** RpcQueryContractListByUnifiedSymbolRsp contract */
-                contract?: (xyz.redtorch.pb.IContractField[]|null);
-            }
-
-            /** Represents a RpcQueryContractListByUnifiedSymbolRsp. */
-            class RpcQueryContractListByUnifiedSymbolRsp implements IRpcQueryContractListByUnifiedSymbolRsp {
-
-                /**
-                 * Constructs a new RpcQueryContractListByUnifiedSymbolRsp.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolRsp);
-
-                /** RpcQueryContractListByUnifiedSymbolRsp commonRsp. */
-                public commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
-
-                /** RpcQueryContractListByUnifiedSymbolRsp contract. */
-                public contract: xyz.redtorch.pb.IContractField[];
-
-                /**
-                 * Creates a new RpcQueryContractListByUnifiedSymbolRsp instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns RpcQueryContractListByUnifiedSymbolRsp instance
-                 */
-                public static create(properties?: xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolRsp): xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp;
-
-                /**
-                 * Encodes the specified RpcQueryContractListByUnifiedSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp.verify|verify} messages.
-                 * @param message RpcQueryContractListByUnifiedSymbolRsp message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified RpcQueryContractListByUnifiedSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp.verify|verify} messages.
-                 * @param message RpcQueryContractListByUnifiedSymbolRsp message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolRsp, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a RpcQueryContractListByUnifiedSymbolRsp message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns RpcQueryContractListByUnifiedSymbolRsp
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp;
-
-                /**
-                 * Decodes a RpcQueryContractListByUnifiedSymbolRsp message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns RpcQueryContractListByUnifiedSymbolRsp
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp;
-
-                /**
-                 * Verifies a RpcQueryContractListByUnifiedSymbolRsp message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a RpcQueryContractListByUnifiedSymbolRsp message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns RpcQueryContractListByUnifiedSymbolRsp
-                 */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp;
-
-                /**
-                 * Creates a plain object from a RpcQueryContractListByUnifiedSymbolRsp message. Also converts values to other types if specified.
-                 * @param message RpcQueryContractListByUnifiedSymbolRsp
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this RpcQueryContractListByUnifiedSymbolRsp to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a RpcQueryContractListByGatewayIdReq. */
-            interface IRpcQueryContractListByGatewayIdReq {
-
-                /** RpcQueryContractListByGatewayIdReq commonReq */
-                commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
-
-                /** RpcQueryContractListByGatewayIdReq gatewayId */
-                gatewayId?: (string|null);
-            }
-
-            /** Represents a RpcQueryContractListByGatewayIdReq. */
-            class RpcQueryContractListByGatewayIdReq implements IRpcQueryContractListByGatewayIdReq {
-
-                /**
-                 * Constructs a new RpcQueryContractListByGatewayIdReq.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: xyz.redtorch.pb.IRpcQueryContractListByGatewayIdReq);
-
-                /** RpcQueryContractListByGatewayIdReq commonReq. */
-                public commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
-
-                /** RpcQueryContractListByGatewayIdReq gatewayId. */
-                public gatewayId: string;
-
-                /**
-                 * Creates a new RpcQueryContractListByGatewayIdReq instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns RpcQueryContractListByGatewayIdReq instance
-                 */
-                public static create(properties?: xyz.redtorch.pb.IRpcQueryContractListByGatewayIdReq): xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq;
-
-                /**
-                 * Encodes the specified RpcQueryContractListByGatewayIdReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq.verify|verify} messages.
-                 * @param message RpcQueryContractListByGatewayIdReq message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: xyz.redtorch.pb.IRpcQueryContractListByGatewayIdReq, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified RpcQueryContractListByGatewayIdReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq.verify|verify} messages.
-                 * @param message RpcQueryContractListByGatewayIdReq message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryContractListByGatewayIdReq, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a RpcQueryContractListByGatewayIdReq message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns RpcQueryContractListByGatewayIdReq
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq;
-
-                /**
-                 * Decodes a RpcQueryContractListByGatewayIdReq message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns RpcQueryContractListByGatewayIdReq
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq;
-
-                /**
-                 * Verifies a RpcQueryContractListByGatewayIdReq message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a RpcQueryContractListByGatewayIdReq message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns RpcQueryContractListByGatewayIdReq
-                 */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq;
-
-                /**
-                 * Creates a plain object from a RpcQueryContractListByGatewayIdReq message. Also converts values to other types if specified.
-                 * @param message RpcQueryContractListByGatewayIdReq
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this RpcQueryContractListByGatewayIdReq to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a RpcQueryContractListByGatewayIdRsp. */
-            interface IRpcQueryContractListByGatewayIdRsp {
-
-                /** RpcQueryContractListByGatewayIdRsp commonRsp */
-                commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
-
-                /** RpcQueryContractListByGatewayIdRsp contract */
-                contract?: (xyz.redtorch.pb.IContractField[]|null);
-            }
-
-            /** Represents a RpcQueryContractListByGatewayIdRsp. */
-            class RpcQueryContractListByGatewayIdRsp implements IRpcQueryContractListByGatewayIdRsp {
-
-                /**
-                 * Constructs a new RpcQueryContractListByGatewayIdRsp.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: xyz.redtorch.pb.IRpcQueryContractListByGatewayIdRsp);
-
-                /** RpcQueryContractListByGatewayIdRsp commonRsp. */
-                public commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
-
-                /** RpcQueryContractListByGatewayIdRsp contract. */
-                public contract: xyz.redtorch.pb.IContractField[];
-
-                /**
-                 * Creates a new RpcQueryContractListByGatewayIdRsp instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns RpcQueryContractListByGatewayIdRsp instance
-                 */
-                public static create(properties?: xyz.redtorch.pb.IRpcQueryContractListByGatewayIdRsp): xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp;
-
-                /**
-                 * Encodes the specified RpcQueryContractListByGatewayIdRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp.verify|verify} messages.
-                 * @param message RpcQueryContractListByGatewayIdRsp message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: xyz.redtorch.pb.IRpcQueryContractListByGatewayIdRsp, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified RpcQueryContractListByGatewayIdRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp.verify|verify} messages.
-                 * @param message RpcQueryContractListByGatewayIdRsp message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcQueryContractListByGatewayIdRsp, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a RpcQueryContractListByGatewayIdRsp message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns RpcQueryContractListByGatewayIdRsp
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp;
-
-                /**
-                 * Decodes a RpcQueryContractListByGatewayIdRsp message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns RpcQueryContractListByGatewayIdRsp
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp;
-
-                /**
-                 * Verifies a RpcQueryContractListByGatewayIdRsp message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a RpcQueryContractListByGatewayIdRsp message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns RpcQueryContractListByGatewayIdRsp
-                 */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp;
-
-                /**
-                 * Creates a plain object from a RpcQueryContractListByGatewayIdRsp message. Also converts values to other types if specified.
-                 * @param message RpcQueryContractListByGatewayIdRsp
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this RpcQueryContractListByGatewayIdRsp to JSON.
+                 * Converts this RpcQueryContractByUniformSymbolRsp to JSON.
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
@@ -8872,192 +8476,6 @@ export namespace xyz {
                 public toJSON(): { [k: string]: any };
             }
 
-            /** Properties of a RpcGetMixContractListReq. */
-            interface IRpcGetMixContractListReq {
-
-                /** RpcGetMixContractListReq commonReq */
-                commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
-            }
-
-            /** Represents a RpcGetMixContractListReq. */
-            class RpcGetMixContractListReq implements IRpcGetMixContractListReq {
-
-                /**
-                 * Constructs a new RpcGetMixContractListReq.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: xyz.redtorch.pb.IRpcGetMixContractListReq);
-
-                /** RpcGetMixContractListReq commonReq. */
-                public commonReq?: (xyz.redtorch.pb.ICommonReqField|null);
-
-                /**
-                 * Creates a new RpcGetMixContractListReq instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns RpcGetMixContractListReq instance
-                 */
-                public static create(properties?: xyz.redtorch.pb.IRpcGetMixContractListReq): xyz.redtorch.pb.RpcGetMixContractListReq;
-
-                /**
-                 * Encodes the specified RpcGetMixContractListReq message. Does not implicitly {@link xyz.redtorch.pb.RpcGetMixContractListReq.verify|verify} messages.
-                 * @param message RpcGetMixContractListReq message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: xyz.redtorch.pb.IRpcGetMixContractListReq, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified RpcGetMixContractListReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcGetMixContractListReq.verify|verify} messages.
-                 * @param message RpcGetMixContractListReq message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcGetMixContractListReq, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a RpcGetMixContractListReq message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns RpcGetMixContractListReq
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcGetMixContractListReq;
-
-                /**
-                 * Decodes a RpcGetMixContractListReq message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns RpcGetMixContractListReq
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcGetMixContractListReq;
-
-                /**
-                 * Verifies a RpcGetMixContractListReq message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a RpcGetMixContractListReq message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns RpcGetMixContractListReq
-                 */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcGetMixContractListReq;
-
-                /**
-                 * Creates a plain object from a RpcGetMixContractListReq message. Also converts values to other types if specified.
-                 * @param message RpcGetMixContractListReq
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: xyz.redtorch.pb.RpcGetMixContractListReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this RpcGetMixContractListReq to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a RpcGetMixContractListRsp. */
-            interface IRpcGetMixContractListRsp {
-
-                /** RpcGetMixContractListRsp commonRsp */
-                commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
-
-                /** RpcGetMixContractListRsp contract */
-                contract?: (xyz.redtorch.pb.IContractField[]|null);
-            }
-
-            /** Represents a RpcGetMixContractListRsp. */
-            class RpcGetMixContractListRsp implements IRpcGetMixContractListRsp {
-
-                /**
-                 * Constructs a new RpcGetMixContractListRsp.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: xyz.redtorch.pb.IRpcGetMixContractListRsp);
-
-                /** RpcGetMixContractListRsp commonRsp. */
-                public commonRsp?: (xyz.redtorch.pb.ICommonRspField|null);
-
-                /** RpcGetMixContractListRsp contract. */
-                public contract: xyz.redtorch.pb.IContractField[];
-
-                /**
-                 * Creates a new RpcGetMixContractListRsp instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns RpcGetMixContractListRsp instance
-                 */
-                public static create(properties?: xyz.redtorch.pb.IRpcGetMixContractListRsp): xyz.redtorch.pb.RpcGetMixContractListRsp;
-
-                /**
-                 * Encodes the specified RpcGetMixContractListRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcGetMixContractListRsp.verify|verify} messages.
-                 * @param message RpcGetMixContractListRsp message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: xyz.redtorch.pb.IRpcGetMixContractListRsp, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified RpcGetMixContractListRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcGetMixContractListRsp.verify|verify} messages.
-                 * @param message RpcGetMixContractListRsp message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: xyz.redtorch.pb.IRpcGetMixContractListRsp, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a RpcGetMixContractListRsp message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns RpcGetMixContractListRsp
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): xyz.redtorch.pb.RpcGetMixContractListRsp;
-
-                /**
-                 * Decodes a RpcGetMixContractListRsp message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns RpcGetMixContractListRsp
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): xyz.redtorch.pb.RpcGetMixContractListRsp;
-
-                /**
-                 * Verifies a RpcGetMixContractListRsp message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a RpcGetMixContractListRsp message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns RpcGetMixContractListRsp
-                 */
-                public static fromObject(object: { [k: string]: any }): xyz.redtorch.pb.RpcGetMixContractListRsp;
-
-                /**
-                 * Creates a plain object from a RpcGetMixContractListRsp message. Also converts values to other types if specified.
-                 * @param message RpcGetMixContractListRsp
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: xyz.redtorch.pb.RpcGetMixContractListRsp, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this RpcGetMixContractListRsp to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
             /** Properties of a RpcGetTickListReq. */
             interface IRpcGetTickListReq {
 
@@ -9256,11 +8674,11 @@ export namespace xyz {
                 /** RpcQueryDBBarListReq endTimestamp */
                 endTimestamp?: (number|Long|null);
 
-                /** RpcQueryDBBarListReq unifiedSymbol */
-                unifiedSymbol?: (string|null);
+                /** RpcQueryDBBarListReq uniformSymbol */
+                uniformSymbol?: (string|null);
 
-                /** RpcQueryDBBarListReq barCycle */
-                barCycle?: (xyz.redtorch.pb.BarCycleEnum|null);
+                /** RpcQueryDBBarListReq barPeriod */
+                barPeriod?: (xyz.redtorch.pb.BarPeriodEnum|null);
 
                 /** RpcQueryDBBarListReq marketDataDBType */
                 marketDataDBType?: (xyz.redtorch.pb.MarketDataDBTypeEnum|null);
@@ -9284,11 +8702,11 @@ export namespace xyz {
                 /** RpcQueryDBBarListReq endTimestamp. */
                 public endTimestamp: (number|Long);
 
-                /** RpcQueryDBBarListReq unifiedSymbol. */
-                public unifiedSymbol: string;
+                /** RpcQueryDBBarListReq uniformSymbol. */
+                public uniformSymbol: string;
 
-                /** RpcQueryDBBarListReq barCycle. */
-                public barCycle: xyz.redtorch.pb.BarCycleEnum;
+                /** RpcQueryDBBarListReq barPeriod. */
+                public barPeriod: xyz.redtorch.pb.BarPeriodEnum;
 
                 /** RpcQueryDBBarListReq marketDataDBType. */
                 public marketDataDBType: xyz.redtorch.pb.MarketDataDBTypeEnum;
@@ -9472,8 +8890,8 @@ export namespace xyz {
                 /** RpcQueryDBTickListReq endTimestamp */
                 endTimestamp?: (number|Long|null);
 
-                /** RpcQueryDBTickListReq unifiedSymbol */
-                unifiedSymbol?: (string|null);
+                /** RpcQueryDBTickListReq uniformSymbol */
+                uniformSymbol?: (string|null);
 
                 /** RpcQueryDBTickListReq marketDataDBType */
                 marketDataDBType?: (xyz.redtorch.pb.MarketDataDBTypeEnum|null);
@@ -9497,8 +8915,8 @@ export namespace xyz {
                 /** RpcQueryDBTickListReq endTimestamp. */
                 public endTimestamp: (number|Long);
 
-                /** RpcQueryDBTickListReq unifiedSymbol. */
-                public unifiedSymbol: string;
+                /** RpcQueryDBTickListReq uniformSymbol. */
+                public uniformSymbol: string;
 
                 /** RpcQueryDBTickListReq marketDataDBType. */
                 public marketDataDBType: xyz.redtorch.pb.MarketDataDBTypeEnum;
@@ -9682,8 +9100,8 @@ export namespace xyz {
                 /** RpcQueryVolumeBarListReq endTimestamp */
                 endTimestamp?: (number|Long|null);
 
-                /** RpcQueryVolumeBarListReq unifiedSymbol */
-                unifiedSymbol?: (string|null);
+                /** RpcQueryVolumeBarListReq uniformSymbol */
+                uniformSymbol?: (string|null);
 
                 /** RpcQueryVolumeBarListReq volume */
                 volume?: (number|null);
@@ -9707,8 +9125,8 @@ export namespace xyz {
                 /** RpcQueryVolumeBarListReq endTimestamp. */
                 public endTimestamp: (number|Long);
 
-                /** RpcQueryVolumeBarListReq unifiedSymbol. */
-                public unifiedSymbol: string;
+                /** RpcQueryVolumeBarListReq uniformSymbol. */
+                public uniformSymbol: string;
 
                 /** RpcQueryVolumeBarListReq volume. */
                 public volume: number;
@@ -9886,8 +9304,8 @@ export namespace xyz {
                 /** RpcExceptionRsp originalRpcId */
                 originalRpcId?: (number|null);
 
-                /** RpcExceptionRsp originalReqId */
-                originalReqId?: (string|null);
+                /** RpcExceptionRsp originalTransactionId */
+                originalTransactionId?: (string|null);
 
                 /** RpcExceptionRsp originalTimestamp */
                 originalTimestamp?: (number|Long|null);
@@ -9908,8 +9326,8 @@ export namespace xyz {
                 /** RpcExceptionRsp originalRpcId. */
                 public originalRpcId: number;
 
-                /** RpcExceptionRsp originalReqId. */
-                public originalReqId: string;
+                /** RpcExceptionRsp originalTransactionId. */
+                public originalTransactionId: string;
 
                 /** RpcExceptionRsp originalTimestamp. */
                 public originalTimestamp: (number|Long);
@@ -11181,14 +10599,14 @@ export namespace xyz {
                 QUERY_ORDER_BY_ORIGIN_ORDER_ID_RSP = 18,
                 QUERY_ORDER_LIST_BY_ACCOUNT_ID_REQ = 19,
                 QUERY_ORDER_LIST_BY_ACCOUNT_ID_RSP = 20,
-                QUERY_ORDER_LIST_BY_UNIFIED_SYMBOL_REQ = 21,
-                QUERY_ORDER_LIST_BY_UNIFIED_SYMBOL_RSP = 22,
+                QUERY_ORDER_LIST_BY_UNIFORM_SYMBOL_REQ = 21,
+                QUERY_ORDER_LIST_BY_UNIFORM_SYMBOL_RSP = 22,
                 GET_TRADE_LIST_REQ = 23,
                 GET_TRADE_LIST_RSP = 24,
                 QUERY_TRADE_BY_TRADE_ID_REQ = 25,
                 QUERY_TRADE_BY_TRADE_ID_RSP = 26,
-                QUERY_TRADE_LIST_BY_UNIFIED_SYMBOL_REQ = 27,
-                QUERY_TRADE_LIST_BY_UNIFIED_SYMBOL_RSP = 28,
+                QUERY_TRADE_LIST_BY_UNIFORM_SYMBOL_REQ = 27,
+                QUERY_TRADE_LIST_BY_UNIFORM_SYMBOL_RSP = 28,
                 QUERY_TRADE_LIST_BY_ACCOUNT_ID_REQ = 29,
                 QUERY_TRADE_LIST_BY_ACCOUNT_ID_RSP = 30,
                 QUERY_TRADE_LIST_BY_ORDER_ID_REQ = 31,
@@ -11201,8 +10619,8 @@ export namespace xyz {
                 QUERY_POSITION_BY_POSITION_ID_RSP = 38,
                 QUERY_POSITION_LIST_BY_ACCOUNT_ID_REQ = 39,
                 QUERY_POSITION_LIST_BY_ACCOUNT_ID_RSP = 40,
-                QUERY_POSITION_LIST_BY_UNIFIED_SYMBOL_REQ = 41,
-                QUERY_POSITION_LIST_BY_UNIFIED_SYMBOL_RSP = 42,
+                QUERY_POSITION_LIST_BY_UNIFORM_SYMBOL_REQ = 41,
+                QUERY_POSITION_LIST_BY_UNIFORM_SYMBOL_RSP = 42,
                 GET_ACCOUNT_LIST_REQ = 43,
                 GET_ACCOUNT_LIST_RSP = 44,
                 QUERY_ACCOUNT_BY_ACCOUNT_ID_REQ = 45,
@@ -11211,24 +10629,18 @@ export namespace xyz {
                 QUERY_ACCOUNT_LIST_BY_ACCOUNT_CODE_RSP = 48,
                 GET_CONTRACT_LIST_REQ = 49,
                 GET_CONTRACT_LIST_RSP = 50,
-                QUERY_CONTRACT_BY_CONTRACT_ID_REQ = 51,
-                QUERY_CONTRACT_BY_CONTRACT_ID_RSP = 52,
-                QUERY_CONTRACT_LIST_BY_UNIFIED_SYMBOL_REQ = 53,
-                QUERY_CONTRACT_LIST_BY_UNIFIED_SYMBOL_RSP = 54,
-                QUERY_CONTRACT_LIST_BY_GATEWAY_ID_REQ = 55,
-                QUERY_CONTRACT_LIST_BY_GATEWAY_ID_RSP = 56,
-                SYNC_SLAVE_NODE_RUNTIME_DATA_REQ = 57,
-                SYNC_SLAVE_NODE_RUNTIME_DATA_RSP = 58,
-                GET_MIX_CONTRACT_LIST_REQ = 59,
-                GET_MIX_CONTRACT_LIST_RSP = 60,
-                GET_TICK_LIST_REQ = 61,
-                GET_TICK_LIST_RSP = 62,
-                QUERY_DB_BAR_LIST_REQ = 63,
-                QUERY_DB_BAR_LIST_RSP = 64,
-                QUERY_DB_TICK_LIST_REQ = 65,
-                QUERY_DB_TICK_LIST_RSP = 66,
-                QUERY_VOLUME_BAR_LIST_REQ = 67,
-                QUERY_VOLUME_BAR_LIST_RSP = 68,
+                QUERY_CONTRACT_BY_UNIFORM_SYMBOL_REQ = 51,
+                QUERY_CONTRACT_BY_UNIFORM_SYMBOL_RSP = 52,
+                SYNC_SLAVE_NODE_RUNTIME_DATA_REQ = 53,
+                SYNC_SLAVE_NODE_RUNTIME_DATA_RSP = 54,
+                GET_TICK_LIST_REQ = 55,
+                GET_TICK_LIST_RSP = 56,
+                QUERY_DB_BAR_LIST_REQ = 57,
+                QUERY_DB_BAR_LIST_RSP = 58,
+                QUERY_DB_TICK_LIST_REQ = 59,
+                QUERY_DB_TICK_LIST_RSP = 60,
+                QUERY_VOLUME_BAR_LIST_REQ = 61,
+                QUERY_VOLUME_BAR_LIST_RSP = 62,
                 EXCEPTION_RSP = 999999,
                 ORDER_RTN = 1001,
                 TRADE_RTN = 1002,
@@ -11251,26 +10663,14 @@ export namespace xyz {
                 /** DataExchangeProtocol contentType */
                 contentType?: (xyz.redtorch.pb.DataExchangeProtocol.ContentType|null);
 
-                /** DataExchangeProtocol rpcType */
-                rpcType?: (xyz.redtorch.pb.DataExchangeProtocol.RpcType|null);
-
-                /** DataExchangeProtocol timestamp */
-                timestamp?: (number|Long|null);
-
-                /** DataExchangeProtocol sourceNodeId */
-                sourceNodeId?: (number|null);
-
-                /** DataExchangeProtocol targetNodeId */
-                targetNodeId?: (number|null);
-
                 /** DataExchangeProtocol rpcId */
                 rpcId?: (number|null);
 
-                /** DataExchangeProtocol reqId */
-                reqId?: (string|null);
-
                 /** DataExchangeProtocol contentBytes */
                 contentBytes?: (Uint8Array|null);
+
+                /** DataExchangeProtocol timestamp */
+                timestamp?: (number|Long|null);
             }
 
             /** Represents a DataExchangeProtocol. */
@@ -11285,26 +10685,14 @@ export namespace xyz {
                 /** DataExchangeProtocol contentType. */
                 public contentType: xyz.redtorch.pb.DataExchangeProtocol.ContentType;
 
-                /** DataExchangeProtocol rpcType. */
-                public rpcType: xyz.redtorch.pb.DataExchangeProtocol.RpcType;
-
-                /** DataExchangeProtocol timestamp. */
-                public timestamp: (number|Long);
-
-                /** DataExchangeProtocol sourceNodeId. */
-                public sourceNodeId: number;
-
-                /** DataExchangeProtocol targetNodeId. */
-                public targetNodeId: number;
-
                 /** DataExchangeProtocol rpcId. */
                 public rpcId: number;
 
-                /** DataExchangeProtocol reqId. */
-                public reqId: string;
-
                 /** DataExchangeProtocol contentBytes. */
                 public contentBytes: Uint8Array;
+
+                /** DataExchangeProtocol timestamp. */
+                public timestamp: (number|Long);
 
                 /**
                  * Creates a new DataExchangeProtocol instance using the specified properties.
@@ -11378,11 +10766,6 @@ export namespace xyz {
             }
 
             namespace DataExchangeProtocol {
-
-                /** RpcType enum. */
-                enum RpcType {
-                    CORE_RPC = 0
-                }
 
                 /** ContentType enum. */
                 enum ContentType {

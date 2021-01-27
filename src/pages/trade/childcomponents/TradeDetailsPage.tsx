@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { Stack } from '@fluentui/react/lib/Stack';
 import { withRouter } from 'react-router';
-import { ChoiceGroup, IChoiceGroupOption } from 'office-ui-fabric-react/lib/ChoiceGroup';
-import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { DetailsList, DetailsListLayoutMode, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, SelectionMode, IColumn, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
-import { Sticky, StickyPositionType } from 'office-ui-fabric-react/lib/Sticky';
-import { IRenderFunction } from 'office-ui-fabric-react/lib/Utilities';
-import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
-import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
-import { TooltipHost, TooltipDelay, DirectionalHint } from 'office-ui-fabric-react/lib/Tooltip';
+import { ChoiceGroup, IChoiceGroupOption } from '@fluentui/react/lib/ChoiceGroup';
+import { ScrollablePane, ScrollbarVisibility } from '@fluentui/react/lib/ScrollablePane';
+import { DetailsList, DetailsListLayoutMode, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, SelectionMode, IColumn, DetailsHeader } from '@fluentui/react/lib/DetailsList';
+import { Sticky, StickyPositionType } from '@fluentui/react/lib/Sticky';
+import { IRenderFunction } from '@fluentui/react/lib/Utilities';
+import { mergeStyleSets } from '@fluentui/react/lib/Styling';
+import { Checkbox } from '@fluentui/react/lib/Checkbox';
+import { TooltipHost, TooltipDelay, DirectionalHint } from '@fluentui/react/lib/Tooltip';
 import { v4 as uuidv4 } from 'uuid';
 import { deepCopy } from '../../../utils';
 import { xyz } from "../../../node/pb/pb";
@@ -18,9 +18,7 @@ const { DirectionEnum, OffsetFlagEnum, ProductClassEnum, ExchangeEnum, CurrencyE
 
 // const tableLabelStyls: React.CSSProperties = { display: 'inline-block', width: 27, textAlign: "right", color: '#999',paddingRight:3 }
 
-@inject('authenticationStore', "tradeTradeStore", "tradeAccountStore", "tradeActionStore")
-@observer
-export class TradeDetailsPage extends React.Component<any> {
+export const TradeDetailsPage = inject('authenticationStore', "tradeTradeStore", "tradeAccountStore", "tradeActionStore")(observer(class TradeDetailsPage extends React.Component<any> {
     public state = { directionChoice: 'ALL', showMerged: false };
     public render() {
 
@@ -32,8 +30,7 @@ export class TradeDetailsPage extends React.Component<any> {
 
         let tradeList: any[] = []
         const tradeTradeStoreTradeList = tradeTradeStore.tradeList
-        const tradeTradeStoreTradeListLength = tradeTradeStoreTradeList.length
-        for (let i = 0; i < tradeTradeStoreTradeListLength; i++) {
+        for (let i = 0; i < tradeTradeStoreTradeList.length; i++) {
             const trade = tradeTradeStoreTradeList[i]
             if (tradeAccountStore.selectedAccountIdSet.has(trade.accountId)) {
                 if (this.state.directionChoice === "ALL"
@@ -49,11 +46,10 @@ export class TradeDetailsPage extends React.Component<any> {
 
             const mergedTradeMap = new Map();
 
-            const tradeListLength = tradeList.length
-            for (let i = 0; i < tradeListLength; i++) {
+            for (let i = 0; i < tradeList.length; i++) {
                 const trade = tradeList[i]
                 try {
-                    const tmpKey = `${trade.contract.unifiedSymbol}@${trade.direction}@${trade.offsetFlag}`
+                    const tmpKey = `${trade.contract.uniformSymbol}@${trade.direction}@${trade.offsetFlag}`
                     let tmpTrade;
                     if (mergedTradeMap.has(tmpKey)) {
                         tmpTrade = mergedTradeMap.get(tmpKey)
@@ -110,7 +106,7 @@ export class TradeDetailsPage extends React.Component<any> {
                 if (item.contract) {
                     const tooltipLabelStyls: React.CSSProperties = { display: 'inline-block', width: 75, textAlign: "right", color: '#999', paddingRight: 3 }
                     let clazzNames = ""
-                    if (selectedContract && item.contract.unifiedSymbol === selectedContract.unifiedSymbol) {
+                    if (selectedContract && item.contract.uniformSymbol === selectedContract.uniformSymbol) {
                         clazzNames = "trade-remind-color"
                     }
                     return (
@@ -144,7 +140,7 @@ export class TradeDetailsPage extends React.Component<any> {
                                     tradeActionStore.setSelectedContract(item.contract)
                                 }
                             }>
-                                <div>{item.contract.unifiedSymbol}</div>
+                                <div>{item.contract.uniformSymbol}</div>
                                 <div>{item.contract.name}</div>
                             </div>
                         </TooltipHost>
@@ -244,7 +240,7 @@ export class TradeDetailsPage extends React.Component<any> {
                     return (
                         <span>平今</span>
                     );
-                } else if (item.offsetFlag === OffsetFlagEnum.OF_Unkonwn) {
+                } else if (item.offsetFlag === OffsetFlagEnum.OF_Unknown) {
                     return (
                         <span>未知</span>
                     );
@@ -397,6 +393,8 @@ export class TradeDetailsPage extends React.Component<any> {
                                         layoutMode={DetailsListLayoutMode.fixedColumns}
                                         constrainMode={ConstrainMode.unconstrained}
                                         // data-is-scrollable={true}
+                                        
+                                        // @ts-ignore
                                         onRenderDetailsHeader={
                                             // tslint:disable-next-line:jsx-no-lambda
                                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
@@ -408,6 +406,7 @@ export class TradeDetailsPage extends React.Component<any> {
                                                     {/* {defaultRender(detailsHeaderProps)} */}
                                                 </Sticky>
                                             )}
+                                        // @ts-ignore
                                         onRenderDetailsFooter={
                                             // tslint:disable-next-line:jsx-no-lambda
                                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -484,6 +483,6 @@ export class TradeDetailsPage extends React.Component<any> {
 
 
 
-}
+}));
 
 export default withRouter(TradeDetailsPage)

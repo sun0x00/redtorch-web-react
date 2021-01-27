@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import { tradeContractStore } from './tradeContractStore'
 import { tradeAccountStore } from './tradeAccountStore'
 import { tradeTickStore } from './tradeTickStore'
@@ -20,41 +20,72 @@ const { SubmitOrderReqField,
     ForceCloseReasonEnum,
 } = xyz.redtorch.pb
 class TradeActionStore {
-    @observable selectedContract: any;
-    @observable orderPriceType: number = OrderPriceTypeEnum.OPT_LimitPrice;
-    @observable autoFillOrderPriceType: string = "LAST"
-    @observable price: number|string = "";
-    @observable stopPrice: number|string = "";
-    @observable volume: number = 0;
-    @observable timeCondition: number = TimeConditionEnum.TC_GFD
-    @observable volumeCondition: number = VolumeConditionEnum.VC_AV
-    @observable minVolume: number = 1;
-    @observable hedgeFlag: number = HedgeFlagEnum.HF_Speculation;
-    @observable contingentCondition: number = ContingentConditionEnum.CC_Immediately;
+    selectedContract: any;
+    orderPriceType: number = OrderPriceTypeEnum.OPT_LimitPrice;
+    autoFillOrderPriceType: string = "LAST";
+    price: number | string = "";
+    stopPrice: number | string = "";
+    volume: number = 0;
+    timeCondition: number = TimeConditionEnum.TC_GFD;
+    volumeCondition: number = VolumeConditionEnum.VC_AV;
+    minVolume: number = 1;
+    hedgeFlag: number = HedgeFlagEnum.HF_Speculation;
+    contingentCondition: number = ContingentConditionEnum.CC_Immediately;
 
-    @action setSelectedContract(selectedContract: any) {
+    constructor() {
+        makeObservable(this, {
+            selectedContract: observable,
+            orderPriceType: observable,
+            autoFillOrderPriceType: observable,
+            price: observable,
+            stopPrice: observable,
+            volume: observable,
+            timeCondition: observable,
+            volumeCondition: observable,
+            minVolume: observable,
+            hedgeFlag: observable,
+            contingentCondition: observable,
+            setSelectedContract: action,
+            fillPrice: action,
+            setVolume: action,
+            setMinVolume: action,
+            setHedgeFlag: action,
+            setPrice: action,
+            setStopPrice: action,
+            setTimeCondition: action,
+            setContingentCondition: action,
+            setVolumeCondition: action,
+            setOrderPriceType: action,
+            setAutoFillOrderPriceType: action,
+            submitOrder: action,
+            cancelOrder: action,
+            reset: action
+        });
+    }
+
+    setSelectedContract(selectedContract: any) {
 
         if (isDevEnv) {
             console.debug(selectedContract)
         }
         if (selectedContract) {
-            if (tradeContractStore.mxiContractMap.has(selectedContract.unifiedSymbol)) {
-                this.selectedContract = tradeContractStore.mxiContractMap.get(selectedContract.unifiedSymbol)
+            if (tradeContractStore.mxiContractMap.has(selectedContract.uniformSymbol)) {
+                this.selectedContract = tradeContractStore.mxiContractMap.get(selectedContract.uniformSymbol)
                 rpcClientApi.asyncSubscribe(selectedContract)
                 this.fillPrice()
             } else {
-                toast.warn(`本地缓存未找到所选合约,${selectedContract.unifiedSymbol},${selectedContract.fullName}`);
+                toast.warn(`本地缓存未找到所选合约,${selectedContract.uniformSymbol},${selectedContract.fullName}`);
             }
         } else {
             console.warn("参数为空")
         }
     }
 
-    @action fillPrice() {
+    fillPrice() {
         if (this.selectedContract) {
             if (this.autoFillOrderPriceType !== "MANUAL") {
-                if (tradeTickStore.mixTickMap.has(this.selectedContract.unifiedSymbol)) {
-                    const tick = tradeTickStore.mixTickMap.get(this.selectedContract.unifiedSymbol);
+                if (tradeTickStore.mixTickMap.has(this.selectedContract.uniformSymbol)) {
+                    const tick = tradeTickStore.mixTickMap.get(this.selectedContract.uniformSymbol);
                     try {
                         let tmpPrice;
                         if (this.autoFillOrderPriceType === "LAST") {
@@ -92,67 +123,68 @@ class TradeActionStore {
 
     }
 
-    @action setVolume(volume: number) {
+    setVolume(volume: number) {
         this.volume = volume
     }
 
-    @action setMinVolume(minVolume: number|string) {
-        if(!minVolume || minVolume === ""){
+    setMinVolume(minVolume: number | string) {
+        if (!minVolume || minVolume === "") {
             this.minVolume = 1
-        }else{
-            this.minVolume = parseInt(minVolume+"",10)
+        } else {
+            this.minVolume = parseInt(minVolume + "", 10)
         }
     }
 
-    @action setHedgeFlag(hedgeFlag:number){
+    setHedgeFlag(hedgeFlag: number) {
         this.hedgeFlag = hedgeFlag;
     }
 
-    @action setPrice(price: number|string) {
+    setPrice(price: number | string) {
         this.autoFillOrderPriceType = "MANUAL"
         this.price = price;
     }
 
-    @action setStopPrice(stopPrice: number|string) {
+    setStopPrice(stopPrice: number | string) {
         this.stopPrice = stopPrice;
     }
 
-    @action setTimeCondition(timeCondition: number) {
+    setTimeCondition(timeCondition: number) {
         this.timeCondition = timeCondition
     }
 
-    @action setContingentCondition(contingentCondition: number) {
+    setContingentCondition(contingentCondition: number) {
         this.contingentCondition = contingentCondition
     }
 
-    @action setVolumeCondition(volumeCondition: number) {
+    setVolumeCondition(volumeCondition: number) {
         this.volumeCondition = volumeCondition
     }
 
-    @action setOrderPriceType(orderPriceType: number) {
+    setOrderPriceType(orderPriceType: number) {
         this.orderPriceType = orderPriceType
     }
 
-    @action setAutoFillOrderPriceType(autoFillOrderPriceType: string) {
+    setAutoFillOrderPriceType(autoFillOrderPriceType: string) {
         this.autoFillOrderPriceType = autoFillOrderPriceType
         this.fillPrice()
     }
 
-    @action submitOrder(
-        selectedContract: object, 
-        direction: number, 
-        offsetFlag: number, 
-        price: number, 
-        orderPriceType: number, 
-        volume: number, 
-        timeCondition: number, 
-        volumeCondition: number, 
-        hedgeFlag: number, 
-        minVolume: number, 
-        accountId: string, 
+    submitOrder(
+        selectedContract: object,
+        direction: number,
+        offsetFlag: number,
+        price: number,
+        orderPriceType: number,
+        volume: number,
+        timeCondition: number,
+        volumeCondition: number,
+        hedgeFlag: number,
+        minVolume: number,
+        accountId: string,
         stopPrice: number,
-        contingentCondition:number,
-        originOrderId: string) {
+        contingentCondition: number,
+        originOrderId: string
+    ) {
 
         try {
             if (!accountId || accountId === "") {
@@ -193,13 +225,13 @@ class TradeActionStore {
                 submitOrderReqField.orderPriceType = OrderPriceTypeEnum.OPT_FiveLevelPrice
             } else if (orderPriceType === OrderPriceTypeEnum.OPT_BestPrice) {
                 submitOrderReqField.orderPriceType = OrderPriceTypeEnum.OPT_BestPrice
-            }else if (orderPriceType === OrderPriceTypeEnum.OPT_LastPrice) {
+            } else if (orderPriceType === OrderPriceTypeEnum.OPT_LastPrice) {
                 submitOrderReqField.orderPriceType = OrderPriceTypeEnum.OPT_LastPrice
-            }else if (orderPriceType === OrderPriceTypeEnum.OPT_LastPricePlusOneTicks) {
+            } else if (orderPriceType === OrderPriceTypeEnum.OPT_LastPricePlusOneTicks) {
                 submitOrderReqField.orderPriceType = OrderPriceTypeEnum.OPT_LastPricePlusOneTicks
-            }else if (orderPriceType === OrderPriceTypeEnum.OPT_LastPricePlusThreeTicks) {
+            } else if (orderPriceType === OrderPriceTypeEnum.OPT_LastPricePlusThreeTicks) {
                 submitOrderReqField.orderPriceType = OrderPriceTypeEnum.OPT_LastPricePlusThreeTicks
-            }else {
+            } else {
                 console.error(`本地信息:提交定单错误,未知的价格类型:${orderPriceType}`)
                 toast.error(`本地信息:提交定单错误,未知的价格类型:${orderPriceType}`);
                 return;
@@ -224,7 +256,7 @@ class TradeActionStore {
 
             if (offsetFlag === OffsetFlagEnum.OF_Open) {
                 submitOrderReqField.offsetFlag = OffsetFlagEnum.OF_Open
-            } else if (offsetFlag ===  OffsetFlagEnum.OF_Close) {
+            } else if (offsetFlag === OffsetFlagEnum.OF_Close) {
                 submitOrderReqField.offsetFlag = OffsetFlagEnum.OF_Close
             } else if (offsetFlag === OffsetFlagEnum.OF_CloseToday) {
                 submitOrderReqField.offsetFlag = OffsetFlagEnum.OF_CloseToday
@@ -267,53 +299,53 @@ class TradeActionStore {
             }
             submitOrderReqField.minVolume = minVolume;
 
-            
+
             if (hedgeFlag === HedgeFlagEnum.HF_Speculation) {
                 submitOrderReqField.hedgeFlag = HedgeFlagEnum.HF_Speculation
-            } else if (hedgeFlag ===  HedgeFlagEnum.HF_Hedge) {
+            } else if (hedgeFlag === HedgeFlagEnum.HF_Hedge) {
                 submitOrderReqField.hedgeFlag = HedgeFlagEnum.HF_Hedge
-            } else if (hedgeFlag ===  HedgeFlagEnum.HF_MarketMaker) {
+            } else if (hedgeFlag === HedgeFlagEnum.HF_MarketMaker) {
                 submitOrderReqField.hedgeFlag = HedgeFlagEnum.HF_MarketMaker
             } else if (hedgeFlag === HedgeFlagEnum.HF_Arbitrage) {
                 submitOrderReqField.hedgeFlag = HedgeFlagEnum.HF_Arbitrage
-            } else if (hedgeFlag ===  HedgeFlagEnum.HF_SpecHedge) {
+            } else if (hedgeFlag === HedgeFlagEnum.HF_SpecHedge) {
                 submitOrderReqField.hedgeFlag = HedgeFlagEnum.HF_SpecHedge
             } else if (hedgeFlag === HedgeFlagEnum.HF_HedgeSpec) {
                 submitOrderReqField.hedgeFlag = HedgeFlagEnum.HF_HedgeSpec
-            }  else {
+            } else {
                 console.error(`本地信息:提交定单错误,未知的投机套保类型:${hedgeFlag}`)
                 toast.error(`本地信息:提交定单错误,未知的投机套保类型:${hedgeFlag}`);
                 return;
             }
-            
-            
+
+
             if (contingentCondition === ContingentConditionEnum.CC_Immediately) {
                 submitOrderReqField.contingentCondition = ContingentConditionEnum.CC_Immediately
             } else if (contingentCondition === ContingentConditionEnum.CC_LastPriceGreaterEqualStopPrice) {
                 submitOrderReqField.contingentCondition = ContingentConditionEnum.CC_LastPriceGreaterEqualStopPrice
             } else if (contingentCondition === ContingentConditionEnum.CC_LastPriceLesserEqualStopPrice) {
-                submitOrderReqField.contingentCondition =  ContingentConditionEnum.CC_LastPriceLesserEqualStopPrice
+                submitOrderReqField.contingentCondition = ContingentConditionEnum.CC_LastPriceLesserEqualStopPrice
             } else if (contingentCondition === ContingentConditionEnum.CC_LocalLastPriceGreaterEqualStopPrice) {
                 submitOrderReqField.contingentCondition = ContingentConditionEnum.CC_LocalLastPriceGreaterEqualStopPrice
             } else if (contingentCondition === ContingentConditionEnum.CC_LocalLastPriceLesserEqualStopPrice) {
-                submitOrderReqField.contingentCondition =  ContingentConditionEnum.CC_LocalLastPriceLesserEqualStopPrice
+                submitOrderReqField.contingentCondition = ContingentConditionEnum.CC_LocalLastPriceLesserEqualStopPrice
             } else {
                 console.error(`本地信息:提交定单错误,未知的触发类型:${contingentCondition}`)
                 toast.error(`本地信息:提交定单错误,未知的触发类型:${contingentCondition}`);
                 return;
             }
 
-            if (contingentCondition !== ContingentConditionEnum.CC_Immediately ){
-                if(!stopPrice) {
+            if (contingentCondition !== ContingentConditionEnum.CC_Immediately) {
+                if (!stopPrice) {
                     console.error(`本地信息:提交定单错误,错误的条件价格:${stopPrice}`)
                     toast.error(`本地信息:提交定单错误,错误的条件价格:${stopPrice}`);
                     return;
-                }else{
+                } else {
                     submitOrderReqField.stopPrice = stopPrice
                 }
             }
             submitOrderReqField.stopPrice = stopPrice
-            
+
             submitOrderReqField.gatewayId = account.gatewayId
             const accountField = AccountField.fromObject(account)
             submitOrderReqField.accountCode = accountField.code
@@ -330,11 +362,11 @@ class TradeActionStore {
         }
     }
 
-    @action cancelOrder(orderId: string) {
+    cancelOrder(orderId: string) {
         rpcClientApi.asyncCancelOrder(orderId)
     }
 
-    @action reset() {
+    reset() {
         this.selectedContract = null;
         this.volume = 0;
         this.orderPriceType = OrderPriceTypeEnum.OPT_LimitPrice;
@@ -345,6 +377,5 @@ class TradeActionStore {
         this.minVolume = 1;
         this.hedgeFlag = HedgeFlagEnum.HF_Speculation;
     }
-
 }
 export const tradeActionStore = new TradeActionStore()

@@ -42,6 +42,7 @@ const errorHandler = (error: any) => {
   toast.error(`请求错误 ${status}: ${url} → ${errortext}`);
 };
 
+
 /**
  * 配置request请求时的默认参数
  */
@@ -49,5 +50,40 @@ const request = extend({
   errorHandler, // 默认错误处理
   credentials: 'include', // 默认请求是否带上cookie
 });
+
+// request拦截器, 改变url 或 options.
+request.interceptors.request.use((url, options) => {
+
+  const authToken = authenticationStore.getAuthToken()
+
+  if (authToken) {
+    const headers = {
+      'Auth-Token': authToken
+    };
+    return (
+      {
+        url,
+        options: { ...options, headers },
+      }
+    );
+  } else {
+    return (
+      {
+        url,
+        options: { ...options },
+      }
+    );
+  }
+
+})
+
+// // response拦截器, 处理response
+// request.interceptors.response.use((response, options) => {
+//   let token = response.headers.get("x-auth-token");
+//   if (token) {
+//     localStorage.setItem("x-auth-token", token);
+//   }
+//   return response;
+// });
 
 export default request;

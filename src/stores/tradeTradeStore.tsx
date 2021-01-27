@@ -1,15 +1,24 @@
-import { observable, action } from 'mobx'
+import { observable, action, makeObservable } from 'mobx';
 import { rpcClientApi } from '../node/client/service/rpcClientApi';
 import { leftZeroPad, isDevEnv } from '../utils';
 import { tradeContractStore } from './tradeContractStore';
 
 class TradeTradeStore {
 
-    @observable tradeList: any[] = []
-    public tradeMap: Map<string, any> = new Map();
+    tradeList: any[] = [];
+    tradeMap: Map<string, any> = new Map();
     private hasBeenChanged = false;
 
-    public constructor() {
+    constructor() {
+        makeObservable(this, {
+            tradeList: observable,
+            getTradeList: action,
+            storeTrade: action,
+            clearAndStoreTradeList: action,
+            storeTradeList: action,
+            coverMapToList: action
+        });
+
         setTimeout(this.startIntervalCheckChange, 60)
     }
 
@@ -25,12 +34,11 @@ class TradeTradeStore {
         setTimeout(this.startIntervalCheckChange, 500)
     }
 
-    @action getTradeList() {
+    getTradeList() {
         rpcClientApi.asyncGetTradeList()
     }
 
-    @action
-    public storeTrade(trade: any) {
+    storeTrade(trade: any) {
         if (isDevEnv) {
             console.debug(trade)
         }
@@ -40,14 +48,12 @@ class TradeTradeStore {
         this.tradeMap.set(trade.tradeId, trade);
         this.hasBeenChanged = true
     }
-    @action
-    public clearAndStoreTradeList(tradeList: any[]) {
+    clearAndStoreTradeList(tradeList: any[]) {
         if (isDevEnv) {
             console.debug(tradeList)
         }
         const newTradeMap: Map<string, any> = new Map();
-        const tradeListLength = tradeList.length
-        for (let i = 0; i < tradeListLength; i++) {
+        for (let i = 0; i < tradeList.length; i++) {
             const trade = tradeList[i]
             if (trade.contract) {
                 tradeContractStore.storeContract(trade.contract)
@@ -58,13 +64,11 @@ class TradeTradeStore {
         this.hasBeenChanged = true
     }
 
-    @action
-    public storeTradeList(tradeList: any[]) {
+    storeTradeList(tradeList: any[]) {
         if (isDevEnv) {
             console.debug(tradeList)
         }
-        const tradeListLength = tradeList.length
-        for (let i = 0; i < tradeListLength; i++) {
+        for (let i = 0; i < tradeList.length; i++) {
             const trade = tradeList[i]
             if (trade.contract) {
                 tradeContractStore.storeContract(trade.contract)
@@ -74,7 +78,7 @@ class TradeTradeStore {
         this.hasBeenChanged = true
     }
 
-    @action coverMapToList() {
+    coverMapToList() {
         const tempTradeList = [...this.tradeMap.values()]
         this.tradeList = this.sortTradeListByDatetimeAndTradeId(tempTradeList);
     }

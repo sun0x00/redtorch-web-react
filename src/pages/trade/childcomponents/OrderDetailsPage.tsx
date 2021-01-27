@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Stack } from 'office-ui-fabric-react/lib/Stack';
+import { Stack } from '@fluentui/react/lib/Stack';
 import { withRouter } from 'react-router';
-import { ChoiceGroup, IChoiceGroupOption } from 'office-ui-fabric-react/lib/ChoiceGroup';
-import { ScrollablePane, ScrollbarVisibility } from 'office-ui-fabric-react/lib/ScrollablePane';
-import { DetailsList, DetailsListLayoutMode, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, SelectionMode, IColumn, DetailsHeader } from 'office-ui-fabric-react/lib/DetailsList';
-import { Sticky, StickyPositionType } from 'office-ui-fabric-react/lib/Sticky';
-import { IRenderFunction } from 'office-ui-fabric-react/lib/Utilities';
-import { IconButton } from 'office-ui-fabric-react/lib/Button';
-import { mergeStyleSets } from 'office-ui-fabric-react/lib/Styling';
-import { TooltipHost, TooltipDelay, DirectionalHint } from 'office-ui-fabric-react/lib/Tooltip';
-import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
+import { ChoiceGroup, IChoiceGroupOption } from '@fluentui/react/lib/ChoiceGroup';
+import { ScrollablePane, ScrollbarVisibility } from '@fluentui/react/lib/ScrollablePane';
+import { DetailsList, DetailsListLayoutMode, ConstrainMode, IDetailsHeaderProps, IDetailsFooterProps, SelectionMode, IColumn, DetailsHeader } from '@fluentui/react/lib/DetailsList';
+import { Sticky, StickyPositionType } from '@fluentui/react/lib/Sticky';
+import { IRenderFunction } from '@fluentui/react/lib/Utilities';
+import { IconButton } from '@fluentui/react/lib/Button';
+import { mergeStyleSets } from '@fluentui/react/lib/Styling';
+import { TooltipHost, TooltipDelay, DirectionalHint } from '@fluentui/react/lib/Tooltip';
+import { Checkbox } from '@fluentui/react/lib/Checkbox';
 import { xyz } from "../../../node/pb/pb";
 
 const { OrderStatusEnum, DirectionEnum, OffsetFlagEnum, TimeConditionEnum, ProductClassEnum, ExchangeEnum, CurrencyEnum, OrderPriceTypeEnum, HedgeFlagEnum, VolumeConditionEnum, ContingentConditionEnum} = xyz.redtorch.pb
@@ -18,9 +18,7 @@ const { OrderStatusEnum, DirectionEnum, OffsetFlagEnum, TimeConditionEnum, Produ
 
 const tableLabelStyls: React.CSSProperties = { display: 'inline-block', width: 27, textAlign: "right", color: '#999', paddingRight: 3 }
 
-@inject('authenticationStore', "tradeOrderStore", "tradeAccountStore", "tradeActionStore")
-@observer
-export class OrderDetailsPage extends React.Component<any> {
+export const OrderDetailsPage = inject('authenticationStore', "tradeOrderStore", "tradeAccountStore", "tradeActionStore")(observer(class OrderDetailsPage extends React.Component<any> {
 
     public state = { statusChoice: 'ALL', showRejected: false };
 
@@ -33,9 +31,8 @@ export class OrderDetailsPage extends React.Component<any> {
 
         const orderList: any[] = []
         const tradeAccountStoreOrderList = tradeOrderStore.orderList
-        const tradeAccountStoreOrderListLength = tradeAccountStoreOrderList.length
 
-        for (let i = 0; i < tradeAccountStoreOrderListLength; i++) {
+        for (let i = 0; i < tradeAccountStoreOrderList.length; i++) {
             const order = tradeAccountStoreOrderList[i]
 
             if (tradeAccountStore.selectedAccountIdSet.has(order.accountId)) {
@@ -63,7 +60,7 @@ export class OrderDetailsPage extends React.Component<any> {
                 if (item.contract) {
                     const tooltipLabelStyls: React.CSSProperties = { display: 'inline-block', width: 75, textAlign: "right", color: '#999', paddingRight: 3 }
                     let clazzNames = ""
-                    if (selectedContract && item.contract.unifiedSymbol === selectedContract.unifiedSymbol) {
+                    if (selectedContract && item.contract.uniformSymbol === selectedContract.uniformSymbol) {
                         clazzNames = "trade-remind-color"
                     }
 
@@ -98,7 +95,7 @@ export class OrderDetailsPage extends React.Component<any> {
                                     tradeActionStore.setSelectedContract(item.contract)
                                 }
                             }>
-                                <div>{item.contract.unifiedSymbol}</div>
+                                <div>{item.contract.uniformSymbol}</div>
                                 <div>{item.contract.name}</div>
                             </div>
                         </TooltipHost>
@@ -156,7 +153,7 @@ export class OrderDetailsPage extends React.Component<any> {
                     return (
                         <span>平今</span>
                     );
-                } else if (item.offsetFlag === OffsetFlagEnum.OF_Unkonwn) {
+                } else if (item.offsetFlag === OffsetFlagEnum.OF_Unknown) {
                     return (
                         <span>未知</span>
                     );
@@ -463,7 +460,7 @@ export class OrderDetailsPage extends React.Component<any> {
                     );
                 }
 
-                if (item.timeCondition === TimeConditionEnum.TC_Unkonwn) {
+                if (item.timeCondition === TimeConditionEnum.TC_Unknown) {
                     return (
                         <div>
                             <div>未知</div>
@@ -497,7 +494,7 @@ export class OrderDetailsPage extends React.Component<any> {
                     return (
                         <span>全部数量</span>
                     );
-                } else if (item.volumeCondition === VolumeConditionEnum.VC_Unkonwn) {
+                } else if (item.volumeCondition === VolumeConditionEnum.VC_Unknown) {
                     return (
                         <span>未知</span>
                     );
@@ -547,7 +544,7 @@ export class OrderDetailsPage extends React.Component<any> {
                     return (
                         <span>(本地)最新价小于等于条件价</span>
                     );
-                } else if (item.contingentCondition === ContingentConditionEnum.CC_Unkonwn) {
+                } else if (item.contingentCondition === ContingentConditionEnum.CC_Unknown) {
                     return (
                         <span>未知</span>
                     );
@@ -660,6 +657,8 @@ export class OrderDetailsPage extends React.Component<any> {
                                         layoutMode={DetailsListLayoutMode.fixedColumns}
                                         constrainMode={ConstrainMode.unconstrained}
                                         // data-is-scrollable={true}
+                                        
+                                        // @ts-ignore
                                         onRenderDetailsHeader={
                                             // tslint:disable-next-line:jsx-no-lambda
                                             (detailsHeaderProps: IDetailsHeaderProps, defaultRender: IRenderFunction<IDetailsHeaderProps>) => (
@@ -671,6 +670,8 @@ export class OrderDetailsPage extends React.Component<any> {
                                                     {/* {defaultRender(detailsHeaderProps)} */}
                                                 </Sticky>
                                             )}
+
+                                        // @ts-ignore
                                         onRenderDetailsFooter={
                                             // tslint:disable-next-line:jsx-no-lambda
                                             (detailsFooterProps: IDetailsFooterProps, defaultRender: IRenderFunction<IDetailsFooterProps>) => (
@@ -755,6 +756,6 @@ export class OrderDetailsPage extends React.Component<any> {
     }
 
 
-}
+}));
 
 export default withRouter(OrderDetailsPage)

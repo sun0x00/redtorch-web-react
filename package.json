@@ -1,51 +1,56 @@
 {
   "name": "redtorch-web-react",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@types/long": "4.0.0",
+    "@fluentui/react": "^7.155.4",
+    "byte-base64": "^1.1.0",
     "history": "4.10.1",
     "long": "4.0.0",
     "lz4js": "0.2.0",
-    "mobx": "5.15.4",
-    "mobx-react": "6.2.2",
-    "mobx-react-router": "4.1.0",
-    "office-ui-fabric-react": "7.113.1",
-    "protobufjs": "6.9.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "mobx": "6.0.4",
+    "mobx-react": "7.0.5",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
-    "react-scripts-ts": "3.1.0",
-    "react-toastify": "5.4.1",
-    "umi-request": "1.2.9",
-    "uuid": "8.0.0"
+    "react-toastify": "6.2.0",
+    "umi-request": "1.3.5",
+    "uuid": "8.3.2"
   },
   "devDependencies": {
-    "@types/history": "4.7.5",
-    "@types/jest": "25.2.2",
-    "@types/node": "14.0.1",
-    "@types/react": "16.9.35",
-    "@types/react-dom": "16.9.8",
-    "@types/react-router": "5.1.7",
-    "@types/react-router-dom": "5.1.5",
-    "@types/uuid": "7.0.3",
-    "typescript": "3.7.2"
+    "@types/long": "4.0.1",
+    "@types/jest": "^26.0.20",
+    "@types/react": "16.14.2",
+    "@types/react-dom": "16.9.10",
+    "@types/react-router": "5.1.11",
+    "@types/react-router-dom": "5.1.7",
+    "@types/uuid": "8.3.0",
+    "@typescript-eslint/parser": "4.13.0",
+    "eslint": "7.18.0",
+    "http-proxy-middleware": "1.0.6",
+    "protobufjs": "6.10.2",
+    "react-scripts": "4.0.1",
+    "typescript": "3.9.7"
   },
-  "resolutions": {},
-  "proxy": {
-    "/api": {
-      "target": "http://127.0.0.1:9099"
-    },
-    "/websocket": {
-      "target": "ws://127.0.0.1:9099",
-      "ws": true
-    }
+  "browserslist": {
+    "production": [
+      "last 2 chrome version",
+      "last 2 firefox version",
+      "last 2 safari version",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 2 chrome version",
+      "last 2 firefox version",
+      "last 2 safari version"
+    ]
   },
   "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "//react-scripts-ts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "#react-scripts eject"
   }
 }

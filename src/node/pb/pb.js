@@ -139,8 +139,8 @@ $root.xyz = (function() {
             })();
 
             /**
-             * BarCycleEnum enum.
-             * @name xyz.redtorch.pb.BarCycleEnum
+             * BarPeriodEnum enum.
+             * @name xyz.redtorch.pb.BarPeriodEnum
              * @enum {string}
              * @property {number} B_5Sec=0 B_5Sec value
              * @property {number} B_1Min=1 B_1Min value
@@ -149,7 +149,7 @@ $root.xyz = (function() {
              * @property {number} B_15Min=4 B_15Min value
              * @property {number} B_1Day=5 B_1Day value
              */
-            pb.BarCycleEnum = (function() {
+            pb.BarPeriodEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
                 values[valuesById[0] = "B_5Sec"] = 0;
                 values[valuesById[1] = "B_1Min"] = 1;
@@ -164,7 +164,7 @@ $root.xyz = (function() {
              * ConnectStatusEnum enum.
              * @name xyz.redtorch.pb.ConnectStatusEnum
              * @enum {string}
-             * @property {number} CS_Unkonwn=0 CS_Unkonwn value
+             * @property {number} CS_Unknown=0 CS_Unknown value
              * @property {number} CS_Disconnected=1 CS_Disconnected value
              * @property {number} CS_Connected=2 CS_Connected value
              * @property {number} CS_Disconnecting=3 CS_Disconnecting value
@@ -172,7 +172,7 @@ $root.xyz = (function() {
              */
             pb.ConnectStatusEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "CS_Unkonwn"] = 0;
+                values[valuesById[0] = "CS_Unknown"] = 0;
                 values[valuesById[1] = "CS_Disconnected"] = 1;
                 values[valuesById[2] = "CS_Connected"] = 2;
                 values[valuesById[3] = "CS_Disconnecting"] = 3;
@@ -184,14 +184,14 @@ $root.xyz = (function() {
              * OrderActionStatusTyp enum.
              * @name xyz.redtorch.pb.OrderActionStatusTyp
              * @enum {string}
-             * @property {number} OAS_Unkonwn=0 OAS_Unkonwn value
+             * @property {number} OAS_Unknown=0 OAS_Unknown value
              * @property {number} OAS_Submitted=1 OAS_Submitted value
              * @property {number} OAS_Accepted=2 OAS_Accepted value
              * @property {number} OAS_Rejected=3 OAS_Rejected value
              */
             pb.OrderActionStatusTyp = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "OAS_Unkonwn"] = 0;
+                values[valuesById[0] = "OAS_Unknown"] = 0;
                 values[valuesById[1] = "OAS_Submitted"] = 1;
                 values[valuesById[2] = "OAS_Accepted"] = 2;
                 values[valuesById[3] = "OAS_Rejected"] = 3;
@@ -422,7 +422,7 @@ $root.xyz = (function() {
              * OffsetFlagEnum enum.
              * @name xyz.redtorch.pb.OffsetFlagEnum
              * @enum {string}
-             * @property {number} OF_Unkonwn=0 OF_Unkonwn value
+             * @property {number} OF_Unknown=0 OF_Unknown value
              * @property {number} OF_Open=1 OF_Open value
              * @property {number} OF_Close=2 OF_Close value
              * @property {number} OF_ForceClose=3 OF_ForceClose value
@@ -433,7 +433,7 @@ $root.xyz = (function() {
              */
             pb.OffsetFlagEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "OF_Unkonwn"] = 0;
+                values[valuesById[0] = "OF_Unknown"] = 0;
                 values[valuesById[1] = "OF_Open"] = 1;
                 values[valuesById[2] = "OF_Close"] = 2;
                 values[valuesById[3] = "OF_ForceClose"] = 3;
@@ -448,7 +448,7 @@ $root.xyz = (function() {
              * ForceCloseReasonEnum enum.
              * @name xyz.redtorch.pb.ForceCloseReasonEnum
              * @enum {string}
-             * @property {number} FCR_Unkonwn=0 FCR_Unkonwn value
+             * @property {number} FCR_Unknown=0 FCR_Unknown value
              * @property {number} FCR_NotForceClose=1 FCR_NotForceClose value
              * @property {number} FCR_LackDeposit=2 FCR_LackDeposit value
              * @property {number} FCR_ClientOverPositionLimit=3 FCR_ClientOverPositionLimit value
@@ -460,7 +460,7 @@ $root.xyz = (function() {
              */
             pb.ForceCloseReasonEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "FCR_Unkonwn"] = 0;
+                values[valuesById[0] = "FCR_Unknown"] = 0;
                 values[valuesById[1] = "FCR_NotForceClose"] = 1;
                 values[valuesById[2] = "FCR_LackDeposit"] = 2;
                 values[valuesById[3] = "FCR_ClientOverPositionLimit"] = 3;
@@ -476,7 +476,7 @@ $root.xyz = (function() {
              * OrderTypeEnum enum.
              * @name xyz.redtorch.pb.OrderTypeEnum
              * @enum {string}
-             * @property {number} OT_Unkonwn=0 OT_Unkonwn value
+             * @property {number} OT_Unknown=0 OT_Unknown value
              * @property {number} OT_Normal=1 OT_Normal value
              * @property {number} OT_DeriveFromQuote=2 OT_DeriveFromQuote value
              * @property {number} OT_DeriveFromCombination=3 OT_DeriveFromCombination value
@@ -486,7 +486,7 @@ $root.xyz = (function() {
              */
             pb.OrderTypeEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "OT_Unkonwn"] = 0;
+                values[valuesById[0] = "OT_Unknown"] = 0;
                 values[valuesById[1] = "OT_Normal"] = 1;
                 values[valuesById[2] = "OT_DeriveFromQuote"] = 2;
                 values[valuesById[3] = "OT_DeriveFromCombination"] = 3;
@@ -500,7 +500,7 @@ $root.xyz = (function() {
              * TimeConditionEnum enum.
              * @name xyz.redtorch.pb.TimeConditionEnum
              * @enum {string}
-             * @property {number} TC_Unkonwn=0 TC_Unkonwn value
+             * @property {number} TC_Unknown=0 TC_Unknown value
              * @property {number} TC_IOC=1 TC_IOC value
              * @property {number} TC_GFS=2 TC_GFS value
              * @property {number} TC_GFD=3 TC_GFD value
@@ -510,7 +510,7 @@ $root.xyz = (function() {
              */
             pb.TimeConditionEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "TC_Unkonwn"] = 0;
+                values[valuesById[0] = "TC_Unknown"] = 0;
                 values[valuesById[1] = "TC_IOC"] = 1;
                 values[valuesById[2] = "TC_GFS"] = 2;
                 values[valuesById[3] = "TC_GFD"] = 3;
@@ -524,14 +524,14 @@ $root.xyz = (function() {
              * VolumeConditionEnum enum.
              * @name xyz.redtorch.pb.VolumeConditionEnum
              * @enum {string}
-             * @property {number} VC_Unkonwn=0 VC_Unkonwn value
+             * @property {number} VC_Unknown=0 VC_Unknown value
              * @property {number} VC_AV=1 VC_AV value
              * @property {number} VC_MV=2 VC_MV value
              * @property {number} VC_CV=3 VC_CV value
              */
             pb.VolumeConditionEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "VC_Unkonwn"] = 0;
+                values[valuesById[0] = "VC_Unknown"] = 0;
                 values[valuesById[1] = "VC_AV"] = 1;
                 values[valuesById[2] = "VC_MV"] = 2;
                 values[valuesById[3] = "VC_CV"] = 3;
@@ -542,7 +542,7 @@ $root.xyz = (function() {
              * ContingentConditionEnum enum.
              * @name xyz.redtorch.pb.ContingentConditionEnum
              * @enum {string}
-             * @property {number} CC_Unkonwn=0 CC_Unkonwn value
+             * @property {number} CC_Unknown=0 CC_Unknown value
              * @property {number} CC_Immediately=1 CC_Immediately value
              * @property {number} CC_Touch=2 CC_Touch value
              * @property {number} CC_TouchProfit=3 CC_TouchProfit value
@@ -564,7 +564,7 @@ $root.xyz = (function() {
              */
             pb.ContingentConditionEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "CC_Unkonwn"] = 0;
+                values[valuesById[0] = "CC_Unknown"] = 0;
                 values[valuesById[1] = "CC_Immediately"] = 1;
                 values[valuesById[2] = "CC_Touch"] = 2;
                 values[valuesById[3] = "CC_TouchProfit"] = 3;
@@ -590,13 +590,13 @@ $root.xyz = (function() {
              * ActionFlagEnum enum.
              * @name xyz.redtorch.pb.ActionFlagEnum
              * @enum {string}
-             * @property {number} AF_Unkonwn=0 AF_Unkonwn value
+             * @property {number} AF_Unknown=0 AF_Unknown value
              * @property {number} AF_Delete=1 AF_Delete value
              * @property {number} AF_Modify=2 AF_Modify value
              */
             pb.ActionFlagEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "AF_Unkonwn"] = 0;
+                values[valuesById[0] = "AF_Unknown"] = 0;
                 values[valuesById[1] = "AF_Delete"] = 1;
                 values[valuesById[2] = "AF_Modify"] = 2;
                 return values;
@@ -606,14 +606,14 @@ $root.xyz = (function() {
              * TradingRightEnum enum.
              * @name xyz.redtorch.pb.TradingRightEnum
              * @enum {string}
-             * @property {number} TR_Unkonwn=0 TR_Unkonwn value
+             * @property {number} TR_Unknown=0 TR_Unknown value
              * @property {number} TR_Allow=1 TR_Allow value
              * @property {number} TR_CloseOnly=2 TR_CloseOnly value
              * @property {number} TR_Forbidden=3 TR_Forbidden value
              */
             pb.TradingRightEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "TR_Unkonwn"] = 0;
+                values[valuesById[0] = "TR_Unknown"] = 0;
                 values[valuesById[1] = "TR_Allow"] = 1;
                 values[valuesById[2] = "TR_CloseOnly"] = 2;
                 values[valuesById[3] = "TR_Forbidden"] = 3;
@@ -624,13 +624,13 @@ $root.xyz = (function() {
              * OrderSourceEnum enum.
              * @name xyz.redtorch.pb.OrderSourceEnum
              * @enum {string}
-             * @property {number} ODS_Unkonwn=0 ODS_Unkonwn value
+             * @property {number} ODS_Unknown=0 ODS_Unknown value
              * @property {number} ODS_Participant=1 ODS_Participant value
              * @property {number} ODS_Administrator=2 ODS_Administrator value
              */
             pb.OrderSourceEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "ODS_Unkonwn"] = 0;
+                values[valuesById[0] = "ODS_Unknown"] = 0;
                 values[valuesById[1] = "ODS_Participant"] = 1;
                 values[valuesById[2] = "ODS_Administrator"] = 2;
                 return values;
@@ -640,7 +640,7 @@ $root.xyz = (function() {
              * TradeTypeEnum enum.
              * @name xyz.redtorch.pb.TradeTypeEnum
              * @enum {string}
-             * @property {number} TT_Unkonwn=0 TT_Unkonwn value
+             * @property {number} TT_Unknown=0 TT_Unknown value
              * @property {number} TT_SplitCombination=1 TT_SplitCombination value
              * @property {number} TT_Common=2 TT_Common value
              * @property {number} TT_OptionsExecution=3 TT_OptionsExecution value
@@ -651,7 +651,7 @@ $root.xyz = (function() {
              */
             pb.TradeTypeEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "TT_Unkonwn"] = 0;
+                values[valuesById[0] = "TT_Unknown"] = 0;
                 values[valuesById[1] = "TT_SplitCombination"] = 1;
                 values[valuesById[2] = "TT_Common"] = 2;
                 values[valuesById[3] = "TT_OptionsExecution"] = 3;
@@ -666,7 +666,7 @@ $root.xyz = (function() {
              * PriceSourceEnum enum.
              * @name xyz.redtorch.pb.PriceSourceEnum
              * @enum {string}
-             * @property {number} PSRC_Unkonwn=0 PSRC_Unkonwn value
+             * @property {number} PSRC_Unknown=0 PSRC_Unknown value
              * @property {number} PSRC_LastPrice=1 PSRC_LastPrice value
              * @property {number} PSRC_Buy=2 PSRC_Buy value
              * @property {number} PSRC_Sell=3 PSRC_Sell value
@@ -674,7 +674,7 @@ $root.xyz = (function() {
              */
             pb.PriceSourceEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "PSRC_Unkonwn"] = 0;
+                values[valuesById[0] = "PSRC_Unknown"] = 0;
                 values[valuesById[1] = "PSRC_LastPrice"] = 1;
                 values[valuesById[2] = "PSRC_Buy"] = 2;
                 values[valuesById[3] = "PSRC_Sell"] = 3;
@@ -1197,7 +1197,7 @@ $root.xyz = (function() {
                         break;
                     }
                     switch (object.status) {
-                    case "CS_Unkonwn":
+                    case "CS_Unknown":
                     case 0:
                         message.status = 0;
                         break;
@@ -1242,7 +1242,7 @@ $root.xyz = (function() {
                         object.description = "";
                         object.gatewayType = options.enums === String ? "GTE_TradeAndMarketData" : 0;
                         object.gatewayAdapterType = options.enums === String ? "GAT_CTP" : 0;
-                        object.status = options.enums === String ? "CS_Unkonwn" : 0;
+                        object.status = options.enums === String ? "CS_Unknown" : 0;
                         object.authErrorFlag = false;
                     }
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
@@ -1286,7 +1286,7 @@ $root.xyz = (function() {
                  * @property {string|null} [name] ContractField name
                  * @property {string|null} [fullName] ContractField fullName
                  * @property {string|null} [thirdPartyId] ContractField thirdPartyId
-                 * @property {string|null} [unifiedSymbol] ContractField unifiedSymbol
+                 * @property {string|null} [uniformSymbol] ContractField uniformSymbol
                  * @property {string|null} [symbol] ContractField symbol
                  * @property {xyz.redtorch.pb.ExchangeEnum|null} [exchange] ContractField exchange
                  * @property {xyz.redtorch.pb.ProductClassEnum|null} [productClass] ContractField productClass
@@ -1357,12 +1357,12 @@ $root.xyz = (function() {
                 ContractField.prototype.thirdPartyId = "";
 
                 /**
-                 * ContractField unifiedSymbol.
-                 * @member {string} unifiedSymbol
+                 * ContractField uniformSymbol.
+                 * @member {string} uniformSymbol
                  * @memberof xyz.redtorch.pb.ContractField
                  * @instance
                  */
-                ContractField.prototype.unifiedSymbol = "";
+                ContractField.prototype.uniformSymbol = "";
 
                 /**
                  * ContractField symbol.
@@ -1556,8 +1556,8 @@ $root.xyz = (function() {
                         writer.uint32(/* id 3, wireType 2 =*/26).string(message.fullName);
                     if (message.thirdPartyId != null && message.hasOwnProperty("thirdPartyId"))
                         writer.uint32(/* id 4, wireType 2 =*/34).string(message.thirdPartyId);
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        writer.uint32(/* id 7, wireType 2 =*/58).string(message.unifiedSymbol);
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        writer.uint32(/* id 7, wireType 2 =*/58).string(message.uniformSymbol);
                     if (message.symbol != null && message.hasOwnProperty("symbol"))
                         writer.uint32(/* id 8, wireType 2 =*/66).string(message.symbol);
                     if (message.exchange != null && message.hasOwnProperty("exchange"))
@@ -1645,7 +1645,7 @@ $root.xyz = (function() {
                             message.thirdPartyId = reader.string();
                             break;
                         case 7:
-                            message.unifiedSymbol = reader.string();
+                            message.uniformSymbol = reader.string();
                             break;
                         case 8:
                             message.symbol = reader.string();
@@ -1754,9 +1754,9 @@ $root.xyz = (function() {
                     if (message.thirdPartyId != null && message.hasOwnProperty("thirdPartyId"))
                         if (!$util.isString(message.thirdPartyId))
                             return "thirdPartyId: string expected";
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        if (!$util.isString(message.unifiedSymbol))
-                            return "unifiedSymbol: string expected";
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        if (!$util.isString(message.uniformSymbol))
+                            return "uniformSymbol: string expected";
                     if (message.symbol != null && message.hasOwnProperty("symbol"))
                         if (!$util.isString(message.symbol))
                             return "symbol: string expected";
@@ -1949,8 +1949,8 @@ $root.xyz = (function() {
                         message.fullName = String(object.fullName);
                     if (object.thirdPartyId != null)
                         message.thirdPartyId = String(object.thirdPartyId);
-                    if (object.unifiedSymbol != null)
-                        message.unifiedSymbol = String(object.unifiedSymbol);
+                    if (object.uniformSymbol != null)
+                        message.uniformSymbol = String(object.uniformSymbol);
                     if (object.symbol != null)
                         message.symbol = String(object.symbol);
                     switch (object.exchange) {
@@ -2388,7 +2388,7 @@ $root.xyz = (function() {
                         object.name = "";
                         object.fullName = "";
                         object.thirdPartyId = "";
-                        object.unifiedSymbol = "";
+                        object.uniformSymbol = "";
                         object.symbol = "";
                         object.exchange = options.enums === String ? "UnknownExchange" : 0;
                         object.productClass = options.enums === String ? "UnknownProductClass" : 0;
@@ -2418,8 +2418,8 @@ $root.xyz = (function() {
                         object.fullName = message.fullName;
                     if (message.thirdPartyId != null && message.hasOwnProperty("thirdPartyId"))
                         object.thirdPartyId = message.thirdPartyId;
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        object.unifiedSymbol = message.unifiedSymbol;
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        object.uniformSymbol = message.uniformSymbol;
                     if (message.symbol != null && message.hasOwnProperty("symbol"))
                         object.symbol = message.symbol;
                     if (message.exchange != null && message.hasOwnProperty("exchange"))
@@ -4111,7 +4111,7 @@ $root.xyz = (function() {
                         break;
                     }
                     switch (object.offsetFlag) {
-                    case "OF_Unkonwn":
+                    case "OF_Unknown":
                     case 0:
                         message.offsetFlag = 0;
                         break;
@@ -4293,7 +4293,7 @@ $root.xyz = (function() {
                     if (object.tradedVolume != null)
                         message.tradedVolume = object.tradedVolume >>> 0;
                     switch (object.timeCondition) {
-                    case "TC_Unkonwn":
+                    case "TC_Unknown":
                     case 0:
                         message.timeCondition = 0;
                         break;
@@ -4325,7 +4325,7 @@ $root.xyz = (function() {
                     if (object.gtdDate != null)
                         message.gtdDate = String(object.gtdDate);
                     switch (object.volumeCondition) {
-                    case "VC_Unkonwn":
+                    case "VC_Unknown":
                     case 0:
                         message.volumeCondition = 0;
                         break;
@@ -4345,7 +4345,7 @@ $root.xyz = (function() {
                     if (object.minVolume != null)
                         message.minVolume = object.minVolume >>> 0;
                     switch (object.contingentCondition) {
-                    case "CC_Unkonwn":
+                    case "CC_Unknown":
                     case 0:
                         message.contingentCondition = 0;
                         break;
@@ -4425,7 +4425,7 @@ $root.xyz = (function() {
                     if (object.stopPrice != null)
                         message.stopPrice = Number(object.stopPrice);
                     switch (object.forceCloseReason) {
-                    case "FCR_Unkonwn":
+                    case "FCR_Unknown":
                     case 0:
                         message.forceCloseReason = 0;
                         break;
@@ -4555,20 +4555,20 @@ $root.xyz = (function() {
                         object.orderSysId = "";
                         object.sequenceNo = "";
                         object.direction = options.enums === String ? "D_Unknown" : 0;
-                        object.offsetFlag = options.enums === String ? "OF_Unkonwn" : 0;
+                        object.offsetFlag = options.enums === String ? "OF_Unknown" : 0;
                         object.hedgeFlag = options.enums === String ? "HF_Unknown" : 0;
                         object.orderPriceType = options.enums === String ? "OPT_Unknown" : 0;
                         object.orderStatus = options.enums === String ? "OS_Unknown" : 0;
                         object.price = 0;
                         object.totalVolume = 0;
                         object.tradedVolume = 0;
-                        object.timeCondition = options.enums === String ? "TC_Unkonwn" : 0;
+                        object.timeCondition = options.enums === String ? "TC_Unknown" : 0;
                         object.gtdDate = "";
-                        object.volumeCondition = options.enums === String ? "VC_Unkonwn" : 0;
+                        object.volumeCondition = options.enums === String ? "VC_Unknown" : 0;
                         object.minVolume = 0;
-                        object.contingentCondition = options.enums === String ? "CC_Unkonwn" : 0;
+                        object.contingentCondition = options.enums === String ? "CC_Unknown" : 0;
                         object.stopPrice = 0;
-                        object.forceCloseReason = options.enums === String ? "FCR_Unkonwn" : 0;
+                        object.forceCloseReason = options.enums === String ? "FCR_Unknown" : 0;
                         object.autoSuspend = 0;
                         object.userForceClose = 0;
                         object.swapOrder = 0;
@@ -5305,7 +5305,7 @@ $root.xyz = (function() {
                         break;
                     }
                     switch (object.offsetFlag) {
-                    case "OF_Unkonwn":
+                    case "OF_Unknown":
                     case 0:
                         message.offsetFlag = 0;
                         break;
@@ -5373,7 +5373,7 @@ $root.xyz = (function() {
                     if (object.volume != null)
                         message.volume = object.volume >>> 0;
                     switch (object.tradeType) {
-                    case "TT_Unkonwn":
+                    case "TT_Unknown":
                     case 0:
                         message.tradeType = 0;
                         break;
@@ -5407,7 +5407,7 @@ $root.xyz = (function() {
                         break;
                     }
                     switch (object.priceSource) {
-                    case "PSRC_Unkonwn":
+                    case "PSRC_Unknown":
                     case 0:
                         message.priceSource = 0;
                         break;
@@ -5479,12 +5479,12 @@ $root.xyz = (function() {
                         object.sequenceNo = "";
                         object.accountId = "";
                         object.direction = options.enums === String ? "D_Unknown" : 0;
-                        object.offsetFlag = options.enums === String ? "OF_Unkonwn" : 0;
+                        object.offsetFlag = options.enums === String ? "OF_Unknown" : 0;
                         object.hedgeFlag = options.enums === String ? "HF_Unknown" : 0;
                         object.price = 0;
                         object.volume = 0;
-                        object.tradeType = options.enums === String ? "TT_Unkonwn" : 0;
-                        object.priceSource = options.enums === String ? "PSRC_Unkonwn" : 0;
+                        object.tradeType = options.enums === String ? "TT_Unknown" : 0;
+                        object.priceSource = options.enums === String ? "PSRC_Unknown" : 0;
                         object.tradingDay = "";
                         object.tradeDate = "";
                         object.tradeTime = "";
@@ -6366,7 +6366,7 @@ $root.xyz = (function() {
                  * Properties of a TickField.
                  * @memberof xyz.redtorch.pb
                  * @interface ITickField
-                 * @property {string|null} [unifiedSymbol] TickField unifiedSymbol
+                 * @property {string|null} [uniformSymbol] TickField uniformSymbol
                  * @property {string|null} [gatewayId] TickField gatewayId
                  * @property {string|null} [tradingDay] TickField tradingDay
                  * @property {string|null} [actionDay] TickField actionDay
@@ -6424,12 +6424,12 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * TickField unifiedSymbol.
-                 * @member {string} unifiedSymbol
+                 * TickField uniformSymbol.
+                 * @member {string} uniformSymbol
                  * @memberof xyz.redtorch.pb.TickField
                  * @instance
                  */
-                TickField.prototype.unifiedSymbol = "";
+                TickField.prototype.uniformSymbol = "";
 
                 /**
                  * TickField gatewayId.
@@ -6735,8 +6735,8 @@ $root.xyz = (function() {
                 TickField.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.unifiedSymbol);
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.uniformSymbol);
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.gatewayId);
                     if (message.tradingDay != null && message.hasOwnProperty("tradingDay"))
@@ -6858,7 +6858,7 @@ $root.xyz = (function() {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
                         case 1:
-                            message.unifiedSymbol = reader.string();
+                            message.uniformSymbol = reader.string();
                             break;
                         case 2:
                             message.gatewayId = reader.string();
@@ -7028,9 +7028,9 @@ $root.xyz = (function() {
                 TickField.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        if (!$util.isString(message.unifiedSymbol))
-                            return "unifiedSymbol: string expected";
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        if (!$util.isString(message.uniformSymbol))
+                            return "uniformSymbol: string expected";
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         if (!$util.isString(message.gatewayId))
                             return "gatewayId: string expected";
@@ -7167,8 +7167,8 @@ $root.xyz = (function() {
                     if (object instanceof $root.xyz.redtorch.pb.TickField)
                         return object;
                     var message = new $root.xyz.redtorch.pb.TickField();
-                    if (object.unifiedSymbol != null)
-                        message.unifiedSymbol = String(object.unifiedSymbol);
+                    if (object.uniformSymbol != null)
+                        message.uniformSymbol = String(object.uniformSymbol);
                     if (object.gatewayId != null)
                         message.gatewayId = String(object.gatewayId);
                     if (object.tradingDay != null)
@@ -7331,7 +7331,7 @@ $root.xyz = (function() {
                         object.askVolume = [];
                     }
                     if (options.defaults) {
-                        object.unifiedSymbol = "";
+                        object.uniformSymbol = "";
                         object.gatewayId = "";
                         object.tradingDay = "";
                         object.actionDay = "";
@@ -7392,8 +7392,8 @@ $root.xyz = (function() {
                         object.upperLimit = 0;
                         object.lowerLimit = 0;
                     }
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        object.unifiedSymbol = message.unifiedSymbol;
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        object.uniformSymbol = message.uniformSymbol;
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         object.gatewayId = message.gatewayId;
                     if (message.tradingDay != null && message.hasOwnProperty("tradingDay"))
@@ -7520,7 +7520,7 @@ $root.xyz = (function() {
                  * Properties of a BarField.
                  * @memberof xyz.redtorch.pb
                  * @interface IBarField
-                 * @property {string|null} [unifiedSymbol] BarField unifiedSymbol
+                 * @property {string|null} [uniformSymbol] BarField uniformSymbol
                  * @property {string|null} [gatewayId] BarField gatewayId
                  * @property {string|null} [tradingDay] BarField tradingDay
                  * @property {string|null} [actionDay] BarField actionDay
@@ -7559,12 +7559,12 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * BarField unifiedSymbol.
-                 * @member {string} unifiedSymbol
+                 * BarField uniformSymbol.
+                 * @member {string} uniformSymbol
                  * @memberof xyz.redtorch.pb.BarField
                  * @instance
                  */
-                BarField.prototype.unifiedSymbol = "";
+                BarField.prototype.uniformSymbol = "";
 
                 /**
                  * BarField gatewayId.
@@ -7750,8 +7750,8 @@ $root.xyz = (function() {
                 BarField.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.unifiedSymbol);
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.uniformSymbol);
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.gatewayId);
                     if (message.tradingDay != null && message.hasOwnProperty("tradingDay"))
@@ -7827,7 +7827,7 @@ $root.xyz = (function() {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
                         case 1:
-                            message.unifiedSymbol = reader.string();
+                            message.uniformSymbol = reader.string();
                             break;
                         case 2:
                             message.gatewayId = reader.string();
@@ -7924,9 +7924,9 @@ $root.xyz = (function() {
                 BarField.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        if (!$util.isString(message.unifiedSymbol))
-                            return "unifiedSymbol: string expected";
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        if (!$util.isString(message.uniformSymbol))
+                            return "uniformSymbol: string expected";
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         if (!$util.isString(message.gatewayId))
                             return "gatewayId: string expected";
@@ -8002,8 +8002,8 @@ $root.xyz = (function() {
                     if (object instanceof $root.xyz.redtorch.pb.BarField)
                         return object;
                     var message = new $root.xyz.redtorch.pb.BarField();
-                    if (object.unifiedSymbol != null)
-                        message.unifiedSymbol = String(object.unifiedSymbol);
+                    if (object.uniformSymbol != null)
+                        message.uniformSymbol = String(object.uniformSymbol);
                     if (object.gatewayId != null)
                         message.gatewayId = String(object.gatewayId);
                     if (object.tradingDay != null)
@@ -8096,7 +8096,7 @@ $root.xyz = (function() {
                         options = {};
                     var object = {};
                     if (options.defaults) {
-                        object.unifiedSymbol = "";
+                        object.uniformSymbol = "";
                         object.gatewayId = "";
                         object.tradingDay = "";
                         object.actionDay = "";
@@ -8138,8 +8138,8 @@ $root.xyz = (function() {
                         object.preClosePrice = 0;
                         object.preSettlePrice = 0;
                     }
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        object.unifiedSymbol = message.unifiedSymbol;
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        object.uniformSymbol = message.uniformSymbol;
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         object.gatewayId = message.gatewayId;
                     if (message.tradingDay != null && message.hasOwnProperty("tradingDay"))
@@ -8218,10 +8218,8 @@ $root.xyz = (function() {
                  * Properties of a CommonReqField.
                  * @memberof xyz.redtorch.pb
                  * @interface ICommonReqField
-                 * @property {string|null} [reqId] CommonReqField reqId
+                 * @property {string|null} [transactionId] CommonReqField transactionId
                  * @property {string|null} [operatorId] CommonReqField operatorId
-                 * @property {number|null} [targetNodeId] CommonReqField targetNodeId
-                 * @property {number|null} [sourceNodeId] CommonReqField sourceNodeId
                  */
 
                 /**
@@ -8240,12 +8238,12 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * CommonReqField reqId.
-                 * @member {string} reqId
+                 * CommonReqField transactionId.
+                 * @member {string} transactionId
                  * @memberof xyz.redtorch.pb.CommonReqField
                  * @instance
                  */
-                CommonReqField.prototype.reqId = "";
+                CommonReqField.prototype.transactionId = "";
 
                 /**
                  * CommonReqField operatorId.
@@ -8254,22 +8252,6 @@ $root.xyz = (function() {
                  * @instance
                  */
                 CommonReqField.prototype.operatorId = "";
-
-                /**
-                 * CommonReqField targetNodeId.
-                 * @member {number} targetNodeId
-                 * @memberof xyz.redtorch.pb.CommonReqField
-                 * @instance
-                 */
-                CommonReqField.prototype.targetNodeId = 0;
-
-                /**
-                 * CommonReqField sourceNodeId.
-                 * @member {number} sourceNodeId
-                 * @memberof xyz.redtorch.pb.CommonReqField
-                 * @instance
-                 */
-                CommonReqField.prototype.sourceNodeId = 0;
 
                 /**
                  * Creates a new CommonReqField instance using the specified properties.
@@ -8295,14 +8277,10 @@ $root.xyz = (function() {
                 CommonReqField.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.reqId);
+                    if (message.transactionId != null && message.hasOwnProperty("transactionId"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.transactionId);
                     if (message.operatorId != null && message.hasOwnProperty("operatorId"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.operatorId);
-                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
-                        writer.uint32(/* id 3, wireType 5 =*/29).fixed32(message.targetNodeId);
-                    if (message.sourceNodeId != null && message.hasOwnProperty("sourceNodeId"))
-                        writer.uint32(/* id 4, wireType 5 =*/37).fixed32(message.sourceNodeId);
                     return writer;
                 };
 
@@ -8338,16 +8316,10 @@ $root.xyz = (function() {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
                         case 1:
-                            message.reqId = reader.string();
+                            message.transactionId = reader.string();
                             break;
                         case 2:
                             message.operatorId = reader.string();
-                            break;
-                        case 3:
-                            message.targetNodeId = reader.fixed32();
-                            break;
-                        case 4:
-                            message.sourceNodeId = reader.fixed32();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -8384,18 +8356,12 @@ $root.xyz = (function() {
                 CommonReqField.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        if (!$util.isString(message.reqId))
-                            return "reqId: string expected";
+                    if (message.transactionId != null && message.hasOwnProperty("transactionId"))
+                        if (!$util.isString(message.transactionId))
+                            return "transactionId: string expected";
                     if (message.operatorId != null && message.hasOwnProperty("operatorId"))
                         if (!$util.isString(message.operatorId))
                             return "operatorId: string expected";
-                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
-                        if (!$util.isInteger(message.targetNodeId))
-                            return "targetNodeId: integer expected";
-                    if (message.sourceNodeId != null && message.hasOwnProperty("sourceNodeId"))
-                        if (!$util.isInteger(message.sourceNodeId))
-                            return "sourceNodeId: integer expected";
                     return null;
                 };
 
@@ -8411,14 +8377,10 @@ $root.xyz = (function() {
                     if (object instanceof $root.xyz.redtorch.pb.CommonReqField)
                         return object;
                     var message = new $root.xyz.redtorch.pb.CommonReqField();
-                    if (object.reqId != null)
-                        message.reqId = String(object.reqId);
+                    if (object.transactionId != null)
+                        message.transactionId = String(object.transactionId);
                     if (object.operatorId != null)
                         message.operatorId = String(object.operatorId);
-                    if (object.targetNodeId != null)
-                        message.targetNodeId = object.targetNodeId >>> 0;
-                    if (object.sourceNodeId != null)
-                        message.sourceNodeId = object.sourceNodeId >>> 0;
                     return message;
                 };
 
@@ -8436,19 +8398,13 @@ $root.xyz = (function() {
                         options = {};
                     var object = {};
                     if (options.defaults) {
-                        object.reqId = "";
+                        object.transactionId = "";
                         object.operatorId = "";
-                        object.targetNodeId = 0;
-                        object.sourceNodeId = 0;
                     }
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        object.reqId = message.reqId;
+                    if (message.transactionId != null && message.hasOwnProperty("transactionId"))
+                        object.transactionId = message.transactionId;
                     if (message.operatorId != null && message.hasOwnProperty("operatorId"))
                         object.operatorId = message.operatorId;
-                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
-                        object.targetNodeId = message.targetNodeId;
-                    if (message.sourceNodeId != null && message.hasOwnProperty("sourceNodeId"))
-                        object.sourceNodeId = message.sourceNodeId;
                     return object;
                 };
 
@@ -8472,7 +8428,7 @@ $root.xyz = (function() {
                  * Properties of a CommonRspField.
                  * @memberof xyz.redtorch.pb
                  * @interface ICommonRspField
-                 * @property {string|null} [reqId] CommonRspField reqId
+                 * @property {string|null} [transactionId] CommonRspField transactionId
                  * @property {number|null} [errorId] CommonRspField errorId
                  * @property {string|null} [errorMsg] CommonRspField errorMsg
                  */
@@ -8493,12 +8449,12 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * CommonRspField reqId.
-                 * @member {string} reqId
+                 * CommonRspField transactionId.
+                 * @member {string} transactionId
                  * @memberof xyz.redtorch.pb.CommonRspField
                  * @instance
                  */
-                CommonRspField.prototype.reqId = "";
+                CommonRspField.prototype.transactionId = "";
 
                 /**
                  * CommonRspField errorId.
@@ -8540,8 +8496,8 @@ $root.xyz = (function() {
                 CommonRspField.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.reqId);
+                    if (message.transactionId != null && message.hasOwnProperty("transactionId"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.transactionId);
                     if (message.errorId != null && message.hasOwnProperty("errorId"))
                         writer.uint32(/* id 2, wireType 5 =*/21).fixed32(message.errorId);
                     if (message.errorMsg != null && message.hasOwnProperty("errorMsg"))
@@ -8581,7 +8537,7 @@ $root.xyz = (function() {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
                         case 1:
-                            message.reqId = reader.string();
+                            message.transactionId = reader.string();
                             break;
                         case 2:
                             message.errorId = reader.fixed32();
@@ -8624,9 +8580,9 @@ $root.xyz = (function() {
                 CommonRspField.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        if (!$util.isString(message.reqId))
-                            return "reqId: string expected";
+                    if (message.transactionId != null && message.hasOwnProperty("transactionId"))
+                        if (!$util.isString(message.transactionId))
+                            return "transactionId: string expected";
                     if (message.errorId != null && message.hasOwnProperty("errorId"))
                         if (!$util.isInteger(message.errorId))
                             return "errorId: integer expected";
@@ -8648,8 +8604,8 @@ $root.xyz = (function() {
                     if (object instanceof $root.xyz.redtorch.pb.CommonRspField)
                         return object;
                     var message = new $root.xyz.redtorch.pb.CommonRspField();
-                    if (object.reqId != null)
-                        message.reqId = String(object.reqId);
+                    if (object.transactionId != null)
+                        message.transactionId = String(object.transactionId);
                     if (object.errorId != null)
                         message.errorId = object.errorId >>> 0;
                     if (object.errorMsg != null)
@@ -8671,12 +8627,12 @@ $root.xyz = (function() {
                         options = {};
                     var object = {};
                     if (options.defaults) {
-                        object.reqId = "";
+                        object.transactionId = "";
                         object.errorId = 0;
                         object.errorMsg = "";
                     }
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        object.reqId = message.reqId;
+                    if (message.transactionId != null && message.hasOwnProperty("transactionId"))
+                        object.transactionId = message.transactionId;
                     if (message.errorId != null && message.hasOwnProperty("errorId"))
                         object.errorId = message.errorId;
                     if (message.errorMsg != null && message.hasOwnProperty("errorMsg"))
@@ -9541,7 +9497,7 @@ $root.xyz = (function() {
                         break;
                     }
                     switch (object.offsetFlag) {
-                    case "OF_Unkonwn":
+                    case "OF_Unknown":
                     case 0:
                         message.offsetFlag = 0;
                         break;
@@ -9605,7 +9561,7 @@ $root.xyz = (function() {
                         break;
                     }
                     switch (object.timeCondition) {
-                    case "TC_Unkonwn":
+                    case "TC_Unknown":
                     case 0:
                         message.timeCondition = 0;
                         break;
@@ -9637,7 +9593,7 @@ $root.xyz = (function() {
                     if (object.gtdDate != null)
                         message.gtdDate = String(object.gtdDate);
                     switch (object.volumeCondition) {
-                    case "VC_Unkonwn":
+                    case "VC_Unknown":
                     case 0:
                         message.volumeCondition = 0;
                         break;
@@ -9657,7 +9613,7 @@ $root.xyz = (function() {
                     if (object.minVolume != null)
                         message.minVolume = object.minVolume >>> 0;
                     switch (object.contingentCondition) {
-                    case "CC_Unkonwn":
+                    case "CC_Unknown":
                     case 0:
                         message.contingentCondition = 0;
                         break;
@@ -9737,7 +9693,7 @@ $root.xyz = (function() {
                     if (object.stopPrice != null)
                         message.stopPrice = Number(object.stopPrice);
                     switch (object.forceCloseReason) {
-                    case "FCR_Unkonwn":
+                    case "FCR_Unknown":
                     case 0:
                         message.forceCloseReason = 0;
                         break;
@@ -9806,15 +9762,15 @@ $root.xyz = (function() {
                         object.price = 0;
                         object.orderPriceType = options.enums === String ? "OPT_Unknown" : 0;
                         object.direction = options.enums === String ? "D_Unknown" : 0;
-                        object.offsetFlag = options.enums === String ? "OF_Unkonwn" : 0;
+                        object.offsetFlag = options.enums === String ? "OF_Unknown" : 0;
                         object.hedgeFlag = options.enums === String ? "HF_Unknown" : 0;
-                        object.timeCondition = options.enums === String ? "TC_Unkonwn" : 0;
+                        object.timeCondition = options.enums === String ? "TC_Unknown" : 0;
                         object.gtdDate = "";
-                        object.volumeCondition = options.enums === String ? "VC_Unkonwn" : 0;
+                        object.volumeCondition = options.enums === String ? "VC_Unknown" : 0;
                         object.minVolume = 0;
-                        object.contingentCondition = options.enums === String ? "CC_Unkonwn" : 0;
+                        object.contingentCondition = options.enums === String ? "CC_Unknown" : 0;
                         object.stopPrice = 0;
-                        object.forceCloseReason = options.enums === String ? "FCR_Unkonwn" : 0;
+                        object.forceCloseReason = options.enums === String ? "FCR_Unknown" : 0;
                         object.autoSuspend = 0;
                         object.userForceClose = 0;
                         object.swapOrder = 0;
@@ -10477,7 +10433,7 @@ $root.xyz = (function() {
                         message.ibApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.IbApiSettingField.fromObject(object.ibApiSetting);
                     }
                     switch (object.status) {
-                    case "CS_Unkonwn":
+                    case "CS_Unknown":
                     case 0:
                         message.status = 0;
                         break;
@@ -10534,7 +10490,7 @@ $root.xyz = (function() {
                         object.gatewayAdapterType = options.enums === String ? "GAT_CTP" : 0;
                         object.ctpApiSetting = null;
                         object.ibApiSetting = null;
-                        object.status = options.enums === String ? "CS_Unkonwn" : 0;
+                        object.status = options.enums === String ? "CS_Unknown" : 0;
                         if ($util.Long) {
                             var long = new $util.Long(0, 0, false);
                             object.version = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
@@ -16032,25 +15988,25 @@ $root.xyz = (function() {
                 return RpcQueryOrderListByAccountIdRsp;
             })();
 
-            pb.RpcQueryOrderListByUnifiedSymbolReq = (function() {
+            pb.RpcQueryOrderListByUniformSymbolReq = (function() {
 
                 /**
-                 * Properties of a RpcQueryOrderListByUnifiedSymbolReq.
+                 * Properties of a RpcQueryOrderListByUniformSymbolReq.
                  * @memberof xyz.redtorch.pb
-                 * @interface IRpcQueryOrderListByUnifiedSymbolReq
-                 * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryOrderListByUnifiedSymbolReq commonReq
-                 * @property {string|null} [unifiedSymbol] RpcQueryOrderListByUnifiedSymbolReq unifiedSymbol
+                 * @interface IRpcQueryOrderListByUniformSymbolReq
+                 * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryOrderListByUniformSymbolReq commonReq
+                 * @property {string|null} [uniformSymbol] RpcQueryOrderListByUniformSymbolReq uniformSymbol
                  */
 
                 /**
-                 * Constructs a new RpcQueryOrderListByUnifiedSymbolReq.
+                 * Constructs a new RpcQueryOrderListByUniformSymbolReq.
                  * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcQueryOrderListByUnifiedSymbolReq.
-                 * @implements IRpcQueryOrderListByUnifiedSymbolReq
+                 * @classdesc Represents a RpcQueryOrderListByUniformSymbolReq.
+                 * @implements IRpcQueryOrderListByUniformSymbolReq
                  * @constructor
-                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolReq=} [properties] Properties to set
+                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolReq=} [properties] Properties to set
                  */
-                function RpcQueryOrderListByUnifiedSymbolReq(properties) {
+                function RpcQueryOrderListByUniformSymbolReq(properties) {
                     if (properties)
                         for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                             if (properties[keys[i]] != null)
@@ -16058,80 +16014,80 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * RpcQueryOrderListByUnifiedSymbolReq commonReq.
+                 * RpcQueryOrderListByUniformSymbolReq commonReq.
                  * @member {xyz.redtorch.pb.ICommonReqField|null|undefined} commonReq
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq
                  * @instance
                  */
-                RpcQueryOrderListByUnifiedSymbolReq.prototype.commonReq = null;
+                RpcQueryOrderListByUniformSymbolReq.prototype.commonReq = null;
 
                 /**
-                 * RpcQueryOrderListByUnifiedSymbolReq unifiedSymbol.
-                 * @member {string} unifiedSymbol
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq
+                 * RpcQueryOrderListByUniformSymbolReq uniformSymbol.
+                 * @member {string} uniformSymbol
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq
                  * @instance
                  */
-                RpcQueryOrderListByUnifiedSymbolReq.prototype.unifiedSymbol = "";
+                RpcQueryOrderListByUniformSymbolReq.prototype.uniformSymbol = "";
 
                 /**
-                 * Creates a new RpcQueryOrderListByUnifiedSymbolReq instance using the specified properties.
+                 * Creates a new RpcQueryOrderListByUniformSymbolReq instance using the specified properties.
                  * @function create
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolReq=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq} RpcQueryOrderListByUnifiedSymbolReq instance
+                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolReq=} [properties] Properties to set
+                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq} RpcQueryOrderListByUniformSymbolReq instance
                  */
-                RpcQueryOrderListByUnifiedSymbolReq.create = function create(properties) {
-                    return new RpcQueryOrderListByUnifiedSymbolReq(properties);
+                RpcQueryOrderListByUniformSymbolReq.create = function create(properties) {
+                    return new RpcQueryOrderListByUniformSymbolReq(properties);
                 };
 
                 /**
-                 * Encodes the specified RpcQueryOrderListByUnifiedSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq.verify|verify} messages.
+                 * Encodes the specified RpcQueryOrderListByUniformSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq.verify|verify} messages.
                  * @function encode
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolReq} message RpcQueryOrderListByUnifiedSymbolReq message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolReq} message RpcQueryOrderListByUniformSymbolReq message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryOrderListByUnifiedSymbolReq.encode = function encode(message, writer) {
+                RpcQueryOrderListByUniformSymbolReq.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
                         $root.xyz.redtorch.pb.CommonReqField.encode(message.commonReq, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.unifiedSymbol);
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.uniformSymbol);
                     return writer;
                 };
 
                 /**
-                 * Encodes the specified RpcQueryOrderListByUnifiedSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq.verify|verify} messages.
+                 * Encodes the specified RpcQueryOrderListByUniformSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq.verify|verify} messages.
                  * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolReq} message RpcQueryOrderListByUnifiedSymbolReq message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolReq} message RpcQueryOrderListByUniformSymbolReq message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryOrderListByUnifiedSymbolReq.encodeDelimited = function encodeDelimited(message, writer) {
+                RpcQueryOrderListByUniformSymbolReq.encodeDelimited = function encodeDelimited(message, writer) {
                     return this.encode(message, writer).ldelim();
                 };
 
                 /**
-                 * Decodes a RpcQueryOrderListByUnifiedSymbolReq message from the specified reader or buffer.
+                 * Decodes a RpcQueryOrderListByUniformSymbolReq message from the specified reader or buffer.
                  * @function decode
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq} RpcQueryOrderListByUnifiedSymbolReq
+                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq} RpcQueryOrderListByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryOrderListByUnifiedSymbolReq.decode = function decode(reader, length) {
+                RpcQueryOrderListByUniformSymbolReq.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq();
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
@@ -16139,7 +16095,7 @@ $root.xyz = (function() {
                             message.commonReq = $root.xyz.redtorch.pb.CommonReqField.decode(reader, reader.uint32());
                             break;
                         case 2:
-                            message.unifiedSymbol = reader.string();
+                            message.uniformSymbol = reader.string();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -16150,30 +16106,30 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Decodes a RpcQueryOrderListByUnifiedSymbolReq message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryOrderListByUniformSymbolReq message from the specified reader or buffer, length delimited.
                  * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq} RpcQueryOrderListByUnifiedSymbolReq
+                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq} RpcQueryOrderListByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryOrderListByUnifiedSymbolReq.decodeDelimited = function decodeDelimited(reader) {
+                RpcQueryOrderListByUniformSymbolReq.decodeDelimited = function decodeDelimited(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
                     return this.decode(reader, reader.uint32());
                 };
 
                 /**
-                 * Verifies a RpcQueryOrderListByUnifiedSymbolReq message.
+                 * Verifies a RpcQueryOrderListByUniformSymbolReq message.
                  * @function verify
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq
                  * @static
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                RpcQueryOrderListByUnifiedSymbolReq.verify = function verify(message) {
+                RpcQueryOrderListByUniformSymbolReq.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
                     if (message.commonReq != null && message.hasOwnProperty("commonReq")) {
@@ -16181,91 +16137,91 @@ $root.xyz = (function() {
                         if (error)
                             return "commonReq." + error;
                     }
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        if (!$util.isString(message.unifiedSymbol))
-                            return "unifiedSymbol: string expected";
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        if (!$util.isString(message.uniformSymbol))
+                            return "uniformSymbol: string expected";
                     return null;
                 };
 
                 /**
-                 * Creates a RpcQueryOrderListByUnifiedSymbolReq message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryOrderListByUniformSymbolReq message from a plain object. Also converts values to their respective internal types.
                  * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq
                  * @static
                  * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq} RpcQueryOrderListByUnifiedSymbolReq
+                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq} RpcQueryOrderListByUniformSymbolReq
                  */
-                RpcQueryOrderListByUnifiedSymbolReq.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq)
+                RpcQueryOrderListByUniformSymbolReq.fromObject = function fromObject(object) {
+                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq)
                         return object;
-                    var message = new $root.xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq();
+                    var message = new $root.xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq();
                     if (object.commonReq != null) {
                         if (typeof object.commonReq !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq.commonReq: object expected");
+                            throw TypeError(".xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq.commonReq: object expected");
                         message.commonReq = $root.xyz.redtorch.pb.CommonReqField.fromObject(object.commonReq);
                     }
-                    if (object.unifiedSymbol != null)
-                        message.unifiedSymbol = String(object.unifiedSymbol);
+                    if (object.uniformSymbol != null)
+                        message.uniformSymbol = String(object.uniformSymbol);
                     return message;
                 };
 
                 /**
-                 * Creates a plain object from a RpcQueryOrderListByUnifiedSymbolReq message. Also converts values to other types if specified.
+                 * Creates a plain object from a RpcQueryOrderListByUniformSymbolReq message. Also converts values to other types if specified.
                  * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq} message RpcQueryOrderListByUnifiedSymbolReq
+                 * @param {xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq} message RpcQueryOrderListByUniformSymbolReq
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                RpcQueryOrderListByUnifiedSymbolReq.toObject = function toObject(message, options) {
+                RpcQueryOrderListByUniformSymbolReq.toObject = function toObject(message, options) {
                     if (!options)
                         options = {};
                     var object = {};
                     if (options.defaults) {
                         object.commonReq = null;
-                        object.unifiedSymbol = "";
+                        object.uniformSymbol = "";
                     }
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
                         object.commonReq = $root.xyz.redtorch.pb.CommonReqField.toObject(message.commonReq, options);
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        object.unifiedSymbol = message.unifiedSymbol;
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        object.uniformSymbol = message.uniformSymbol;
                     return object;
                 };
 
                 /**
-                 * Converts this RpcQueryOrderListByUnifiedSymbolReq to JSON.
+                 * Converts this RpcQueryOrderListByUniformSymbolReq to JSON.
                  * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolReq
                  * @instance
                  * @returns {Object.<string,*>} JSON object
                  */
-                RpcQueryOrderListByUnifiedSymbolReq.prototype.toJSON = function toJSON() {
+                RpcQueryOrderListByUniformSymbolReq.prototype.toJSON = function toJSON() {
                     return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                 };
 
-                return RpcQueryOrderListByUnifiedSymbolReq;
+                return RpcQueryOrderListByUniformSymbolReq;
             })();
 
-            pb.RpcQueryOrderListByUnifiedSymbolRsp = (function() {
+            pb.RpcQueryOrderListByUniformSymbolRsp = (function() {
 
                 /**
-                 * Properties of a RpcQueryOrderListByUnifiedSymbolRsp.
+                 * Properties of a RpcQueryOrderListByUniformSymbolRsp.
                  * @memberof xyz.redtorch.pb
-                 * @interface IRpcQueryOrderListByUnifiedSymbolRsp
-                 * @property {xyz.redtorch.pb.ICommonRspField|null} [commonRsp] RpcQueryOrderListByUnifiedSymbolRsp commonRsp
-                 * @property {Array.<xyz.redtorch.pb.IOrderField>|null} [order] RpcQueryOrderListByUnifiedSymbolRsp order
+                 * @interface IRpcQueryOrderListByUniformSymbolRsp
+                 * @property {xyz.redtorch.pb.ICommonRspField|null} [commonRsp] RpcQueryOrderListByUniformSymbolRsp commonRsp
+                 * @property {Array.<xyz.redtorch.pb.IOrderField>|null} [order] RpcQueryOrderListByUniformSymbolRsp order
                  */
 
                 /**
-                 * Constructs a new RpcQueryOrderListByUnifiedSymbolRsp.
+                 * Constructs a new RpcQueryOrderListByUniformSymbolRsp.
                  * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcQueryOrderListByUnifiedSymbolRsp.
-                 * @implements IRpcQueryOrderListByUnifiedSymbolRsp
+                 * @classdesc Represents a RpcQueryOrderListByUniformSymbolRsp.
+                 * @implements IRpcQueryOrderListByUniformSymbolRsp
                  * @constructor
-                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolRsp=} [properties] Properties to set
+                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolRsp=} [properties] Properties to set
                  */
-                function RpcQueryOrderListByUnifiedSymbolRsp(properties) {
+                function RpcQueryOrderListByUniformSymbolRsp(properties) {
                     this.order = [];
                     if (properties)
                         for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
@@ -16274,43 +16230,43 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * RpcQueryOrderListByUnifiedSymbolRsp commonRsp.
+                 * RpcQueryOrderListByUniformSymbolRsp commonRsp.
                  * @member {xyz.redtorch.pb.ICommonRspField|null|undefined} commonRsp
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp
                  * @instance
                  */
-                RpcQueryOrderListByUnifiedSymbolRsp.prototype.commonRsp = null;
+                RpcQueryOrderListByUniformSymbolRsp.prototype.commonRsp = null;
 
                 /**
-                 * RpcQueryOrderListByUnifiedSymbolRsp order.
+                 * RpcQueryOrderListByUniformSymbolRsp order.
                  * @member {Array.<xyz.redtorch.pb.IOrderField>} order
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp
                  * @instance
                  */
-                RpcQueryOrderListByUnifiedSymbolRsp.prototype.order = $util.emptyArray;
+                RpcQueryOrderListByUniformSymbolRsp.prototype.order = $util.emptyArray;
 
                 /**
-                 * Creates a new RpcQueryOrderListByUnifiedSymbolRsp instance using the specified properties.
+                 * Creates a new RpcQueryOrderListByUniformSymbolRsp instance using the specified properties.
                  * @function create
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolRsp=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp} RpcQueryOrderListByUnifiedSymbolRsp instance
+                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolRsp=} [properties] Properties to set
+                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp} RpcQueryOrderListByUniformSymbolRsp instance
                  */
-                RpcQueryOrderListByUnifiedSymbolRsp.create = function create(properties) {
-                    return new RpcQueryOrderListByUnifiedSymbolRsp(properties);
+                RpcQueryOrderListByUniformSymbolRsp.create = function create(properties) {
+                    return new RpcQueryOrderListByUniformSymbolRsp(properties);
                 };
 
                 /**
-                 * Encodes the specified RpcQueryOrderListByUnifiedSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp.verify|verify} messages.
+                 * Encodes the specified RpcQueryOrderListByUniformSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp.verify|verify} messages.
                  * @function encode
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolRsp} message RpcQueryOrderListByUnifiedSymbolRsp message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolRsp} message RpcQueryOrderListByUniformSymbolRsp message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryOrderListByUnifiedSymbolRsp.encode = function encode(message, writer) {
+                RpcQueryOrderListByUniformSymbolRsp.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
                     if (message.commonRsp != null && message.hasOwnProperty("commonRsp"))
@@ -16322,33 +16278,33 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Encodes the specified RpcQueryOrderListByUnifiedSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp.verify|verify} messages.
+                 * Encodes the specified RpcQueryOrderListByUniformSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp.verify|verify} messages.
                  * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUnifiedSymbolRsp} message RpcQueryOrderListByUnifiedSymbolRsp message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryOrderListByUniformSymbolRsp} message RpcQueryOrderListByUniformSymbolRsp message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryOrderListByUnifiedSymbolRsp.encodeDelimited = function encodeDelimited(message, writer) {
+                RpcQueryOrderListByUniformSymbolRsp.encodeDelimited = function encodeDelimited(message, writer) {
                     return this.encode(message, writer).ldelim();
                 };
 
                 /**
-                 * Decodes a RpcQueryOrderListByUnifiedSymbolRsp message from the specified reader or buffer.
+                 * Decodes a RpcQueryOrderListByUniformSymbolRsp message from the specified reader or buffer.
                  * @function decode
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp} RpcQueryOrderListByUnifiedSymbolRsp
+                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp} RpcQueryOrderListByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryOrderListByUnifiedSymbolRsp.decode = function decode(reader, length) {
+                RpcQueryOrderListByUniformSymbolRsp.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp();
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
@@ -16369,30 +16325,30 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Decodes a RpcQueryOrderListByUnifiedSymbolRsp message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryOrderListByUniformSymbolRsp message from the specified reader or buffer, length delimited.
                  * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp} RpcQueryOrderListByUnifiedSymbolRsp
+                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp} RpcQueryOrderListByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryOrderListByUnifiedSymbolRsp.decodeDelimited = function decodeDelimited(reader) {
+                RpcQueryOrderListByUniformSymbolRsp.decodeDelimited = function decodeDelimited(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
                     return this.decode(reader, reader.uint32());
                 };
 
                 /**
-                 * Verifies a RpcQueryOrderListByUnifiedSymbolRsp message.
+                 * Verifies a RpcQueryOrderListByUniformSymbolRsp message.
                  * @function verify
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp
                  * @static
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                RpcQueryOrderListByUnifiedSymbolRsp.verify = function verify(message) {
+                RpcQueryOrderListByUniformSymbolRsp.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
                     if (message.commonRsp != null && message.hasOwnProperty("commonRsp")) {
@@ -16413,29 +16369,29 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Creates a RpcQueryOrderListByUnifiedSymbolRsp message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryOrderListByUniformSymbolRsp message from a plain object. Also converts values to their respective internal types.
                  * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp
                  * @static
                  * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp} RpcQueryOrderListByUnifiedSymbolRsp
+                 * @returns {xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp} RpcQueryOrderListByUniformSymbolRsp
                  */
-                RpcQueryOrderListByUnifiedSymbolRsp.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp)
+                RpcQueryOrderListByUniformSymbolRsp.fromObject = function fromObject(object) {
+                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp)
                         return object;
-                    var message = new $root.xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp();
+                    var message = new $root.xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp();
                     if (object.commonRsp != null) {
                         if (typeof object.commonRsp !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp.commonRsp: object expected");
+                            throw TypeError(".xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp.commonRsp: object expected");
                         message.commonRsp = $root.xyz.redtorch.pb.CommonRspField.fromObject(object.commonRsp);
                     }
                     if (object.order) {
                         if (!Array.isArray(object.order))
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp.order: array expected");
+                            throw TypeError(".xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp.order: array expected");
                         message.order = [];
                         for (var i = 0; i < object.order.length; ++i) {
                             if (typeof object.order[i] !== "object")
-                                throw TypeError(".xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp.order: object expected");
+                                throw TypeError(".xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp.order: object expected");
                             message.order[i] = $root.xyz.redtorch.pb.OrderField.fromObject(object.order[i]);
                         }
                     }
@@ -16443,15 +16399,15 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Creates a plain object from a RpcQueryOrderListByUnifiedSymbolRsp message. Also converts values to other types if specified.
+                 * Creates a plain object from a RpcQueryOrderListByUniformSymbolRsp message. Also converts values to other types if specified.
                  * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp} message RpcQueryOrderListByUnifiedSymbolRsp
+                 * @param {xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp} message RpcQueryOrderListByUniformSymbolRsp
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                RpcQueryOrderListByUnifiedSymbolRsp.toObject = function toObject(message, options) {
+                RpcQueryOrderListByUniformSymbolRsp.toObject = function toObject(message, options) {
                     if (!options)
                         options = {};
                     var object = {};
@@ -16470,17 +16426,17 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Converts this RpcQueryOrderListByUnifiedSymbolRsp to JSON.
+                 * Converts this RpcQueryOrderListByUniformSymbolRsp to JSON.
                  * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryOrderListByUniformSymbolRsp
                  * @instance
                  * @returns {Object.<string,*>} JSON object
                  */
-                RpcQueryOrderListByUnifiedSymbolRsp.prototype.toJSON = function toJSON() {
+                RpcQueryOrderListByUniformSymbolRsp.prototype.toJSON = function toJSON() {
                     return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                 };
 
-                return RpcQueryOrderListByUnifiedSymbolRsp;
+                return RpcQueryOrderListByUniformSymbolRsp;
             })();
 
             pb.RpcGetTradeListReq = (function() {
@@ -17346,25 +17302,25 @@ $root.xyz = (function() {
                 return RpcQueryTradeByTradeIdRsp;
             })();
 
-            pb.RpcQueryTradeListByUnifiedSymbolReq = (function() {
+            pb.RpcQueryTradeListByUniformSymbolReq = (function() {
 
                 /**
-                 * Properties of a RpcQueryTradeListByUnifiedSymbolReq.
+                 * Properties of a RpcQueryTradeListByUniformSymbolReq.
                  * @memberof xyz.redtorch.pb
-                 * @interface IRpcQueryTradeListByUnifiedSymbolReq
-                 * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryTradeListByUnifiedSymbolReq commonReq
-                 * @property {string|null} [unifiedSymbol] RpcQueryTradeListByUnifiedSymbolReq unifiedSymbol
+                 * @interface IRpcQueryTradeListByUniformSymbolReq
+                 * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryTradeListByUniformSymbolReq commonReq
+                 * @property {string|null} [uniformSymbol] RpcQueryTradeListByUniformSymbolReq uniformSymbol
                  */
 
                 /**
-                 * Constructs a new RpcQueryTradeListByUnifiedSymbolReq.
+                 * Constructs a new RpcQueryTradeListByUniformSymbolReq.
                  * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcQueryTradeListByUnifiedSymbolReq.
-                 * @implements IRpcQueryTradeListByUnifiedSymbolReq
+                 * @classdesc Represents a RpcQueryTradeListByUniformSymbolReq.
+                 * @implements IRpcQueryTradeListByUniformSymbolReq
                  * @constructor
-                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolReq=} [properties] Properties to set
+                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolReq=} [properties] Properties to set
                  */
-                function RpcQueryTradeListByUnifiedSymbolReq(properties) {
+                function RpcQueryTradeListByUniformSymbolReq(properties) {
                     if (properties)
                         for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                             if (properties[keys[i]] != null)
@@ -17372,80 +17328,80 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * RpcQueryTradeListByUnifiedSymbolReq commonReq.
+                 * RpcQueryTradeListByUniformSymbolReq commonReq.
                  * @member {xyz.redtorch.pb.ICommonReqField|null|undefined} commonReq
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq
                  * @instance
                  */
-                RpcQueryTradeListByUnifiedSymbolReq.prototype.commonReq = null;
+                RpcQueryTradeListByUniformSymbolReq.prototype.commonReq = null;
 
                 /**
-                 * RpcQueryTradeListByUnifiedSymbolReq unifiedSymbol.
-                 * @member {string} unifiedSymbol
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq
+                 * RpcQueryTradeListByUniformSymbolReq uniformSymbol.
+                 * @member {string} uniformSymbol
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq
                  * @instance
                  */
-                RpcQueryTradeListByUnifiedSymbolReq.prototype.unifiedSymbol = "";
+                RpcQueryTradeListByUniformSymbolReq.prototype.uniformSymbol = "";
 
                 /**
-                 * Creates a new RpcQueryTradeListByUnifiedSymbolReq instance using the specified properties.
+                 * Creates a new RpcQueryTradeListByUniformSymbolReq instance using the specified properties.
                  * @function create
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolReq=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq} RpcQueryTradeListByUnifiedSymbolReq instance
+                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolReq=} [properties] Properties to set
+                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq} RpcQueryTradeListByUniformSymbolReq instance
                  */
-                RpcQueryTradeListByUnifiedSymbolReq.create = function create(properties) {
-                    return new RpcQueryTradeListByUnifiedSymbolReq(properties);
+                RpcQueryTradeListByUniformSymbolReq.create = function create(properties) {
+                    return new RpcQueryTradeListByUniformSymbolReq(properties);
                 };
 
                 /**
-                 * Encodes the specified RpcQueryTradeListByUnifiedSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq.verify|verify} messages.
+                 * Encodes the specified RpcQueryTradeListByUniformSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq.verify|verify} messages.
                  * @function encode
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolReq} message RpcQueryTradeListByUnifiedSymbolReq message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolReq} message RpcQueryTradeListByUniformSymbolReq message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryTradeListByUnifiedSymbolReq.encode = function encode(message, writer) {
+                RpcQueryTradeListByUniformSymbolReq.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
                         $root.xyz.redtorch.pb.CommonReqField.encode(message.commonReq, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.unifiedSymbol);
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.uniformSymbol);
                     return writer;
                 };
 
                 /**
-                 * Encodes the specified RpcQueryTradeListByUnifiedSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq.verify|verify} messages.
+                 * Encodes the specified RpcQueryTradeListByUniformSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq.verify|verify} messages.
                  * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolReq} message RpcQueryTradeListByUnifiedSymbolReq message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolReq} message RpcQueryTradeListByUniformSymbolReq message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryTradeListByUnifiedSymbolReq.encodeDelimited = function encodeDelimited(message, writer) {
+                RpcQueryTradeListByUniformSymbolReq.encodeDelimited = function encodeDelimited(message, writer) {
                     return this.encode(message, writer).ldelim();
                 };
 
                 /**
-                 * Decodes a RpcQueryTradeListByUnifiedSymbolReq message from the specified reader or buffer.
+                 * Decodes a RpcQueryTradeListByUniformSymbolReq message from the specified reader or buffer.
                  * @function decode
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq} RpcQueryTradeListByUnifiedSymbolReq
+                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq} RpcQueryTradeListByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryTradeListByUnifiedSymbolReq.decode = function decode(reader, length) {
+                RpcQueryTradeListByUniformSymbolReq.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq();
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
@@ -17453,7 +17409,7 @@ $root.xyz = (function() {
                             message.commonReq = $root.xyz.redtorch.pb.CommonReqField.decode(reader, reader.uint32());
                             break;
                         case 2:
-                            message.unifiedSymbol = reader.string();
+                            message.uniformSymbol = reader.string();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -17464,30 +17420,30 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Decodes a RpcQueryTradeListByUnifiedSymbolReq message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryTradeListByUniformSymbolReq message from the specified reader or buffer, length delimited.
                  * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq} RpcQueryTradeListByUnifiedSymbolReq
+                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq} RpcQueryTradeListByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryTradeListByUnifiedSymbolReq.decodeDelimited = function decodeDelimited(reader) {
+                RpcQueryTradeListByUniformSymbolReq.decodeDelimited = function decodeDelimited(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
                     return this.decode(reader, reader.uint32());
                 };
 
                 /**
-                 * Verifies a RpcQueryTradeListByUnifiedSymbolReq message.
+                 * Verifies a RpcQueryTradeListByUniformSymbolReq message.
                  * @function verify
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq
                  * @static
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                RpcQueryTradeListByUnifiedSymbolReq.verify = function verify(message) {
+                RpcQueryTradeListByUniformSymbolReq.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
                     if (message.commonReq != null && message.hasOwnProperty("commonReq")) {
@@ -17495,91 +17451,91 @@ $root.xyz = (function() {
                         if (error)
                             return "commonReq." + error;
                     }
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        if (!$util.isString(message.unifiedSymbol))
-                            return "unifiedSymbol: string expected";
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        if (!$util.isString(message.uniformSymbol))
+                            return "uniformSymbol: string expected";
                     return null;
                 };
 
                 /**
-                 * Creates a RpcQueryTradeListByUnifiedSymbolReq message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryTradeListByUniformSymbolReq message from a plain object. Also converts values to their respective internal types.
                  * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq
                  * @static
                  * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq} RpcQueryTradeListByUnifiedSymbolReq
+                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq} RpcQueryTradeListByUniformSymbolReq
                  */
-                RpcQueryTradeListByUnifiedSymbolReq.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq)
+                RpcQueryTradeListByUniformSymbolReq.fromObject = function fromObject(object) {
+                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq)
                         return object;
-                    var message = new $root.xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq();
+                    var message = new $root.xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq();
                     if (object.commonReq != null) {
                         if (typeof object.commonReq !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq.commonReq: object expected");
+                            throw TypeError(".xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq.commonReq: object expected");
                         message.commonReq = $root.xyz.redtorch.pb.CommonReqField.fromObject(object.commonReq);
                     }
-                    if (object.unifiedSymbol != null)
-                        message.unifiedSymbol = String(object.unifiedSymbol);
+                    if (object.uniformSymbol != null)
+                        message.uniformSymbol = String(object.uniformSymbol);
                     return message;
                 };
 
                 /**
-                 * Creates a plain object from a RpcQueryTradeListByUnifiedSymbolReq message. Also converts values to other types if specified.
+                 * Creates a plain object from a RpcQueryTradeListByUniformSymbolReq message. Also converts values to other types if specified.
                  * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq} message RpcQueryTradeListByUnifiedSymbolReq
+                 * @param {xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq} message RpcQueryTradeListByUniformSymbolReq
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                RpcQueryTradeListByUnifiedSymbolReq.toObject = function toObject(message, options) {
+                RpcQueryTradeListByUniformSymbolReq.toObject = function toObject(message, options) {
                     if (!options)
                         options = {};
                     var object = {};
                     if (options.defaults) {
                         object.commonReq = null;
-                        object.unifiedSymbol = "";
+                        object.uniformSymbol = "";
                     }
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
                         object.commonReq = $root.xyz.redtorch.pb.CommonReqField.toObject(message.commonReq, options);
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        object.unifiedSymbol = message.unifiedSymbol;
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        object.uniformSymbol = message.uniformSymbol;
                     return object;
                 };
 
                 /**
-                 * Converts this RpcQueryTradeListByUnifiedSymbolReq to JSON.
+                 * Converts this RpcQueryTradeListByUniformSymbolReq to JSON.
                  * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolReq
                  * @instance
                  * @returns {Object.<string,*>} JSON object
                  */
-                RpcQueryTradeListByUnifiedSymbolReq.prototype.toJSON = function toJSON() {
+                RpcQueryTradeListByUniformSymbolReq.prototype.toJSON = function toJSON() {
                     return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                 };
 
-                return RpcQueryTradeListByUnifiedSymbolReq;
+                return RpcQueryTradeListByUniformSymbolReq;
             })();
 
-            pb.RpcQueryTradeListByUnifiedSymbolRsp = (function() {
+            pb.RpcQueryTradeListByUniformSymbolRsp = (function() {
 
                 /**
-                 * Properties of a RpcQueryTradeListByUnifiedSymbolRsp.
+                 * Properties of a RpcQueryTradeListByUniformSymbolRsp.
                  * @memberof xyz.redtorch.pb
-                 * @interface IRpcQueryTradeListByUnifiedSymbolRsp
-                 * @property {xyz.redtorch.pb.ICommonRspField|null} [commonRsp] RpcQueryTradeListByUnifiedSymbolRsp commonRsp
-                 * @property {Array.<xyz.redtorch.pb.ITradeField>|null} [trade] RpcQueryTradeListByUnifiedSymbolRsp trade
+                 * @interface IRpcQueryTradeListByUniformSymbolRsp
+                 * @property {xyz.redtorch.pb.ICommonRspField|null} [commonRsp] RpcQueryTradeListByUniformSymbolRsp commonRsp
+                 * @property {Array.<xyz.redtorch.pb.ITradeField>|null} [trade] RpcQueryTradeListByUniformSymbolRsp trade
                  */
 
                 /**
-                 * Constructs a new RpcQueryTradeListByUnifiedSymbolRsp.
+                 * Constructs a new RpcQueryTradeListByUniformSymbolRsp.
                  * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcQueryTradeListByUnifiedSymbolRsp.
-                 * @implements IRpcQueryTradeListByUnifiedSymbolRsp
+                 * @classdesc Represents a RpcQueryTradeListByUniformSymbolRsp.
+                 * @implements IRpcQueryTradeListByUniformSymbolRsp
                  * @constructor
-                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolRsp=} [properties] Properties to set
+                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolRsp=} [properties] Properties to set
                  */
-                function RpcQueryTradeListByUnifiedSymbolRsp(properties) {
+                function RpcQueryTradeListByUniformSymbolRsp(properties) {
                     this.trade = [];
                     if (properties)
                         for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
@@ -17588,43 +17544,43 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * RpcQueryTradeListByUnifiedSymbolRsp commonRsp.
+                 * RpcQueryTradeListByUniformSymbolRsp commonRsp.
                  * @member {xyz.redtorch.pb.ICommonRspField|null|undefined} commonRsp
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp
                  * @instance
                  */
-                RpcQueryTradeListByUnifiedSymbolRsp.prototype.commonRsp = null;
+                RpcQueryTradeListByUniformSymbolRsp.prototype.commonRsp = null;
 
                 /**
-                 * RpcQueryTradeListByUnifiedSymbolRsp trade.
+                 * RpcQueryTradeListByUniformSymbolRsp trade.
                  * @member {Array.<xyz.redtorch.pb.ITradeField>} trade
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp
                  * @instance
                  */
-                RpcQueryTradeListByUnifiedSymbolRsp.prototype.trade = $util.emptyArray;
+                RpcQueryTradeListByUniformSymbolRsp.prototype.trade = $util.emptyArray;
 
                 /**
-                 * Creates a new RpcQueryTradeListByUnifiedSymbolRsp instance using the specified properties.
+                 * Creates a new RpcQueryTradeListByUniformSymbolRsp instance using the specified properties.
                  * @function create
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolRsp=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp} RpcQueryTradeListByUnifiedSymbolRsp instance
+                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolRsp=} [properties] Properties to set
+                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp} RpcQueryTradeListByUniformSymbolRsp instance
                  */
-                RpcQueryTradeListByUnifiedSymbolRsp.create = function create(properties) {
-                    return new RpcQueryTradeListByUnifiedSymbolRsp(properties);
+                RpcQueryTradeListByUniformSymbolRsp.create = function create(properties) {
+                    return new RpcQueryTradeListByUniformSymbolRsp(properties);
                 };
 
                 /**
-                 * Encodes the specified RpcQueryTradeListByUnifiedSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp.verify|verify} messages.
+                 * Encodes the specified RpcQueryTradeListByUniformSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp.verify|verify} messages.
                  * @function encode
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolRsp} message RpcQueryTradeListByUnifiedSymbolRsp message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolRsp} message RpcQueryTradeListByUniformSymbolRsp message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryTradeListByUnifiedSymbolRsp.encode = function encode(message, writer) {
+                RpcQueryTradeListByUniformSymbolRsp.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
                     if (message.commonRsp != null && message.hasOwnProperty("commonRsp"))
@@ -17636,33 +17592,33 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Encodes the specified RpcQueryTradeListByUnifiedSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp.verify|verify} messages.
+                 * Encodes the specified RpcQueryTradeListByUniformSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp.verify|verify} messages.
                  * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUnifiedSymbolRsp} message RpcQueryTradeListByUnifiedSymbolRsp message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryTradeListByUniformSymbolRsp} message RpcQueryTradeListByUniformSymbolRsp message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryTradeListByUnifiedSymbolRsp.encodeDelimited = function encodeDelimited(message, writer) {
+                RpcQueryTradeListByUniformSymbolRsp.encodeDelimited = function encodeDelimited(message, writer) {
                     return this.encode(message, writer).ldelim();
                 };
 
                 /**
-                 * Decodes a RpcQueryTradeListByUnifiedSymbolRsp message from the specified reader or buffer.
+                 * Decodes a RpcQueryTradeListByUniformSymbolRsp message from the specified reader or buffer.
                  * @function decode
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp} RpcQueryTradeListByUnifiedSymbolRsp
+                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp} RpcQueryTradeListByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryTradeListByUnifiedSymbolRsp.decode = function decode(reader, length) {
+                RpcQueryTradeListByUniformSymbolRsp.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp();
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
@@ -17683,30 +17639,30 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Decodes a RpcQueryTradeListByUnifiedSymbolRsp message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryTradeListByUniformSymbolRsp message from the specified reader or buffer, length delimited.
                  * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp} RpcQueryTradeListByUnifiedSymbolRsp
+                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp} RpcQueryTradeListByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryTradeListByUnifiedSymbolRsp.decodeDelimited = function decodeDelimited(reader) {
+                RpcQueryTradeListByUniformSymbolRsp.decodeDelimited = function decodeDelimited(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
                     return this.decode(reader, reader.uint32());
                 };
 
                 /**
-                 * Verifies a RpcQueryTradeListByUnifiedSymbolRsp message.
+                 * Verifies a RpcQueryTradeListByUniformSymbolRsp message.
                  * @function verify
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp
                  * @static
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                RpcQueryTradeListByUnifiedSymbolRsp.verify = function verify(message) {
+                RpcQueryTradeListByUniformSymbolRsp.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
                     if (message.commonRsp != null && message.hasOwnProperty("commonRsp")) {
@@ -17727,29 +17683,29 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Creates a RpcQueryTradeListByUnifiedSymbolRsp message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryTradeListByUniformSymbolRsp message from a plain object. Also converts values to their respective internal types.
                  * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp
                  * @static
                  * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp} RpcQueryTradeListByUnifiedSymbolRsp
+                 * @returns {xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp} RpcQueryTradeListByUniformSymbolRsp
                  */
-                RpcQueryTradeListByUnifiedSymbolRsp.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp)
+                RpcQueryTradeListByUniformSymbolRsp.fromObject = function fromObject(object) {
+                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp)
                         return object;
-                    var message = new $root.xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp();
+                    var message = new $root.xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp();
                     if (object.commonRsp != null) {
                         if (typeof object.commonRsp !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp.commonRsp: object expected");
+                            throw TypeError(".xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp.commonRsp: object expected");
                         message.commonRsp = $root.xyz.redtorch.pb.CommonRspField.fromObject(object.commonRsp);
                     }
                     if (object.trade) {
                         if (!Array.isArray(object.trade))
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp.trade: array expected");
+                            throw TypeError(".xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp.trade: array expected");
                         message.trade = [];
                         for (var i = 0; i < object.trade.length; ++i) {
                             if (typeof object.trade[i] !== "object")
-                                throw TypeError(".xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp.trade: object expected");
+                                throw TypeError(".xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp.trade: object expected");
                             message.trade[i] = $root.xyz.redtorch.pb.TradeField.fromObject(object.trade[i]);
                         }
                     }
@@ -17757,15 +17713,15 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Creates a plain object from a RpcQueryTradeListByUnifiedSymbolRsp message. Also converts values to other types if specified.
+                 * Creates a plain object from a RpcQueryTradeListByUniformSymbolRsp message. Also converts values to other types if specified.
                  * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp} message RpcQueryTradeListByUnifiedSymbolRsp
+                 * @param {xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp} message RpcQueryTradeListByUniformSymbolRsp
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                RpcQueryTradeListByUnifiedSymbolRsp.toObject = function toObject(message, options) {
+                RpcQueryTradeListByUniformSymbolRsp.toObject = function toObject(message, options) {
                     if (!options)
                         options = {};
                     var object = {};
@@ -17784,17 +17740,17 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Converts this RpcQueryTradeListByUnifiedSymbolRsp to JSON.
+                 * Converts this RpcQueryTradeListByUniformSymbolRsp to JSON.
                  * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryTradeListByUniformSymbolRsp
                  * @instance
                  * @returns {Object.<string,*>} JSON object
                  */
-                RpcQueryTradeListByUnifiedSymbolRsp.prototype.toJSON = function toJSON() {
+                RpcQueryTradeListByUniformSymbolRsp.prototype.toJSON = function toJSON() {
                     return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                 };
 
-                return RpcQueryTradeListByUnifiedSymbolRsp;
+                return RpcQueryTradeListByUniformSymbolRsp;
             })();
 
             pb.RpcQueryTradeListByAccountIdReq = (function() {
@@ -20464,25 +20420,25 @@ $root.xyz = (function() {
                 return RpcQueryPositionListByAccountIdRsp;
             })();
 
-            pb.RpcQueryPositionListByUnifiedSymbolReq = (function() {
+            pb.RpcQueryPositionListByUniformSymbolReq = (function() {
 
                 /**
-                 * Properties of a RpcQueryPositionListByUnifiedSymbolReq.
+                 * Properties of a RpcQueryPositionListByUniformSymbolReq.
                  * @memberof xyz.redtorch.pb
-                 * @interface IRpcQueryPositionListByUnifiedSymbolReq
-                 * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryPositionListByUnifiedSymbolReq commonReq
-                 * @property {string|null} [unifiedSymbol] RpcQueryPositionListByUnifiedSymbolReq unifiedSymbol
+                 * @interface IRpcQueryPositionListByUniformSymbolReq
+                 * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryPositionListByUniformSymbolReq commonReq
+                 * @property {string|null} [uniformSymbol] RpcQueryPositionListByUniformSymbolReq uniformSymbol
                  */
 
                 /**
-                 * Constructs a new RpcQueryPositionListByUnifiedSymbolReq.
+                 * Constructs a new RpcQueryPositionListByUniformSymbolReq.
                  * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcQueryPositionListByUnifiedSymbolReq.
-                 * @implements IRpcQueryPositionListByUnifiedSymbolReq
+                 * @classdesc Represents a RpcQueryPositionListByUniformSymbolReq.
+                 * @implements IRpcQueryPositionListByUniformSymbolReq
                  * @constructor
-                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolReq=} [properties] Properties to set
+                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolReq=} [properties] Properties to set
                  */
-                function RpcQueryPositionListByUnifiedSymbolReq(properties) {
+                function RpcQueryPositionListByUniformSymbolReq(properties) {
                     if (properties)
                         for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                             if (properties[keys[i]] != null)
@@ -20490,80 +20446,80 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * RpcQueryPositionListByUnifiedSymbolReq commonReq.
+                 * RpcQueryPositionListByUniformSymbolReq commonReq.
                  * @member {xyz.redtorch.pb.ICommonReqField|null|undefined} commonReq
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq
                  * @instance
                  */
-                RpcQueryPositionListByUnifiedSymbolReq.prototype.commonReq = null;
+                RpcQueryPositionListByUniformSymbolReq.prototype.commonReq = null;
 
                 /**
-                 * RpcQueryPositionListByUnifiedSymbolReq unifiedSymbol.
-                 * @member {string} unifiedSymbol
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq
+                 * RpcQueryPositionListByUniformSymbolReq uniformSymbol.
+                 * @member {string} uniformSymbol
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq
                  * @instance
                  */
-                RpcQueryPositionListByUnifiedSymbolReq.prototype.unifiedSymbol = "";
+                RpcQueryPositionListByUniformSymbolReq.prototype.uniformSymbol = "";
 
                 /**
-                 * Creates a new RpcQueryPositionListByUnifiedSymbolReq instance using the specified properties.
+                 * Creates a new RpcQueryPositionListByUniformSymbolReq instance using the specified properties.
                  * @function create
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolReq=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq} RpcQueryPositionListByUnifiedSymbolReq instance
+                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolReq=} [properties] Properties to set
+                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq} RpcQueryPositionListByUniformSymbolReq instance
                  */
-                RpcQueryPositionListByUnifiedSymbolReq.create = function create(properties) {
-                    return new RpcQueryPositionListByUnifiedSymbolReq(properties);
+                RpcQueryPositionListByUniformSymbolReq.create = function create(properties) {
+                    return new RpcQueryPositionListByUniformSymbolReq(properties);
                 };
 
                 /**
-                 * Encodes the specified RpcQueryPositionListByUnifiedSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq.verify|verify} messages.
+                 * Encodes the specified RpcQueryPositionListByUniformSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq.verify|verify} messages.
                  * @function encode
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolReq} message RpcQueryPositionListByUnifiedSymbolReq message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolReq} message RpcQueryPositionListByUniformSymbolReq message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryPositionListByUnifiedSymbolReq.encode = function encode(message, writer) {
+                RpcQueryPositionListByUniformSymbolReq.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
                         $root.xyz.redtorch.pb.CommonReqField.encode(message.commonReq, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.unifiedSymbol);
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.uniformSymbol);
                     return writer;
                 };
 
                 /**
-                 * Encodes the specified RpcQueryPositionListByUnifiedSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq.verify|verify} messages.
+                 * Encodes the specified RpcQueryPositionListByUniformSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq.verify|verify} messages.
                  * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolReq} message RpcQueryPositionListByUnifiedSymbolReq message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolReq} message RpcQueryPositionListByUniformSymbolReq message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryPositionListByUnifiedSymbolReq.encodeDelimited = function encodeDelimited(message, writer) {
+                RpcQueryPositionListByUniformSymbolReq.encodeDelimited = function encodeDelimited(message, writer) {
                     return this.encode(message, writer).ldelim();
                 };
 
                 /**
-                 * Decodes a RpcQueryPositionListByUnifiedSymbolReq message from the specified reader or buffer.
+                 * Decodes a RpcQueryPositionListByUniformSymbolReq message from the specified reader or buffer.
                  * @function decode
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq} RpcQueryPositionListByUnifiedSymbolReq
+                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq} RpcQueryPositionListByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryPositionListByUnifiedSymbolReq.decode = function decode(reader, length) {
+                RpcQueryPositionListByUniformSymbolReq.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq();
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
@@ -20571,7 +20527,7 @@ $root.xyz = (function() {
                             message.commonReq = $root.xyz.redtorch.pb.CommonReqField.decode(reader, reader.uint32());
                             break;
                         case 2:
-                            message.unifiedSymbol = reader.string();
+                            message.uniformSymbol = reader.string();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -20582,30 +20538,30 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Decodes a RpcQueryPositionListByUnifiedSymbolReq message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryPositionListByUniformSymbolReq message from the specified reader or buffer, length delimited.
                  * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq} RpcQueryPositionListByUnifiedSymbolReq
+                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq} RpcQueryPositionListByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryPositionListByUnifiedSymbolReq.decodeDelimited = function decodeDelimited(reader) {
+                RpcQueryPositionListByUniformSymbolReq.decodeDelimited = function decodeDelimited(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
                     return this.decode(reader, reader.uint32());
                 };
 
                 /**
-                 * Verifies a RpcQueryPositionListByUnifiedSymbolReq message.
+                 * Verifies a RpcQueryPositionListByUniformSymbolReq message.
                  * @function verify
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq
                  * @static
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                RpcQueryPositionListByUnifiedSymbolReq.verify = function verify(message) {
+                RpcQueryPositionListByUniformSymbolReq.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
                     if (message.commonReq != null && message.hasOwnProperty("commonReq")) {
@@ -20613,91 +20569,91 @@ $root.xyz = (function() {
                         if (error)
                             return "commonReq." + error;
                     }
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        if (!$util.isString(message.unifiedSymbol))
-                            return "unifiedSymbol: string expected";
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        if (!$util.isString(message.uniformSymbol))
+                            return "uniformSymbol: string expected";
                     return null;
                 };
 
                 /**
-                 * Creates a RpcQueryPositionListByUnifiedSymbolReq message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryPositionListByUniformSymbolReq message from a plain object. Also converts values to their respective internal types.
                  * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq
                  * @static
                  * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq} RpcQueryPositionListByUnifiedSymbolReq
+                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq} RpcQueryPositionListByUniformSymbolReq
                  */
-                RpcQueryPositionListByUnifiedSymbolReq.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq)
+                RpcQueryPositionListByUniformSymbolReq.fromObject = function fromObject(object) {
+                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq)
                         return object;
-                    var message = new $root.xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq();
+                    var message = new $root.xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq();
                     if (object.commonReq != null) {
                         if (typeof object.commonReq !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq.commonReq: object expected");
+                            throw TypeError(".xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq.commonReq: object expected");
                         message.commonReq = $root.xyz.redtorch.pb.CommonReqField.fromObject(object.commonReq);
                     }
-                    if (object.unifiedSymbol != null)
-                        message.unifiedSymbol = String(object.unifiedSymbol);
+                    if (object.uniformSymbol != null)
+                        message.uniformSymbol = String(object.uniformSymbol);
                     return message;
                 };
 
                 /**
-                 * Creates a plain object from a RpcQueryPositionListByUnifiedSymbolReq message. Also converts values to other types if specified.
+                 * Creates a plain object from a RpcQueryPositionListByUniformSymbolReq message. Also converts values to other types if specified.
                  * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq} message RpcQueryPositionListByUnifiedSymbolReq
+                 * @param {xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq} message RpcQueryPositionListByUniformSymbolReq
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                RpcQueryPositionListByUnifiedSymbolReq.toObject = function toObject(message, options) {
+                RpcQueryPositionListByUniformSymbolReq.toObject = function toObject(message, options) {
                     if (!options)
                         options = {};
                     var object = {};
                     if (options.defaults) {
                         object.commonReq = null;
-                        object.unifiedSymbol = "";
+                        object.uniformSymbol = "";
                     }
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
                         object.commonReq = $root.xyz.redtorch.pb.CommonReqField.toObject(message.commonReq, options);
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        object.unifiedSymbol = message.unifiedSymbol;
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        object.uniformSymbol = message.uniformSymbol;
                     return object;
                 };
 
                 /**
-                 * Converts this RpcQueryPositionListByUnifiedSymbolReq to JSON.
+                 * Converts this RpcQueryPositionListByUniformSymbolReq to JSON.
                  * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolReq
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolReq
                  * @instance
                  * @returns {Object.<string,*>} JSON object
                  */
-                RpcQueryPositionListByUnifiedSymbolReq.prototype.toJSON = function toJSON() {
+                RpcQueryPositionListByUniformSymbolReq.prototype.toJSON = function toJSON() {
                     return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                 };
 
-                return RpcQueryPositionListByUnifiedSymbolReq;
+                return RpcQueryPositionListByUniformSymbolReq;
             })();
 
-            pb.RpcQueryPositionListByUnifiedSymbolRsp = (function() {
+            pb.RpcQueryPositionListByUniformSymbolRsp = (function() {
 
                 /**
-                 * Properties of a RpcQueryPositionListByUnifiedSymbolRsp.
+                 * Properties of a RpcQueryPositionListByUniformSymbolRsp.
                  * @memberof xyz.redtorch.pb
-                 * @interface IRpcQueryPositionListByUnifiedSymbolRsp
-                 * @property {xyz.redtorch.pb.ICommonRspField|null} [commonRsp] RpcQueryPositionListByUnifiedSymbolRsp commonRsp
-                 * @property {Array.<xyz.redtorch.pb.IPositionField>|null} [position] RpcQueryPositionListByUnifiedSymbolRsp position
+                 * @interface IRpcQueryPositionListByUniformSymbolRsp
+                 * @property {xyz.redtorch.pb.ICommonRspField|null} [commonRsp] RpcQueryPositionListByUniformSymbolRsp commonRsp
+                 * @property {Array.<xyz.redtorch.pb.IPositionField>|null} [position] RpcQueryPositionListByUniformSymbolRsp position
                  */
 
                 /**
-                 * Constructs a new RpcQueryPositionListByUnifiedSymbolRsp.
+                 * Constructs a new RpcQueryPositionListByUniformSymbolRsp.
                  * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcQueryPositionListByUnifiedSymbolRsp.
-                 * @implements IRpcQueryPositionListByUnifiedSymbolRsp
+                 * @classdesc Represents a RpcQueryPositionListByUniformSymbolRsp.
+                 * @implements IRpcQueryPositionListByUniformSymbolRsp
                  * @constructor
-                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolRsp=} [properties] Properties to set
+                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolRsp=} [properties] Properties to set
                  */
-                function RpcQueryPositionListByUnifiedSymbolRsp(properties) {
+                function RpcQueryPositionListByUniformSymbolRsp(properties) {
                     this.position = [];
                     if (properties)
                         for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
@@ -20706,43 +20662,43 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * RpcQueryPositionListByUnifiedSymbolRsp commonRsp.
+                 * RpcQueryPositionListByUniformSymbolRsp commonRsp.
                  * @member {xyz.redtorch.pb.ICommonRspField|null|undefined} commonRsp
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp
                  * @instance
                  */
-                RpcQueryPositionListByUnifiedSymbolRsp.prototype.commonRsp = null;
+                RpcQueryPositionListByUniformSymbolRsp.prototype.commonRsp = null;
 
                 /**
-                 * RpcQueryPositionListByUnifiedSymbolRsp position.
+                 * RpcQueryPositionListByUniformSymbolRsp position.
                  * @member {Array.<xyz.redtorch.pb.IPositionField>} position
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp
                  * @instance
                  */
-                RpcQueryPositionListByUnifiedSymbolRsp.prototype.position = $util.emptyArray;
+                RpcQueryPositionListByUniformSymbolRsp.prototype.position = $util.emptyArray;
 
                 /**
-                 * Creates a new RpcQueryPositionListByUnifiedSymbolRsp instance using the specified properties.
+                 * Creates a new RpcQueryPositionListByUniformSymbolRsp instance using the specified properties.
                  * @function create
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolRsp=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp} RpcQueryPositionListByUnifiedSymbolRsp instance
+                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolRsp=} [properties] Properties to set
+                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp} RpcQueryPositionListByUniformSymbolRsp instance
                  */
-                RpcQueryPositionListByUnifiedSymbolRsp.create = function create(properties) {
-                    return new RpcQueryPositionListByUnifiedSymbolRsp(properties);
+                RpcQueryPositionListByUniformSymbolRsp.create = function create(properties) {
+                    return new RpcQueryPositionListByUniformSymbolRsp(properties);
                 };
 
                 /**
-                 * Encodes the specified RpcQueryPositionListByUnifiedSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp.verify|verify} messages.
+                 * Encodes the specified RpcQueryPositionListByUniformSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp.verify|verify} messages.
                  * @function encode
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolRsp} message RpcQueryPositionListByUnifiedSymbolRsp message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolRsp} message RpcQueryPositionListByUniformSymbolRsp message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryPositionListByUnifiedSymbolRsp.encode = function encode(message, writer) {
+                RpcQueryPositionListByUniformSymbolRsp.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
                     if (message.commonRsp != null && message.hasOwnProperty("commonRsp"))
@@ -20754,33 +20710,33 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Encodes the specified RpcQueryPositionListByUnifiedSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp.verify|verify} messages.
+                 * Encodes the specified RpcQueryPositionListByUniformSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp.verify|verify} messages.
                  * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUnifiedSymbolRsp} message RpcQueryPositionListByUnifiedSymbolRsp message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryPositionListByUniformSymbolRsp} message RpcQueryPositionListByUniformSymbolRsp message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryPositionListByUnifiedSymbolRsp.encodeDelimited = function encodeDelimited(message, writer) {
+                RpcQueryPositionListByUniformSymbolRsp.encodeDelimited = function encodeDelimited(message, writer) {
                     return this.encode(message, writer).ldelim();
                 };
 
                 /**
-                 * Decodes a RpcQueryPositionListByUnifiedSymbolRsp message from the specified reader or buffer.
+                 * Decodes a RpcQueryPositionListByUniformSymbolRsp message from the specified reader or buffer.
                  * @function decode
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp} RpcQueryPositionListByUnifiedSymbolRsp
+                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp} RpcQueryPositionListByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryPositionListByUnifiedSymbolRsp.decode = function decode(reader, length) {
+                RpcQueryPositionListByUniformSymbolRsp.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp();
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
@@ -20801,30 +20757,30 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Decodes a RpcQueryPositionListByUnifiedSymbolRsp message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryPositionListByUniformSymbolRsp message from the specified reader or buffer, length delimited.
                  * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp} RpcQueryPositionListByUnifiedSymbolRsp
+                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp} RpcQueryPositionListByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryPositionListByUnifiedSymbolRsp.decodeDelimited = function decodeDelimited(reader) {
+                RpcQueryPositionListByUniformSymbolRsp.decodeDelimited = function decodeDelimited(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
                     return this.decode(reader, reader.uint32());
                 };
 
                 /**
-                 * Verifies a RpcQueryPositionListByUnifiedSymbolRsp message.
+                 * Verifies a RpcQueryPositionListByUniformSymbolRsp message.
                  * @function verify
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp
                  * @static
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                RpcQueryPositionListByUnifiedSymbolRsp.verify = function verify(message) {
+                RpcQueryPositionListByUniformSymbolRsp.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
                     if (message.commonRsp != null && message.hasOwnProperty("commonRsp")) {
@@ -20845,29 +20801,29 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Creates a RpcQueryPositionListByUnifiedSymbolRsp message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryPositionListByUniformSymbolRsp message from a plain object. Also converts values to their respective internal types.
                  * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp
                  * @static
                  * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp} RpcQueryPositionListByUnifiedSymbolRsp
+                 * @returns {xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp} RpcQueryPositionListByUniformSymbolRsp
                  */
-                RpcQueryPositionListByUnifiedSymbolRsp.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp)
+                RpcQueryPositionListByUniformSymbolRsp.fromObject = function fromObject(object) {
+                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp)
                         return object;
-                    var message = new $root.xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp();
+                    var message = new $root.xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp();
                     if (object.commonRsp != null) {
                         if (typeof object.commonRsp !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp.commonRsp: object expected");
+                            throw TypeError(".xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp.commonRsp: object expected");
                         message.commonRsp = $root.xyz.redtorch.pb.CommonRspField.fromObject(object.commonRsp);
                     }
                     if (object.position) {
                         if (!Array.isArray(object.position))
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp.position: array expected");
+                            throw TypeError(".xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp.position: array expected");
                         message.position = [];
                         for (var i = 0; i < object.position.length; ++i) {
                             if (typeof object.position[i] !== "object")
-                                throw TypeError(".xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp.position: object expected");
+                                throw TypeError(".xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp.position: object expected");
                             message.position[i] = $root.xyz.redtorch.pb.PositionField.fromObject(object.position[i]);
                         }
                     }
@@ -20875,15 +20831,15 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Creates a plain object from a RpcQueryPositionListByUnifiedSymbolRsp message. Also converts values to other types if specified.
+                 * Creates a plain object from a RpcQueryPositionListByUniformSymbolRsp message. Also converts values to other types if specified.
                  * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp} message RpcQueryPositionListByUnifiedSymbolRsp
+                 * @param {xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp} message RpcQueryPositionListByUniformSymbolRsp
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                RpcQueryPositionListByUnifiedSymbolRsp.toObject = function toObject(message, options) {
+                RpcQueryPositionListByUniformSymbolRsp.toObject = function toObject(message, options) {
                     if (!options)
                         options = {};
                     var object = {};
@@ -20902,17 +20858,17 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Converts this RpcQueryPositionListByUnifiedSymbolRsp to JSON.
+                 * Converts this RpcQueryPositionListByUniformSymbolRsp to JSON.
                  * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUnifiedSymbolRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryPositionListByUniformSymbolRsp
                  * @instance
                  * @returns {Object.<string,*>} JSON object
                  */
-                RpcQueryPositionListByUnifiedSymbolRsp.prototype.toJSON = function toJSON() {
+                RpcQueryPositionListByUniformSymbolRsp.prototype.toJSON = function toJSON() {
                     return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                 };
 
-                return RpcQueryPositionListByUnifiedSymbolRsp;
+                return RpcQueryPositionListByUniformSymbolRsp;
             })();
 
             pb.RpcGetAccountListReq = (function() {
@@ -22657,25 +22613,25 @@ $root.xyz = (function() {
                 return RpcGetContractListRsp;
             })();
 
-            pb.RpcQueryContractByContractIdReq = (function() {
+            pb.RpcQueryContractByUniformSymbolReq = (function() {
 
                 /**
-                 * Properties of a RpcQueryContractByContractIdReq.
+                 * Properties of a RpcQueryContractByUniformSymbolReq.
                  * @memberof xyz.redtorch.pb
-                 * @interface IRpcQueryContractByContractIdReq
-                 * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryContractByContractIdReq commonReq
-                 * @property {string|null} [contractId] RpcQueryContractByContractIdReq contractId
+                 * @interface IRpcQueryContractByUniformSymbolReq
+                 * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryContractByUniformSymbolReq commonReq
+                 * @property {string|null} [uniformSymbol] RpcQueryContractByUniformSymbolReq uniformSymbol
                  */
 
                 /**
-                 * Constructs a new RpcQueryContractByContractIdReq.
+                 * Constructs a new RpcQueryContractByUniformSymbolReq.
                  * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcQueryContractByContractIdReq.
-                 * @implements IRpcQueryContractByContractIdReq
+                 * @classdesc Represents a RpcQueryContractByUniformSymbolReq.
+                 * @implements IRpcQueryContractByUniformSymbolReq
                  * @constructor
-                 * @param {xyz.redtorch.pb.IRpcQueryContractByContractIdReq=} [properties] Properties to set
+                 * @param {xyz.redtorch.pb.IRpcQueryContractByUniformSymbolReq=} [properties] Properties to set
                  */
-                function RpcQueryContractByContractIdReq(properties) {
+                function RpcQueryContractByUniformSymbolReq(properties) {
                     if (properties)
                         for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                             if (properties[keys[i]] != null)
@@ -22683,80 +22639,80 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * RpcQueryContractByContractIdReq commonReq.
+                 * RpcQueryContractByUniformSymbolReq commonReq.
                  * @member {xyz.redtorch.pb.ICommonReqField|null|undefined} commonReq
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdReq
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq
                  * @instance
                  */
-                RpcQueryContractByContractIdReq.prototype.commonReq = null;
+                RpcQueryContractByUniformSymbolReq.prototype.commonReq = null;
 
                 /**
-                 * RpcQueryContractByContractIdReq contractId.
-                 * @member {string} contractId
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdReq
+                 * RpcQueryContractByUniformSymbolReq uniformSymbol.
+                 * @member {string} uniformSymbol
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq
                  * @instance
                  */
-                RpcQueryContractByContractIdReq.prototype.contractId = "";
+                RpcQueryContractByUniformSymbolReq.prototype.uniformSymbol = "";
 
                 /**
-                 * Creates a new RpcQueryContractByContractIdReq instance using the specified properties.
+                 * Creates a new RpcQueryContractByUniformSymbolReq instance using the specified properties.
                  * @function create
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdReq
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractByContractIdReq=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcQueryContractByContractIdReq} RpcQueryContractByContractIdReq instance
+                 * @param {xyz.redtorch.pb.IRpcQueryContractByUniformSymbolReq=} [properties] Properties to set
+                 * @returns {xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq} RpcQueryContractByUniformSymbolReq instance
                  */
-                RpcQueryContractByContractIdReq.create = function create(properties) {
-                    return new RpcQueryContractByContractIdReq(properties);
+                RpcQueryContractByUniformSymbolReq.create = function create(properties) {
+                    return new RpcQueryContractByUniformSymbolReq(properties);
                 };
 
                 /**
-                 * Encodes the specified RpcQueryContractByContractIdReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByContractIdReq.verify|verify} messages.
+                 * Encodes the specified RpcQueryContractByUniformSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq.verify|verify} messages.
                  * @function encode
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdReq
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractByContractIdReq} message RpcQueryContractByContractIdReq message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryContractByUniformSymbolReq} message RpcQueryContractByUniformSymbolReq message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryContractByContractIdReq.encode = function encode(message, writer) {
+                RpcQueryContractByUniformSymbolReq.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
                         $root.xyz.redtorch.pb.CommonReqField.encode(message.commonReq, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    if (message.contractId != null && message.hasOwnProperty("contractId"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.contractId);
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.uniformSymbol);
                     return writer;
                 };
 
                 /**
-                 * Encodes the specified RpcQueryContractByContractIdReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByContractIdReq.verify|verify} messages.
+                 * Encodes the specified RpcQueryContractByUniformSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq.verify|verify} messages.
                  * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdReq
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractByContractIdReq} message RpcQueryContractByContractIdReq message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryContractByUniformSymbolReq} message RpcQueryContractByUniformSymbolReq message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryContractByContractIdReq.encodeDelimited = function encodeDelimited(message, writer) {
+                RpcQueryContractByUniformSymbolReq.encodeDelimited = function encodeDelimited(message, writer) {
                     return this.encode(message, writer).ldelim();
                 };
 
                 /**
-                 * Decodes a RpcQueryContractByContractIdReq message from the specified reader or buffer.
+                 * Decodes a RpcQueryContractByUniformSymbolReq message from the specified reader or buffer.
                  * @function decode
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdReq
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcQueryContractByContractIdReq} RpcQueryContractByContractIdReq
+                 * @returns {xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq} RpcQueryContractByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryContractByContractIdReq.decode = function decode(reader, length) {
+                RpcQueryContractByUniformSymbolReq.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryContractByContractIdReq();
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
@@ -22764,7 +22720,7 @@ $root.xyz = (function() {
                             message.commonReq = $root.xyz.redtorch.pb.CommonReqField.decode(reader, reader.uint32());
                             break;
                         case 2:
-                            message.contractId = reader.string();
+                            message.uniformSymbol = reader.string();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -22775,30 +22731,30 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Decodes a RpcQueryContractByContractIdReq message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryContractByUniformSymbolReq message from the specified reader or buffer, length delimited.
                  * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdReq
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcQueryContractByContractIdReq} RpcQueryContractByContractIdReq
+                 * @returns {xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq} RpcQueryContractByUniformSymbolReq
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryContractByContractIdReq.decodeDelimited = function decodeDelimited(reader) {
+                RpcQueryContractByUniformSymbolReq.decodeDelimited = function decodeDelimited(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
                     return this.decode(reader, reader.uint32());
                 };
 
                 /**
-                 * Verifies a RpcQueryContractByContractIdReq message.
+                 * Verifies a RpcQueryContractByUniformSymbolReq message.
                  * @function verify
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdReq
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq
                  * @static
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                RpcQueryContractByContractIdReq.verify = function verify(message) {
+                RpcQueryContractByUniformSymbolReq.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
                     if (message.commonReq != null && message.hasOwnProperty("commonReq")) {
@@ -22806,91 +22762,91 @@ $root.xyz = (function() {
                         if (error)
                             return "commonReq." + error;
                     }
-                    if (message.contractId != null && message.hasOwnProperty("contractId"))
-                        if (!$util.isString(message.contractId))
-                            return "contractId: string expected";
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        if (!$util.isString(message.uniformSymbol))
+                            return "uniformSymbol: string expected";
                     return null;
                 };
 
                 /**
-                 * Creates a RpcQueryContractByContractIdReq message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryContractByUniformSymbolReq message from a plain object. Also converts values to their respective internal types.
                  * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdReq
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq
                  * @static
                  * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcQueryContractByContractIdReq} RpcQueryContractByContractIdReq
+                 * @returns {xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq} RpcQueryContractByUniformSymbolReq
                  */
-                RpcQueryContractByContractIdReq.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryContractByContractIdReq)
+                RpcQueryContractByUniformSymbolReq.fromObject = function fromObject(object) {
+                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq)
                         return object;
-                    var message = new $root.xyz.redtorch.pb.RpcQueryContractByContractIdReq();
+                    var message = new $root.xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq();
                     if (object.commonReq != null) {
                         if (typeof object.commonReq !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryContractByContractIdReq.commonReq: object expected");
+                            throw TypeError(".xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq.commonReq: object expected");
                         message.commonReq = $root.xyz.redtorch.pb.CommonReqField.fromObject(object.commonReq);
                     }
-                    if (object.contractId != null)
-                        message.contractId = String(object.contractId);
+                    if (object.uniformSymbol != null)
+                        message.uniformSymbol = String(object.uniformSymbol);
                     return message;
                 };
 
                 /**
-                 * Creates a plain object from a RpcQueryContractByContractIdReq message. Also converts values to other types if specified.
+                 * Creates a plain object from a RpcQueryContractByUniformSymbolReq message. Also converts values to other types if specified.
                  * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdReq
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq
                  * @static
-                 * @param {xyz.redtorch.pb.RpcQueryContractByContractIdReq} message RpcQueryContractByContractIdReq
+                 * @param {xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq} message RpcQueryContractByUniformSymbolReq
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                RpcQueryContractByContractIdReq.toObject = function toObject(message, options) {
+                RpcQueryContractByUniformSymbolReq.toObject = function toObject(message, options) {
                     if (!options)
                         options = {};
                     var object = {};
                     if (options.defaults) {
                         object.commonReq = null;
-                        object.contractId = "";
+                        object.uniformSymbol = "";
                     }
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
                         object.commonReq = $root.xyz.redtorch.pb.CommonReqField.toObject(message.commonReq, options);
-                    if (message.contractId != null && message.hasOwnProperty("contractId"))
-                        object.contractId = message.contractId;
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        object.uniformSymbol = message.uniformSymbol;
                     return object;
                 };
 
                 /**
-                 * Converts this RpcQueryContractByContractIdReq to JSON.
+                 * Converts this RpcQueryContractByUniformSymbolReq to JSON.
                  * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdReq
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolReq
                  * @instance
                  * @returns {Object.<string,*>} JSON object
                  */
-                RpcQueryContractByContractIdReq.prototype.toJSON = function toJSON() {
+                RpcQueryContractByUniformSymbolReq.prototype.toJSON = function toJSON() {
                     return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                 };
 
-                return RpcQueryContractByContractIdReq;
+                return RpcQueryContractByUniformSymbolReq;
             })();
 
-            pb.RpcQueryContractByContractIdRsp = (function() {
+            pb.RpcQueryContractByUniformSymbolRsp = (function() {
 
                 /**
-                 * Properties of a RpcQueryContractByContractIdRsp.
+                 * Properties of a RpcQueryContractByUniformSymbolRsp.
                  * @memberof xyz.redtorch.pb
-                 * @interface IRpcQueryContractByContractIdRsp
-                 * @property {xyz.redtorch.pb.ICommonRspField|null} [commonRsp] RpcQueryContractByContractIdRsp commonRsp
-                 * @property {xyz.redtorch.pb.IContractField|null} [contract] RpcQueryContractByContractIdRsp contract
+                 * @interface IRpcQueryContractByUniformSymbolRsp
+                 * @property {xyz.redtorch.pb.ICommonRspField|null} [commonRsp] RpcQueryContractByUniformSymbolRsp commonRsp
+                 * @property {xyz.redtorch.pb.IContractField|null} [contract] RpcQueryContractByUniformSymbolRsp contract
                  */
 
                 /**
-                 * Constructs a new RpcQueryContractByContractIdRsp.
+                 * Constructs a new RpcQueryContractByUniformSymbolRsp.
                  * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcQueryContractByContractIdRsp.
-                 * @implements IRpcQueryContractByContractIdRsp
+                 * @classdesc Represents a RpcQueryContractByUniformSymbolRsp.
+                 * @implements IRpcQueryContractByUniformSymbolRsp
                  * @constructor
-                 * @param {xyz.redtorch.pb.IRpcQueryContractByContractIdRsp=} [properties] Properties to set
+                 * @param {xyz.redtorch.pb.IRpcQueryContractByUniformSymbolRsp=} [properties] Properties to set
                  */
-                function RpcQueryContractByContractIdRsp(properties) {
+                function RpcQueryContractByUniformSymbolRsp(properties) {
                     if (properties)
                         for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                             if (properties[keys[i]] != null)
@@ -22898,43 +22854,43 @@ $root.xyz = (function() {
                 }
 
                 /**
-                 * RpcQueryContractByContractIdRsp commonRsp.
+                 * RpcQueryContractByUniformSymbolRsp commonRsp.
                  * @member {xyz.redtorch.pb.ICommonRspField|null|undefined} commonRsp
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp
                  * @instance
                  */
-                RpcQueryContractByContractIdRsp.prototype.commonRsp = null;
+                RpcQueryContractByUniformSymbolRsp.prototype.commonRsp = null;
 
                 /**
-                 * RpcQueryContractByContractIdRsp contract.
+                 * RpcQueryContractByUniformSymbolRsp contract.
                  * @member {xyz.redtorch.pb.IContractField|null|undefined} contract
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp
                  * @instance
                  */
-                RpcQueryContractByContractIdRsp.prototype.contract = null;
+                RpcQueryContractByUniformSymbolRsp.prototype.contract = null;
 
                 /**
-                 * Creates a new RpcQueryContractByContractIdRsp instance using the specified properties.
+                 * Creates a new RpcQueryContractByUniformSymbolRsp instance using the specified properties.
                  * @function create
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractByContractIdRsp=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcQueryContractByContractIdRsp} RpcQueryContractByContractIdRsp instance
+                 * @param {xyz.redtorch.pb.IRpcQueryContractByUniformSymbolRsp=} [properties] Properties to set
+                 * @returns {xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp} RpcQueryContractByUniformSymbolRsp instance
                  */
-                RpcQueryContractByContractIdRsp.create = function create(properties) {
-                    return new RpcQueryContractByContractIdRsp(properties);
+                RpcQueryContractByUniformSymbolRsp.create = function create(properties) {
+                    return new RpcQueryContractByUniformSymbolRsp(properties);
                 };
 
                 /**
-                 * Encodes the specified RpcQueryContractByContractIdRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByContractIdRsp.verify|verify} messages.
+                 * Encodes the specified RpcQueryContractByUniformSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp.verify|verify} messages.
                  * @function encode
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractByContractIdRsp} message RpcQueryContractByContractIdRsp message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryContractByUniformSymbolRsp} message RpcQueryContractByUniformSymbolRsp message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryContractByContractIdRsp.encode = function encode(message, writer) {
+                RpcQueryContractByUniformSymbolRsp.encode = function encode(message, writer) {
                     if (!writer)
                         writer = $Writer.create();
                     if (message.commonRsp != null && message.hasOwnProperty("commonRsp"))
@@ -22945,33 +22901,33 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Encodes the specified RpcQueryContractByContractIdRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByContractIdRsp.verify|verify} messages.
+                 * Encodes the specified RpcQueryContractByUniformSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp.verify|verify} messages.
                  * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractByContractIdRsp} message RpcQueryContractByContractIdRsp message or plain object to encode
+                 * @param {xyz.redtorch.pb.IRpcQueryContractByUniformSymbolRsp} message RpcQueryContractByUniformSymbolRsp message or plain object to encode
                  * @param {$protobuf.Writer} [writer] Writer to encode to
                  * @returns {$protobuf.Writer} Writer
                  */
-                RpcQueryContractByContractIdRsp.encodeDelimited = function encodeDelimited(message, writer) {
+                RpcQueryContractByUniformSymbolRsp.encodeDelimited = function encodeDelimited(message, writer) {
                     return this.encode(message, writer).ldelim();
                 };
 
                 /**
-                 * Decodes a RpcQueryContractByContractIdRsp message from the specified reader or buffer.
+                 * Decodes a RpcQueryContractByUniformSymbolRsp message from the specified reader or buffer.
                  * @function decode
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                  * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcQueryContractByContractIdRsp} RpcQueryContractByContractIdRsp
+                 * @returns {xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp} RpcQueryContractByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryContractByContractIdRsp.decode = function decode(reader, length) {
+                RpcQueryContractByUniformSymbolRsp.decode = function decode(reader, length) {
                     if (!(reader instanceof $Reader))
                         reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryContractByContractIdRsp();
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp();
                     while (reader.pos < end) {
                         var tag = reader.uint32();
                         switch (tag >>> 3) {
@@ -22990,30 +22946,30 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Decodes a RpcQueryContractByContractIdRsp message from the specified reader or buffer, length delimited.
+                 * Decodes a RpcQueryContractByUniformSymbolRsp message from the specified reader or buffer, length delimited.
                  * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp
                  * @static
                  * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcQueryContractByContractIdRsp} RpcQueryContractByContractIdRsp
+                 * @returns {xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp} RpcQueryContractByUniformSymbolRsp
                  * @throws {Error} If the payload is not a reader or valid buffer
                  * @throws {$protobuf.util.ProtocolError} If required fields are missing
                  */
-                RpcQueryContractByContractIdRsp.decodeDelimited = function decodeDelimited(reader) {
+                RpcQueryContractByUniformSymbolRsp.decodeDelimited = function decodeDelimited(reader) {
                     if (!(reader instanceof $Reader))
                         reader = new $Reader(reader);
                     return this.decode(reader, reader.uint32());
                 };
 
                 /**
-                 * Verifies a RpcQueryContractByContractIdRsp message.
+                 * Verifies a RpcQueryContractByUniformSymbolRsp message.
                  * @function verify
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp
                  * @static
                  * @param {Object.<string,*>} message Plain object to verify
                  * @returns {string|null} `null` if valid, otherwise the reason why it is not
                  */
-                RpcQueryContractByContractIdRsp.verify = function verify(message) {
+                RpcQueryContractByUniformSymbolRsp.verify = function verify(message) {
                     if (typeof message !== "object" || message === null)
                         return "object expected";
                     if (message.commonRsp != null && message.hasOwnProperty("commonRsp")) {
@@ -23030,40 +22986,40 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Creates a RpcQueryContractByContractIdRsp message from a plain object. Also converts values to their respective internal types.
+                 * Creates a RpcQueryContractByUniformSymbolRsp message from a plain object. Also converts values to their respective internal types.
                  * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp
                  * @static
                  * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcQueryContractByContractIdRsp} RpcQueryContractByContractIdRsp
+                 * @returns {xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp} RpcQueryContractByUniformSymbolRsp
                  */
-                RpcQueryContractByContractIdRsp.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryContractByContractIdRsp)
+                RpcQueryContractByUniformSymbolRsp.fromObject = function fromObject(object) {
+                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp)
                         return object;
-                    var message = new $root.xyz.redtorch.pb.RpcQueryContractByContractIdRsp();
+                    var message = new $root.xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp();
                     if (object.commonRsp != null) {
                         if (typeof object.commonRsp !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryContractByContractIdRsp.commonRsp: object expected");
+                            throw TypeError(".xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp.commonRsp: object expected");
                         message.commonRsp = $root.xyz.redtorch.pb.CommonRspField.fromObject(object.commonRsp);
                     }
                     if (object.contract != null) {
                         if (typeof object.contract !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryContractByContractIdRsp.contract: object expected");
+                            throw TypeError(".xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp.contract: object expected");
                         message.contract = $root.xyz.redtorch.pb.ContractField.fromObject(object.contract);
                     }
                     return message;
                 };
 
                 /**
-                 * Creates a plain object from a RpcQueryContractByContractIdRsp message. Also converts values to other types if specified.
+                 * Creates a plain object from a RpcQueryContractByUniformSymbolRsp message. Also converts values to other types if specified.
                  * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp
                  * @static
-                 * @param {xyz.redtorch.pb.RpcQueryContractByContractIdRsp} message RpcQueryContractByContractIdRsp
+                 * @param {xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp} message RpcQueryContractByUniformSymbolRsp
                  * @param {$protobuf.IConversionOptions} [options] Conversion options
                  * @returns {Object.<string,*>} Plain object
                  */
-                RpcQueryContractByContractIdRsp.toObject = function toObject(message, options) {
+                RpcQueryContractByUniformSymbolRsp.toObject = function toObject(message, options) {
                     if (!options)
                         options = {};
                     var object = {};
@@ -23079,919 +23035,17 @@ $root.xyz = (function() {
                 };
 
                 /**
-                 * Converts this RpcQueryContractByContractIdRsp to JSON.
+                 * Converts this RpcQueryContractByUniformSymbolRsp to JSON.
                  * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcQueryContractByContractIdRsp
+                 * @memberof xyz.redtorch.pb.RpcQueryContractByUniformSymbolRsp
                  * @instance
                  * @returns {Object.<string,*>} JSON object
                  */
-                RpcQueryContractByContractIdRsp.prototype.toJSON = function toJSON() {
+                RpcQueryContractByUniformSymbolRsp.prototype.toJSON = function toJSON() {
                     return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                 };
 
-                return RpcQueryContractByContractIdRsp;
-            })();
-
-            pb.RpcQueryContractListByUnifiedSymbolReq = (function() {
-
-                /**
-                 * Properties of a RpcQueryContractListByUnifiedSymbolReq.
-                 * @memberof xyz.redtorch.pb
-                 * @interface IRpcQueryContractListByUnifiedSymbolReq
-                 * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryContractListByUnifiedSymbolReq commonReq
-                 * @property {string|null} [unifiedSymbol] RpcQueryContractListByUnifiedSymbolReq unifiedSymbol
-                 */
-
-                /**
-                 * Constructs a new RpcQueryContractListByUnifiedSymbolReq.
-                 * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcQueryContractListByUnifiedSymbolReq.
-                 * @implements IRpcQueryContractListByUnifiedSymbolReq
-                 * @constructor
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolReq=} [properties] Properties to set
-                 */
-                function RpcQueryContractListByUnifiedSymbolReq(properties) {
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-
-                /**
-                 * RpcQueryContractListByUnifiedSymbolReq commonReq.
-                 * @member {xyz.redtorch.pb.ICommonReqField|null|undefined} commonReq
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq
-                 * @instance
-                 */
-                RpcQueryContractListByUnifiedSymbolReq.prototype.commonReq = null;
-
-                /**
-                 * RpcQueryContractListByUnifiedSymbolReq unifiedSymbol.
-                 * @member {string} unifiedSymbol
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq
-                 * @instance
-                 */
-                RpcQueryContractListByUnifiedSymbolReq.prototype.unifiedSymbol = "";
-
-                /**
-                 * Creates a new RpcQueryContractListByUnifiedSymbolReq instance using the specified properties.
-                 * @function create
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolReq=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq} RpcQueryContractListByUnifiedSymbolReq instance
-                 */
-                RpcQueryContractListByUnifiedSymbolReq.create = function create(properties) {
-                    return new RpcQueryContractListByUnifiedSymbolReq(properties);
-                };
-
-                /**
-                 * Encodes the specified RpcQueryContractListByUnifiedSymbolReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq.verify|verify} messages.
-                 * @function encode
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolReq} message RpcQueryContractListByUnifiedSymbolReq message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                RpcQueryContractListByUnifiedSymbolReq.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.commonReq != null && message.hasOwnProperty("commonReq"))
-                        $root.xyz.redtorch.pb.CommonReqField.encode(message.commonReq, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.unifiedSymbol);
-                    return writer;
-                };
-
-                /**
-                 * Encodes the specified RpcQueryContractListByUnifiedSymbolReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolReq} message RpcQueryContractListByUnifiedSymbolReq message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                RpcQueryContractListByUnifiedSymbolReq.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-
-                /**
-                 * Decodes a RpcQueryContractListByUnifiedSymbolReq message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq} RpcQueryContractListByUnifiedSymbolReq
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                RpcQueryContractListByUnifiedSymbolReq.decode = function decode(reader, length) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        switch (tag >>> 3) {
-                        case 1:
-                            message.commonReq = $root.xyz.redtorch.pb.CommonReqField.decode(reader, reader.uint32());
-                            break;
-                        case 2:
-                            message.unifiedSymbol = reader.string();
-                            break;
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-
-                /**
-                 * Decodes a RpcQueryContractListByUnifiedSymbolReq message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq} RpcQueryContractListByUnifiedSymbolReq
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                RpcQueryContractListByUnifiedSymbolReq.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-
-                /**
-                 * Verifies a RpcQueryContractListByUnifiedSymbolReq message.
-                 * @function verify
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                RpcQueryContractListByUnifiedSymbolReq.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (message.commonReq != null && message.hasOwnProperty("commonReq")) {
-                        var error = $root.xyz.redtorch.pb.CommonReqField.verify(message.commonReq);
-                        if (error)
-                            return "commonReq." + error;
-                    }
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        if (!$util.isString(message.unifiedSymbol))
-                            return "unifiedSymbol: string expected";
-                    return null;
-                };
-
-                /**
-                 * Creates a RpcQueryContractListByUnifiedSymbolReq message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq} RpcQueryContractListByUnifiedSymbolReq
-                 */
-                RpcQueryContractListByUnifiedSymbolReq.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq)
-                        return object;
-                    var message = new $root.xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq();
-                    if (object.commonReq != null) {
-                        if (typeof object.commonReq !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq.commonReq: object expected");
-                        message.commonReq = $root.xyz.redtorch.pb.CommonReqField.fromObject(object.commonReq);
-                    }
-                    if (object.unifiedSymbol != null)
-                        message.unifiedSymbol = String(object.unifiedSymbol);
-                    return message;
-                };
-
-                /**
-                 * Creates a plain object from a RpcQueryContractListByUnifiedSymbolReq message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq
-                 * @static
-                 * @param {xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq} message RpcQueryContractListByUnifiedSymbolReq
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                RpcQueryContractListByUnifiedSymbolReq.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (options.defaults) {
-                        object.commonReq = null;
-                        object.unifiedSymbol = "";
-                    }
-                    if (message.commonReq != null && message.hasOwnProperty("commonReq"))
-                        object.commonReq = $root.xyz.redtorch.pb.CommonReqField.toObject(message.commonReq, options);
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        object.unifiedSymbol = message.unifiedSymbol;
-                    return object;
-                };
-
-                /**
-                 * Converts this RpcQueryContractListByUnifiedSymbolReq to JSON.
-                 * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolReq
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                RpcQueryContractListByUnifiedSymbolReq.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-
-                return RpcQueryContractListByUnifiedSymbolReq;
-            })();
-
-            pb.RpcQueryContractListByUnifiedSymbolRsp = (function() {
-
-                /**
-                 * Properties of a RpcQueryContractListByUnifiedSymbolRsp.
-                 * @memberof xyz.redtorch.pb
-                 * @interface IRpcQueryContractListByUnifiedSymbolRsp
-                 * @property {xyz.redtorch.pb.ICommonRspField|null} [commonRsp] RpcQueryContractListByUnifiedSymbolRsp commonRsp
-                 * @property {Array.<xyz.redtorch.pb.IContractField>|null} [contract] RpcQueryContractListByUnifiedSymbolRsp contract
-                 */
-
-                /**
-                 * Constructs a new RpcQueryContractListByUnifiedSymbolRsp.
-                 * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcQueryContractListByUnifiedSymbolRsp.
-                 * @implements IRpcQueryContractListByUnifiedSymbolRsp
-                 * @constructor
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolRsp=} [properties] Properties to set
-                 */
-                function RpcQueryContractListByUnifiedSymbolRsp(properties) {
-                    this.contract = [];
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-
-                /**
-                 * RpcQueryContractListByUnifiedSymbolRsp commonRsp.
-                 * @member {xyz.redtorch.pb.ICommonRspField|null|undefined} commonRsp
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp
-                 * @instance
-                 */
-                RpcQueryContractListByUnifiedSymbolRsp.prototype.commonRsp = null;
-
-                /**
-                 * RpcQueryContractListByUnifiedSymbolRsp contract.
-                 * @member {Array.<xyz.redtorch.pb.IContractField>} contract
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp
-                 * @instance
-                 */
-                RpcQueryContractListByUnifiedSymbolRsp.prototype.contract = $util.emptyArray;
-
-                /**
-                 * Creates a new RpcQueryContractListByUnifiedSymbolRsp instance using the specified properties.
-                 * @function create
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolRsp=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp} RpcQueryContractListByUnifiedSymbolRsp instance
-                 */
-                RpcQueryContractListByUnifiedSymbolRsp.create = function create(properties) {
-                    return new RpcQueryContractListByUnifiedSymbolRsp(properties);
-                };
-
-                /**
-                 * Encodes the specified RpcQueryContractListByUnifiedSymbolRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp.verify|verify} messages.
-                 * @function encode
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolRsp} message RpcQueryContractListByUnifiedSymbolRsp message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                RpcQueryContractListByUnifiedSymbolRsp.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.commonRsp != null && message.hasOwnProperty("commonRsp"))
-                        $root.xyz.redtorch.pb.CommonRspField.encode(message.commonRsp, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    if (message.contract != null && message.contract.length)
-                        for (var i = 0; i < message.contract.length; ++i)
-                            $root.xyz.redtorch.pb.ContractField.encode(message.contract[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                    return writer;
-                };
-
-                /**
-                 * Encodes the specified RpcQueryContractListByUnifiedSymbolRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByUnifiedSymbolRsp} message RpcQueryContractListByUnifiedSymbolRsp message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                RpcQueryContractListByUnifiedSymbolRsp.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-
-                /**
-                 * Decodes a RpcQueryContractListByUnifiedSymbolRsp message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp} RpcQueryContractListByUnifiedSymbolRsp
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                RpcQueryContractListByUnifiedSymbolRsp.decode = function decode(reader, length) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        switch (tag >>> 3) {
-                        case 1:
-                            message.commonRsp = $root.xyz.redtorch.pb.CommonRspField.decode(reader, reader.uint32());
-                            break;
-                        case 2:
-                            if (!(message.contract && message.contract.length))
-                                message.contract = [];
-                            message.contract.push($root.xyz.redtorch.pb.ContractField.decode(reader, reader.uint32()));
-                            break;
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-
-                /**
-                 * Decodes a RpcQueryContractListByUnifiedSymbolRsp message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp} RpcQueryContractListByUnifiedSymbolRsp
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                RpcQueryContractListByUnifiedSymbolRsp.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-
-                /**
-                 * Verifies a RpcQueryContractListByUnifiedSymbolRsp message.
-                 * @function verify
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                RpcQueryContractListByUnifiedSymbolRsp.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (message.commonRsp != null && message.hasOwnProperty("commonRsp")) {
-                        var error = $root.xyz.redtorch.pb.CommonRspField.verify(message.commonRsp);
-                        if (error)
-                            return "commonRsp." + error;
-                    }
-                    if (message.contract != null && message.hasOwnProperty("contract")) {
-                        if (!Array.isArray(message.contract))
-                            return "contract: array expected";
-                        for (var i = 0; i < message.contract.length; ++i) {
-                            var error = $root.xyz.redtorch.pb.ContractField.verify(message.contract[i]);
-                            if (error)
-                                return "contract." + error;
-                        }
-                    }
-                    return null;
-                };
-
-                /**
-                 * Creates a RpcQueryContractListByUnifiedSymbolRsp message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp} RpcQueryContractListByUnifiedSymbolRsp
-                 */
-                RpcQueryContractListByUnifiedSymbolRsp.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp)
-                        return object;
-                    var message = new $root.xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp();
-                    if (object.commonRsp != null) {
-                        if (typeof object.commonRsp !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp.commonRsp: object expected");
-                        message.commonRsp = $root.xyz.redtorch.pb.CommonRspField.fromObject(object.commonRsp);
-                    }
-                    if (object.contract) {
-                        if (!Array.isArray(object.contract))
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp.contract: array expected");
-                        message.contract = [];
-                        for (var i = 0; i < object.contract.length; ++i) {
-                            if (typeof object.contract[i] !== "object")
-                                throw TypeError(".xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp.contract: object expected");
-                            message.contract[i] = $root.xyz.redtorch.pb.ContractField.fromObject(object.contract[i]);
-                        }
-                    }
-                    return message;
-                };
-
-                /**
-                 * Creates a plain object from a RpcQueryContractListByUnifiedSymbolRsp message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp
-                 * @static
-                 * @param {xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp} message RpcQueryContractListByUnifiedSymbolRsp
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                RpcQueryContractListByUnifiedSymbolRsp.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (options.arrays || options.defaults)
-                        object.contract = [];
-                    if (options.defaults)
-                        object.commonRsp = null;
-                    if (message.commonRsp != null && message.hasOwnProperty("commonRsp"))
-                        object.commonRsp = $root.xyz.redtorch.pb.CommonRspField.toObject(message.commonRsp, options);
-                    if (message.contract && message.contract.length) {
-                        object.contract = [];
-                        for (var j = 0; j < message.contract.length; ++j)
-                            object.contract[j] = $root.xyz.redtorch.pb.ContractField.toObject(message.contract[j], options);
-                    }
-                    return object;
-                };
-
-                /**
-                 * Converts this RpcQueryContractListByUnifiedSymbolRsp to JSON.
-                 * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByUnifiedSymbolRsp
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                RpcQueryContractListByUnifiedSymbolRsp.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-
-                return RpcQueryContractListByUnifiedSymbolRsp;
-            })();
-
-            pb.RpcQueryContractListByGatewayIdReq = (function() {
-
-                /**
-                 * Properties of a RpcQueryContractListByGatewayIdReq.
-                 * @memberof xyz.redtorch.pb
-                 * @interface IRpcQueryContractListByGatewayIdReq
-                 * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryContractListByGatewayIdReq commonReq
-                 * @property {string|null} [gatewayId] RpcQueryContractListByGatewayIdReq gatewayId
-                 */
-
-                /**
-                 * Constructs a new RpcQueryContractListByGatewayIdReq.
-                 * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcQueryContractListByGatewayIdReq.
-                 * @implements IRpcQueryContractListByGatewayIdReq
-                 * @constructor
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByGatewayIdReq=} [properties] Properties to set
-                 */
-                function RpcQueryContractListByGatewayIdReq(properties) {
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-
-                /**
-                 * RpcQueryContractListByGatewayIdReq commonReq.
-                 * @member {xyz.redtorch.pb.ICommonReqField|null|undefined} commonReq
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq
-                 * @instance
-                 */
-                RpcQueryContractListByGatewayIdReq.prototype.commonReq = null;
-
-                /**
-                 * RpcQueryContractListByGatewayIdReq gatewayId.
-                 * @member {string} gatewayId
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq
-                 * @instance
-                 */
-                RpcQueryContractListByGatewayIdReq.prototype.gatewayId = "";
-
-                /**
-                 * Creates a new RpcQueryContractListByGatewayIdReq instance using the specified properties.
-                 * @function create
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByGatewayIdReq=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq} RpcQueryContractListByGatewayIdReq instance
-                 */
-                RpcQueryContractListByGatewayIdReq.create = function create(properties) {
-                    return new RpcQueryContractListByGatewayIdReq(properties);
-                };
-
-                /**
-                 * Encodes the specified RpcQueryContractListByGatewayIdReq message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq.verify|verify} messages.
-                 * @function encode
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByGatewayIdReq} message RpcQueryContractListByGatewayIdReq message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                RpcQueryContractListByGatewayIdReq.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.commonReq != null && message.hasOwnProperty("commonReq"))
-                        $root.xyz.redtorch.pb.CommonReqField.encode(message.commonReq, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.gatewayId);
-                    return writer;
-                };
-
-                /**
-                 * Encodes the specified RpcQueryContractListByGatewayIdReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByGatewayIdReq} message RpcQueryContractListByGatewayIdReq message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                RpcQueryContractListByGatewayIdReq.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-
-                /**
-                 * Decodes a RpcQueryContractListByGatewayIdReq message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq} RpcQueryContractListByGatewayIdReq
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                RpcQueryContractListByGatewayIdReq.decode = function decode(reader, length) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        switch (tag >>> 3) {
-                        case 1:
-                            message.commonReq = $root.xyz.redtorch.pb.CommonReqField.decode(reader, reader.uint32());
-                            break;
-                        case 2:
-                            message.gatewayId = reader.string();
-                            break;
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-
-                /**
-                 * Decodes a RpcQueryContractListByGatewayIdReq message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq} RpcQueryContractListByGatewayIdReq
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                RpcQueryContractListByGatewayIdReq.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-
-                /**
-                 * Verifies a RpcQueryContractListByGatewayIdReq message.
-                 * @function verify
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                RpcQueryContractListByGatewayIdReq.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (message.commonReq != null && message.hasOwnProperty("commonReq")) {
-                        var error = $root.xyz.redtorch.pb.CommonReqField.verify(message.commonReq);
-                        if (error)
-                            return "commonReq." + error;
-                    }
-                    if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
-                        if (!$util.isString(message.gatewayId))
-                            return "gatewayId: string expected";
-                    return null;
-                };
-
-                /**
-                 * Creates a RpcQueryContractListByGatewayIdReq message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq} RpcQueryContractListByGatewayIdReq
-                 */
-                RpcQueryContractListByGatewayIdReq.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq)
-                        return object;
-                    var message = new $root.xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq();
-                    if (object.commonReq != null) {
-                        if (typeof object.commonReq !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq.commonReq: object expected");
-                        message.commonReq = $root.xyz.redtorch.pb.CommonReqField.fromObject(object.commonReq);
-                    }
-                    if (object.gatewayId != null)
-                        message.gatewayId = String(object.gatewayId);
-                    return message;
-                };
-
-                /**
-                 * Creates a plain object from a RpcQueryContractListByGatewayIdReq message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq
-                 * @static
-                 * @param {xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq} message RpcQueryContractListByGatewayIdReq
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                RpcQueryContractListByGatewayIdReq.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (options.defaults) {
-                        object.commonReq = null;
-                        object.gatewayId = "";
-                    }
-                    if (message.commonReq != null && message.hasOwnProperty("commonReq"))
-                        object.commonReq = $root.xyz.redtorch.pb.CommonReqField.toObject(message.commonReq, options);
-                    if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
-                        object.gatewayId = message.gatewayId;
-                    return object;
-                };
-
-                /**
-                 * Converts this RpcQueryContractListByGatewayIdReq to JSON.
-                 * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdReq
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                RpcQueryContractListByGatewayIdReq.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-
-                return RpcQueryContractListByGatewayIdReq;
-            })();
-
-            pb.RpcQueryContractListByGatewayIdRsp = (function() {
-
-                /**
-                 * Properties of a RpcQueryContractListByGatewayIdRsp.
-                 * @memberof xyz.redtorch.pb
-                 * @interface IRpcQueryContractListByGatewayIdRsp
-                 * @property {xyz.redtorch.pb.ICommonRspField|null} [commonRsp] RpcQueryContractListByGatewayIdRsp commonRsp
-                 * @property {Array.<xyz.redtorch.pb.IContractField>|null} [contract] RpcQueryContractListByGatewayIdRsp contract
-                 */
-
-                /**
-                 * Constructs a new RpcQueryContractListByGatewayIdRsp.
-                 * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcQueryContractListByGatewayIdRsp.
-                 * @implements IRpcQueryContractListByGatewayIdRsp
-                 * @constructor
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByGatewayIdRsp=} [properties] Properties to set
-                 */
-                function RpcQueryContractListByGatewayIdRsp(properties) {
-                    this.contract = [];
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-
-                /**
-                 * RpcQueryContractListByGatewayIdRsp commonRsp.
-                 * @member {xyz.redtorch.pb.ICommonRspField|null|undefined} commonRsp
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp
-                 * @instance
-                 */
-                RpcQueryContractListByGatewayIdRsp.prototype.commonRsp = null;
-
-                /**
-                 * RpcQueryContractListByGatewayIdRsp contract.
-                 * @member {Array.<xyz.redtorch.pb.IContractField>} contract
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp
-                 * @instance
-                 */
-                RpcQueryContractListByGatewayIdRsp.prototype.contract = $util.emptyArray;
-
-                /**
-                 * Creates a new RpcQueryContractListByGatewayIdRsp instance using the specified properties.
-                 * @function create
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByGatewayIdRsp=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp} RpcQueryContractListByGatewayIdRsp instance
-                 */
-                RpcQueryContractListByGatewayIdRsp.create = function create(properties) {
-                    return new RpcQueryContractListByGatewayIdRsp(properties);
-                };
-
-                /**
-                 * Encodes the specified RpcQueryContractListByGatewayIdRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp.verify|verify} messages.
-                 * @function encode
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByGatewayIdRsp} message RpcQueryContractListByGatewayIdRsp message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                RpcQueryContractListByGatewayIdRsp.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.commonRsp != null && message.hasOwnProperty("commonRsp"))
-                        $root.xyz.redtorch.pb.CommonRspField.encode(message.commonRsp, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    if (message.contract != null && message.contract.length)
-                        for (var i = 0; i < message.contract.length; ++i)
-                            $root.xyz.redtorch.pb.ContractField.encode(message.contract[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                    return writer;
-                };
-
-                /**
-                 * Encodes the specified RpcQueryContractListByGatewayIdRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcQueryContractListByGatewayIdRsp} message RpcQueryContractListByGatewayIdRsp message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                RpcQueryContractListByGatewayIdRsp.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-
-                /**
-                 * Decodes a RpcQueryContractListByGatewayIdRsp message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp} RpcQueryContractListByGatewayIdRsp
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                RpcQueryContractListByGatewayIdRsp.decode = function decode(reader, length) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        switch (tag >>> 3) {
-                        case 1:
-                            message.commonRsp = $root.xyz.redtorch.pb.CommonRspField.decode(reader, reader.uint32());
-                            break;
-                        case 2:
-                            if (!(message.contract && message.contract.length))
-                                message.contract = [];
-                            message.contract.push($root.xyz.redtorch.pb.ContractField.decode(reader, reader.uint32()));
-                            break;
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-
-                /**
-                 * Decodes a RpcQueryContractListByGatewayIdRsp message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp} RpcQueryContractListByGatewayIdRsp
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                RpcQueryContractListByGatewayIdRsp.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-
-                /**
-                 * Verifies a RpcQueryContractListByGatewayIdRsp message.
-                 * @function verify
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                RpcQueryContractListByGatewayIdRsp.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (message.commonRsp != null && message.hasOwnProperty("commonRsp")) {
-                        var error = $root.xyz.redtorch.pb.CommonRspField.verify(message.commonRsp);
-                        if (error)
-                            return "commonRsp." + error;
-                    }
-                    if (message.contract != null && message.hasOwnProperty("contract")) {
-                        if (!Array.isArray(message.contract))
-                            return "contract: array expected";
-                        for (var i = 0; i < message.contract.length; ++i) {
-                            var error = $root.xyz.redtorch.pb.ContractField.verify(message.contract[i]);
-                            if (error)
-                                return "contract." + error;
-                        }
-                    }
-                    return null;
-                };
-
-                /**
-                 * Creates a RpcQueryContractListByGatewayIdRsp message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp} RpcQueryContractListByGatewayIdRsp
-                 */
-                RpcQueryContractListByGatewayIdRsp.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp)
-                        return object;
-                    var message = new $root.xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp();
-                    if (object.commonRsp != null) {
-                        if (typeof object.commonRsp !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp.commonRsp: object expected");
-                        message.commonRsp = $root.xyz.redtorch.pb.CommonRspField.fromObject(object.commonRsp);
-                    }
-                    if (object.contract) {
-                        if (!Array.isArray(object.contract))
-                            throw TypeError(".xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp.contract: array expected");
-                        message.contract = [];
-                        for (var i = 0; i < object.contract.length; ++i) {
-                            if (typeof object.contract[i] !== "object")
-                                throw TypeError(".xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp.contract: object expected");
-                            message.contract[i] = $root.xyz.redtorch.pb.ContractField.fromObject(object.contract[i]);
-                        }
-                    }
-                    return message;
-                };
-
-                /**
-                 * Creates a plain object from a RpcQueryContractListByGatewayIdRsp message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp
-                 * @static
-                 * @param {xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp} message RpcQueryContractListByGatewayIdRsp
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                RpcQueryContractListByGatewayIdRsp.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (options.arrays || options.defaults)
-                        object.contract = [];
-                    if (options.defaults)
-                        object.commonRsp = null;
-                    if (message.commonRsp != null && message.hasOwnProperty("commonRsp"))
-                        object.commonRsp = $root.xyz.redtorch.pb.CommonRspField.toObject(message.commonRsp, options);
-                    if (message.contract && message.contract.length) {
-                        object.contract = [];
-                        for (var j = 0; j < message.contract.length; ++j)
-                            object.contract[j] = $root.xyz.redtorch.pb.ContractField.toObject(message.contract[j], options);
-                    }
-                    return object;
-                };
-
-                /**
-                 * Converts this RpcQueryContractListByGatewayIdRsp to JSON.
-                 * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcQueryContractListByGatewayIdRsp
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                RpcQueryContractListByGatewayIdRsp.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-
-                return RpcQueryContractListByGatewayIdRsp;
+                return RpcQueryContractByUniformSymbolRsp;
             })();
 
             pb.RpcSyncSlaveNodeRuntimeDataReq = (function() {
@@ -24510,434 +23564,6 @@ $root.xyz = (function() {
                 return RpcSyncSlaveNodeRuntimeDataRsp;
             })();
 
-            pb.RpcGetMixContractListReq = (function() {
-
-                /**
-                 * Properties of a RpcGetMixContractListReq.
-                 * @memberof xyz.redtorch.pb
-                 * @interface IRpcGetMixContractListReq
-                 * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcGetMixContractListReq commonReq
-                 */
-
-                /**
-                 * Constructs a new RpcGetMixContractListReq.
-                 * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcGetMixContractListReq.
-                 * @implements IRpcGetMixContractListReq
-                 * @constructor
-                 * @param {xyz.redtorch.pb.IRpcGetMixContractListReq=} [properties] Properties to set
-                 */
-                function RpcGetMixContractListReq(properties) {
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-
-                /**
-                 * RpcGetMixContractListReq commonReq.
-                 * @member {xyz.redtorch.pb.ICommonReqField|null|undefined} commonReq
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListReq
-                 * @instance
-                 */
-                RpcGetMixContractListReq.prototype.commonReq = null;
-
-                /**
-                 * Creates a new RpcGetMixContractListReq instance using the specified properties.
-                 * @function create
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListReq
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcGetMixContractListReq=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcGetMixContractListReq} RpcGetMixContractListReq instance
-                 */
-                RpcGetMixContractListReq.create = function create(properties) {
-                    return new RpcGetMixContractListReq(properties);
-                };
-
-                /**
-                 * Encodes the specified RpcGetMixContractListReq message. Does not implicitly {@link xyz.redtorch.pb.RpcGetMixContractListReq.verify|verify} messages.
-                 * @function encode
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListReq
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcGetMixContractListReq} message RpcGetMixContractListReq message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                RpcGetMixContractListReq.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.commonReq != null && message.hasOwnProperty("commonReq"))
-                        $root.xyz.redtorch.pb.CommonReqField.encode(message.commonReq, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    return writer;
-                };
-
-                /**
-                 * Encodes the specified RpcGetMixContractListReq message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcGetMixContractListReq.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListReq
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcGetMixContractListReq} message RpcGetMixContractListReq message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                RpcGetMixContractListReq.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-
-                /**
-                 * Decodes a RpcGetMixContractListReq message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListReq
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcGetMixContractListReq} RpcGetMixContractListReq
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                RpcGetMixContractListReq.decode = function decode(reader, length) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcGetMixContractListReq();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        switch (tag >>> 3) {
-                        case 1:
-                            message.commonReq = $root.xyz.redtorch.pb.CommonReqField.decode(reader, reader.uint32());
-                            break;
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-
-                /**
-                 * Decodes a RpcGetMixContractListReq message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListReq
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcGetMixContractListReq} RpcGetMixContractListReq
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                RpcGetMixContractListReq.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-
-                /**
-                 * Verifies a RpcGetMixContractListReq message.
-                 * @function verify
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListReq
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                RpcGetMixContractListReq.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (message.commonReq != null && message.hasOwnProperty("commonReq")) {
-                        var error = $root.xyz.redtorch.pb.CommonReqField.verify(message.commonReq);
-                        if (error)
-                            return "commonReq." + error;
-                    }
-                    return null;
-                };
-
-                /**
-                 * Creates a RpcGetMixContractListReq message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListReq
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcGetMixContractListReq} RpcGetMixContractListReq
-                 */
-                RpcGetMixContractListReq.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcGetMixContractListReq)
-                        return object;
-                    var message = new $root.xyz.redtorch.pb.RpcGetMixContractListReq();
-                    if (object.commonReq != null) {
-                        if (typeof object.commonReq !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcGetMixContractListReq.commonReq: object expected");
-                        message.commonReq = $root.xyz.redtorch.pb.CommonReqField.fromObject(object.commonReq);
-                    }
-                    return message;
-                };
-
-                /**
-                 * Creates a plain object from a RpcGetMixContractListReq message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListReq
-                 * @static
-                 * @param {xyz.redtorch.pb.RpcGetMixContractListReq} message RpcGetMixContractListReq
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                RpcGetMixContractListReq.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (options.defaults)
-                        object.commonReq = null;
-                    if (message.commonReq != null && message.hasOwnProperty("commonReq"))
-                        object.commonReq = $root.xyz.redtorch.pb.CommonReqField.toObject(message.commonReq, options);
-                    return object;
-                };
-
-                /**
-                 * Converts this RpcGetMixContractListReq to JSON.
-                 * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListReq
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                RpcGetMixContractListReq.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-
-                return RpcGetMixContractListReq;
-            })();
-
-            pb.RpcGetMixContractListRsp = (function() {
-
-                /**
-                 * Properties of a RpcGetMixContractListRsp.
-                 * @memberof xyz.redtorch.pb
-                 * @interface IRpcGetMixContractListRsp
-                 * @property {xyz.redtorch.pb.ICommonRspField|null} [commonRsp] RpcGetMixContractListRsp commonRsp
-                 * @property {Array.<xyz.redtorch.pb.IContractField>|null} [contract] RpcGetMixContractListRsp contract
-                 */
-
-                /**
-                 * Constructs a new RpcGetMixContractListRsp.
-                 * @memberof xyz.redtorch.pb
-                 * @classdesc Represents a RpcGetMixContractListRsp.
-                 * @implements IRpcGetMixContractListRsp
-                 * @constructor
-                 * @param {xyz.redtorch.pb.IRpcGetMixContractListRsp=} [properties] Properties to set
-                 */
-                function RpcGetMixContractListRsp(properties) {
-                    this.contract = [];
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-
-                /**
-                 * RpcGetMixContractListRsp commonRsp.
-                 * @member {xyz.redtorch.pb.ICommonRspField|null|undefined} commonRsp
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListRsp
-                 * @instance
-                 */
-                RpcGetMixContractListRsp.prototype.commonRsp = null;
-
-                /**
-                 * RpcGetMixContractListRsp contract.
-                 * @member {Array.<xyz.redtorch.pb.IContractField>} contract
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListRsp
-                 * @instance
-                 */
-                RpcGetMixContractListRsp.prototype.contract = $util.emptyArray;
-
-                /**
-                 * Creates a new RpcGetMixContractListRsp instance using the specified properties.
-                 * @function create
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListRsp
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcGetMixContractListRsp=} [properties] Properties to set
-                 * @returns {xyz.redtorch.pb.RpcGetMixContractListRsp} RpcGetMixContractListRsp instance
-                 */
-                RpcGetMixContractListRsp.create = function create(properties) {
-                    return new RpcGetMixContractListRsp(properties);
-                };
-
-                /**
-                 * Encodes the specified RpcGetMixContractListRsp message. Does not implicitly {@link xyz.redtorch.pb.RpcGetMixContractListRsp.verify|verify} messages.
-                 * @function encode
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListRsp
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcGetMixContractListRsp} message RpcGetMixContractListRsp message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                RpcGetMixContractListRsp.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.commonRsp != null && message.hasOwnProperty("commonRsp"))
-                        $root.xyz.redtorch.pb.CommonRspField.encode(message.commonRsp, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                    if (message.contract != null && message.contract.length)
-                        for (var i = 0; i < message.contract.length; ++i)
-                            $root.xyz.redtorch.pb.ContractField.encode(message.contract[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                    return writer;
-                };
-
-                /**
-                 * Encodes the specified RpcGetMixContractListRsp message, length delimited. Does not implicitly {@link xyz.redtorch.pb.RpcGetMixContractListRsp.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListRsp
-                 * @static
-                 * @param {xyz.redtorch.pb.IRpcGetMixContractListRsp} message RpcGetMixContractListRsp message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                RpcGetMixContractListRsp.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-
-                /**
-                 * Decodes a RpcGetMixContractListRsp message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListRsp
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {xyz.redtorch.pb.RpcGetMixContractListRsp} RpcGetMixContractListRsp
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                RpcGetMixContractListRsp.decode = function decode(reader, length) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.xyz.redtorch.pb.RpcGetMixContractListRsp();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        switch (tag >>> 3) {
-                        case 1:
-                            message.commonRsp = $root.xyz.redtorch.pb.CommonRspField.decode(reader, reader.uint32());
-                            break;
-                        case 2:
-                            if (!(message.contract && message.contract.length))
-                                message.contract = [];
-                            message.contract.push($root.xyz.redtorch.pb.ContractField.decode(reader, reader.uint32()));
-                            break;
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-
-                /**
-                 * Decodes a RpcGetMixContractListRsp message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListRsp
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {xyz.redtorch.pb.RpcGetMixContractListRsp} RpcGetMixContractListRsp
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                RpcGetMixContractListRsp.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-
-                /**
-                 * Verifies a RpcGetMixContractListRsp message.
-                 * @function verify
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListRsp
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                RpcGetMixContractListRsp.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (message.commonRsp != null && message.hasOwnProperty("commonRsp")) {
-                        var error = $root.xyz.redtorch.pb.CommonRspField.verify(message.commonRsp);
-                        if (error)
-                            return "commonRsp." + error;
-                    }
-                    if (message.contract != null && message.hasOwnProperty("contract")) {
-                        if (!Array.isArray(message.contract))
-                            return "contract: array expected";
-                        for (var i = 0; i < message.contract.length; ++i) {
-                            var error = $root.xyz.redtorch.pb.ContractField.verify(message.contract[i]);
-                            if (error)
-                                return "contract." + error;
-                        }
-                    }
-                    return null;
-                };
-
-                /**
-                 * Creates a RpcGetMixContractListRsp message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListRsp
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {xyz.redtorch.pb.RpcGetMixContractListRsp} RpcGetMixContractListRsp
-                 */
-                RpcGetMixContractListRsp.fromObject = function fromObject(object) {
-                    if (object instanceof $root.xyz.redtorch.pb.RpcGetMixContractListRsp)
-                        return object;
-                    var message = new $root.xyz.redtorch.pb.RpcGetMixContractListRsp();
-                    if (object.commonRsp != null) {
-                        if (typeof object.commonRsp !== "object")
-                            throw TypeError(".xyz.redtorch.pb.RpcGetMixContractListRsp.commonRsp: object expected");
-                        message.commonRsp = $root.xyz.redtorch.pb.CommonRspField.fromObject(object.commonRsp);
-                    }
-                    if (object.contract) {
-                        if (!Array.isArray(object.contract))
-                            throw TypeError(".xyz.redtorch.pb.RpcGetMixContractListRsp.contract: array expected");
-                        message.contract = [];
-                        for (var i = 0; i < object.contract.length; ++i) {
-                            if (typeof object.contract[i] !== "object")
-                                throw TypeError(".xyz.redtorch.pb.RpcGetMixContractListRsp.contract: object expected");
-                            message.contract[i] = $root.xyz.redtorch.pb.ContractField.fromObject(object.contract[i]);
-                        }
-                    }
-                    return message;
-                };
-
-                /**
-                 * Creates a plain object from a RpcGetMixContractListRsp message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListRsp
-                 * @static
-                 * @param {xyz.redtorch.pb.RpcGetMixContractListRsp} message RpcGetMixContractListRsp
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                RpcGetMixContractListRsp.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (options.arrays || options.defaults)
-                        object.contract = [];
-                    if (options.defaults)
-                        object.commonRsp = null;
-                    if (message.commonRsp != null && message.hasOwnProperty("commonRsp"))
-                        object.commonRsp = $root.xyz.redtorch.pb.CommonRspField.toObject(message.commonRsp, options);
-                    if (message.contract && message.contract.length) {
-                        object.contract = [];
-                        for (var j = 0; j < message.contract.length; ++j)
-                            object.contract[j] = $root.xyz.redtorch.pb.ContractField.toObject(message.contract[j], options);
-                    }
-                    return object;
-                };
-
-                /**
-                 * Converts this RpcGetMixContractListRsp to JSON.
-                 * @function toJSON
-                 * @memberof xyz.redtorch.pb.RpcGetMixContractListRsp
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                RpcGetMixContractListRsp.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-
-                return RpcGetMixContractListRsp;
-            })();
-
             pb.RpcGetTickListReq = (function() {
 
                 /**
@@ -25375,8 +24001,8 @@ $root.xyz = (function() {
                  * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryDBBarListReq commonReq
                  * @property {number|Long|null} [startTimestamp] RpcQueryDBBarListReq startTimestamp
                  * @property {number|Long|null} [endTimestamp] RpcQueryDBBarListReq endTimestamp
-                 * @property {string|null} [unifiedSymbol] RpcQueryDBBarListReq unifiedSymbol
-                 * @property {xyz.redtorch.pb.BarCycleEnum|null} [barCycle] RpcQueryDBBarListReq barCycle
+                 * @property {string|null} [uniformSymbol] RpcQueryDBBarListReq uniformSymbol
+                 * @property {xyz.redtorch.pb.BarPeriodEnum|null} [barPeriod] RpcQueryDBBarListReq barPeriod
                  * @property {xyz.redtorch.pb.MarketDataDBTypeEnum|null} [marketDataDBType] RpcQueryDBBarListReq marketDataDBType
                  */
 
@@ -25420,20 +24046,20 @@ $root.xyz = (function() {
                 RpcQueryDBBarListReq.prototype.endTimestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
                 /**
-                 * RpcQueryDBBarListReq unifiedSymbol.
-                 * @member {string} unifiedSymbol
+                 * RpcQueryDBBarListReq uniformSymbol.
+                 * @member {string} uniformSymbol
                  * @memberof xyz.redtorch.pb.RpcQueryDBBarListReq
                  * @instance
                  */
-                RpcQueryDBBarListReq.prototype.unifiedSymbol = "";
+                RpcQueryDBBarListReq.prototype.uniformSymbol = "";
 
                 /**
-                 * RpcQueryDBBarListReq barCycle.
-                 * @member {xyz.redtorch.pb.BarCycleEnum} barCycle
+                 * RpcQueryDBBarListReq barPeriod.
+                 * @member {xyz.redtorch.pb.BarPeriodEnum} barPeriod
                  * @memberof xyz.redtorch.pb.RpcQueryDBBarListReq
                  * @instance
                  */
-                RpcQueryDBBarListReq.prototype.barCycle = 0;
+                RpcQueryDBBarListReq.prototype.barPeriod = 0;
 
                 /**
                  * RpcQueryDBBarListReq marketDataDBType.
@@ -25473,10 +24099,10 @@ $root.xyz = (function() {
                         writer.uint32(/* id 2, wireType 1 =*/17).fixed64(message.startTimestamp);
                     if (message.endTimestamp != null && message.hasOwnProperty("endTimestamp"))
                         writer.uint32(/* id 3, wireType 1 =*/25).fixed64(message.endTimestamp);
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.unifiedSymbol);
-                    if (message.barCycle != null && message.hasOwnProperty("barCycle"))
-                        writer.uint32(/* id 5, wireType 0 =*/40).int32(message.barCycle);
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.uniformSymbol);
+                    if (message.barPeriod != null && message.hasOwnProperty("barPeriod"))
+                        writer.uint32(/* id 5, wireType 0 =*/40).int32(message.barPeriod);
                     if (message.marketDataDBType != null && message.hasOwnProperty("marketDataDBType"))
                         writer.uint32(/* id 6, wireType 0 =*/48).int32(message.marketDataDBType);
                     return writer;
@@ -25523,10 +24149,10 @@ $root.xyz = (function() {
                             message.endTimestamp = reader.fixed64();
                             break;
                         case 4:
-                            message.unifiedSymbol = reader.string();
+                            message.uniformSymbol = reader.string();
                             break;
                         case 5:
-                            message.barCycle = reader.int32();
+                            message.barPeriod = reader.int32();
                             break;
                         case 6:
                             message.marketDataDBType = reader.int32();
@@ -25577,13 +24203,13 @@ $root.xyz = (function() {
                     if (message.endTimestamp != null && message.hasOwnProperty("endTimestamp"))
                         if (!$util.isInteger(message.endTimestamp) && !(message.endTimestamp && $util.isInteger(message.endTimestamp.low) && $util.isInteger(message.endTimestamp.high)))
                             return "endTimestamp: integer|Long expected";
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        if (!$util.isString(message.unifiedSymbol))
-                            return "unifiedSymbol: string expected";
-                    if (message.barCycle != null && message.hasOwnProperty("barCycle"))
-                        switch (message.barCycle) {
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        if (!$util.isString(message.uniformSymbol))
+                            return "uniformSymbol: string expected";
+                    if (message.barPeriod != null && message.hasOwnProperty("barPeriod"))
+                        switch (message.barPeriod) {
                         default:
-                            return "barCycle: enum value expected";
+                            return "barPeriod: enum value expected";
                         case 0:
                         case 1:
                         case 2:
@@ -25639,32 +24265,32 @@ $root.xyz = (function() {
                             message.endTimestamp = object.endTimestamp;
                         else if (typeof object.endTimestamp === "object")
                             message.endTimestamp = new $util.LongBits(object.endTimestamp.low >>> 0, object.endTimestamp.high >>> 0).toNumber();
-                    if (object.unifiedSymbol != null)
-                        message.unifiedSymbol = String(object.unifiedSymbol);
-                    switch (object.barCycle) {
+                    if (object.uniformSymbol != null)
+                        message.uniformSymbol = String(object.uniformSymbol);
+                    switch (object.barPeriod) {
                     case "B_5Sec":
                     case 0:
-                        message.barCycle = 0;
+                        message.barPeriod = 0;
                         break;
                     case "B_1Min":
                     case 1:
-                        message.barCycle = 1;
+                        message.barPeriod = 1;
                         break;
                     case "B_3Min":
                     case 2:
-                        message.barCycle = 2;
+                        message.barPeriod = 2;
                         break;
                     case "B_5Min":
                     case 3:
-                        message.barCycle = 3;
+                        message.barPeriod = 3;
                         break;
                     case "B_15Min":
                     case 4:
-                        message.barCycle = 4;
+                        message.barPeriod = 4;
                         break;
                     case "B_1Day":
                     case 5:
-                        message.barCycle = 5;
+                        message.barPeriod = 5;
                         break;
                     }
                     switch (object.marketDataDBType) {
@@ -25709,8 +24335,8 @@ $root.xyz = (function() {
                             object.endTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                         } else
                             object.endTimestamp = options.longs === String ? "0" : 0;
-                        object.unifiedSymbol = "";
-                        object.barCycle = options.enums === String ? "B_5Sec" : 0;
+                        object.uniformSymbol = "";
+                        object.barPeriod = options.enums === String ? "B_5Sec" : 0;
                         object.marketDataDBType = options.enums === String ? "MDDT_MIX" : 0;
                     }
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
@@ -25725,10 +24351,10 @@ $root.xyz = (function() {
                             object.endTimestamp = options.longs === String ? String(message.endTimestamp) : message.endTimestamp;
                         else
                             object.endTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.endTimestamp) : options.longs === Number ? new $util.LongBits(message.endTimestamp.low >>> 0, message.endTimestamp.high >>> 0).toNumber() : message.endTimestamp;
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        object.unifiedSymbol = message.unifiedSymbol;
-                    if (message.barCycle != null && message.hasOwnProperty("barCycle"))
-                        object.barCycle = options.enums === String ? $root.xyz.redtorch.pb.BarCycleEnum[message.barCycle] : message.barCycle;
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        object.uniformSymbol = message.uniformSymbol;
+                    if (message.barPeriod != null && message.hasOwnProperty("barPeriod"))
+                        object.barPeriod = options.enums === String ? $root.xyz.redtorch.pb.BarPeriodEnum[message.barPeriod] : message.barPeriod;
                     if (message.marketDataDBType != null && message.hasOwnProperty("marketDataDBType"))
                         object.marketDataDBType = options.enums === String ? $root.xyz.redtorch.pb.MarketDataDBTypeEnum[message.marketDataDBType] : message.marketDataDBType;
                     return object;
@@ -25993,7 +24619,7 @@ $root.xyz = (function() {
                  * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryDBTickListReq commonReq
                  * @property {number|Long|null} [startTimestamp] RpcQueryDBTickListReq startTimestamp
                  * @property {number|Long|null} [endTimestamp] RpcQueryDBTickListReq endTimestamp
-                 * @property {string|null} [unifiedSymbol] RpcQueryDBTickListReq unifiedSymbol
+                 * @property {string|null} [uniformSymbol] RpcQueryDBTickListReq uniformSymbol
                  * @property {xyz.redtorch.pb.MarketDataDBTypeEnum|null} [marketDataDBType] RpcQueryDBTickListReq marketDataDBType
                  */
 
@@ -26037,12 +24663,12 @@ $root.xyz = (function() {
                 RpcQueryDBTickListReq.prototype.endTimestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
                 /**
-                 * RpcQueryDBTickListReq unifiedSymbol.
-                 * @member {string} unifiedSymbol
+                 * RpcQueryDBTickListReq uniformSymbol.
+                 * @member {string} uniformSymbol
                  * @memberof xyz.redtorch.pb.RpcQueryDBTickListReq
                  * @instance
                  */
-                RpcQueryDBTickListReq.prototype.unifiedSymbol = "";
+                RpcQueryDBTickListReq.prototype.uniformSymbol = "";
 
                 /**
                  * RpcQueryDBTickListReq marketDataDBType.
@@ -26082,8 +24708,8 @@ $root.xyz = (function() {
                         writer.uint32(/* id 2, wireType 1 =*/17).fixed64(message.startTimestamp);
                     if (message.endTimestamp != null && message.hasOwnProperty("endTimestamp"))
                         writer.uint32(/* id 3, wireType 1 =*/25).fixed64(message.endTimestamp);
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.unifiedSymbol);
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.uniformSymbol);
                     if (message.marketDataDBType != null && message.hasOwnProperty("marketDataDBType"))
                         writer.uint32(/* id 5, wireType 0 =*/40).int32(message.marketDataDBType);
                     return writer;
@@ -26130,7 +24756,7 @@ $root.xyz = (function() {
                             message.endTimestamp = reader.fixed64();
                             break;
                         case 4:
-                            message.unifiedSymbol = reader.string();
+                            message.uniformSymbol = reader.string();
                             break;
                         case 5:
                             message.marketDataDBType = reader.int32();
@@ -26181,9 +24807,9 @@ $root.xyz = (function() {
                     if (message.endTimestamp != null && message.hasOwnProperty("endTimestamp"))
                         if (!$util.isInteger(message.endTimestamp) && !(message.endTimestamp && $util.isInteger(message.endTimestamp.low) && $util.isInteger(message.endTimestamp.high)))
                             return "endTimestamp: integer|Long expected";
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        if (!$util.isString(message.unifiedSymbol))
-                            return "unifiedSymbol: string expected";
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        if (!$util.isString(message.uniformSymbol))
+                            return "uniformSymbol: string expected";
                     if (message.marketDataDBType != null && message.hasOwnProperty("marketDataDBType"))
                         switch (message.marketDataDBType) {
                         default:
@@ -26231,8 +24857,8 @@ $root.xyz = (function() {
                             message.endTimestamp = object.endTimestamp;
                         else if (typeof object.endTimestamp === "object")
                             message.endTimestamp = new $util.LongBits(object.endTimestamp.low >>> 0, object.endTimestamp.high >>> 0).toNumber();
-                    if (object.unifiedSymbol != null)
-                        message.unifiedSymbol = String(object.unifiedSymbol);
+                    if (object.uniformSymbol != null)
+                        message.uniformSymbol = String(object.uniformSymbol);
                     switch (object.marketDataDBType) {
                     case "MDDT_MIX":
                     case 0:
@@ -26275,7 +24901,7 @@ $root.xyz = (function() {
                             object.endTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                         } else
                             object.endTimestamp = options.longs === String ? "0" : 0;
-                        object.unifiedSymbol = "";
+                        object.uniformSymbol = "";
                         object.marketDataDBType = options.enums === String ? "MDDT_MIX" : 0;
                     }
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
@@ -26290,8 +24916,8 @@ $root.xyz = (function() {
                             object.endTimestamp = options.longs === String ? String(message.endTimestamp) : message.endTimestamp;
                         else
                             object.endTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.endTimestamp) : options.longs === Number ? new $util.LongBits(message.endTimestamp.low >>> 0, message.endTimestamp.high >>> 0).toNumber() : message.endTimestamp;
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        object.unifiedSymbol = message.unifiedSymbol;
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        object.uniformSymbol = message.uniformSymbol;
                     if (message.marketDataDBType != null && message.hasOwnProperty("marketDataDBType"))
                         object.marketDataDBType = options.enums === String ? $root.xyz.redtorch.pb.MarketDataDBTypeEnum[message.marketDataDBType] : message.marketDataDBType;
                     return object;
@@ -26556,7 +25182,7 @@ $root.xyz = (function() {
                  * @property {xyz.redtorch.pb.ICommonReqField|null} [commonReq] RpcQueryVolumeBarListReq commonReq
                  * @property {number|Long|null} [startTimestamp] RpcQueryVolumeBarListReq startTimestamp
                  * @property {number|Long|null} [endTimestamp] RpcQueryVolumeBarListReq endTimestamp
-                 * @property {string|null} [unifiedSymbol] RpcQueryVolumeBarListReq unifiedSymbol
+                 * @property {string|null} [uniformSymbol] RpcQueryVolumeBarListReq uniformSymbol
                  * @property {number|null} [volume] RpcQueryVolumeBarListReq volume
                  */
 
@@ -26600,12 +25226,12 @@ $root.xyz = (function() {
                 RpcQueryVolumeBarListReq.prototype.endTimestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
                 /**
-                 * RpcQueryVolumeBarListReq unifiedSymbol.
-                 * @member {string} unifiedSymbol
+                 * RpcQueryVolumeBarListReq uniformSymbol.
+                 * @member {string} uniformSymbol
                  * @memberof xyz.redtorch.pb.RpcQueryVolumeBarListReq
                  * @instance
                  */
-                RpcQueryVolumeBarListReq.prototype.unifiedSymbol = "";
+                RpcQueryVolumeBarListReq.prototype.uniformSymbol = "";
 
                 /**
                  * RpcQueryVolumeBarListReq volume.
@@ -26645,8 +25271,8 @@ $root.xyz = (function() {
                         writer.uint32(/* id 2, wireType 1 =*/17).fixed64(message.startTimestamp);
                     if (message.endTimestamp != null && message.hasOwnProperty("endTimestamp"))
                         writer.uint32(/* id 3, wireType 1 =*/25).fixed64(message.endTimestamp);
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.unifiedSymbol);
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.uniformSymbol);
                     if (message.volume != null && message.hasOwnProperty("volume"))
                         writer.uint32(/* id 5, wireType 5 =*/45).fixed32(message.volume);
                     return writer;
@@ -26693,7 +25319,7 @@ $root.xyz = (function() {
                             message.endTimestamp = reader.fixed64();
                             break;
                         case 4:
-                            message.unifiedSymbol = reader.string();
+                            message.uniformSymbol = reader.string();
                             break;
                         case 5:
                             message.volume = reader.fixed32();
@@ -26744,9 +25370,9 @@ $root.xyz = (function() {
                     if (message.endTimestamp != null && message.hasOwnProperty("endTimestamp"))
                         if (!$util.isInteger(message.endTimestamp) && !(message.endTimestamp && $util.isInteger(message.endTimestamp.low) && $util.isInteger(message.endTimestamp.high)))
                             return "endTimestamp: integer|Long expected";
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        if (!$util.isString(message.unifiedSymbol))
-                            return "unifiedSymbol: string expected";
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        if (!$util.isString(message.uniformSymbol))
+                            return "uniformSymbol: string expected";
                     if (message.volume != null && message.hasOwnProperty("volume"))
                         if (!$util.isInteger(message.volume))
                             return "volume: integer expected";
@@ -26788,8 +25414,8 @@ $root.xyz = (function() {
                             message.endTimestamp = object.endTimestamp;
                         else if (typeof object.endTimestamp === "object")
                             message.endTimestamp = new $util.LongBits(object.endTimestamp.low >>> 0, object.endTimestamp.high >>> 0).toNumber();
-                    if (object.unifiedSymbol != null)
-                        message.unifiedSymbol = String(object.unifiedSymbol);
+                    if (object.uniformSymbol != null)
+                        message.uniformSymbol = String(object.uniformSymbol);
                     if (object.volume != null)
                         message.volume = object.volume >>> 0;
                     return message;
@@ -26820,7 +25446,7 @@ $root.xyz = (function() {
                             object.endTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                         } else
                             object.endTimestamp = options.longs === String ? "0" : 0;
-                        object.unifiedSymbol = "";
+                        object.uniformSymbol = "";
                         object.volume = 0;
                     }
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
@@ -26835,8 +25461,8 @@ $root.xyz = (function() {
                             object.endTimestamp = options.longs === String ? String(message.endTimestamp) : message.endTimestamp;
                         else
                             object.endTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.endTimestamp) : options.longs === Number ? new $util.LongBits(message.endTimestamp.low >>> 0, message.endTimestamp.high >>> 0).toNumber() : message.endTimestamp;
-                    if (message.unifiedSymbol != null && message.hasOwnProperty("unifiedSymbol"))
-                        object.unifiedSymbol = message.unifiedSymbol;
+                    if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
+                        object.uniformSymbol = message.uniformSymbol;
                     if (message.volume != null && message.hasOwnProperty("volume"))
                         object.volume = message.volume;
                     return object;
@@ -27099,7 +25725,7 @@ $root.xyz = (function() {
                  * @memberof xyz.redtorch.pb
                  * @interface IRpcExceptionRsp
                  * @property {number|null} [originalRpcId] RpcExceptionRsp originalRpcId
-                 * @property {string|null} [originalReqId] RpcExceptionRsp originalReqId
+                 * @property {string|null} [originalTransactionId] RpcExceptionRsp originalTransactionId
                  * @property {number|Long|null} [originalTimestamp] RpcExceptionRsp originalTimestamp
                  * @property {string|null} [info] RpcExceptionRsp info
                  */
@@ -27128,12 +25754,12 @@ $root.xyz = (function() {
                 RpcExceptionRsp.prototype.originalRpcId = 0;
 
                 /**
-                 * RpcExceptionRsp originalReqId.
-                 * @member {string} originalReqId
+                 * RpcExceptionRsp originalTransactionId.
+                 * @member {string} originalTransactionId
                  * @memberof xyz.redtorch.pb.RpcExceptionRsp
                  * @instance
                  */
-                RpcExceptionRsp.prototype.originalReqId = "";
+                RpcExceptionRsp.prototype.originalTransactionId = "";
 
                 /**
                  * RpcExceptionRsp originalTimestamp.
@@ -27177,8 +25803,8 @@ $root.xyz = (function() {
                         writer = $Writer.create();
                     if (message.originalRpcId != null && message.hasOwnProperty("originalRpcId"))
                         writer.uint32(/* id 1, wireType 5 =*/13).fixed32(message.originalRpcId);
-                    if (message.originalReqId != null && message.hasOwnProperty("originalReqId"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.originalReqId);
+                    if (message.originalTransactionId != null && message.hasOwnProperty("originalTransactionId"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.originalTransactionId);
                     if (message.originalTimestamp != null && message.hasOwnProperty("originalTimestamp"))
                         writer.uint32(/* id 3, wireType 1 =*/25).fixed64(message.originalTimestamp);
                     if (message.info != null && message.hasOwnProperty("info"))
@@ -27221,7 +25847,7 @@ $root.xyz = (function() {
                             message.originalRpcId = reader.fixed32();
                             break;
                         case 2:
-                            message.originalReqId = reader.string();
+                            message.originalTransactionId = reader.string();
                             break;
                         case 3:
                             message.originalTimestamp = reader.fixed64();
@@ -27267,9 +25893,9 @@ $root.xyz = (function() {
                     if (message.originalRpcId != null && message.hasOwnProperty("originalRpcId"))
                         if (!$util.isInteger(message.originalRpcId))
                             return "originalRpcId: integer expected";
-                    if (message.originalReqId != null && message.hasOwnProperty("originalReqId"))
-                        if (!$util.isString(message.originalReqId))
-                            return "originalReqId: string expected";
+                    if (message.originalTransactionId != null && message.hasOwnProperty("originalTransactionId"))
+                        if (!$util.isString(message.originalTransactionId))
+                            return "originalTransactionId: string expected";
                     if (message.originalTimestamp != null && message.hasOwnProperty("originalTimestamp"))
                         if (!$util.isInteger(message.originalTimestamp) && !(message.originalTimestamp && $util.isInteger(message.originalTimestamp.low) && $util.isInteger(message.originalTimestamp.high)))
                             return "originalTimestamp: integer|Long expected";
@@ -27293,8 +25919,8 @@ $root.xyz = (function() {
                     var message = new $root.xyz.redtorch.pb.RpcExceptionRsp();
                     if (object.originalRpcId != null)
                         message.originalRpcId = object.originalRpcId >>> 0;
-                    if (object.originalReqId != null)
-                        message.originalReqId = String(object.originalReqId);
+                    if (object.originalTransactionId != null)
+                        message.originalTransactionId = String(object.originalTransactionId);
                     if (object.originalTimestamp != null)
                         if ($util.Long)
                             (message.originalTimestamp = $util.Long.fromValue(object.originalTimestamp)).unsigned = false;
@@ -27324,7 +25950,7 @@ $root.xyz = (function() {
                     var object = {};
                     if (options.defaults) {
                         object.originalRpcId = 0;
-                        object.originalReqId = "";
+                        object.originalTransactionId = "";
                         if ($util.Long) {
                             var long = new $util.Long(0, 0, false);
                             object.originalTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
@@ -27334,8 +25960,8 @@ $root.xyz = (function() {
                     }
                     if (message.originalRpcId != null && message.hasOwnProperty("originalRpcId"))
                         object.originalRpcId = message.originalRpcId;
-                    if (message.originalReqId != null && message.hasOwnProperty("originalReqId"))
-                        object.originalReqId = message.originalReqId;
+                    if (message.originalTransactionId != null && message.hasOwnProperty("originalTransactionId"))
+                        object.originalTransactionId = message.originalTransactionId;
                     if (message.originalTimestamp != null && message.hasOwnProperty("originalTimestamp"))
                         if (typeof message.originalTimestamp === "number")
                             object.originalTimestamp = options.longs === String ? String(message.originalTimestamp) : message.originalTimestamp;
@@ -29977,14 +28603,14 @@ $root.xyz = (function() {
              * @property {number} QUERY_ORDER_BY_ORIGIN_ORDER_ID_RSP=18 QUERY_ORDER_BY_ORIGIN_ORDER_ID_RSP value
              * @property {number} QUERY_ORDER_LIST_BY_ACCOUNT_ID_REQ=19 QUERY_ORDER_LIST_BY_ACCOUNT_ID_REQ value
              * @property {number} QUERY_ORDER_LIST_BY_ACCOUNT_ID_RSP=20 QUERY_ORDER_LIST_BY_ACCOUNT_ID_RSP value
-             * @property {number} QUERY_ORDER_LIST_BY_UNIFIED_SYMBOL_REQ=21 QUERY_ORDER_LIST_BY_UNIFIED_SYMBOL_REQ value
-             * @property {number} QUERY_ORDER_LIST_BY_UNIFIED_SYMBOL_RSP=22 QUERY_ORDER_LIST_BY_UNIFIED_SYMBOL_RSP value
+             * @property {number} QUERY_ORDER_LIST_BY_UNIFORM_SYMBOL_REQ=21 QUERY_ORDER_LIST_BY_UNIFORM_SYMBOL_REQ value
+             * @property {number} QUERY_ORDER_LIST_BY_UNIFORM_SYMBOL_RSP=22 QUERY_ORDER_LIST_BY_UNIFORM_SYMBOL_RSP value
              * @property {number} GET_TRADE_LIST_REQ=23 GET_TRADE_LIST_REQ value
              * @property {number} GET_TRADE_LIST_RSP=24 GET_TRADE_LIST_RSP value
              * @property {number} QUERY_TRADE_BY_TRADE_ID_REQ=25 QUERY_TRADE_BY_TRADE_ID_REQ value
              * @property {number} QUERY_TRADE_BY_TRADE_ID_RSP=26 QUERY_TRADE_BY_TRADE_ID_RSP value
-             * @property {number} QUERY_TRADE_LIST_BY_UNIFIED_SYMBOL_REQ=27 QUERY_TRADE_LIST_BY_UNIFIED_SYMBOL_REQ value
-             * @property {number} QUERY_TRADE_LIST_BY_UNIFIED_SYMBOL_RSP=28 QUERY_TRADE_LIST_BY_UNIFIED_SYMBOL_RSP value
+             * @property {number} QUERY_TRADE_LIST_BY_UNIFORM_SYMBOL_REQ=27 QUERY_TRADE_LIST_BY_UNIFORM_SYMBOL_REQ value
+             * @property {number} QUERY_TRADE_LIST_BY_UNIFORM_SYMBOL_RSP=28 QUERY_TRADE_LIST_BY_UNIFORM_SYMBOL_RSP value
              * @property {number} QUERY_TRADE_LIST_BY_ACCOUNT_ID_REQ=29 QUERY_TRADE_LIST_BY_ACCOUNT_ID_REQ value
              * @property {number} QUERY_TRADE_LIST_BY_ACCOUNT_ID_RSP=30 QUERY_TRADE_LIST_BY_ACCOUNT_ID_RSP value
              * @property {number} QUERY_TRADE_LIST_BY_ORDER_ID_REQ=31 QUERY_TRADE_LIST_BY_ORDER_ID_REQ value
@@ -29997,8 +28623,8 @@ $root.xyz = (function() {
              * @property {number} QUERY_POSITION_BY_POSITION_ID_RSP=38 QUERY_POSITION_BY_POSITION_ID_RSP value
              * @property {number} QUERY_POSITION_LIST_BY_ACCOUNT_ID_REQ=39 QUERY_POSITION_LIST_BY_ACCOUNT_ID_REQ value
              * @property {number} QUERY_POSITION_LIST_BY_ACCOUNT_ID_RSP=40 QUERY_POSITION_LIST_BY_ACCOUNT_ID_RSP value
-             * @property {number} QUERY_POSITION_LIST_BY_UNIFIED_SYMBOL_REQ=41 QUERY_POSITION_LIST_BY_UNIFIED_SYMBOL_REQ value
-             * @property {number} QUERY_POSITION_LIST_BY_UNIFIED_SYMBOL_RSP=42 QUERY_POSITION_LIST_BY_UNIFIED_SYMBOL_RSP value
+             * @property {number} QUERY_POSITION_LIST_BY_UNIFORM_SYMBOL_REQ=41 QUERY_POSITION_LIST_BY_UNIFORM_SYMBOL_REQ value
+             * @property {number} QUERY_POSITION_LIST_BY_UNIFORM_SYMBOL_RSP=42 QUERY_POSITION_LIST_BY_UNIFORM_SYMBOL_RSP value
              * @property {number} GET_ACCOUNT_LIST_REQ=43 GET_ACCOUNT_LIST_REQ value
              * @property {number} GET_ACCOUNT_LIST_RSP=44 GET_ACCOUNT_LIST_RSP value
              * @property {number} QUERY_ACCOUNT_BY_ACCOUNT_ID_REQ=45 QUERY_ACCOUNT_BY_ACCOUNT_ID_REQ value
@@ -30007,24 +28633,18 @@ $root.xyz = (function() {
              * @property {number} QUERY_ACCOUNT_LIST_BY_ACCOUNT_CODE_RSP=48 QUERY_ACCOUNT_LIST_BY_ACCOUNT_CODE_RSP value
              * @property {number} GET_CONTRACT_LIST_REQ=49 GET_CONTRACT_LIST_REQ value
              * @property {number} GET_CONTRACT_LIST_RSP=50 GET_CONTRACT_LIST_RSP value
-             * @property {number} QUERY_CONTRACT_BY_CONTRACT_ID_REQ=51 QUERY_CONTRACT_BY_CONTRACT_ID_REQ value
-             * @property {number} QUERY_CONTRACT_BY_CONTRACT_ID_RSP=52 QUERY_CONTRACT_BY_CONTRACT_ID_RSP value
-             * @property {number} QUERY_CONTRACT_LIST_BY_UNIFIED_SYMBOL_REQ=53 QUERY_CONTRACT_LIST_BY_UNIFIED_SYMBOL_REQ value
-             * @property {number} QUERY_CONTRACT_LIST_BY_UNIFIED_SYMBOL_RSP=54 QUERY_CONTRACT_LIST_BY_UNIFIED_SYMBOL_RSP value
-             * @property {number} QUERY_CONTRACT_LIST_BY_GATEWAY_ID_REQ=55 QUERY_CONTRACT_LIST_BY_GATEWAY_ID_REQ value
-             * @property {number} QUERY_CONTRACT_LIST_BY_GATEWAY_ID_RSP=56 QUERY_CONTRACT_LIST_BY_GATEWAY_ID_RSP value
-             * @property {number} SYNC_SLAVE_NODE_RUNTIME_DATA_REQ=57 SYNC_SLAVE_NODE_RUNTIME_DATA_REQ value
-             * @property {number} SYNC_SLAVE_NODE_RUNTIME_DATA_RSP=58 SYNC_SLAVE_NODE_RUNTIME_DATA_RSP value
-             * @property {number} GET_MIX_CONTRACT_LIST_REQ=59 GET_MIX_CONTRACT_LIST_REQ value
-             * @property {number} GET_MIX_CONTRACT_LIST_RSP=60 GET_MIX_CONTRACT_LIST_RSP value
-             * @property {number} GET_TICK_LIST_REQ=61 GET_TICK_LIST_REQ value
-             * @property {number} GET_TICK_LIST_RSP=62 GET_TICK_LIST_RSP value
-             * @property {number} QUERY_DB_BAR_LIST_REQ=63 QUERY_DB_BAR_LIST_REQ value
-             * @property {number} QUERY_DB_BAR_LIST_RSP=64 QUERY_DB_BAR_LIST_RSP value
-             * @property {number} QUERY_DB_TICK_LIST_REQ=65 QUERY_DB_TICK_LIST_REQ value
-             * @property {number} QUERY_DB_TICK_LIST_RSP=66 QUERY_DB_TICK_LIST_RSP value
-             * @property {number} QUERY_VOLUME_BAR_LIST_REQ=67 QUERY_VOLUME_BAR_LIST_REQ value
-             * @property {number} QUERY_VOLUME_BAR_LIST_RSP=68 QUERY_VOLUME_BAR_LIST_RSP value
+             * @property {number} QUERY_CONTRACT_BY_UNIFORM_SYMBOL_REQ=51 QUERY_CONTRACT_BY_UNIFORM_SYMBOL_REQ value
+             * @property {number} QUERY_CONTRACT_BY_UNIFORM_SYMBOL_RSP=52 QUERY_CONTRACT_BY_UNIFORM_SYMBOL_RSP value
+             * @property {number} SYNC_SLAVE_NODE_RUNTIME_DATA_REQ=53 SYNC_SLAVE_NODE_RUNTIME_DATA_REQ value
+             * @property {number} SYNC_SLAVE_NODE_RUNTIME_DATA_RSP=54 SYNC_SLAVE_NODE_RUNTIME_DATA_RSP value
+             * @property {number} GET_TICK_LIST_REQ=55 GET_TICK_LIST_REQ value
+             * @property {number} GET_TICK_LIST_RSP=56 GET_TICK_LIST_RSP value
+             * @property {number} QUERY_DB_BAR_LIST_REQ=57 QUERY_DB_BAR_LIST_REQ value
+             * @property {number} QUERY_DB_BAR_LIST_RSP=58 QUERY_DB_BAR_LIST_RSP value
+             * @property {number} QUERY_DB_TICK_LIST_REQ=59 QUERY_DB_TICK_LIST_REQ value
+             * @property {number} QUERY_DB_TICK_LIST_RSP=60 QUERY_DB_TICK_LIST_RSP value
+             * @property {number} QUERY_VOLUME_BAR_LIST_REQ=61 QUERY_VOLUME_BAR_LIST_REQ value
+             * @property {number} QUERY_VOLUME_BAR_LIST_RSP=62 QUERY_VOLUME_BAR_LIST_RSP value
              * @property {number} EXCEPTION_RSP=999999 EXCEPTION_RSP value
              * @property {number} ORDER_RTN=1001 ORDER_RTN value
              * @property {number} TRADE_RTN=1002 TRADE_RTN value
@@ -30063,14 +28683,14 @@ $root.xyz = (function() {
                 values[valuesById[18] = "QUERY_ORDER_BY_ORIGIN_ORDER_ID_RSP"] = 18;
                 values[valuesById[19] = "QUERY_ORDER_LIST_BY_ACCOUNT_ID_REQ"] = 19;
                 values[valuesById[20] = "QUERY_ORDER_LIST_BY_ACCOUNT_ID_RSP"] = 20;
-                values[valuesById[21] = "QUERY_ORDER_LIST_BY_UNIFIED_SYMBOL_REQ"] = 21;
-                values[valuesById[22] = "QUERY_ORDER_LIST_BY_UNIFIED_SYMBOL_RSP"] = 22;
+                values[valuesById[21] = "QUERY_ORDER_LIST_BY_UNIFORM_SYMBOL_REQ"] = 21;
+                values[valuesById[22] = "QUERY_ORDER_LIST_BY_UNIFORM_SYMBOL_RSP"] = 22;
                 values[valuesById[23] = "GET_TRADE_LIST_REQ"] = 23;
                 values[valuesById[24] = "GET_TRADE_LIST_RSP"] = 24;
                 values[valuesById[25] = "QUERY_TRADE_BY_TRADE_ID_REQ"] = 25;
                 values[valuesById[26] = "QUERY_TRADE_BY_TRADE_ID_RSP"] = 26;
-                values[valuesById[27] = "QUERY_TRADE_LIST_BY_UNIFIED_SYMBOL_REQ"] = 27;
-                values[valuesById[28] = "QUERY_TRADE_LIST_BY_UNIFIED_SYMBOL_RSP"] = 28;
+                values[valuesById[27] = "QUERY_TRADE_LIST_BY_UNIFORM_SYMBOL_REQ"] = 27;
+                values[valuesById[28] = "QUERY_TRADE_LIST_BY_UNIFORM_SYMBOL_RSP"] = 28;
                 values[valuesById[29] = "QUERY_TRADE_LIST_BY_ACCOUNT_ID_REQ"] = 29;
                 values[valuesById[30] = "QUERY_TRADE_LIST_BY_ACCOUNT_ID_RSP"] = 30;
                 values[valuesById[31] = "QUERY_TRADE_LIST_BY_ORDER_ID_REQ"] = 31;
@@ -30083,8 +28703,8 @@ $root.xyz = (function() {
                 values[valuesById[38] = "QUERY_POSITION_BY_POSITION_ID_RSP"] = 38;
                 values[valuesById[39] = "QUERY_POSITION_LIST_BY_ACCOUNT_ID_REQ"] = 39;
                 values[valuesById[40] = "QUERY_POSITION_LIST_BY_ACCOUNT_ID_RSP"] = 40;
-                values[valuesById[41] = "QUERY_POSITION_LIST_BY_UNIFIED_SYMBOL_REQ"] = 41;
-                values[valuesById[42] = "QUERY_POSITION_LIST_BY_UNIFIED_SYMBOL_RSP"] = 42;
+                values[valuesById[41] = "QUERY_POSITION_LIST_BY_UNIFORM_SYMBOL_REQ"] = 41;
+                values[valuesById[42] = "QUERY_POSITION_LIST_BY_UNIFORM_SYMBOL_RSP"] = 42;
                 values[valuesById[43] = "GET_ACCOUNT_LIST_REQ"] = 43;
                 values[valuesById[44] = "GET_ACCOUNT_LIST_RSP"] = 44;
                 values[valuesById[45] = "QUERY_ACCOUNT_BY_ACCOUNT_ID_REQ"] = 45;
@@ -30093,24 +28713,18 @@ $root.xyz = (function() {
                 values[valuesById[48] = "QUERY_ACCOUNT_LIST_BY_ACCOUNT_CODE_RSP"] = 48;
                 values[valuesById[49] = "GET_CONTRACT_LIST_REQ"] = 49;
                 values[valuesById[50] = "GET_CONTRACT_LIST_RSP"] = 50;
-                values[valuesById[51] = "QUERY_CONTRACT_BY_CONTRACT_ID_REQ"] = 51;
-                values[valuesById[52] = "QUERY_CONTRACT_BY_CONTRACT_ID_RSP"] = 52;
-                values[valuesById[53] = "QUERY_CONTRACT_LIST_BY_UNIFIED_SYMBOL_REQ"] = 53;
-                values[valuesById[54] = "QUERY_CONTRACT_LIST_BY_UNIFIED_SYMBOL_RSP"] = 54;
-                values[valuesById[55] = "QUERY_CONTRACT_LIST_BY_GATEWAY_ID_REQ"] = 55;
-                values[valuesById[56] = "QUERY_CONTRACT_LIST_BY_GATEWAY_ID_RSP"] = 56;
-                values[valuesById[57] = "SYNC_SLAVE_NODE_RUNTIME_DATA_REQ"] = 57;
-                values[valuesById[58] = "SYNC_SLAVE_NODE_RUNTIME_DATA_RSP"] = 58;
-                values[valuesById[59] = "GET_MIX_CONTRACT_LIST_REQ"] = 59;
-                values[valuesById[60] = "GET_MIX_CONTRACT_LIST_RSP"] = 60;
-                values[valuesById[61] = "GET_TICK_LIST_REQ"] = 61;
-                values[valuesById[62] = "GET_TICK_LIST_RSP"] = 62;
-                values[valuesById[63] = "QUERY_DB_BAR_LIST_REQ"] = 63;
-                values[valuesById[64] = "QUERY_DB_BAR_LIST_RSP"] = 64;
-                values[valuesById[65] = "QUERY_DB_TICK_LIST_REQ"] = 65;
-                values[valuesById[66] = "QUERY_DB_TICK_LIST_RSP"] = 66;
-                values[valuesById[67] = "QUERY_VOLUME_BAR_LIST_REQ"] = 67;
-                values[valuesById[68] = "QUERY_VOLUME_BAR_LIST_RSP"] = 68;
+                values[valuesById[51] = "QUERY_CONTRACT_BY_UNIFORM_SYMBOL_REQ"] = 51;
+                values[valuesById[52] = "QUERY_CONTRACT_BY_UNIFORM_SYMBOL_RSP"] = 52;
+                values[valuesById[53] = "SYNC_SLAVE_NODE_RUNTIME_DATA_REQ"] = 53;
+                values[valuesById[54] = "SYNC_SLAVE_NODE_RUNTIME_DATA_RSP"] = 54;
+                values[valuesById[55] = "GET_TICK_LIST_REQ"] = 55;
+                values[valuesById[56] = "GET_TICK_LIST_RSP"] = 56;
+                values[valuesById[57] = "QUERY_DB_BAR_LIST_REQ"] = 57;
+                values[valuesById[58] = "QUERY_DB_BAR_LIST_RSP"] = 58;
+                values[valuesById[59] = "QUERY_DB_TICK_LIST_REQ"] = 59;
+                values[valuesById[60] = "QUERY_DB_TICK_LIST_RSP"] = 60;
+                values[valuesById[61] = "QUERY_VOLUME_BAR_LIST_REQ"] = 61;
+                values[valuesById[62] = "QUERY_VOLUME_BAR_LIST_RSP"] = 62;
                 values[valuesById[999999] = "EXCEPTION_RSP"] = 999999;
                 values[valuesById[1001] = "ORDER_RTN"] = 1001;
                 values[valuesById[1002] = "TRADE_RTN"] = 1002;
@@ -30135,13 +28749,9 @@ $root.xyz = (function() {
                  * @memberof xyz.redtorch.pb
                  * @interface IDataExchangeProtocol
                  * @property {xyz.redtorch.pb.DataExchangeProtocol.ContentType|null} [contentType] DataExchangeProtocol contentType
-                 * @property {xyz.redtorch.pb.DataExchangeProtocol.RpcType|null} [rpcType] DataExchangeProtocol rpcType
-                 * @property {number|Long|null} [timestamp] DataExchangeProtocol timestamp
-                 * @property {number|null} [sourceNodeId] DataExchangeProtocol sourceNodeId
-                 * @property {number|null} [targetNodeId] DataExchangeProtocol targetNodeId
                  * @property {number|null} [rpcId] DataExchangeProtocol rpcId
-                 * @property {string|null} [reqId] DataExchangeProtocol reqId
                  * @property {Uint8Array|null} [contentBytes] DataExchangeProtocol contentBytes
+                 * @property {number|Long|null} [timestamp] DataExchangeProtocol timestamp
                  */
 
                 /**
@@ -30168,38 +28778,6 @@ $root.xyz = (function() {
                 DataExchangeProtocol.prototype.contentType = 0;
 
                 /**
-                 * DataExchangeProtocol rpcType.
-                 * @member {xyz.redtorch.pb.DataExchangeProtocol.RpcType} rpcType
-                 * @memberof xyz.redtorch.pb.DataExchangeProtocol
-                 * @instance
-                 */
-                DataExchangeProtocol.prototype.rpcType = 0;
-
-                /**
-                 * DataExchangeProtocol timestamp.
-                 * @member {number|Long} timestamp
-                 * @memberof xyz.redtorch.pb.DataExchangeProtocol
-                 * @instance
-                 */
-                DataExchangeProtocol.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
-
-                /**
-                 * DataExchangeProtocol sourceNodeId.
-                 * @member {number} sourceNodeId
-                 * @memberof xyz.redtorch.pb.DataExchangeProtocol
-                 * @instance
-                 */
-                DataExchangeProtocol.prototype.sourceNodeId = 0;
-
-                /**
-                 * DataExchangeProtocol targetNodeId.
-                 * @member {number} targetNodeId
-                 * @memberof xyz.redtorch.pb.DataExchangeProtocol
-                 * @instance
-                 */
-                DataExchangeProtocol.prototype.targetNodeId = 0;
-
-                /**
                  * DataExchangeProtocol rpcId.
                  * @member {number} rpcId
                  * @memberof xyz.redtorch.pb.DataExchangeProtocol
@@ -30208,20 +28786,20 @@ $root.xyz = (function() {
                 DataExchangeProtocol.prototype.rpcId = 0;
 
                 /**
-                 * DataExchangeProtocol reqId.
-                 * @member {string} reqId
-                 * @memberof xyz.redtorch.pb.DataExchangeProtocol
-                 * @instance
-                 */
-                DataExchangeProtocol.prototype.reqId = "";
-
-                /**
                  * DataExchangeProtocol contentBytes.
                  * @member {Uint8Array} contentBytes
                  * @memberof xyz.redtorch.pb.DataExchangeProtocol
                  * @instance
                  */
                 DataExchangeProtocol.prototype.contentBytes = $util.newBuffer([]);
+
+                /**
+                 * DataExchangeProtocol timestamp.
+                 * @member {number|Long} timestamp
+                 * @memberof xyz.redtorch.pb.DataExchangeProtocol
+                 * @instance
+                 */
+                DataExchangeProtocol.prototype.timestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
                 /**
                  * Creates a new DataExchangeProtocol instance using the specified properties.
@@ -30249,20 +28827,12 @@ $root.xyz = (function() {
                         writer = $Writer.create();
                     if (message.contentType != null && message.hasOwnProperty("contentType"))
                         writer.uint32(/* id 1, wireType 0 =*/8).int32(message.contentType);
-                    if (message.rpcType != null && message.hasOwnProperty("rpcType"))
-                        writer.uint32(/* id 2, wireType 0 =*/16).int32(message.rpcType);
-                    if (message.timestamp != null && message.hasOwnProperty("timestamp"))
-                        writer.uint32(/* id 3, wireType 1 =*/25).fixed64(message.timestamp);
-                    if (message.sourceNodeId != null && message.hasOwnProperty("sourceNodeId"))
-                        writer.uint32(/* id 4, wireType 5 =*/37).fixed32(message.sourceNodeId);
-                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
-                        writer.uint32(/* id 5, wireType 5 =*/45).fixed32(message.targetNodeId);
                     if (message.rpcId != null && message.hasOwnProperty("rpcId"))
-                        writer.uint32(/* id 6, wireType 5 =*/53).fixed32(message.rpcId);
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        writer.uint32(/* id 7, wireType 2 =*/58).string(message.reqId);
+                        writer.uint32(/* id 2, wireType 5 =*/21).fixed32(message.rpcId);
                     if (message.contentBytes != null && message.hasOwnProperty("contentBytes"))
-                        writer.uint32(/* id 8, wireType 2 =*/66).bytes(message.contentBytes);
+                        writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.contentBytes);
+                    if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                        writer.uint32(/* id 4, wireType 1 =*/33).fixed64(message.timestamp);
                     return writer;
                 };
 
@@ -30301,25 +28871,13 @@ $root.xyz = (function() {
                             message.contentType = reader.int32();
                             break;
                         case 2:
-                            message.rpcType = reader.int32();
-                            break;
-                        case 3:
-                            message.timestamp = reader.fixed64();
-                            break;
-                        case 4:
-                            message.sourceNodeId = reader.fixed32();
-                            break;
-                        case 5:
-                            message.targetNodeId = reader.fixed32();
-                            break;
-                        case 6:
                             message.rpcId = reader.fixed32();
                             break;
-                        case 7:
-                            message.reqId = reader.string();
-                            break;
-                        case 8:
+                        case 3:
                             message.contentBytes = reader.bytes();
+                            break;
+                        case 4:
+                            message.timestamp = reader.fixed64();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -30364,31 +28922,15 @@ $root.xyz = (function() {
                         case 1:
                             break;
                         }
-                    if (message.rpcType != null && message.hasOwnProperty("rpcType"))
-                        switch (message.rpcType) {
-                        default:
-                            return "rpcType: enum value expected";
-                        case 0:
-                            break;
-                        }
-                    if (message.timestamp != null && message.hasOwnProperty("timestamp"))
-                        if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
-                            return "timestamp: integer|Long expected";
-                    if (message.sourceNodeId != null && message.hasOwnProperty("sourceNodeId"))
-                        if (!$util.isInteger(message.sourceNodeId))
-                            return "sourceNodeId: integer expected";
-                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
-                        if (!$util.isInteger(message.targetNodeId))
-                            return "targetNodeId: integer expected";
                     if (message.rpcId != null && message.hasOwnProperty("rpcId"))
                         if (!$util.isInteger(message.rpcId))
                             return "rpcId: integer expected";
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        if (!$util.isString(message.reqId))
-                            return "reqId: string expected";
                     if (message.contentBytes != null && message.hasOwnProperty("contentBytes"))
                         if (!(message.contentBytes && typeof message.contentBytes.length === "number" || $util.isString(message.contentBytes)))
                             return "contentBytes: buffer expected";
+                    if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+                        if (!$util.isInteger(message.timestamp) && !(message.timestamp && $util.isInteger(message.timestamp.low) && $util.isInteger(message.timestamp.high)))
+                            return "timestamp: integer|Long expected";
                     return null;
                 };
 
@@ -30414,12 +28956,13 @@ $root.xyz = (function() {
                         message.contentType = 1;
                         break;
                     }
-                    switch (object.rpcType) {
-                    case "CORE_RPC":
-                    case 0:
-                        message.rpcType = 0;
-                        break;
-                    }
+                    if (object.rpcId != null)
+                        message.rpcId = object.rpcId >>> 0;
+                    if (object.contentBytes != null)
+                        if (typeof object.contentBytes === "string")
+                            $util.base64.decode(object.contentBytes, message.contentBytes = $util.newBuffer($util.base64.length(object.contentBytes)), 0);
+                        else if (object.contentBytes.length)
+                            message.contentBytes = object.contentBytes;
                     if (object.timestamp != null)
                         if ($util.Long)
                             (message.timestamp = $util.Long.fromValue(object.timestamp)).unsigned = false;
@@ -30429,19 +28972,6 @@ $root.xyz = (function() {
                             message.timestamp = object.timestamp;
                         else if (typeof object.timestamp === "object")
                             message.timestamp = new $util.LongBits(object.timestamp.low >>> 0, object.timestamp.high >>> 0).toNumber();
-                    if (object.sourceNodeId != null)
-                        message.sourceNodeId = object.sourceNodeId >>> 0;
-                    if (object.targetNodeId != null)
-                        message.targetNodeId = object.targetNodeId >>> 0;
-                    if (object.rpcId != null)
-                        message.rpcId = object.rpcId >>> 0;
-                    if (object.reqId != null)
-                        message.reqId = String(object.reqId);
-                    if (object.contentBytes != null)
-                        if (typeof object.contentBytes === "string")
-                            $util.base64.decode(object.contentBytes, message.contentBytes = $util.newBuffer($util.base64.length(object.contentBytes)), 0);
-                        else if (object.contentBytes.length)
-                            message.contentBytes = object.contentBytes;
                     return message;
                 };
 
@@ -30460,16 +28990,7 @@ $root.xyz = (function() {
                     var object = {};
                     if (options.defaults) {
                         object.contentType = options.enums === String ? "ROUTINE" : 0;
-                        object.rpcType = options.enums === String ? "CORE_RPC" : 0;
-                        if ($util.Long) {
-                            var long = new $util.Long(0, 0, false);
-                            object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                        } else
-                            object.timestamp = options.longs === String ? "0" : 0;
-                        object.sourceNodeId = 0;
-                        object.targetNodeId = 0;
                         object.rpcId = 0;
-                        object.reqId = "";
                         if (options.bytes === String)
                             object.contentBytes = "";
                         else {
@@ -30477,26 +28998,23 @@ $root.xyz = (function() {
                             if (options.bytes !== Array)
                                 object.contentBytes = $util.newBuffer(object.contentBytes);
                         }
+                        if ($util.Long) {
+                            var long = new $util.Long(0, 0, false);
+                            object.timestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                        } else
+                            object.timestamp = options.longs === String ? "0" : 0;
                     }
                     if (message.contentType != null && message.hasOwnProperty("contentType"))
                         object.contentType = options.enums === String ? $root.xyz.redtorch.pb.DataExchangeProtocol.ContentType[message.contentType] : message.contentType;
-                    if (message.rpcType != null && message.hasOwnProperty("rpcType"))
-                        object.rpcType = options.enums === String ? $root.xyz.redtorch.pb.DataExchangeProtocol.RpcType[message.rpcType] : message.rpcType;
+                    if (message.rpcId != null && message.hasOwnProperty("rpcId"))
+                        object.rpcId = message.rpcId;
+                    if (message.contentBytes != null && message.hasOwnProperty("contentBytes"))
+                        object.contentBytes = options.bytes === String ? $util.base64.encode(message.contentBytes, 0, message.contentBytes.length) : options.bytes === Array ? Array.prototype.slice.call(message.contentBytes) : message.contentBytes;
                     if (message.timestamp != null && message.hasOwnProperty("timestamp"))
                         if (typeof message.timestamp === "number")
                             object.timestamp = options.longs === String ? String(message.timestamp) : message.timestamp;
                         else
                             object.timestamp = options.longs === String ? $util.Long.prototype.toString.call(message.timestamp) : options.longs === Number ? new $util.LongBits(message.timestamp.low >>> 0, message.timestamp.high >>> 0).toNumber() : message.timestamp;
-                    if (message.sourceNodeId != null && message.hasOwnProperty("sourceNodeId"))
-                        object.sourceNodeId = message.sourceNodeId;
-                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
-                        object.targetNodeId = message.targetNodeId;
-                    if (message.rpcId != null && message.hasOwnProperty("rpcId"))
-                        object.rpcId = message.rpcId;
-                    if (message.reqId != null && message.hasOwnProperty("reqId"))
-                        object.reqId = message.reqId;
-                    if (message.contentBytes != null && message.hasOwnProperty("contentBytes"))
-                        object.contentBytes = options.bytes === String ? $util.base64.encode(message.contentBytes, 0, message.contentBytes.length) : options.bytes === Array ? Array.prototype.slice.call(message.contentBytes) : message.contentBytes;
                     return object;
                 };
 
@@ -30510,18 +29028,6 @@ $root.xyz = (function() {
                 DataExchangeProtocol.prototype.toJSON = function toJSON() {
                     return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                 };
-
-                /**
-                 * RpcType enum.
-                 * @name xyz.redtorch.pb.DataExchangeProtocol.RpcType
-                 * @enum {string}
-                 * @property {number} CORE_RPC=0 CORE_RPC value
-                 */
-                DataExchangeProtocol.RpcType = (function() {
-                    var valuesById = {}, values = Object.create(valuesById);
-                    values[valuesById[0] = "CORE_RPC"] = 0;
-                    return values;
-                })();
 
                 /**
                  * ContentType enum.

@@ -11,7 +11,7 @@ const {
     RpcCancelOrderReq,
     RpcSearchContractReq,
     RpcGetAccountListReq,
-    RpcGetMixContractListReq,
+    RpcGetContractListReq,
     RpcGetPositionListReq,
     RpcGetOrderListReq,
     RpcGetTradeListReq,
@@ -20,9 +20,8 @@ const {
     CancelOrderReqField,
 } = xyz.redtorch.pb
 
-
 class RpcClientApi {
-    public static getInstance(): RpcClientApi {
+    public static getInstance = (): RpcClientApi => {
         if (!RpcClientApi.instance) {
             RpcClientApi.instance = new RpcClientApi();
         }
@@ -30,88 +29,59 @@ class RpcClientApi {
     }
 
     private static instance: RpcClientApi;
+
     private constructor() {
     }
 
-    public asyncSubscribe(contract: xyz.redtorch.pb.ContractField): boolean {
-
-        const reqId = uuidv4()
+    private generateCommonReq = (transactionId: string) => {
         const operatorId = authenticationStore.operatorId;
-        const sourceNodeId = authenticationStore.nodeId;
-
         const commonReq = new CommonReqField()
-        commonReq.sourceNodeId = sourceNodeId;
-        commonReq.targetNodeId = 0;
         commonReq.operatorId = operatorId;
-        commonReq.reqId = reqId;
+        commonReq.transactionId = transactionId;
+
+        return commonReq
+    }
+
+    public asyncSubscribe = (contract: xyz.redtorch.pb.ContractField): boolean => {
+        const transactionId = uuidv4()
 
         const rpcSubscribeReq = new RpcSubscribeReq();
-
-        rpcSubscribeReq.commonReq = commonReq;
+        rpcSubscribeReq.commonReq = this.generateCommonReq(transactionId);
         rpcSubscribeReq.contract = contract;
         rpcSubscribeReq.contract.gatewayId = "";
 
-        return rpcClientProcess.sendRoutineCoreRpc(0, RpcSubscribeReq.encode(rpcSubscribeReq).finish(), reqId, RpcId.SUBSCRIBE_REQ);
-
+        return rpcClientProcess.sendRpc(RpcId.SUBSCRIBE_REQ, transactionId, RpcSubscribeReq.encode(rpcSubscribeReq).finish());
     }
 
     // ------------------------------------------------------------------------------
-    public asyncUnsubscribe(contract: xyz.redtorch.pb.ContractField, gatewayId: string): boolean {
-
-        const reqId = uuidv4()
-        const operatorId = authenticationStore.operatorId;
-        const sourceNodeId = authenticationStore.nodeId;
-
-        const commonReq = new CommonReqField()
-        commonReq.sourceNodeId = sourceNodeId;
-        commonReq.targetNodeId = 0;
-        commonReq.operatorId = operatorId;
-        commonReq.reqId = reqId;
+    public asyncUnsubscribe = (contract: xyz.redtorch.pb.ContractField, gatewayId: string): boolean => {
+        const transactionId = uuidv4()
 
         const rpcUnsubscribeReq = new RpcUnsubscribeReq();
 
-        rpcUnsubscribeReq.commonReq = commonReq;
+        rpcUnsubscribeReq.commonReq = this.generateCommonReq(transactionId);
         rpcUnsubscribeReq.contract = contract;
         rpcUnsubscribeReq.gatewayId = gatewayId;
 
-        return rpcClientProcess.sendRoutineCoreRpc(0, RpcUnsubscribeReq.encode(rpcUnsubscribeReq).finish(), reqId, RpcId.UNSUBSCRIBE_REQ);
+        return rpcClientProcess.sendRpc(RpcId.UNSUBSCRIBE_REQ, transactionId, RpcUnsubscribeReq.encode(rpcUnsubscribeReq).finish());
 
     }
 
     // ------------------------------------------------------------------------------
-    public asyncSubmitOrder(submitOrderReq: xyz.redtorch.pb.SubmitOrderReqField): boolean {
-
-        const reqId = uuidv4()
-        const operatorId = authenticationStore.operatorId;
-        const sourceNodeId = authenticationStore.nodeId;
-
-        const commonReq = new CommonReqField()
-        commonReq.sourceNodeId = sourceNodeId;
-        commonReq.targetNodeId = 0;
-        commonReq.operatorId = operatorId;
-        commonReq.reqId = reqId;
+    public asyncSubmitOrder = (submitOrderReq: xyz.redtorch.pb.SubmitOrderReqField): boolean => {
+        const transactionId = uuidv4()
 
         const rpcSubmitOrderReq = new RpcSubmitOrderReq();
 
-        rpcSubmitOrderReq.commonReq = commonReq;
+        rpcSubmitOrderReq.commonReq = this.generateCommonReq(transactionId);
         rpcSubmitOrderReq.submitOrderReq = submitOrderReq;
 
-        return rpcClientProcess.sendRoutineCoreRpc(0, RpcSubmitOrderReq.encode(rpcSubmitOrderReq).finish(), reqId, RpcId.SUBMIT_ORDER_REQ);
-
+        return rpcClientProcess.sendRpc(RpcId.SUBMIT_ORDER_REQ, transactionId, RpcSubmitOrderReq.encode(rpcSubmitOrderReq).finish());
     }
 
     // ------------------------------------------------------------------------------
-    public asyncCancelOrder(orderId: string, originOrderId?: string): boolean {
-
-        const reqId = uuidv4()
-        const operatorId = authenticationStore.operatorId;
-        const sourceNodeId = authenticationStore.nodeId;
-
-        const commonReq = new CommonReqField()
-        commonReq.sourceNodeId = sourceNodeId;
-        commonReq.targetNodeId = 0;
-        commonReq.operatorId = operatorId;
-        commonReq.reqId = reqId;
+    public asyncCancelOrder = (orderId: string, originOrderId?: string): boolean => {
+        const transactionId = uuidv4()
 
         const cancelOrderReq = new CancelOrderReqField()
         cancelOrderReq.orderId = orderId;
@@ -120,146 +90,88 @@ class RpcClientApi {
         }
 
         const rpcCancelOrderReq = new RpcCancelOrderReq();
-        rpcCancelOrderReq.commonReq = commonReq;
+        rpcCancelOrderReq.commonReq = this.generateCommonReq(transactionId);
         rpcCancelOrderReq.cancelOrderReq = cancelOrderReq;
 
-        return rpcClientProcess.sendRoutineCoreRpc(0, RpcCancelOrderReq.encode(rpcCancelOrderReq).finish(), reqId, RpcId.CANCEL_ORDER_REQ);
+        return rpcClientProcess.sendRpc(RpcId.CANCEL_ORDER_REQ, transactionId, RpcCancelOrderReq.encode(rpcCancelOrderReq).finish());
 
     }
 
     // ------------------------------------------------------------------------------
-    public asyncSearchContract(contract: xyz.redtorch.pb.ContractField): boolean {
-
-        const reqId = uuidv4()
-        const operatorId = authenticationStore.operatorId;
-        const sourceNodeId = authenticationStore.nodeId;
-
-        const commonReq = new CommonReqField()
-        commonReq.sourceNodeId = sourceNodeId;
-        commonReq.targetNodeId = 0;
-        commonReq.operatorId = operatorId;
-        commonReq.reqId = reqId;
+    public asyncSearchContract = (contract: xyz.redtorch.pb.ContractField): boolean => {
+        const transactionId = uuidv4()
 
         const rpcSearchContractReq = new RpcSearchContractReq();
 
-        rpcSearchContractReq.commonReq = commonReq;
+        rpcSearchContractReq.commonReq = this.generateCommonReq(transactionId);
         rpcSearchContractReq.contract = contract;
 
-        return rpcClientProcess.sendRoutineCoreRpc(0, RpcSearchContractReq.encode(rpcSearchContractReq).finish(), reqId, RpcId.SEARCH_CONTRACT_REQ);
+        return rpcClientProcess.sendRpc(RpcId.SEARCH_CONTRACT_REQ, transactionId, RpcSearchContractReq.encode(rpcSearchContractReq).finish());
 
     }
 
     // -------------------------------------------------------------------------------------
-    public asyncGetAccountList() {
-        const reqId = uuidv4()
-        const operatorId = authenticationStore.operatorId;
-        const sourceNodeId = authenticationStore.nodeId;
-
-        const commonReq = new CommonReqField()
-        commonReq.sourceNodeId = sourceNodeId;
-        commonReq.targetNodeId = 0;
-        commonReq.operatorId = operatorId;
-        commonReq.reqId = reqId;
-
+    public asyncGetAccountList = () => {
+        const transactionId = uuidv4()
         const rpcGetAccountListReq = new RpcGetAccountListReq();
 
-        rpcGetAccountListReq.commonReq = commonReq;
+        rpcGetAccountListReq.commonReq = this.generateCommonReq(transactionId);
 
-        return rpcClientProcess.sendRoutineCoreRpc(0, RpcGetAccountListReq.encode(rpcGetAccountListReq).finish(), reqId, RpcId.GET_ACCOUNT_LIST_REQ);
+        return rpcClientProcess.sendAsyncHttpRpc(RpcId.GET_ACCOUNT_LIST_REQ, transactionId, RpcGetAccountListReq.encode(rpcGetAccountListReq).finish());
     }
 
     // -------------------------------------------------------------------------------------
-    public asyncGetMixContractList() {
-        const reqId = uuidv4()
-        const operatorId = authenticationStore.operatorId;
-        const sourceNodeId = authenticationStore.nodeId;
+    public asyncGetContractList = () => {
+        const transactionId = uuidv4()
 
-        const commonReq = new CommonReqField()
-        commonReq.sourceNodeId = sourceNodeId;
-        commonReq.targetNodeId = 0;
-        commonReq.operatorId = operatorId;
-        commonReq.reqId = reqId;
+        const rpcGetContractListReq = new RpcGetContractListReq();
 
-        const rpcGetMixContractListReq = new RpcGetMixContractListReq();
+        rpcGetContractListReq.commonReq = this.generateCommonReq(transactionId);
 
-        rpcGetMixContractListReq.commonReq = commonReq;
-
-        return rpcClientProcess.sendRoutineCoreRpc(0, RpcGetMixContractListReq.encode(rpcGetMixContractListReq).finish(), reqId, RpcId.GET_MIX_CONTRACT_LIST_REQ);
+        return rpcClientProcess.sendAsyncHttpRpc(RpcId.GET_CONTRACT_LIST_REQ, transactionId, RpcGetContractListReq.encode(rpcGetContractListReq).finish());
     }
 
     // -------------------------------------------------------------------------------------
-    public asyncGetPositionList() {
-        const reqId = uuidv4()
-        const operatorId = authenticationStore.operatorId;
-        const sourceNodeId = authenticationStore.nodeId;
-
-        const commonReq = new CommonReqField()
-        commonReq.sourceNodeId = sourceNodeId;
-        commonReq.targetNodeId = 0;
-        commonReq.operatorId = operatorId;
-        commonReq.reqId = reqId;
+    public asyncGetPositionList = () => {
+        const transactionId = uuidv4()
 
         const rpcGetPositionListReq = new RpcGetPositionListReq();
 
-        rpcGetPositionListReq.commonReq = commonReq;
+        rpcGetPositionListReq.commonReq = this.generateCommonReq(transactionId);
 
-        return rpcClientProcess.sendRoutineCoreRpc(0, RpcGetPositionListReq.encode(rpcGetPositionListReq).finish(), reqId, RpcId.GET_POSITION_LIST_REQ);
+        return rpcClientProcess.sendAsyncHttpRpc(RpcId.GET_POSITION_LIST_REQ, transactionId, RpcGetPositionListReq.encode(rpcGetPositionListReq).finish());
     }
 
     // -------------------------------------------------------------------------------------
-    public asyncGetOrderList() {
-        const reqId = uuidv4()
-        const operatorId = authenticationStore.operatorId;
-        const sourceNodeId = authenticationStore.nodeId;
-
-        const commonReq = new CommonReqField()
-        commonReq.sourceNodeId = sourceNodeId;
-        commonReq.targetNodeId = 0;
-        commonReq.operatorId = operatorId;
-        commonReq.reqId = reqId;
+    public asyncGetOrderList = () => {
+        const transactionId = uuidv4()
 
         const rpcGetOrderListReq = new RpcGetOrderListReq();
 
-        rpcGetOrderListReq.commonReq = commonReq;
+        rpcGetOrderListReq.commonReq = this.generateCommonReq(transactionId);
 
-        return rpcClientProcess.sendRoutineCoreRpc(0, RpcGetOrderListReq.encode(rpcGetOrderListReq).finish(), reqId, RpcId.GET_ORDER_LIST_REQ);
+        return rpcClientProcess.sendAsyncHttpRpc(RpcId.GET_ORDER_LIST_REQ, transactionId, RpcGetOrderListReq.encode(rpcGetOrderListReq).finish());
     }
 
     // -------------------------------------------------------------------------------------
-    public asyncGetTradeList() {
-        const reqId = uuidv4()
-        const operatorId = authenticationStore.operatorId;
-        const sourceNodeId = authenticationStore.nodeId;
-
-        const commonReq = new CommonReqField()
-        commonReq.sourceNodeId = sourceNodeId;
-        commonReq.targetNodeId = 0;
-        commonReq.operatorId = operatorId;
-        commonReq.reqId = reqId;
+    public asyncGetTradeList = () => {
+        const transactionId = uuidv4()
 
         const rpcGetTradeListReq = new RpcGetTradeListReq();
 
-        rpcGetTradeListReq.commonReq = commonReq;
+        rpcGetTradeListReq.commonReq = this.generateCommonReq(transactionId);
 
-        return rpcClientProcess.sendRoutineCoreRpc(0, RpcGetTradeListReq.encode(rpcGetTradeListReq).finish(), reqId, RpcId.GET_TRADE_LIST_REQ);
+        return rpcClientProcess.sendAsyncHttpRpc(RpcId.GET_TRADE_LIST_REQ, transactionId, RpcGetTradeListReq.encode(rpcGetTradeListReq).finish());
     }
     // -------------------------------------------------------------------------------------
-    public asyncGetTickList() {
-        const reqId = uuidv4()
-        const operatorId = authenticationStore.operatorId;
-        const sourceNodeId = authenticationStore.nodeId;
-
-        const commonReq = new CommonReqField()
-        commonReq.sourceNodeId = sourceNodeId;
-        commonReq.targetNodeId = 0;
-        commonReq.operatorId = operatorId;
-        commonReq.reqId = reqId;
+    public asyncGetTickList = () => {
+        const transactionId = uuidv4()
 
         const rpcGetTickListReq = new RpcGetTickListReq();
 
-        rpcGetTickListReq.commonReq = commonReq;
+        rpcGetTickListReq.commonReq = this.generateCommonReq(transactionId);
 
-        return rpcClientProcess.sendRoutineCoreRpc(0, RpcGetTickListReq.encode(rpcGetTickListReq).finish(), reqId, RpcId.GET_TICK_LIST_REQ);
+        return rpcClientProcess.sendAsyncHttpRpc(RpcId.GET_TICK_LIST_REQ, transactionId, RpcGetTickListReq.encode(rpcGetTickListReq).finish());
     }
 
 

@@ -6,7 +6,6 @@ import GatewayPage from './pages/management/GatewayPage'
 import SettingPage from './pages/common/SettingPage'
 import LoginPage from './pages/LoginPage'
 import NotFoundPage from './pages/NotFoundPage'
-import { Route, Redirect, } from 'react-router';
 import { inject } from 'mobx-react';
 import UserPage from './pages/management/UserPage';
 import RedirectToManagementPage from './pages/common/RedirectToManagementPage';
@@ -19,6 +18,7 @@ import { TradeMobilePage } from './pages/tradeMobile/TradeMobilePage';
 import OperatorPage from './pages/management/OperatorPage';
 // import LogPage from './pages/management/LogPage';
 import MarketDataRecordingPage from './pages/management/MarketDataRecordingPage';
+import { Route, Redirect } from 'react-router-dom';
 
 const routes = [
   {
@@ -143,7 +143,7 @@ const routes = [
 @inject('authenticationStore')
 class RouteWithSubRoutes extends React.Component<any> {
 
-  public render() {
+  render() {
     const { authenticationStore } = this.props;
     return (
       <Route
@@ -156,9 +156,7 @@ class RouteWithSubRoutes extends React.Component<any> {
               )
             } else {
               return (
-                <Redirect to={{
-                  pathname: '/login',
-                }} />
+                <Redirect from="*" to='/login' />
               )
             }
           }
