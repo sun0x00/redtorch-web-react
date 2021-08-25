@@ -10,6 +10,10 @@
 
 本WEB前端项目隶属于项目[redtorch](https://github.com/sun0x00/redtorch "redtorch")
 
+当前版本1.1.0
+
+redtorch 项目计划自2.0.0起不再通过master节点提供web服务，所有管理功能通过服务器端GUI实现。
+
 ## 主要开发语言 
 + TypeScript
 + JavaScript
