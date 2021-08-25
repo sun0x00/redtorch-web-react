@@ -474,7 +474,7 @@ export const TradeBoardPage = inject('authenticationStore', 'tradeActionStore', 
                                             [
                                                 { key: VolumeConditionEnum.VC_AV, text: 'AV(任何数量)' },
                                                 { key: VolumeConditionEnum.VC_MV, text: 'MV(最小数量)' },
-                                                { key: VolumeConditionEnum.VC_AV, text: 'CV(全部数量)' }
+                                                { key: VolumeConditionEnum.VC_CV, text: 'CV(全部数量)' }
                                             ]
                                         }
                                         onChange={(event: any, option?: IDropdownOption, index?: number, value?: number) => {
@@ -758,7 +758,7 @@ export const TradeBoardPage = inject('authenticationStore', 'tradeActionStore', 
                                             [
                                                 { key: VolumeConditionEnum.VC_AV, text: 'AV(任何数量)' },
                                                 { key: VolumeConditionEnum.VC_MV, text: 'MV(最小数量)' },
-                                                { key: VolumeConditionEnum.VC_AV, text: 'CV(全部数量)' }
+                                                { key: VolumeConditionEnum.VC_CV, text: 'CV(全部数量)' }
                                             ]
                                         }
                                         onChange={(event: any, option?: IDropdownOption, index?: number, value?: string) => {
