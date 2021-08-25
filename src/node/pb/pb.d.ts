@@ -55,12 +55,13 @@ export namespace xyz {
 
             /** BarPeriodEnum enum. */
             enum BarPeriodEnum {
-                B_5Sec = 0,
-                B_1Min = 1,
-                B_3Min = 2,
-                B_5Min = 3,
-                B_15Min = 4,
-                B_1Day = 5
+                B_UNKNOWN = 0,
+                B_5Sec = 5,
+                B_1Min = 60,
+                B_3Min = 180,
+                B_5Min = 300,
+                B_15Min = 900,
+                B_1Day = 86400
             }
 
             /** ConnectStatusEnum enum. */
@@ -426,6 +427,12 @@ export namespace xyz {
 
                 /** GatewayField authErrorFlag */
                 authErrorFlag?: (boolean|null);
+
+                /** GatewayField targetNodeId */
+                targetNodeId?: (number|null);
+
+                /** GatewayField version */
+                version?: (number|Long|null);
             }
 
             /** Represents a GatewayField. */
@@ -457,6 +464,12 @@ export namespace xyz {
 
                 /** GatewayField authErrorFlag. */
                 public authErrorFlag: boolean;
+
+                /** GatewayField targetNodeId. */
+                public targetNodeId: number;
+
+                /** GatewayField version. */
+                public version: (number|Long);
 
                 /**
                  * Creates a new GatewayField instance using the specified properties.
@@ -1733,43 +1746,22 @@ export namespace xyz {
                 gatewayId?: (string|null);
 
                 /** TickField tradingDay */
-                tradingDay?: (string|null);
+                tradingDay?: (number|null);
 
                 /** TickField actionDay */
-                actionDay?: (string|null);
+                actionDay?: (number|null);
 
                 /** TickField actionTime */
-                actionTime?: (string|null);
+                actionTime?: (number|null);
 
                 /** TickField actionTimestamp */
                 actionTimestamp?: (number|Long|null);
-
-                /** TickField status */
-                status?: (number|null);
 
                 /** TickField lastPrice */
                 lastPrice?: (number|null);
 
                 /** TickField avgPrice */
                 avgPrice?: (number|null);
-
-                /** TickField totalBidVol */
-                totalBidVol?: (number|Long|null);
-
-                /** TickField totalAskVol */
-                totalAskVol?: (number|Long|null);
-
-                /** TickField weightedAvgBidPrice */
-                weightedAvgBidPrice?: (number|null);
-
-                /** TickField weightedAvgAskPrice */
-                weightedAvgAskPrice?: (number|null);
-
-                /** TickField iopv */
-                iopv?: (number|null);
-
-                /** TickField yieldToMaturity */
-                yieldToMaturity?: (number|null);
 
                 /** TickField volumeDelta */
                 volumeDelta?: (number|Long|null);
@@ -1782,12 +1774,6 @@ export namespace xyz {
 
                 /** TickField turnoverDelta */
                 turnoverDelta?: (number|null);
-
-                /** TickField numTrades */
-                numTrades?: (number|Long|null);
-
-                /** TickField numTradesDelta */
-                numTradesDelta?: (number|Long|null);
 
                 /** TickField openInterest */
                 openInterest?: (number|null);
@@ -1851,43 +1837,22 @@ export namespace xyz {
                 public gatewayId: string;
 
                 /** TickField tradingDay. */
-                public tradingDay: string;
+                public tradingDay: number;
 
                 /** TickField actionDay. */
-                public actionDay: string;
+                public actionDay: number;
 
                 /** TickField actionTime. */
-                public actionTime: string;
+                public actionTime: number;
 
                 /** TickField actionTimestamp. */
                 public actionTimestamp: (number|Long);
-
-                /** TickField status. */
-                public status: number;
 
                 /** TickField lastPrice. */
                 public lastPrice: number;
 
                 /** TickField avgPrice. */
                 public avgPrice: number;
-
-                /** TickField totalBidVol. */
-                public totalBidVol: (number|Long);
-
-                /** TickField totalAskVol. */
-                public totalAskVol: (number|Long);
-
-                /** TickField weightedAvgBidPrice. */
-                public weightedAvgBidPrice: number;
-
-                /** TickField weightedAvgAskPrice. */
-                public weightedAvgAskPrice: number;
-
-                /** TickField iopv. */
-                public iopv: number;
-
-                /** TickField yieldToMaturity. */
-                public yieldToMaturity: number;
 
                 /** TickField volumeDelta. */
                 public volumeDelta: (number|Long);
@@ -1900,12 +1865,6 @@ export namespace xyz {
 
                 /** TickField turnoverDelta. */
                 public turnoverDelta: number;
-
-                /** TickField numTrades. */
-                public numTrades: (number|Long);
-
-                /** TickField numTradesDelta. */
-                public numTradesDelta: (number|Long);
 
                 /** TickField openInterest. */
                 public openInterest: number;
@@ -2033,13 +1992,13 @@ export namespace xyz {
                 gatewayId?: (string|null);
 
                 /** BarField tradingDay */
-                tradingDay?: (string|null);
+                tradingDay?: (number|null);
 
                 /** BarField actionDay */
-                actionDay?: (string|null);
+                actionDay?: (number|null);
 
                 /** BarField actionTime */
-                actionTime?: (string|null);
+                actionTime?: (number|null);
 
                 /** BarField actionTimestamp */
                 actionTimestamp?: (number|Long|null);
@@ -2074,12 +2033,6 @@ export namespace xyz {
                 /** BarField turnoverDelta */
                 turnoverDelta?: (number|null);
 
-                /** BarField numTrades */
-                numTrades?: (number|Long|null);
-
-                /** BarField numTradesDelta */
-                numTradesDelta?: (number|Long|null);
-
                 /** BarField preOpenInterest */
                 preOpenInterest?: (number|null);
 
@@ -2088,6 +2041,9 @@ export namespace xyz {
 
                 /** BarField preSettlePrice */
                 preSettlePrice?: (number|null);
+
+                /** BarField period */
+                period?: (number|null);
             }
 
             /** Represents a BarField. */
@@ -2106,13 +2062,13 @@ export namespace xyz {
                 public gatewayId: string;
 
                 /** BarField tradingDay. */
-                public tradingDay: string;
+                public tradingDay: number;
 
                 /** BarField actionDay. */
-                public actionDay: string;
+                public actionDay: number;
 
                 /** BarField actionTime. */
-                public actionTime: string;
+                public actionTime: number;
 
                 /** BarField actionTimestamp. */
                 public actionTimestamp: (number|Long);
@@ -2147,12 +2103,6 @@ export namespace xyz {
                 /** BarField turnoverDelta. */
                 public turnoverDelta: number;
 
-                /** BarField numTrades. */
-                public numTrades: (number|Long);
-
-                /** BarField numTradesDelta. */
-                public numTradesDelta: (number|Long);
-
                 /** BarField preOpenInterest. */
                 public preOpenInterest: number;
 
@@ -2161,6 +2111,9 @@ export namespace xyz {
 
                 /** BarField preSettlePrice. */
                 public preSettlePrice: number;
+
+                /** BarField period. */
+                public period: number;
 
                 /**
                  * Creates a new BarField instance using the specified properties.
@@ -2758,11 +2711,11 @@ export namespace xyz {
                 /** GatewaySettingField gatewayAdapterType */
                 gatewayAdapterType?: (xyz.redtorch.pb.GatewayAdapterTypeEnum|null);
 
-                /** GatewaySettingField ctpApiSetting */
-                ctpApiSetting?: (xyz.redtorch.pb.GatewaySettingField.ICtpApiSettingField|null);
+                /** GatewaySettingField targetNodeId */
+                targetNodeId?: (number|null);
 
-                /** GatewaySettingField ibApiSetting */
-                ibApiSetting?: (xyz.redtorch.pb.GatewaySettingField.IIbApiSettingField|null);
+                /** GatewaySettingField autoConnectTimeRanges */
+                autoConnectTimeRanges?: (string|null);
 
                 /** GatewaySettingField status */
                 status?: (xyz.redtorch.pb.ConnectStatusEnum|null);
@@ -2770,8 +2723,11 @@ export namespace xyz {
                 /** GatewaySettingField version */
                 version?: (number|Long|null);
 
-                /** GatewaySettingField autoConnectTimeRanges */
-                autoConnectTimeRanges?: (string|null);
+                /** GatewaySettingField ctpApiSetting */
+                ctpApiSetting?: (xyz.redtorch.pb.GatewaySettingField.ICtpApiSettingField|null);
+
+                /** GatewaySettingField ibApiSetting */
+                ibApiSetting?: (xyz.redtorch.pb.GatewaySettingField.IIbApiSettingField|null);
             }
 
             /** Represents a GatewaySettingField. */
@@ -2801,11 +2757,11 @@ export namespace xyz {
                 /** GatewaySettingField gatewayAdapterType. */
                 public gatewayAdapterType: xyz.redtorch.pb.GatewayAdapterTypeEnum;
 
-                /** GatewaySettingField ctpApiSetting. */
-                public ctpApiSetting?: (xyz.redtorch.pb.GatewaySettingField.ICtpApiSettingField|null);
+                /** GatewaySettingField targetNodeId. */
+                public targetNodeId: number;
 
-                /** GatewaySettingField ibApiSetting. */
-                public ibApiSetting?: (xyz.redtorch.pb.GatewaySettingField.IIbApiSettingField|null);
+                /** GatewaySettingField autoConnectTimeRanges. */
+                public autoConnectTimeRanges: string;
 
                 /** GatewaySettingField status. */
                 public status: xyz.redtorch.pb.ConnectStatusEnum;
@@ -2813,8 +2769,11 @@ export namespace xyz {
                 /** GatewaySettingField version. */
                 public version: (number|Long);
 
-                /** GatewaySettingField autoConnectTimeRanges. */
-                public autoConnectTimeRanges: string;
+                /** GatewaySettingField ctpApiSetting. */
+                public ctpApiSetting?: (xyz.redtorch.pb.GatewaySettingField.ICtpApiSettingField|null);
+
+                /** GatewaySettingField ibApiSetting. */
+                public ibApiSetting?: (xyz.redtorch.pb.GatewaySettingField.IIbApiSettingField|null);
 
                 /**
                  * Creates a new GatewaySettingField instance using the specified properties.

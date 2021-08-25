@@ -142,21 +142,23 @@ $root.xyz = (function() {
              * BarPeriodEnum enum.
              * @name xyz.redtorch.pb.BarPeriodEnum
              * @enum {string}
-             * @property {number} B_5Sec=0 B_5Sec value
-             * @property {number} B_1Min=1 B_1Min value
-             * @property {number} B_3Min=2 B_3Min value
-             * @property {number} B_5Min=3 B_5Min value
-             * @property {number} B_15Min=4 B_15Min value
-             * @property {number} B_1Day=5 B_1Day value
+             * @property {number} B_UNKNOWN=0 B_UNKNOWN value
+             * @property {number} B_5Sec=5 B_5Sec value
+             * @property {number} B_1Min=60 B_1Min value
+             * @property {number} B_3Min=180 B_3Min value
+             * @property {number} B_5Min=300 B_5Min value
+             * @property {number} B_15Min=900 B_15Min value
+             * @property {number} B_1Day=86400 B_1Day value
              */
             pb.BarPeriodEnum = (function() {
                 var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "B_5Sec"] = 0;
-                values[valuesById[1] = "B_1Min"] = 1;
-                values[valuesById[2] = "B_3Min"] = 2;
-                values[valuesById[3] = "B_5Min"] = 3;
-                values[valuesById[4] = "B_15Min"] = 4;
-                values[valuesById[5] = "B_1Day"] = 5;
+                values[valuesById[0] = "B_UNKNOWN"] = 0;
+                values[valuesById[5] = "B_5Sec"] = 5;
+                values[valuesById[60] = "B_1Min"] = 60;
+                values[valuesById[180] = "B_3Min"] = 180;
+                values[valuesById[300] = "B_5Min"] = 300;
+                values[valuesById[900] = "B_15Min"] = 900;
+                values[valuesById[86400] = "B_1Day"] = 86400;
                 return values;
             })();
 
@@ -905,6 +907,8 @@ $root.xyz = (function() {
                  * @property {xyz.redtorch.pb.GatewayAdapterTypeEnum|null} [gatewayAdapterType] GatewayField gatewayAdapterType
                  * @property {xyz.redtorch.pb.ConnectStatusEnum|null} [status] GatewayField status
                  * @property {boolean|null} [authErrorFlag] GatewayField authErrorFlag
+                 * @property {number|null} [targetNodeId] GatewayField targetNodeId
+                 * @property {number|Long|null} [version] GatewayField version
                  */
 
                 /**
@@ -979,6 +983,22 @@ $root.xyz = (function() {
                 GatewayField.prototype.authErrorFlag = false;
 
                 /**
+                 * GatewayField targetNodeId.
+                 * @member {number} targetNodeId
+                 * @memberof xyz.redtorch.pb.GatewayField
+                 * @instance
+                 */
+                GatewayField.prototype.targetNodeId = 0;
+
+                /**
+                 * GatewayField version.
+                 * @member {number|Long} version
+                 * @memberof xyz.redtorch.pb.GatewayField
+                 * @instance
+                 */
+                GatewayField.prototype.version = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+                /**
                  * Creates a new GatewayField instance using the specified properties.
                  * @function create
                  * @memberof xyz.redtorch.pb.GatewayField
@@ -1016,6 +1036,10 @@ $root.xyz = (function() {
                         writer.uint32(/* id 6, wireType 0 =*/48).int32(message.status);
                     if (message.authErrorFlag != null && message.hasOwnProperty("authErrorFlag"))
                         writer.uint32(/* id 7, wireType 0 =*/56).bool(message.authErrorFlag);
+                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
+                        writer.uint32(/* id 8, wireType 5 =*/69).fixed32(message.targetNodeId);
+                    if (message.version != null && message.hasOwnProperty("version"))
+                        writer.uint32(/* id 9, wireType 1 =*/73).fixed64(message.version);
                     return writer;
                 };
 
@@ -1070,6 +1094,12 @@ $root.xyz = (function() {
                             break;
                         case 7:
                             message.authErrorFlag = reader.bool();
+                            break;
+                        case 8:
+                            message.targetNodeId = reader.fixed32();
+                            break;
+                        case 9:
+                            message.version = reader.fixed64();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -1147,6 +1177,12 @@ $root.xyz = (function() {
                     if (message.authErrorFlag != null && message.hasOwnProperty("authErrorFlag"))
                         if (typeof message.authErrorFlag !== "boolean")
                             return "authErrorFlag: boolean expected";
+                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
+                        if (!$util.isInteger(message.targetNodeId))
+                            return "targetNodeId: integer expected";
+                    if (message.version != null && message.hasOwnProperty("version"))
+                        if (!$util.isInteger(message.version) && !(message.version && $util.isInteger(message.version.low) && $util.isInteger(message.version.high)))
+                            return "version: integer|Long expected";
                     return null;
                 };
 
@@ -1220,6 +1256,17 @@ $root.xyz = (function() {
                     }
                     if (object.authErrorFlag != null)
                         message.authErrorFlag = Boolean(object.authErrorFlag);
+                    if (object.targetNodeId != null)
+                        message.targetNodeId = object.targetNodeId >>> 0;
+                    if (object.version != null)
+                        if ($util.Long)
+                            (message.version = $util.Long.fromValue(object.version)).unsigned = false;
+                        else if (typeof object.version === "string")
+                            message.version = parseInt(object.version, 10);
+                        else if (typeof object.version === "number")
+                            message.version = object.version;
+                        else if (typeof object.version === "object")
+                            message.version = new $util.LongBits(object.version.low >>> 0, object.version.high >>> 0).toNumber();
                     return message;
                 };
 
@@ -1244,6 +1291,12 @@ $root.xyz = (function() {
                         object.gatewayAdapterType = options.enums === String ? "GAT_CTP" : 0;
                         object.status = options.enums === String ? "CS_Unknown" : 0;
                         object.authErrorFlag = false;
+                        object.targetNodeId = 0;
+                        if ($util.Long) {
+                            var long = new $util.Long(0, 0, false);
+                            object.version = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                        } else
+                            object.version = options.longs === String ? "0" : 0;
                     }
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         object.gatewayId = message.gatewayId;
@@ -1259,6 +1312,13 @@ $root.xyz = (function() {
                         object.status = options.enums === String ? $root.xyz.redtorch.pb.ConnectStatusEnum[message.status] : message.status;
                     if (message.authErrorFlag != null && message.hasOwnProperty("authErrorFlag"))
                         object.authErrorFlag = message.authErrorFlag;
+                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
+                        object.targetNodeId = message.targetNodeId;
+                    if (message.version != null && message.hasOwnProperty("version"))
+                        if (typeof message.version === "number")
+                            object.version = options.longs === String ? String(message.version) : message.version;
+                        else
+                            object.version = options.longs === String ? $util.Long.prototype.toString.call(message.version) : options.longs === Number ? new $util.LongBits(message.version.low >>> 0, message.version.high >>> 0).toNumber() : message.version;
                     return object;
                 };
 
@@ -6368,25 +6428,16 @@ $root.xyz = (function() {
                  * @interface ITickField
                  * @property {string|null} [uniformSymbol] TickField uniformSymbol
                  * @property {string|null} [gatewayId] TickField gatewayId
-                 * @property {string|null} [tradingDay] TickField tradingDay
-                 * @property {string|null} [actionDay] TickField actionDay
-                 * @property {string|null} [actionTime] TickField actionTime
+                 * @property {number|null} [tradingDay] TickField tradingDay
+                 * @property {number|null} [actionDay] TickField actionDay
+                 * @property {number|null} [actionTime] TickField actionTime
                  * @property {number|Long|null} [actionTimestamp] TickField actionTimestamp
-                 * @property {number|null} [status] TickField status
                  * @property {number|null} [lastPrice] TickField lastPrice
                  * @property {number|null} [avgPrice] TickField avgPrice
-                 * @property {number|Long|null} [totalBidVol] TickField totalBidVol
-                 * @property {number|Long|null} [totalAskVol] TickField totalAskVol
-                 * @property {number|null} [weightedAvgBidPrice] TickField weightedAvgBidPrice
-                 * @property {number|null} [weightedAvgAskPrice] TickField weightedAvgAskPrice
-                 * @property {number|null} [iopv] TickField iopv
-                 * @property {number|null} [yieldToMaturity] TickField yieldToMaturity
                  * @property {number|Long|null} [volumeDelta] TickField volumeDelta
                  * @property {number|Long|null} [volume] TickField volume
                  * @property {number|null} [turnover] TickField turnover
                  * @property {number|null} [turnoverDelta] TickField turnoverDelta
-                 * @property {number|Long|null} [numTrades] TickField numTrades
-                 * @property {number|Long|null} [numTradesDelta] TickField numTradesDelta
                  * @property {number|null} [openInterest] TickField openInterest
                  * @property {number|null} [openInterestDelta] TickField openInterestDelta
                  * @property {number|null} [preOpenInterest] TickField preOpenInterest
@@ -6441,27 +6492,27 @@ $root.xyz = (function() {
 
                 /**
                  * TickField tradingDay.
-                 * @member {string} tradingDay
+                 * @member {number} tradingDay
                  * @memberof xyz.redtorch.pb.TickField
                  * @instance
                  */
-                TickField.prototype.tradingDay = "";
+                TickField.prototype.tradingDay = 0;
 
                 /**
                  * TickField actionDay.
-                 * @member {string} actionDay
+                 * @member {number} actionDay
                  * @memberof xyz.redtorch.pb.TickField
                  * @instance
                  */
-                TickField.prototype.actionDay = "";
+                TickField.prototype.actionDay = 0;
 
                 /**
                  * TickField actionTime.
-                 * @member {string} actionTime
+                 * @member {number} actionTime
                  * @memberof xyz.redtorch.pb.TickField
                  * @instance
                  */
-                TickField.prototype.actionTime = "";
+                TickField.prototype.actionTime = 0;
 
                 /**
                  * TickField actionTimestamp.
@@ -6470,14 +6521,6 @@ $root.xyz = (function() {
                  * @instance
                  */
                 TickField.prototype.actionTimestamp = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
-
-                /**
-                 * TickField status.
-                 * @member {number} status
-                 * @memberof xyz.redtorch.pb.TickField
-                 * @instance
-                 */
-                TickField.prototype.status = 0;
 
                 /**
                  * TickField lastPrice.
@@ -6494,54 +6537,6 @@ $root.xyz = (function() {
                  * @instance
                  */
                 TickField.prototype.avgPrice = 0;
-
-                /**
-                 * TickField totalBidVol.
-                 * @member {number|Long} totalBidVol
-                 * @memberof xyz.redtorch.pb.TickField
-                 * @instance
-                 */
-                TickField.prototype.totalBidVol = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
-
-                /**
-                 * TickField totalAskVol.
-                 * @member {number|Long} totalAskVol
-                 * @memberof xyz.redtorch.pb.TickField
-                 * @instance
-                 */
-                TickField.prototype.totalAskVol = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
-
-                /**
-                 * TickField weightedAvgBidPrice.
-                 * @member {number} weightedAvgBidPrice
-                 * @memberof xyz.redtorch.pb.TickField
-                 * @instance
-                 */
-                TickField.prototype.weightedAvgBidPrice = 0;
-
-                /**
-                 * TickField weightedAvgAskPrice.
-                 * @member {number} weightedAvgAskPrice
-                 * @memberof xyz.redtorch.pb.TickField
-                 * @instance
-                 */
-                TickField.prototype.weightedAvgAskPrice = 0;
-
-                /**
-                 * TickField iopv.
-                 * @member {number} iopv
-                 * @memberof xyz.redtorch.pb.TickField
-                 * @instance
-                 */
-                TickField.prototype.iopv = 0;
-
-                /**
-                 * TickField yieldToMaturity.
-                 * @member {number} yieldToMaturity
-                 * @memberof xyz.redtorch.pb.TickField
-                 * @instance
-                 */
-                TickField.prototype.yieldToMaturity = 0;
 
                 /**
                  * TickField volumeDelta.
@@ -6574,22 +6569,6 @@ $root.xyz = (function() {
                  * @instance
                  */
                 TickField.prototype.turnoverDelta = 0;
-
-                /**
-                 * TickField numTrades.
-                 * @member {number|Long} numTrades
-                 * @memberof xyz.redtorch.pb.TickField
-                 * @instance
-                 */
-                TickField.prototype.numTrades = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
-
-                /**
-                 * TickField numTradesDelta.
-                 * @member {number|Long} numTradesDelta
-                 * @memberof xyz.redtorch.pb.TickField
-                 * @instance
-                 */
-                TickField.prototype.numTradesDelta = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
                 /**
                  * TickField openInterest.
@@ -6740,85 +6719,67 @@ $root.xyz = (function() {
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.gatewayId);
                     if (message.tradingDay != null && message.hasOwnProperty("tradingDay"))
-                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.tradingDay);
+                        writer.uint32(/* id 3, wireType 5 =*/29).fixed32(message.tradingDay);
                     if (message.actionDay != null && message.hasOwnProperty("actionDay"))
-                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.actionDay);
+                        writer.uint32(/* id 4, wireType 5 =*/37).fixed32(message.actionDay);
                     if (message.actionTime != null && message.hasOwnProperty("actionTime"))
-                        writer.uint32(/* id 5, wireType 2 =*/42).string(message.actionTime);
+                        writer.uint32(/* id 5, wireType 5 =*/45).fixed32(message.actionTime);
                     if (message.actionTimestamp != null && message.hasOwnProperty("actionTimestamp"))
                         writer.uint32(/* id 6, wireType 1 =*/49).fixed64(message.actionTimestamp);
-                    if (message.status != null && message.hasOwnProperty("status"))
-                        writer.uint32(/* id 7, wireType 5 =*/61).fixed32(message.status);
                     if (message.lastPrice != null && message.hasOwnProperty("lastPrice"))
-                        writer.uint32(/* id 8, wireType 1 =*/65).double(message.lastPrice);
+                        writer.uint32(/* id 7, wireType 1 =*/57).double(message.lastPrice);
                     if (message.avgPrice != null && message.hasOwnProperty("avgPrice"))
-                        writer.uint32(/* id 9, wireType 1 =*/73).double(message.avgPrice);
-                    if (message.totalBidVol != null && message.hasOwnProperty("totalBidVol"))
-                        writer.uint32(/* id 10, wireType 1 =*/81).fixed64(message.totalBidVol);
-                    if (message.totalAskVol != null && message.hasOwnProperty("totalAskVol"))
-                        writer.uint32(/* id 11, wireType 1 =*/89).fixed64(message.totalAskVol);
-                    if (message.weightedAvgBidPrice != null && message.hasOwnProperty("weightedAvgBidPrice"))
-                        writer.uint32(/* id 12, wireType 1 =*/97).double(message.weightedAvgBidPrice);
-                    if (message.weightedAvgAskPrice != null && message.hasOwnProperty("weightedAvgAskPrice"))
-                        writer.uint32(/* id 13, wireType 1 =*/105).double(message.weightedAvgAskPrice);
-                    if (message.iopv != null && message.hasOwnProperty("iopv"))
-                        writer.uint32(/* id 14, wireType 1 =*/113).double(message.iopv);
-                    if (message.yieldToMaturity != null && message.hasOwnProperty("yieldToMaturity"))
-                        writer.uint32(/* id 15, wireType 1 =*/121).double(message.yieldToMaturity);
+                        writer.uint32(/* id 8, wireType 1 =*/65).double(message.avgPrice);
                     if (message.volumeDelta != null && message.hasOwnProperty("volumeDelta"))
-                        writer.uint32(/* id 16, wireType 1 =*/129).fixed64(message.volumeDelta);
+                        writer.uint32(/* id 9, wireType 1 =*/73).fixed64(message.volumeDelta);
                     if (message.volume != null && message.hasOwnProperty("volume"))
-                        writer.uint32(/* id 17, wireType 1 =*/137).fixed64(message.volume);
+                        writer.uint32(/* id 10, wireType 1 =*/81).fixed64(message.volume);
                     if (message.turnover != null && message.hasOwnProperty("turnover"))
-                        writer.uint32(/* id 18, wireType 1 =*/145).double(message.turnover);
+                        writer.uint32(/* id 11, wireType 1 =*/89).double(message.turnover);
                     if (message.turnoverDelta != null && message.hasOwnProperty("turnoverDelta"))
-                        writer.uint32(/* id 19, wireType 1 =*/153).double(message.turnoverDelta);
-                    if (message.numTrades != null && message.hasOwnProperty("numTrades"))
-                        writer.uint32(/* id 20, wireType 1 =*/161).fixed64(message.numTrades);
-                    if (message.numTradesDelta != null && message.hasOwnProperty("numTradesDelta"))
-                        writer.uint32(/* id 21, wireType 1 =*/169).fixed64(message.numTradesDelta);
+                        writer.uint32(/* id 12, wireType 1 =*/97).double(message.turnoverDelta);
                     if (message.openInterest != null && message.hasOwnProperty("openInterest"))
-                        writer.uint32(/* id 22, wireType 1 =*/177).double(message.openInterest);
+                        writer.uint32(/* id 13, wireType 1 =*/105).double(message.openInterest);
                     if (message.openInterestDelta != null && message.hasOwnProperty("openInterestDelta"))
-                        writer.uint32(/* id 23, wireType 1 =*/185).double(message.openInterestDelta);
+                        writer.uint32(/* id 14, wireType 1 =*/113).double(message.openInterestDelta);
                     if (message.preOpenInterest != null && message.hasOwnProperty("preOpenInterest"))
-                        writer.uint32(/* id 24, wireType 1 =*/193).double(message.preOpenInterest);
+                        writer.uint32(/* id 15, wireType 1 =*/121).double(message.preOpenInterest);
                     if (message.preClosePrice != null && message.hasOwnProperty("preClosePrice"))
-                        writer.uint32(/* id 25, wireType 1 =*/201).double(message.preClosePrice);
+                        writer.uint32(/* id 16, wireType 1 =*/129).double(message.preClosePrice);
                     if (message.settlePrice != null && message.hasOwnProperty("settlePrice"))
-                        writer.uint32(/* id 26, wireType 1 =*/209).double(message.settlePrice);
+                        writer.uint32(/* id 17, wireType 1 =*/137).double(message.settlePrice);
                     if (message.preSettlePrice != null && message.hasOwnProperty("preSettlePrice"))
-                        writer.uint32(/* id 27, wireType 1 =*/217).double(message.preSettlePrice);
+                        writer.uint32(/* id 18, wireType 1 =*/145).double(message.preSettlePrice);
                     if (message.openPrice != null && message.hasOwnProperty("openPrice"))
-                        writer.uint32(/* id 28, wireType 1 =*/225).double(message.openPrice);
+                        writer.uint32(/* id 19, wireType 1 =*/153).double(message.openPrice);
                     if (message.highPrice != null && message.hasOwnProperty("highPrice"))
-                        writer.uint32(/* id 29, wireType 1 =*/233).double(message.highPrice);
+                        writer.uint32(/* id 20, wireType 1 =*/161).double(message.highPrice);
                     if (message.lowPrice != null && message.hasOwnProperty("lowPrice"))
-                        writer.uint32(/* id 30, wireType 1 =*/241).double(message.lowPrice);
+                        writer.uint32(/* id 21, wireType 1 =*/169).double(message.lowPrice);
                     if (message.upperLimit != null && message.hasOwnProperty("upperLimit"))
-                        writer.uint32(/* id 31, wireType 1 =*/249).double(message.upperLimit);
+                        writer.uint32(/* id 22, wireType 1 =*/177).double(message.upperLimit);
                     if (message.lowerLimit != null && message.hasOwnProperty("lowerLimit"))
-                        writer.uint32(/* id 32, wireType 1 =*/257).double(message.lowerLimit);
+                        writer.uint32(/* id 23, wireType 1 =*/185).double(message.lowerLimit);
                     if (message.bidPrice != null && message.bidPrice.length) {
-                        writer.uint32(/* id 33, wireType 2 =*/266).fork();
+                        writer.uint32(/* id 24, wireType 2 =*/194).fork();
                         for (var i = 0; i < message.bidPrice.length; ++i)
                             writer.double(message.bidPrice[i]);
                         writer.ldelim();
                     }
                     if (message.askPrice != null && message.askPrice.length) {
-                        writer.uint32(/* id 34, wireType 2 =*/274).fork();
+                        writer.uint32(/* id 25, wireType 2 =*/202).fork();
                         for (var i = 0; i < message.askPrice.length; ++i)
                             writer.double(message.askPrice[i]);
                         writer.ldelim();
                     }
                     if (message.bidVolume != null && message.bidVolume.length) {
-                        writer.uint32(/* id 35, wireType 2 =*/282).fork();
+                        writer.uint32(/* id 26, wireType 2 =*/210).fork();
                         for (var i = 0; i < message.bidVolume.length; ++i)
                             writer.fixed32(message.bidVolume[i]);
                         writer.ldelim();
                     }
                     if (message.askVolume != null && message.askVolume.length) {
-                        writer.uint32(/* id 36, wireType 2 =*/290).fork();
+                        writer.uint32(/* id 27, wireType 2 =*/218).fork();
                         for (var i = 0; i < message.askVolume.length; ++i)
                             writer.fixed32(message.askVolume[i]);
                         writer.ldelim();
@@ -6864,96 +6825,69 @@ $root.xyz = (function() {
                             message.gatewayId = reader.string();
                             break;
                         case 3:
-                            message.tradingDay = reader.string();
+                            message.tradingDay = reader.fixed32();
                             break;
                         case 4:
-                            message.actionDay = reader.string();
+                            message.actionDay = reader.fixed32();
                             break;
                         case 5:
-                            message.actionTime = reader.string();
+                            message.actionTime = reader.fixed32();
                             break;
                         case 6:
                             message.actionTimestamp = reader.fixed64();
                             break;
                         case 7:
-                            message.status = reader.fixed32();
-                            break;
-                        case 8:
                             message.lastPrice = reader.double();
                             break;
-                        case 9:
+                        case 8:
                             message.avgPrice = reader.double();
                             break;
-                        case 10:
-                            message.totalBidVol = reader.fixed64();
-                            break;
-                        case 11:
-                            message.totalAskVol = reader.fixed64();
-                            break;
-                        case 12:
-                            message.weightedAvgBidPrice = reader.double();
-                            break;
-                        case 13:
-                            message.weightedAvgAskPrice = reader.double();
-                            break;
-                        case 14:
-                            message.iopv = reader.double();
-                            break;
-                        case 15:
-                            message.yieldToMaturity = reader.double();
-                            break;
-                        case 16:
+                        case 9:
                             message.volumeDelta = reader.fixed64();
                             break;
-                        case 17:
+                        case 10:
                             message.volume = reader.fixed64();
                             break;
-                        case 18:
+                        case 11:
                             message.turnover = reader.double();
                             break;
-                        case 19:
+                        case 12:
                             message.turnoverDelta = reader.double();
                             break;
-                        case 20:
-                            message.numTrades = reader.fixed64();
-                            break;
-                        case 21:
-                            message.numTradesDelta = reader.fixed64();
-                            break;
-                        case 22:
+                        case 13:
                             message.openInterest = reader.double();
                             break;
-                        case 23:
+                        case 14:
                             message.openInterestDelta = reader.double();
                             break;
-                        case 24:
+                        case 15:
                             message.preOpenInterest = reader.double();
                             break;
-                        case 25:
+                        case 16:
                             message.preClosePrice = reader.double();
                             break;
-                        case 26:
+                        case 17:
                             message.settlePrice = reader.double();
                             break;
-                        case 27:
+                        case 18:
                             message.preSettlePrice = reader.double();
                             break;
-                        case 28:
+                        case 19:
                             message.openPrice = reader.double();
                             break;
-                        case 29:
+                        case 20:
                             message.highPrice = reader.double();
                             break;
-                        case 30:
+                        case 21:
                             message.lowPrice = reader.double();
                             break;
-                        case 31:
+                        case 22:
                             message.upperLimit = reader.double();
                             break;
-                        case 32:
+                        case 23:
                             message.lowerLimit = reader.double();
                             break;
-                        case 33:
+                        case 24:
                             if (!(message.bidPrice && message.bidPrice.length))
                                 message.bidPrice = [];
                             if ((tag & 7) === 2) {
@@ -6963,7 +6897,7 @@ $root.xyz = (function() {
                             } else
                                 message.bidPrice.push(reader.double());
                             break;
-                        case 34:
+                        case 25:
                             if (!(message.askPrice && message.askPrice.length))
                                 message.askPrice = [];
                             if ((tag & 7) === 2) {
@@ -6973,7 +6907,7 @@ $root.xyz = (function() {
                             } else
                                 message.askPrice.push(reader.double());
                             break;
-                        case 35:
+                        case 26:
                             if (!(message.bidVolume && message.bidVolume.length))
                                 message.bidVolume = [];
                             if ((tag & 7) === 2) {
@@ -6983,7 +6917,7 @@ $root.xyz = (function() {
                             } else
                                 message.bidVolume.push(reader.fixed32());
                             break;
-                        case 36:
+                        case 27:
                             if (!(message.askVolume && message.askVolume.length))
                                 message.askVolume = [];
                             if ((tag & 7) === 2) {
@@ -7035,44 +6969,23 @@ $root.xyz = (function() {
                         if (!$util.isString(message.gatewayId))
                             return "gatewayId: string expected";
                     if (message.tradingDay != null && message.hasOwnProperty("tradingDay"))
-                        if (!$util.isString(message.tradingDay))
-                            return "tradingDay: string expected";
+                        if (!$util.isInteger(message.tradingDay))
+                            return "tradingDay: integer expected";
                     if (message.actionDay != null && message.hasOwnProperty("actionDay"))
-                        if (!$util.isString(message.actionDay))
-                            return "actionDay: string expected";
+                        if (!$util.isInteger(message.actionDay))
+                            return "actionDay: integer expected";
                     if (message.actionTime != null && message.hasOwnProperty("actionTime"))
-                        if (!$util.isString(message.actionTime))
-                            return "actionTime: string expected";
+                        if (!$util.isInteger(message.actionTime))
+                            return "actionTime: integer expected";
                     if (message.actionTimestamp != null && message.hasOwnProperty("actionTimestamp"))
                         if (!$util.isInteger(message.actionTimestamp) && !(message.actionTimestamp && $util.isInteger(message.actionTimestamp.low) && $util.isInteger(message.actionTimestamp.high)))
                             return "actionTimestamp: integer|Long expected";
-                    if (message.status != null && message.hasOwnProperty("status"))
-                        if (!$util.isInteger(message.status))
-                            return "status: integer expected";
                     if (message.lastPrice != null && message.hasOwnProperty("lastPrice"))
                         if (typeof message.lastPrice !== "number")
                             return "lastPrice: number expected";
                     if (message.avgPrice != null && message.hasOwnProperty("avgPrice"))
                         if (typeof message.avgPrice !== "number")
                             return "avgPrice: number expected";
-                    if (message.totalBidVol != null && message.hasOwnProperty("totalBidVol"))
-                        if (!$util.isInteger(message.totalBidVol) && !(message.totalBidVol && $util.isInteger(message.totalBidVol.low) && $util.isInteger(message.totalBidVol.high)))
-                            return "totalBidVol: integer|Long expected";
-                    if (message.totalAskVol != null && message.hasOwnProperty("totalAskVol"))
-                        if (!$util.isInteger(message.totalAskVol) && !(message.totalAskVol && $util.isInteger(message.totalAskVol.low) && $util.isInteger(message.totalAskVol.high)))
-                            return "totalAskVol: integer|Long expected";
-                    if (message.weightedAvgBidPrice != null && message.hasOwnProperty("weightedAvgBidPrice"))
-                        if (typeof message.weightedAvgBidPrice !== "number")
-                            return "weightedAvgBidPrice: number expected";
-                    if (message.weightedAvgAskPrice != null && message.hasOwnProperty("weightedAvgAskPrice"))
-                        if (typeof message.weightedAvgAskPrice !== "number")
-                            return "weightedAvgAskPrice: number expected";
-                    if (message.iopv != null && message.hasOwnProperty("iopv"))
-                        if (typeof message.iopv !== "number")
-                            return "iopv: number expected";
-                    if (message.yieldToMaturity != null && message.hasOwnProperty("yieldToMaturity"))
-                        if (typeof message.yieldToMaturity !== "number")
-                            return "yieldToMaturity: number expected";
                     if (message.volumeDelta != null && message.hasOwnProperty("volumeDelta"))
                         if (!$util.isInteger(message.volumeDelta) && !(message.volumeDelta && $util.isInteger(message.volumeDelta.low) && $util.isInteger(message.volumeDelta.high)))
                             return "volumeDelta: integer|Long expected";
@@ -7085,12 +6998,6 @@ $root.xyz = (function() {
                     if (message.turnoverDelta != null && message.hasOwnProperty("turnoverDelta"))
                         if (typeof message.turnoverDelta !== "number")
                             return "turnoverDelta: number expected";
-                    if (message.numTrades != null && message.hasOwnProperty("numTrades"))
-                        if (!$util.isInteger(message.numTrades) && !(message.numTrades && $util.isInteger(message.numTrades.low) && $util.isInteger(message.numTrades.high)))
-                            return "numTrades: integer|Long expected";
-                    if (message.numTradesDelta != null && message.hasOwnProperty("numTradesDelta"))
-                        if (!$util.isInteger(message.numTradesDelta) && !(message.numTradesDelta && $util.isInteger(message.numTradesDelta.low) && $util.isInteger(message.numTradesDelta.high)))
-                            return "numTradesDelta: integer|Long expected";
                     if (message.openInterest != null && message.hasOwnProperty("openInterest"))
                         if (typeof message.openInterest !== "number")
                             return "openInterest: number expected";
@@ -7172,11 +7079,11 @@ $root.xyz = (function() {
                     if (object.gatewayId != null)
                         message.gatewayId = String(object.gatewayId);
                     if (object.tradingDay != null)
-                        message.tradingDay = String(object.tradingDay);
+                        message.tradingDay = object.tradingDay >>> 0;
                     if (object.actionDay != null)
-                        message.actionDay = String(object.actionDay);
+                        message.actionDay = object.actionDay >>> 0;
                     if (object.actionTime != null)
-                        message.actionTime = String(object.actionTime);
+                        message.actionTime = object.actionTime >>> 0;
                     if (object.actionTimestamp != null)
                         if ($util.Long)
                             (message.actionTimestamp = $util.Long.fromValue(object.actionTimestamp)).unsigned = false;
@@ -7186,38 +7093,10 @@ $root.xyz = (function() {
                             message.actionTimestamp = object.actionTimestamp;
                         else if (typeof object.actionTimestamp === "object")
                             message.actionTimestamp = new $util.LongBits(object.actionTimestamp.low >>> 0, object.actionTimestamp.high >>> 0).toNumber();
-                    if (object.status != null)
-                        message.status = object.status >>> 0;
                     if (object.lastPrice != null)
                         message.lastPrice = Number(object.lastPrice);
                     if (object.avgPrice != null)
                         message.avgPrice = Number(object.avgPrice);
-                    if (object.totalBidVol != null)
-                        if ($util.Long)
-                            (message.totalBidVol = $util.Long.fromValue(object.totalBidVol)).unsigned = false;
-                        else if (typeof object.totalBidVol === "string")
-                            message.totalBidVol = parseInt(object.totalBidVol, 10);
-                        else if (typeof object.totalBidVol === "number")
-                            message.totalBidVol = object.totalBidVol;
-                        else if (typeof object.totalBidVol === "object")
-                            message.totalBidVol = new $util.LongBits(object.totalBidVol.low >>> 0, object.totalBidVol.high >>> 0).toNumber();
-                    if (object.totalAskVol != null)
-                        if ($util.Long)
-                            (message.totalAskVol = $util.Long.fromValue(object.totalAskVol)).unsigned = false;
-                        else if (typeof object.totalAskVol === "string")
-                            message.totalAskVol = parseInt(object.totalAskVol, 10);
-                        else if (typeof object.totalAskVol === "number")
-                            message.totalAskVol = object.totalAskVol;
-                        else if (typeof object.totalAskVol === "object")
-                            message.totalAskVol = new $util.LongBits(object.totalAskVol.low >>> 0, object.totalAskVol.high >>> 0).toNumber();
-                    if (object.weightedAvgBidPrice != null)
-                        message.weightedAvgBidPrice = Number(object.weightedAvgBidPrice);
-                    if (object.weightedAvgAskPrice != null)
-                        message.weightedAvgAskPrice = Number(object.weightedAvgAskPrice);
-                    if (object.iopv != null)
-                        message.iopv = Number(object.iopv);
-                    if (object.yieldToMaturity != null)
-                        message.yieldToMaturity = Number(object.yieldToMaturity);
                     if (object.volumeDelta != null)
                         if ($util.Long)
                             (message.volumeDelta = $util.Long.fromValue(object.volumeDelta)).unsigned = false;
@@ -7240,24 +7119,6 @@ $root.xyz = (function() {
                         message.turnover = Number(object.turnover);
                     if (object.turnoverDelta != null)
                         message.turnoverDelta = Number(object.turnoverDelta);
-                    if (object.numTrades != null)
-                        if ($util.Long)
-                            (message.numTrades = $util.Long.fromValue(object.numTrades)).unsigned = false;
-                        else if (typeof object.numTrades === "string")
-                            message.numTrades = parseInt(object.numTrades, 10);
-                        else if (typeof object.numTrades === "number")
-                            message.numTrades = object.numTrades;
-                        else if (typeof object.numTrades === "object")
-                            message.numTrades = new $util.LongBits(object.numTrades.low >>> 0, object.numTrades.high >>> 0).toNumber();
-                    if (object.numTradesDelta != null)
-                        if ($util.Long)
-                            (message.numTradesDelta = $util.Long.fromValue(object.numTradesDelta)).unsigned = false;
-                        else if (typeof object.numTradesDelta === "string")
-                            message.numTradesDelta = parseInt(object.numTradesDelta, 10);
-                        else if (typeof object.numTradesDelta === "number")
-                            message.numTradesDelta = object.numTradesDelta;
-                        else if (typeof object.numTradesDelta === "object")
-                            message.numTradesDelta = new $util.LongBits(object.numTradesDelta.low >>> 0, object.numTradesDelta.high >>> 0).toNumber();
                     if (object.openInterest != null)
                         message.openInterest = Number(object.openInterest);
                     if (object.openInterestDelta != null)
@@ -7333,31 +7194,16 @@ $root.xyz = (function() {
                     if (options.defaults) {
                         object.uniformSymbol = "";
                         object.gatewayId = "";
-                        object.tradingDay = "";
-                        object.actionDay = "";
-                        object.actionTime = "";
+                        object.tradingDay = 0;
+                        object.actionDay = 0;
+                        object.actionTime = 0;
                         if ($util.Long) {
                             var long = new $util.Long(0, 0, false);
                             object.actionTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                         } else
                             object.actionTimestamp = options.longs === String ? "0" : 0;
-                        object.status = 0;
                         object.lastPrice = 0;
                         object.avgPrice = 0;
-                        if ($util.Long) {
-                            var long = new $util.Long(0, 0, false);
-                            object.totalBidVol = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                        } else
-                            object.totalBidVol = options.longs === String ? "0" : 0;
-                        if ($util.Long) {
-                            var long = new $util.Long(0, 0, false);
-                            object.totalAskVol = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                        } else
-                            object.totalAskVol = options.longs === String ? "0" : 0;
-                        object.weightedAvgBidPrice = 0;
-                        object.weightedAvgAskPrice = 0;
-                        object.iopv = 0;
-                        object.yieldToMaturity = 0;
                         if ($util.Long) {
                             var long = new $util.Long(0, 0, false);
                             object.volumeDelta = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
@@ -7370,16 +7216,6 @@ $root.xyz = (function() {
                             object.volume = options.longs === String ? "0" : 0;
                         object.turnover = 0;
                         object.turnoverDelta = 0;
-                        if ($util.Long) {
-                            var long = new $util.Long(0, 0, false);
-                            object.numTrades = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                        } else
-                            object.numTrades = options.longs === String ? "0" : 0;
-                        if ($util.Long) {
-                            var long = new $util.Long(0, 0, false);
-                            object.numTradesDelta = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                        } else
-                            object.numTradesDelta = options.longs === String ? "0" : 0;
                         object.openInterest = 0;
                         object.openInterestDelta = 0;
                         object.preOpenInterest = 0;
@@ -7407,30 +7243,10 @@ $root.xyz = (function() {
                             object.actionTimestamp = options.longs === String ? String(message.actionTimestamp) : message.actionTimestamp;
                         else
                             object.actionTimestamp = options.longs === String ? $util.Long.prototype.toString.call(message.actionTimestamp) : options.longs === Number ? new $util.LongBits(message.actionTimestamp.low >>> 0, message.actionTimestamp.high >>> 0).toNumber() : message.actionTimestamp;
-                    if (message.status != null && message.hasOwnProperty("status"))
-                        object.status = message.status;
                     if (message.lastPrice != null && message.hasOwnProperty("lastPrice"))
                         object.lastPrice = options.json && !isFinite(message.lastPrice) ? String(message.lastPrice) : message.lastPrice;
                     if (message.avgPrice != null && message.hasOwnProperty("avgPrice"))
                         object.avgPrice = options.json && !isFinite(message.avgPrice) ? String(message.avgPrice) : message.avgPrice;
-                    if (message.totalBidVol != null && message.hasOwnProperty("totalBidVol"))
-                        if (typeof message.totalBidVol === "number")
-                            object.totalBidVol = options.longs === String ? String(message.totalBidVol) : message.totalBidVol;
-                        else
-                            object.totalBidVol = options.longs === String ? $util.Long.prototype.toString.call(message.totalBidVol) : options.longs === Number ? new $util.LongBits(message.totalBidVol.low >>> 0, message.totalBidVol.high >>> 0).toNumber() : message.totalBidVol;
-                    if (message.totalAskVol != null && message.hasOwnProperty("totalAskVol"))
-                        if (typeof message.totalAskVol === "number")
-                            object.totalAskVol = options.longs === String ? String(message.totalAskVol) : message.totalAskVol;
-                        else
-                            object.totalAskVol = options.longs === String ? $util.Long.prototype.toString.call(message.totalAskVol) : options.longs === Number ? new $util.LongBits(message.totalAskVol.low >>> 0, message.totalAskVol.high >>> 0).toNumber() : message.totalAskVol;
-                    if (message.weightedAvgBidPrice != null && message.hasOwnProperty("weightedAvgBidPrice"))
-                        object.weightedAvgBidPrice = options.json && !isFinite(message.weightedAvgBidPrice) ? String(message.weightedAvgBidPrice) : message.weightedAvgBidPrice;
-                    if (message.weightedAvgAskPrice != null && message.hasOwnProperty("weightedAvgAskPrice"))
-                        object.weightedAvgAskPrice = options.json && !isFinite(message.weightedAvgAskPrice) ? String(message.weightedAvgAskPrice) : message.weightedAvgAskPrice;
-                    if (message.iopv != null && message.hasOwnProperty("iopv"))
-                        object.iopv = options.json && !isFinite(message.iopv) ? String(message.iopv) : message.iopv;
-                    if (message.yieldToMaturity != null && message.hasOwnProperty("yieldToMaturity"))
-                        object.yieldToMaturity = options.json && !isFinite(message.yieldToMaturity) ? String(message.yieldToMaturity) : message.yieldToMaturity;
                     if (message.volumeDelta != null && message.hasOwnProperty("volumeDelta"))
                         if (typeof message.volumeDelta === "number")
                             object.volumeDelta = options.longs === String ? String(message.volumeDelta) : message.volumeDelta;
@@ -7445,16 +7261,6 @@ $root.xyz = (function() {
                         object.turnover = options.json && !isFinite(message.turnover) ? String(message.turnover) : message.turnover;
                     if (message.turnoverDelta != null && message.hasOwnProperty("turnoverDelta"))
                         object.turnoverDelta = options.json && !isFinite(message.turnoverDelta) ? String(message.turnoverDelta) : message.turnoverDelta;
-                    if (message.numTrades != null && message.hasOwnProperty("numTrades"))
-                        if (typeof message.numTrades === "number")
-                            object.numTrades = options.longs === String ? String(message.numTrades) : message.numTrades;
-                        else
-                            object.numTrades = options.longs === String ? $util.Long.prototype.toString.call(message.numTrades) : options.longs === Number ? new $util.LongBits(message.numTrades.low >>> 0, message.numTrades.high >>> 0).toNumber() : message.numTrades;
-                    if (message.numTradesDelta != null && message.hasOwnProperty("numTradesDelta"))
-                        if (typeof message.numTradesDelta === "number")
-                            object.numTradesDelta = options.longs === String ? String(message.numTradesDelta) : message.numTradesDelta;
-                        else
-                            object.numTradesDelta = options.longs === String ? $util.Long.prototype.toString.call(message.numTradesDelta) : options.longs === Number ? new $util.LongBits(message.numTradesDelta.low >>> 0, message.numTradesDelta.high >>> 0).toNumber() : message.numTradesDelta;
                     if (message.openInterest != null && message.hasOwnProperty("openInterest"))
                         object.openInterest = options.json && !isFinite(message.openInterest) ? String(message.openInterest) : message.openInterest;
                     if (message.openInterestDelta != null && message.hasOwnProperty("openInterestDelta"))
@@ -7522,9 +7328,9 @@ $root.xyz = (function() {
                  * @interface IBarField
                  * @property {string|null} [uniformSymbol] BarField uniformSymbol
                  * @property {string|null} [gatewayId] BarField gatewayId
-                 * @property {string|null} [tradingDay] BarField tradingDay
-                 * @property {string|null} [actionDay] BarField actionDay
-                 * @property {string|null} [actionTime] BarField actionTime
+                 * @property {number|null} [tradingDay] BarField tradingDay
+                 * @property {number|null} [actionDay] BarField actionDay
+                 * @property {number|null} [actionTime] BarField actionTime
                  * @property {number|Long|null} [actionTimestamp] BarField actionTimestamp
                  * @property {number|null} [openPrice] BarField openPrice
                  * @property {number|null} [highPrice] BarField highPrice
@@ -7536,11 +7342,10 @@ $root.xyz = (function() {
                  * @property {number|Long|null} [volumeDelta] BarField volumeDelta
                  * @property {number|null} [turnover] BarField turnover
                  * @property {number|null} [turnoverDelta] BarField turnoverDelta
-                 * @property {number|Long|null} [numTrades] BarField numTrades
-                 * @property {number|Long|null} [numTradesDelta] BarField numTradesDelta
                  * @property {number|null} [preOpenInterest] BarField preOpenInterest
                  * @property {number|null} [preClosePrice] BarField preClosePrice
                  * @property {number|null} [preSettlePrice] BarField preSettlePrice
+                 * @property {number|null} [period] BarField period
                  */
 
                 /**
@@ -7576,27 +7381,27 @@ $root.xyz = (function() {
 
                 /**
                  * BarField tradingDay.
-                 * @member {string} tradingDay
+                 * @member {number} tradingDay
                  * @memberof xyz.redtorch.pb.BarField
                  * @instance
                  */
-                BarField.prototype.tradingDay = "";
+                BarField.prototype.tradingDay = 0;
 
                 /**
                  * BarField actionDay.
-                 * @member {string} actionDay
+                 * @member {number} actionDay
                  * @memberof xyz.redtorch.pb.BarField
                  * @instance
                  */
-                BarField.prototype.actionDay = "";
+                BarField.prototype.actionDay = 0;
 
                 /**
                  * BarField actionTime.
-                 * @member {string} actionTime
+                 * @member {number} actionTime
                  * @memberof xyz.redtorch.pb.BarField
                  * @instance
                  */
-                BarField.prototype.actionTime = "";
+                BarField.prototype.actionTime = 0;
 
                 /**
                  * BarField actionTimestamp.
@@ -7687,22 +7492,6 @@ $root.xyz = (function() {
                 BarField.prototype.turnoverDelta = 0;
 
                 /**
-                 * BarField numTrades.
-                 * @member {number|Long} numTrades
-                 * @memberof xyz.redtorch.pb.BarField
-                 * @instance
-                 */
-                BarField.prototype.numTrades = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
-
-                /**
-                 * BarField numTradesDelta.
-                 * @member {number|Long} numTradesDelta
-                 * @memberof xyz.redtorch.pb.BarField
-                 * @instance
-                 */
-                BarField.prototype.numTradesDelta = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
-
-                /**
                  * BarField preOpenInterest.
                  * @member {number} preOpenInterest
                  * @memberof xyz.redtorch.pb.BarField
@@ -7725,6 +7514,14 @@ $root.xyz = (function() {
                  * @instance
                  */
                 BarField.prototype.preSettlePrice = 0;
+
+                /**
+                 * BarField period.
+                 * @member {number} period
+                 * @memberof xyz.redtorch.pb.BarField
+                 * @instance
+                 */
+                BarField.prototype.period = 0;
 
                 /**
                  * Creates a new BarField instance using the specified properties.
@@ -7755,11 +7552,11 @@ $root.xyz = (function() {
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.gatewayId);
                     if (message.tradingDay != null && message.hasOwnProperty("tradingDay"))
-                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.tradingDay);
+                        writer.uint32(/* id 3, wireType 5 =*/29).fixed32(message.tradingDay);
                     if (message.actionDay != null && message.hasOwnProperty("actionDay"))
-                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.actionDay);
+                        writer.uint32(/* id 4, wireType 5 =*/37).fixed32(message.actionDay);
                     if (message.actionTime != null && message.hasOwnProperty("actionTime"))
-                        writer.uint32(/* id 5, wireType 2 =*/42).string(message.actionTime);
+                        writer.uint32(/* id 5, wireType 5 =*/45).fixed32(message.actionTime);
                     if (message.actionTimestamp != null && message.hasOwnProperty("actionTimestamp"))
                         writer.uint32(/* id 6, wireType 1 =*/49).fixed64(message.actionTimestamp);
                     if (message.openPrice != null && message.hasOwnProperty("openPrice"))
@@ -7782,16 +7579,14 @@ $root.xyz = (function() {
                         writer.uint32(/* id 15, wireType 1 =*/121).double(message.turnover);
                     if (message.turnoverDelta != null && message.hasOwnProperty("turnoverDelta"))
                         writer.uint32(/* id 16, wireType 1 =*/129).double(message.turnoverDelta);
-                    if (message.numTrades != null && message.hasOwnProperty("numTrades"))
-                        writer.uint32(/* id 17, wireType 1 =*/137).fixed64(message.numTrades);
-                    if (message.numTradesDelta != null && message.hasOwnProperty("numTradesDelta"))
-                        writer.uint32(/* id 18, wireType 1 =*/145).fixed64(message.numTradesDelta);
                     if (message.preOpenInterest != null && message.hasOwnProperty("preOpenInterest"))
-                        writer.uint32(/* id 19, wireType 1 =*/153).double(message.preOpenInterest);
+                        writer.uint32(/* id 17, wireType 1 =*/137).double(message.preOpenInterest);
                     if (message.preClosePrice != null && message.hasOwnProperty("preClosePrice"))
-                        writer.uint32(/* id 20, wireType 1 =*/161).double(message.preClosePrice);
+                        writer.uint32(/* id 18, wireType 1 =*/145).double(message.preClosePrice);
                     if (message.preSettlePrice != null && message.hasOwnProperty("preSettlePrice"))
-                        writer.uint32(/* id 21, wireType 1 =*/169).double(message.preSettlePrice);
+                        writer.uint32(/* id 19, wireType 1 =*/153).double(message.preSettlePrice);
+                    if (message.period != null && message.hasOwnProperty("period"))
+                        writer.uint32(/* id 20, wireType 0 =*/160).int32(message.period);
                     return writer;
                 };
 
@@ -7833,13 +7628,13 @@ $root.xyz = (function() {
                             message.gatewayId = reader.string();
                             break;
                         case 3:
-                            message.tradingDay = reader.string();
+                            message.tradingDay = reader.fixed32();
                             break;
                         case 4:
-                            message.actionDay = reader.string();
+                            message.actionDay = reader.fixed32();
                             break;
                         case 5:
-                            message.actionTime = reader.string();
+                            message.actionTime = reader.fixed32();
                             break;
                         case 6:
                             message.actionTimestamp = reader.fixed64();
@@ -7875,19 +7670,16 @@ $root.xyz = (function() {
                             message.turnoverDelta = reader.double();
                             break;
                         case 17:
-                            message.numTrades = reader.fixed64();
-                            break;
-                        case 18:
-                            message.numTradesDelta = reader.fixed64();
-                            break;
-                        case 19:
                             message.preOpenInterest = reader.double();
                             break;
-                        case 20:
+                        case 18:
                             message.preClosePrice = reader.double();
                             break;
-                        case 21:
+                        case 19:
                             message.preSettlePrice = reader.double();
+                            break;
+                        case 20:
+                            message.period = reader.int32();
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -7931,14 +7723,14 @@ $root.xyz = (function() {
                         if (!$util.isString(message.gatewayId))
                             return "gatewayId: string expected";
                     if (message.tradingDay != null && message.hasOwnProperty("tradingDay"))
-                        if (!$util.isString(message.tradingDay))
-                            return "tradingDay: string expected";
+                        if (!$util.isInteger(message.tradingDay))
+                            return "tradingDay: integer expected";
                     if (message.actionDay != null && message.hasOwnProperty("actionDay"))
-                        if (!$util.isString(message.actionDay))
-                            return "actionDay: string expected";
+                        if (!$util.isInteger(message.actionDay))
+                            return "actionDay: integer expected";
                     if (message.actionTime != null && message.hasOwnProperty("actionTime"))
-                        if (!$util.isString(message.actionTime))
-                            return "actionTime: string expected";
+                        if (!$util.isInteger(message.actionTime))
+                            return "actionTime: integer expected";
                     if (message.actionTimestamp != null && message.hasOwnProperty("actionTimestamp"))
                         if (!$util.isInteger(message.actionTimestamp) && !(message.actionTimestamp && $util.isInteger(message.actionTimestamp.low) && $util.isInteger(message.actionTimestamp.high)))
                             return "actionTimestamp: integer|Long expected";
@@ -7972,12 +7764,6 @@ $root.xyz = (function() {
                     if (message.turnoverDelta != null && message.hasOwnProperty("turnoverDelta"))
                         if (typeof message.turnoverDelta !== "number")
                             return "turnoverDelta: number expected";
-                    if (message.numTrades != null && message.hasOwnProperty("numTrades"))
-                        if (!$util.isInteger(message.numTrades) && !(message.numTrades && $util.isInteger(message.numTrades.low) && $util.isInteger(message.numTrades.high)))
-                            return "numTrades: integer|Long expected";
-                    if (message.numTradesDelta != null && message.hasOwnProperty("numTradesDelta"))
-                        if (!$util.isInteger(message.numTradesDelta) && !(message.numTradesDelta && $util.isInteger(message.numTradesDelta.low) && $util.isInteger(message.numTradesDelta.high)))
-                            return "numTradesDelta: integer|Long expected";
                     if (message.preOpenInterest != null && message.hasOwnProperty("preOpenInterest"))
                         if (typeof message.preOpenInterest !== "number")
                             return "preOpenInterest: number expected";
@@ -7987,6 +7773,9 @@ $root.xyz = (function() {
                     if (message.preSettlePrice != null && message.hasOwnProperty("preSettlePrice"))
                         if (typeof message.preSettlePrice !== "number")
                             return "preSettlePrice: number expected";
+                    if (message.period != null && message.hasOwnProperty("period"))
+                        if (!$util.isInteger(message.period))
+                            return "period: integer expected";
                     return null;
                 };
 
@@ -8007,11 +7796,11 @@ $root.xyz = (function() {
                     if (object.gatewayId != null)
                         message.gatewayId = String(object.gatewayId);
                     if (object.tradingDay != null)
-                        message.tradingDay = String(object.tradingDay);
+                        message.tradingDay = object.tradingDay >>> 0;
                     if (object.actionDay != null)
-                        message.actionDay = String(object.actionDay);
+                        message.actionDay = object.actionDay >>> 0;
                     if (object.actionTime != null)
-                        message.actionTime = String(object.actionTime);
+                        message.actionTime = object.actionTime >>> 0;
                     if (object.actionTimestamp != null)
                         if ($util.Long)
                             (message.actionTimestamp = $util.Long.fromValue(object.actionTimestamp)).unsigned = false;
@@ -8055,30 +7844,14 @@ $root.xyz = (function() {
                         message.turnover = Number(object.turnover);
                     if (object.turnoverDelta != null)
                         message.turnoverDelta = Number(object.turnoverDelta);
-                    if (object.numTrades != null)
-                        if ($util.Long)
-                            (message.numTrades = $util.Long.fromValue(object.numTrades)).unsigned = false;
-                        else if (typeof object.numTrades === "string")
-                            message.numTrades = parseInt(object.numTrades, 10);
-                        else if (typeof object.numTrades === "number")
-                            message.numTrades = object.numTrades;
-                        else if (typeof object.numTrades === "object")
-                            message.numTrades = new $util.LongBits(object.numTrades.low >>> 0, object.numTrades.high >>> 0).toNumber();
-                    if (object.numTradesDelta != null)
-                        if ($util.Long)
-                            (message.numTradesDelta = $util.Long.fromValue(object.numTradesDelta)).unsigned = false;
-                        else if (typeof object.numTradesDelta === "string")
-                            message.numTradesDelta = parseInt(object.numTradesDelta, 10);
-                        else if (typeof object.numTradesDelta === "number")
-                            message.numTradesDelta = object.numTradesDelta;
-                        else if (typeof object.numTradesDelta === "object")
-                            message.numTradesDelta = new $util.LongBits(object.numTradesDelta.low >>> 0, object.numTradesDelta.high >>> 0).toNumber();
                     if (object.preOpenInterest != null)
                         message.preOpenInterest = Number(object.preOpenInterest);
                     if (object.preClosePrice != null)
                         message.preClosePrice = Number(object.preClosePrice);
                     if (object.preSettlePrice != null)
                         message.preSettlePrice = Number(object.preSettlePrice);
+                    if (object.period != null)
+                        message.period = object.period | 0;
                     return message;
                 };
 
@@ -8098,9 +7871,9 @@ $root.xyz = (function() {
                     if (options.defaults) {
                         object.uniformSymbol = "";
                         object.gatewayId = "";
-                        object.tradingDay = "";
-                        object.actionDay = "";
-                        object.actionTime = "";
+                        object.tradingDay = 0;
+                        object.actionDay = 0;
+                        object.actionTime = 0;
                         if ($util.Long) {
                             var long = new $util.Long(0, 0, false);
                             object.actionTimestamp = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
@@ -8124,19 +7897,10 @@ $root.xyz = (function() {
                             object.volumeDelta = options.longs === String ? "0" : 0;
                         object.turnover = 0;
                         object.turnoverDelta = 0;
-                        if ($util.Long) {
-                            var long = new $util.Long(0, 0, false);
-                            object.numTrades = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                        } else
-                            object.numTrades = options.longs === String ? "0" : 0;
-                        if ($util.Long) {
-                            var long = new $util.Long(0, 0, false);
-                            object.numTradesDelta = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                        } else
-                            object.numTradesDelta = options.longs === String ? "0" : 0;
                         object.preOpenInterest = 0;
                         object.preClosePrice = 0;
                         object.preSettlePrice = 0;
+                        object.period = 0;
                     }
                     if (message.uniformSymbol != null && message.hasOwnProperty("uniformSymbol"))
                         object.uniformSymbol = message.uniformSymbol;
@@ -8179,22 +7943,14 @@ $root.xyz = (function() {
                         object.turnover = options.json && !isFinite(message.turnover) ? String(message.turnover) : message.turnover;
                     if (message.turnoverDelta != null && message.hasOwnProperty("turnoverDelta"))
                         object.turnoverDelta = options.json && !isFinite(message.turnoverDelta) ? String(message.turnoverDelta) : message.turnoverDelta;
-                    if (message.numTrades != null && message.hasOwnProperty("numTrades"))
-                        if (typeof message.numTrades === "number")
-                            object.numTrades = options.longs === String ? String(message.numTrades) : message.numTrades;
-                        else
-                            object.numTrades = options.longs === String ? $util.Long.prototype.toString.call(message.numTrades) : options.longs === Number ? new $util.LongBits(message.numTrades.low >>> 0, message.numTrades.high >>> 0).toNumber() : message.numTrades;
-                    if (message.numTradesDelta != null && message.hasOwnProperty("numTradesDelta"))
-                        if (typeof message.numTradesDelta === "number")
-                            object.numTradesDelta = options.longs === String ? String(message.numTradesDelta) : message.numTradesDelta;
-                        else
-                            object.numTradesDelta = options.longs === String ? $util.Long.prototype.toString.call(message.numTradesDelta) : options.longs === Number ? new $util.LongBits(message.numTradesDelta.low >>> 0, message.numTradesDelta.high >>> 0).toNumber() : message.numTradesDelta;
                     if (message.preOpenInterest != null && message.hasOwnProperty("preOpenInterest"))
                         object.preOpenInterest = options.json && !isFinite(message.preOpenInterest) ? String(message.preOpenInterest) : message.preOpenInterest;
                     if (message.preClosePrice != null && message.hasOwnProperty("preClosePrice"))
                         object.preClosePrice = options.json && !isFinite(message.preClosePrice) ? String(message.preClosePrice) : message.preClosePrice;
                     if (message.preSettlePrice != null && message.hasOwnProperty("preSettlePrice"))
                         object.preSettlePrice = options.json && !isFinite(message.preSettlePrice) ? String(message.preSettlePrice) : message.preSettlePrice;
+                    if (message.period != null && message.hasOwnProperty("period"))
+                        object.period = message.period;
                     return object;
                 };
 
@@ -10056,11 +9812,12 @@ $root.xyz = (function() {
                  * @property {string|null} [implementClassName] GatewaySettingField implementClassName
                  * @property {xyz.redtorch.pb.GatewayTypeEnum|null} [gatewayType] GatewaySettingField gatewayType
                  * @property {xyz.redtorch.pb.GatewayAdapterTypeEnum|null} [gatewayAdapterType] GatewaySettingField gatewayAdapterType
-                 * @property {xyz.redtorch.pb.GatewaySettingField.ICtpApiSettingField|null} [ctpApiSetting] GatewaySettingField ctpApiSetting
-                 * @property {xyz.redtorch.pb.GatewaySettingField.IIbApiSettingField|null} [ibApiSetting] GatewaySettingField ibApiSetting
+                 * @property {number|null} [targetNodeId] GatewaySettingField targetNodeId
+                 * @property {string|null} [autoConnectTimeRanges] GatewaySettingField autoConnectTimeRanges
                  * @property {xyz.redtorch.pb.ConnectStatusEnum|null} [status] GatewaySettingField status
                  * @property {number|Long|null} [version] GatewaySettingField version
-                 * @property {string|null} [autoConnectTimeRanges] GatewaySettingField autoConnectTimeRanges
+                 * @property {xyz.redtorch.pb.GatewaySettingField.ICtpApiSettingField|null} [ctpApiSetting] GatewaySettingField ctpApiSetting
+                 * @property {xyz.redtorch.pb.GatewaySettingField.IIbApiSettingField|null} [ibApiSetting] GatewaySettingField ibApiSetting
                  */
 
                 /**
@@ -10127,20 +9884,20 @@ $root.xyz = (function() {
                 GatewaySettingField.prototype.gatewayAdapterType = 0;
 
                 /**
-                 * GatewaySettingField ctpApiSetting.
-                 * @member {xyz.redtorch.pb.GatewaySettingField.ICtpApiSettingField|null|undefined} ctpApiSetting
+                 * GatewaySettingField targetNodeId.
+                 * @member {number} targetNodeId
                  * @memberof xyz.redtorch.pb.GatewaySettingField
                  * @instance
                  */
-                GatewaySettingField.prototype.ctpApiSetting = null;
+                GatewaySettingField.prototype.targetNodeId = 0;
 
                 /**
-                 * GatewaySettingField ibApiSetting.
-                 * @member {xyz.redtorch.pb.GatewaySettingField.IIbApiSettingField|null|undefined} ibApiSetting
+                 * GatewaySettingField autoConnectTimeRanges.
+                 * @member {string} autoConnectTimeRanges
                  * @memberof xyz.redtorch.pb.GatewaySettingField
                  * @instance
                  */
-                GatewaySettingField.prototype.ibApiSetting = null;
+                GatewaySettingField.prototype.autoConnectTimeRanges = "";
 
                 /**
                  * GatewaySettingField status.
@@ -10159,12 +9916,20 @@ $root.xyz = (function() {
                 GatewaySettingField.prototype.version = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
                 /**
-                 * GatewaySettingField autoConnectTimeRanges.
-                 * @member {string} autoConnectTimeRanges
+                 * GatewaySettingField ctpApiSetting.
+                 * @member {xyz.redtorch.pb.GatewaySettingField.ICtpApiSettingField|null|undefined} ctpApiSetting
                  * @memberof xyz.redtorch.pb.GatewaySettingField
                  * @instance
                  */
-                GatewaySettingField.prototype.autoConnectTimeRanges = "";
+                GatewaySettingField.prototype.ctpApiSetting = null;
+
+                /**
+                 * GatewaySettingField ibApiSetting.
+                 * @member {xyz.redtorch.pb.GatewaySettingField.IIbApiSettingField|null|undefined} ibApiSetting
+                 * @memberof xyz.redtorch.pb.GatewaySettingField
+                 * @instance
+                 */
+                GatewaySettingField.prototype.ibApiSetting = null;
 
                 /**
                  * Creates a new GatewaySettingField instance using the specified properties.
@@ -10195,23 +9960,25 @@ $root.xyz = (function() {
                     if (message.gatewayName != null && message.hasOwnProperty("gatewayName"))
                         writer.uint32(/* id 2, wireType 2 =*/18).string(message.gatewayName);
                     if (message.gatewayDescription != null && message.hasOwnProperty("gatewayDescription"))
-                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.gatewayDescription);
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.gatewayDescription);
                     if (message.implementClassName != null && message.hasOwnProperty("implementClassName"))
-                        writer.uint32(/* id 5, wireType 2 =*/42).string(message.implementClassName);
+                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.implementClassName);
                     if (message.gatewayType != null && message.hasOwnProperty("gatewayType"))
-                        writer.uint32(/* id 6, wireType 0 =*/48).int32(message.gatewayType);
+                        writer.uint32(/* id 5, wireType 0 =*/40).int32(message.gatewayType);
                     if (message.gatewayAdapterType != null && message.hasOwnProperty("gatewayAdapterType"))
-                        writer.uint32(/* id 7, wireType 0 =*/56).int32(message.gatewayAdapterType);
-                    if (message.ctpApiSetting != null && message.hasOwnProperty("ctpApiSetting"))
-                        $root.xyz.redtorch.pb.GatewaySettingField.CtpApiSettingField.encode(message.ctpApiSetting, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
-                    if (message.ibApiSetting != null && message.hasOwnProperty("ibApiSetting"))
-                        $root.xyz.redtorch.pb.GatewaySettingField.IbApiSettingField.encode(message.ibApiSetting, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
-                    if (message.status != null && message.hasOwnProperty("status"))
-                        writer.uint32(/* id 10, wireType 0 =*/80).int32(message.status);
-                    if (message.version != null && message.hasOwnProperty("version"))
-                        writer.uint32(/* id 11, wireType 1 =*/89).fixed64(message.version);
+                        writer.uint32(/* id 6, wireType 0 =*/48).int32(message.gatewayAdapterType);
+                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
+                        writer.uint32(/* id 7, wireType 5 =*/61).fixed32(message.targetNodeId);
                     if (message.autoConnectTimeRanges != null && message.hasOwnProperty("autoConnectTimeRanges"))
-                        writer.uint32(/* id 12, wireType 2 =*/98).string(message.autoConnectTimeRanges);
+                        writer.uint32(/* id 8, wireType 2 =*/66).string(message.autoConnectTimeRanges);
+                    if (message.status != null && message.hasOwnProperty("status"))
+                        writer.uint32(/* id 9, wireType 0 =*/72).int32(message.status);
+                    if (message.version != null && message.hasOwnProperty("version"))
+                        writer.uint32(/* id 10, wireType 1 =*/81).fixed64(message.version);
+                    if (message.ctpApiSetting != null && message.hasOwnProperty("ctpApiSetting"))
+                        $root.xyz.redtorch.pb.GatewaySettingField.CtpApiSettingField.encode(message.ctpApiSetting, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
+                    if (message.ibApiSetting != null && message.hasOwnProperty("ibApiSetting"))
+                        $root.xyz.redtorch.pb.GatewaySettingField.IbApiSettingField.encode(message.ibApiSetting, writer.uint32(/* id 12, wireType 2 =*/98).fork()).ldelim();
                     return writer;
                 };
 
@@ -10252,32 +10019,35 @@ $root.xyz = (function() {
                         case 2:
                             message.gatewayName = reader.string();
                             break;
-                        case 4:
+                        case 3:
                             message.gatewayDescription = reader.string();
                             break;
-                        case 5:
+                        case 4:
                             message.implementClassName = reader.string();
                             break;
-                        case 6:
+                        case 5:
                             message.gatewayType = reader.int32();
                             break;
-                        case 7:
+                        case 6:
                             message.gatewayAdapterType = reader.int32();
                             break;
+                        case 7:
+                            message.targetNodeId = reader.fixed32();
+                            break;
                         case 8:
-                            message.ctpApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.CtpApiSettingField.decode(reader, reader.uint32());
+                            message.autoConnectTimeRanges = reader.string();
                             break;
                         case 9:
-                            message.ibApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.IbApiSettingField.decode(reader, reader.uint32());
-                            break;
-                        case 10:
                             message.status = reader.int32();
                             break;
-                        case 11:
+                        case 10:
                             message.version = reader.fixed64();
                             break;
+                        case 11:
+                            message.ctpApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.CtpApiSettingField.decode(reader, reader.uint32());
+                            break;
                         case 12:
-                            message.autoConnectTimeRanges = reader.string();
+                            message.ibApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.IbApiSettingField.decode(reader, reader.uint32());
                             break;
                         default:
                             reader.skipType(tag & 7);
@@ -10344,16 +10114,12 @@ $root.xyz = (function() {
                         case 2:
                             break;
                         }
-                    if (message.ctpApiSetting != null && message.hasOwnProperty("ctpApiSetting")) {
-                        var error = $root.xyz.redtorch.pb.GatewaySettingField.CtpApiSettingField.verify(message.ctpApiSetting);
-                        if (error)
-                            return "ctpApiSetting." + error;
-                    }
-                    if (message.ibApiSetting != null && message.hasOwnProperty("ibApiSetting")) {
-                        var error = $root.xyz.redtorch.pb.GatewaySettingField.IbApiSettingField.verify(message.ibApiSetting);
-                        if (error)
-                            return "ibApiSetting." + error;
-                    }
+                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
+                        if (!$util.isInteger(message.targetNodeId))
+                            return "targetNodeId: integer expected";
+                    if (message.autoConnectTimeRanges != null && message.hasOwnProperty("autoConnectTimeRanges"))
+                        if (!$util.isString(message.autoConnectTimeRanges))
+                            return "autoConnectTimeRanges: string expected";
                     if (message.status != null && message.hasOwnProperty("status"))
                         switch (message.status) {
                         default:
@@ -10368,9 +10134,16 @@ $root.xyz = (function() {
                     if (message.version != null && message.hasOwnProperty("version"))
                         if (!$util.isInteger(message.version) && !(message.version && $util.isInteger(message.version.low) && $util.isInteger(message.version.high)))
                             return "version: integer|Long expected";
-                    if (message.autoConnectTimeRanges != null && message.hasOwnProperty("autoConnectTimeRanges"))
-                        if (!$util.isString(message.autoConnectTimeRanges))
-                            return "autoConnectTimeRanges: string expected";
+                    if (message.ctpApiSetting != null && message.hasOwnProperty("ctpApiSetting")) {
+                        var error = $root.xyz.redtorch.pb.GatewaySettingField.CtpApiSettingField.verify(message.ctpApiSetting);
+                        if (error)
+                            return "ctpApiSetting." + error;
+                    }
+                    if (message.ibApiSetting != null && message.hasOwnProperty("ibApiSetting")) {
+                        var error = $root.xyz.redtorch.pb.GatewaySettingField.IbApiSettingField.verify(message.ibApiSetting);
+                        if (error)
+                            return "ibApiSetting." + error;
+                    }
                     return null;
                 };
 
@@ -10422,16 +10195,10 @@ $root.xyz = (function() {
                         message.gatewayAdapterType = 2;
                         break;
                     }
-                    if (object.ctpApiSetting != null) {
-                        if (typeof object.ctpApiSetting !== "object")
-                            throw TypeError(".xyz.redtorch.pb.GatewaySettingField.ctpApiSetting: object expected");
-                        message.ctpApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.CtpApiSettingField.fromObject(object.ctpApiSetting);
-                    }
-                    if (object.ibApiSetting != null) {
-                        if (typeof object.ibApiSetting !== "object")
-                            throw TypeError(".xyz.redtorch.pb.GatewaySettingField.ibApiSetting: object expected");
-                        message.ibApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.IbApiSettingField.fromObject(object.ibApiSetting);
-                    }
+                    if (object.targetNodeId != null)
+                        message.targetNodeId = object.targetNodeId >>> 0;
+                    if (object.autoConnectTimeRanges != null)
+                        message.autoConnectTimeRanges = String(object.autoConnectTimeRanges);
                     switch (object.status) {
                     case "CS_Unknown":
                     case 0:
@@ -10463,8 +10230,16 @@ $root.xyz = (function() {
                             message.version = object.version;
                         else if (typeof object.version === "object")
                             message.version = new $util.LongBits(object.version.low >>> 0, object.version.high >>> 0).toNumber();
-                    if (object.autoConnectTimeRanges != null)
-                        message.autoConnectTimeRanges = String(object.autoConnectTimeRanges);
+                    if (object.ctpApiSetting != null) {
+                        if (typeof object.ctpApiSetting !== "object")
+                            throw TypeError(".xyz.redtorch.pb.GatewaySettingField.ctpApiSetting: object expected");
+                        message.ctpApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.CtpApiSettingField.fromObject(object.ctpApiSetting);
+                    }
+                    if (object.ibApiSetting != null) {
+                        if (typeof object.ibApiSetting !== "object")
+                            throw TypeError(".xyz.redtorch.pb.GatewaySettingField.ibApiSetting: object expected");
+                        message.ibApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.IbApiSettingField.fromObject(object.ibApiSetting);
+                    }
                     return message;
                 };
 
@@ -10488,15 +10263,16 @@ $root.xyz = (function() {
                         object.implementClassName = "";
                         object.gatewayType = options.enums === String ? "GTE_TradeAndMarketData" : 0;
                         object.gatewayAdapterType = options.enums === String ? "GAT_CTP" : 0;
-                        object.ctpApiSetting = null;
-                        object.ibApiSetting = null;
+                        object.targetNodeId = 0;
+                        object.autoConnectTimeRanges = "";
                         object.status = options.enums === String ? "CS_Unknown" : 0;
                         if ($util.Long) {
                             var long = new $util.Long(0, 0, false);
                             object.version = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
                         } else
                             object.version = options.longs === String ? "0" : 0;
-                        object.autoConnectTimeRanges = "";
+                        object.ctpApiSetting = null;
+                        object.ibApiSetting = null;
                     }
                     if (message.gatewayId != null && message.hasOwnProperty("gatewayId"))
                         object.gatewayId = message.gatewayId;
@@ -10510,10 +10286,10 @@ $root.xyz = (function() {
                         object.gatewayType = options.enums === String ? $root.xyz.redtorch.pb.GatewayTypeEnum[message.gatewayType] : message.gatewayType;
                     if (message.gatewayAdapterType != null && message.hasOwnProperty("gatewayAdapterType"))
                         object.gatewayAdapterType = options.enums === String ? $root.xyz.redtorch.pb.GatewayAdapterTypeEnum[message.gatewayAdapterType] : message.gatewayAdapterType;
-                    if (message.ctpApiSetting != null && message.hasOwnProperty("ctpApiSetting"))
-                        object.ctpApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.CtpApiSettingField.toObject(message.ctpApiSetting, options);
-                    if (message.ibApiSetting != null && message.hasOwnProperty("ibApiSetting"))
-                        object.ibApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.IbApiSettingField.toObject(message.ibApiSetting, options);
+                    if (message.targetNodeId != null && message.hasOwnProperty("targetNodeId"))
+                        object.targetNodeId = message.targetNodeId;
+                    if (message.autoConnectTimeRanges != null && message.hasOwnProperty("autoConnectTimeRanges"))
+                        object.autoConnectTimeRanges = message.autoConnectTimeRanges;
                     if (message.status != null && message.hasOwnProperty("status"))
                         object.status = options.enums === String ? $root.xyz.redtorch.pb.ConnectStatusEnum[message.status] : message.status;
                     if (message.version != null && message.hasOwnProperty("version"))
@@ -10521,8 +10297,10 @@ $root.xyz = (function() {
                             object.version = options.longs === String ? String(message.version) : message.version;
                         else
                             object.version = options.longs === String ? $util.Long.prototype.toString.call(message.version) : options.longs === Number ? new $util.LongBits(message.version.low >>> 0, message.version.high >>> 0).toNumber() : message.version;
-                    if (message.autoConnectTimeRanges != null && message.hasOwnProperty("autoConnectTimeRanges"))
-                        object.autoConnectTimeRanges = message.autoConnectTimeRanges;
+                    if (message.ctpApiSetting != null && message.hasOwnProperty("ctpApiSetting"))
+                        object.ctpApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.CtpApiSettingField.toObject(message.ctpApiSetting, options);
+                    if (message.ibApiSetting != null && message.hasOwnProperty("ibApiSetting"))
+                        object.ibApiSetting = $root.xyz.redtorch.pb.GatewaySettingField.IbApiSettingField.toObject(message.ibApiSetting, options);
                     return object;
                 };
 
@@ -24211,11 +23989,12 @@ $root.xyz = (function() {
                         default:
                             return "barPeriod: enum value expected";
                         case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
                         case 5:
+                        case 60:
+                        case 180:
+                        case 300:
+                        case 900:
+                        case 86400:
                             break;
                         }
                     if (message.marketDataDBType != null && message.hasOwnProperty("marketDataDBType"))
@@ -24268,29 +24047,33 @@ $root.xyz = (function() {
                     if (object.uniformSymbol != null)
                         message.uniformSymbol = String(object.uniformSymbol);
                     switch (object.barPeriod) {
-                    case "B_5Sec":
+                    case "B_UNKNOWN":
                     case 0:
                         message.barPeriod = 0;
                         break;
-                    case "B_1Min":
-                    case 1:
-                        message.barPeriod = 1;
-                        break;
-                    case "B_3Min":
-                    case 2:
-                        message.barPeriod = 2;
-                        break;
-                    case "B_5Min":
-                    case 3:
-                        message.barPeriod = 3;
-                        break;
-                    case "B_15Min":
-                    case 4:
-                        message.barPeriod = 4;
-                        break;
-                    case "B_1Day":
+                    case "B_5Sec":
                     case 5:
                         message.barPeriod = 5;
+                        break;
+                    case "B_1Min":
+                    case 60:
+                        message.barPeriod = 60;
+                        break;
+                    case "B_3Min":
+                    case 180:
+                        message.barPeriod = 180;
+                        break;
+                    case "B_5Min":
+                    case 300:
+                        message.barPeriod = 300;
+                        break;
+                    case "B_15Min":
+                    case 900:
+                        message.barPeriod = 900;
+                        break;
+                    case "B_1Day":
+                    case 86400:
+                        message.barPeriod = 86400;
                         break;
                     }
                     switch (object.marketDataDBType) {
@@ -24336,7 +24119,7 @@ $root.xyz = (function() {
                         } else
                             object.endTimestamp = options.longs === String ? "0" : 0;
                         object.uniformSymbol = "";
-                        object.barPeriod = options.enums === String ? "B_5Sec" : 0;
+                        object.barPeriod = options.enums === String ? "B_UNKNOWN" : 0;
                         object.marketDataDBType = options.enums === String ? "MDDT_MIX" : 0;
                     }
                     if (message.commonReq != null && message.hasOwnProperty("commonReq"))
