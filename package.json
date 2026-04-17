@@ -29,7 +29,7 @@
     "@typescript-eslint/parser": "4.13.0",
     "eslint": "7.18.0",
     "http-proxy-middleware": "1.0.6",
-    "protobufjs": "6.10.2",
+    "protobufjs": "7.5.5",
     "react-scripts": "4.0.1",
     "typescript": "3.9.7"
   },
