@@ -28,7 +28,7 @@
     "@types/uuid": "8.3.0",
     "@typescript-eslint/parser": "4.13.0",
     "eslint": "7.18.0",
-    "http-proxy-middleware": "1.0.6",
+    "http-proxy-middleware": "2.0.10",
     "protobufjs": "6.10.2",
     "react-scripts": "4.0.1",
     "typescript": "3.9.7"
